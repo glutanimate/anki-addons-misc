@@ -17,7 +17,7 @@ def onBrowserSetupMenus(browser):
     c(browser.susCut1, SIGNAL("activated()"), browser.onSuspend)
 
     c = browser.connect; f = browser.form; s = SIGNAL("triggered()")
-    browser.susCut1 = QShortcut(QKeySequence("Ctrl+H"), browser)
+    browser.susCut1 = QShortcut(QKeySequence("Ctrl+E"), browser)
     c(browser.susCut1, SIGNAL("activated()"), browser.mw.onAddCard)
 
 addHook("browser.setupMenus", onBrowserSetupMenus)
