@@ -8,7 +8,7 @@ This repository contains a number of smaller add-ons I've written for Anki over 
  
     This one is locale-dependent, so make sure to edit the source file with the name of the 'reverse' field in your note models
 
-- **anki-browser-create-duplicate**: adds a keyboard shortcut and edit menu entry to the browser for duplicating notes. Pressing the shortcut (Ctrl+Alt+A by default) or clicking on the *Duplicate Notes* entry will find all notes belonging to the selected cards and duplicate them in place. Make sure to check out the comments in the source file for more information. 
+- **anki-browser-create-duplicate**: adds a keyboard shortcut and edit menu entry to the browser for duplicating notes. Pressing the shortcut (Ctrl+Alt+C by default) or clicking on the *Duplicate Notes* entry will find all notes belonging to the selected cards and duplicate them in place. Make sure to check out the comments in the source file for more information. 
 
     Based on ["Create Copy of Selected Cards"](https://ankiweb.net/shared/info/787914845) by Kealan Hobelmann. License: GNU GPL v3.
 
