@@ -14,6 +14,7 @@ This repository contains a number of smaller add-ons I've written for Anki over 
 
 - **anki-browser-lookup**: adds a context-menu entry to search the card browser for selected words.
 - **anki-browser-more-hotkeys**: adds two additional hotkeys to the card browser, CTRL+J for suspending cards and CTRL+E for invoking the "Add note" dialog
+- **anki-reviewer-hint-hotkeys**: based on [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/2616209911) by Ben Lickly. Adds two hotkeys to the reviewer: 'H' to reveal hints one by one, 'G' to reveal all hints at once. License: GNU GPL v3.
 
 ## License
 
