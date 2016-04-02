@@ -18,6 +18,8 @@ This repository contains a number of smaller add-ons I've written for Anki over 
 
 - **anki-reviewer-hint-hotkeys**: based on [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/2616209911) by Ben Lickly. Adds two hotkeys to the reviewer: 'H' to reveal hints one by one, 'G' to reveal all hints at once. License: GNU GPL v3.
 
+- **anki-card-stats**: based on [Card Info During Review](https://ankiweb.net/shared/info/2179254157) by Damien Elmes and [reviewer_show_cardinfo](https://github.com/steveaw/anki_addons/blob/master/reviewer_show_cardinfo.py) by Steve AM. Extends Damien's add-on with the review log table that can also be found in the Browser.
+
 ## License
 
 If not specified otherwise, all of the add-ons in this repository are licensed under the MIT license.
