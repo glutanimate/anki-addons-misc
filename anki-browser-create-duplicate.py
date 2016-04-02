@@ -25,8 +25,8 @@ A few pointers:
 - The notes will be marked as duplicates (because they are!)
 """
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt4.QtCore import SIGNAL
+from PyQt4.QtGui import QAction, QKeySequence
 from anki.hooks import addHook
 from aqt import mw
 from aqt.utils import tooltip
