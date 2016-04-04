@@ -11,13 +11,13 @@ License: The MIT License (MIT)
 from aqt.qt import *
 from anki.hooks import addHook
 
-def onBrowserSetupMenus(browser):
-    c = browser.connect; f = browser.form; s = SIGNAL("triggered()")
-    browser.susCut1 = QShortcut(QKeySequence("Ctrl+J"), browser)
-    c(browser.susCut1, SIGNAL("activated()"), browser.onSuspend)
+def onBrowserSetupMenus(self):
+    c = self.connect; f = self.form; s = SIGNAL("triggered()")
+    self.invCut = QShortcut(QKeySequence("Ctrl+Alt+I"), self)
+    c(self.invCut, SIGNAL("activated()"), self.invertSelection)
 
-    c = browser.connect; f = browser.form; s = SIGNAL("triggered()")
-    browser.susCut1 = QShortcut(QKeySequence("Ctrl+E"), browser)
-    c(browser.susCut1, SIGNAL("activated()"), browser.mw.onAddCard)
+    c = self.connect; f = self.form; s = SIGNAL("triggered()")
+    self.schedCut = QShortcut(QKeySequence("Ctrl+R"), self)
+    c(self.schedCut, SIGNAL("activated()"), self.reschedule)
 
 addHook("browser.setupMenus", onBrowserSetupMenus)
