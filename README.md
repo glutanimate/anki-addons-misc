@@ -22,6 +22,8 @@ This repository contains a number of smaller add-ons I've written for Anki over 
 
 - **anki-sibling-spacing-whitelist**: based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andreas Klauer. Modified to follow a whitelist approach when choosing which note types to enable on. Check the comments in the source file for more information. License: GNU GPL.
 
+- **anki-browser-search-hotkeys**: adds user-configurable key sequences to the browser that are assigned to specific searches. The behavior of each key sequence imitates that of the tag sidebar in that keyboard modifiers decide on whether to replace the current search, add to it, or use a negation. Please read the header in the source file for more information. License: GNU GPL v3.
+
 ## License
 
 If not specified otherwise, all of the add-ons in this repository are licensed under the MIT license.
