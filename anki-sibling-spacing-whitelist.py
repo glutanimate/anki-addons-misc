@@ -17,7 +17,7 @@
 
 from anki.hooks import addHook, wrap
 from aqt import *
-from aqt.utils import showInfo
+from aqt.utils import showInfo, tooltip
 
 # --- Globals: ---
 
@@ -39,8 +39,8 @@ def siblingIvl(self, card, idealIvl, _old):
     modelName = card.model()["name"]
 
     if modelName not in enabledModels:
-        if debug:
-            print "Sibling Spacing not enabled for %s. No adjustment." % modelName
+        # if debug:
+        #     print "Sibling Spacing not enabled for %s. No adjustment." % modelName
         return origIvl
 
     ivl = origIvl
@@ -67,6 +67,7 @@ def siblingIvl(self, card, idealIvl, _old):
     if debug:
         if minIvl and minIvl > 0:
             print "Sibling Spacing %d%+d = %d days for card %d (sibling has %d days)" % (origIvl,ivl-origIvl,ivl,card.id,minIvl,)
+            tooltip("Sibling Spacing:<center>%d<b>%+d</b> days</center>" % (origIvl,ivl-origIvl))
         else:
             print "Sibling Spacing == %d (orig:%d) days for card %d without visible siblings" % (ivl,origIvl,card.id,)
 
