@@ -1,6 +1,6 @@
 # Misc Anki Add-ons
 
-This repository contains a number of smaller add-ons I've written for Anki over the years. For more information on each add-on please take a look at the comments in the respective source file
+This repository contains a number of smaller add-ons I've written for Anki over time. For more information on each add-on please take a look at the comments in the respective source file. N.B.: If an add-on doesn't appear in this README there's a very good chance it's not ready for general use, yet.
 
 ## Overview of the add-ons
 

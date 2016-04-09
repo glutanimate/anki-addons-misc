@@ -1,3 +1,5 @@
+Descriptions for add-ons in this repository that I've published on AnkiWeb.
+
 ## anki-browser-search-hotkeys.py
 
 **Allows you to set up hotkeys for searches in the browser**
