@@ -5,7 +5,7 @@ Simple Anki addon that adds more hotkeys to the card browser
 
 Copyright: Glutanimate 2015 (https://github.com/Glutanimate)
 
-License: The MIT License (MIT)
+License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
 from aqt.qt import *

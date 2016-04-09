@@ -7,7 +7,7 @@ Copyright: Glutanimate 2015 (https://github.com/Glutanimate)
 Based on 'OSX Dictionary Lookup' by Eddie Blundell <eblundell@gmail.com>:
 https://gist.github.com/eddie/ff3d820fb267ae26ca0e
 
-License: The MIT License (MIT)
+License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
 
