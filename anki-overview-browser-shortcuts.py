@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Anki Add-on: Main window browser hotkeys
+Anki Add-on: Overview Browser Shortcuts
 
 Specify hotkeys that allow you to go directly from the deck overview
 to a specific search in the card browser (e.g. cards added today)

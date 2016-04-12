@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """
-Anki Add-on: Preserve fields on note model switch
+Anki Add-on: Preserve editor fields on note model switch
 
-Copies values of identically named fields over to corresponding
-fields in new note type.
+Copies values of identically named fields over to corresponding fields 
+in new note type.
+
+Should be implemented by default in the next Anki release.
 
 Copyright: (c) Glutanimate 2016
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
