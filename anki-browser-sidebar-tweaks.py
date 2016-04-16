@@ -105,12 +105,16 @@ def _userTagTree(self, root, _old):
     tags = sorted(self.col.tags.all(), key=sortFn)
     tags_tree = {}
 
-    for t in tags:
+    for idx, t in enumerate(tags):
         if t.lower() == "marked" or t.lower() == "leech":
             continue
 
         components = t.split(TAGS_SEPARATOR)
-        if len(components) == 1:
+        try:
+            next_tag = tags[idx+1]
+        except IndexError:
+            pass
+        if len(components) == 1 and not next_tag.startswith(t + '::'):
             # regular tag, simple search
             item = self.CallbackItem(
                 root, t, lambda t=t: self.setFilter("tag", t))
