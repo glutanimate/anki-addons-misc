@@ -30,6 +30,8 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 """
 
+from PyQt4.QtGui import *
+
 from operator import  itemgetter
 from anki.lang import ngettext
 
@@ -49,9 +51,12 @@ def sortFn(s):
     # sort tags starting with _ first
     elif s.startswith('_'):
       return u'\u0000' + s
+    # then tags starting with #
+    elif s.startswith('#'):
+      return u'\u0001' + s
     # tags starting with a capital letter come next
     elif s[0].isupper():
-      return u'\u0001' + s
+      return u'\u0002' + s
     # everything else follows regular order
     else:
       return s
@@ -74,6 +79,27 @@ def setAdvancedFilter(self, txt):
     self.form.searchEdit.lineEdit().setText(txt)
     self.onSearch()
 
+
+def setTagFormatting(tag, item):
+    item.setIcon(0, QIcon(":/icons/anki-tag.png"))
+    color = None
+    if tag.startswith('.'):
+        color = "#8C8C8C"
+    elif tag.startswith('_'):
+        color = "#00A209"
+    elif tag[0].isupper():
+        pass
+    elif tag.startswith('#'):
+        color = "#007F8A"
+        # font = item.font(0)
+        # font.setWeight(QFont.Bold)
+        # item.setFont(0, font)
+    else:
+        color = "#343434"
+    if color is not None:
+        item.setForeground(0,QBrush(QColor(color)))
+
+
 # use hierarchical tags and modify tag sorting order
 def _userTagTree(self, root, _old):
     tags = sorted(self.col.tags.all(), key=sortFn)
@@ -84,26 +110,31 @@ def _userTagTree(self, root, _old):
             continue
 
         components = t.split(TAGS_SEPARATOR)
-        for idx, c in enumerate(components):
-            partial_tag = TAGS_SEPARATOR.join(components[0:idx + 1])
-            if not tags_tree.get(partial_tag):
-                if idx == 0:
-                    parent = root
-                else:
-                    parent_tag = TAGS_SEPARATOR.join(components[0:idx])
-                    parent = tags_tree[parent_tag]
+        if len(components) == 1:
+            # regular tag, simple search
+            item = self.CallbackItem(
+                root, t, lambda t=t: self.setFilter("tag", t))
+            setTagFormatting(t, item)
+        else:
+            # hierarchial tag, advanced search
+            for idx, c in enumerate(components):
+                partial_tag = TAGS_SEPARATOR.join(components[0:idx + 1])
+                if not tags_tree.get(partial_tag):
+                    if idx == 0:
+                        parent = root
+                    else:
+                        parent_tag = TAGS_SEPARATOR.join(components[0:idx])
+                        parent = tags_tree[parent_tag]
 
-                # use more complex search term instead of simple *-regex
-                # fixes main issue of hierarchical tags add-on where terms with
-                # with identical prefixes would also come up in search results
-                txt = "tag:" + partial_tag + ' or ' + "tag:" + partial_tag + '::*'
-                item = self.CallbackItem(
-                    parent, c,
-                    # lambda partial_tag=partial_tag: self.setFilter("tag", partial_tag + '*'))
-                    lambda txt=txt: setAdvancedFilter(self, txt))
-                item.setIcon(0, QIcon(":/icons/anki-tag.png"))
+                    # use more complex search term instead of simple *-regex
+                    # fixes main issue of hierarchical tags add-on where terms with
+                    # with identical prefixes would also come up in search results
+                    txt = "tag:" + partial_tag + ' or ' + "tag:" + partial_tag + '::*'
+                    item = self.CallbackItem(
+                        parent, c, lambda txt=txt: setAdvancedFilter(self, txt))
+                    setTagFormatting(t, item)
+                    tags_tree[partial_tag] = item
 
-                tags_tree[partial_tag] = item
 
 def _modelTree(self, root, _old):
     # group note types under one node
