@@ -52,6 +52,8 @@ Adds two checkboxes to the browser search form that, when toggled, modify search
 **Deck** (Hotkey: Alt+D): Limit results to current deck
 **Card** (Hotkey: Alt+C): Limit results to first card of each note
 
+![screenshot](screenshots/anki-browser-search-modifiers.png)
+
 Based on the following add-ons:
 
 - "Limit searches to current deck" by Damien Elmes
@@ -152,8 +154,6 @@ Quick Field Navigation add-on for Anki is licensed under the [GNU GPLv3](http://
 - **anki-add-reverse-toggle**: adds a user-defined key-binding that toggles the 'reverse' field in optionally reversible note types (default: Alt+Shift+B)
  
     This one is locale-dependent, so make sure to edit the source file with the name of the 'reverse' field in your note models
-
-- **anki-browser-lookup**: adds a context-menu entry to search the card browser for selected words.
 
 - **anki-browser-more-hotkeys**: adds two additional hotkeys to the card browser, CTRL+R for rescheduling cards and CTRL+ALT+I for inverting the selection.
 
