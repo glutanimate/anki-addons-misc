@@ -35,26 +35,29 @@ default_checkbox_conf = {'deck_check_checked': False,
 
 def onSearch(self, reset=True):
     """Modify search entry."""
-
     txt = unicode(self.form.searchEdit.lineEdit().text()).strip()
     if self.form.deckToggleButton.isChecked():
         if "deck:" in txt:
             pass
         elif _("<type here to search; hit enter to show current deck>") in txt:
-            pass
+            txt = "deck:current"
         elif "is:current" in txt:
             pass
-        elif not txt.strip():
-            txt = "deck:*"
         else:
             txt = "deck:current " + txt
+    else:
+        txt = txt.replace("deck:current","")
     if self.form.cardToggleButton.isChecked():
-        if "card:" in txt:
+        if "card:1" in txt:
+            txt.replace("card:1","")
+        elif "card:" in txt:
             pass
         elif _("<type here to search; hit enter to show current deck>") in txt:
             pass
         else:
             txt = "card:1 " + txt
+    else:
+        txt = txt.replace("card:1","")
     self.form.searchEdit.lineEdit().setText(txt)
    
 def mySetupUi(self, mw):
@@ -100,14 +103,23 @@ def onDeckChecked(state):
     mw.col.conf['browser_checkbox_conf']['deck_check_checked'] = state
 def onCardChecked(state):
     mw.col.conf['browser_checkbox_conf']['card_check_checked'] = state
+    
 
 
 def onSetupMenus(self):
     '''Toggle state via key bindings.'''
+    # setup hotkeys
     self.a = QShortcut(QKeySequence("Alt+C"), self)
     self.connect(self.a, SIGNAL("activated()"), lambda c=self: c.form.cardToggleButton.toggle())
     self.a = QShortcut(QKeySequence("Alt+D"), self)
     self.connect(self.a, SIGNAL("activated()"), lambda c=self: c.form.deckToggleButton.toggle())
+    # execute search when toggling checkmarks
+    self.connect(self.form.deckToggleButton,
+                 SIGNAL("stateChanged(int)"),
+                 self.onSearch)
+    self.connect(self.form.cardToggleButton,
+                 SIGNAL("stateChanged(int)"),
+                 self.onSearch)
 
 
 Ui_Dialog.setupUi = wrap(Ui_Dialog.setupUi, mySetupUi)
