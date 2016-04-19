@@ -28,7 +28,8 @@ class BrowserLookup:
 
   def lookup_action(self, view):
     browser = aqt.dialogs.open("Browser", aqt.mw)
-    browser.form.searchEdit.lineEdit().setText(self.get_selected(view))
+    txt = '"' + self.get_selected(view) + '"'
+    browser.form.searchEdit.lineEdit().setText(txt)
     browser.onSearch()
 
   def add_action(self, view, menu, action):

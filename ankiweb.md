@@ -61,7 +61,9 @@ Based on the following add-ons:
 - "Ignore accents in browser search" by Houssam Salem
    (https://github.com/hssm/anki-addons)
 
-Original idea by Keven on [Anki tenderapp](https://anki.tenderapp.com/discussions/ankidesktop/17918-add-on-or-anki-feature-suggestion-show-only-front-card-in-browser-checkbox).
+Original idea by Keven on the [Anki support forums](https://anki.tenderapp.com/discussions/ankidesktop/17918-add-on-or-anki-feature-suggestion-show-only-front-card-in-browser-checkbox).
+
+Special thanks to ankitest for testing and improving this add-on.
 
 **License**
 
