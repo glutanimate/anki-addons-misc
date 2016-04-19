@@ -27,13 +27,13 @@ from anki.hooks import wrap, addHook
 default_checkbox_conf = {'deck_check_checked': False,
                          'card_check_checked': False}
 
-deckChanged = False
-cardChanged = False
+deckToggleChanged = False
+cardToggleChanged = False
 
 def onSearch(self, reset=True):
     """Modify search entry."""
 
-    global deckChanged, cardChanged
+    global deckToggleChanged, cardToggleChanged
     txt = unicode(self.form.searchEdit.lineEdit().text()).strip()
 
     if self.form.cardToggleButton.isChecked():
@@ -45,9 +45,9 @@ def onSearch(self, reset=True):
             pass
         else:
             txt = "card:1 " + txt
-    elif cardChanged:
+    elif cardToggleChanged:
         txt = txt.replace("card:1","")
-    cardChanged = False
+    cardToggleChanged = False
 
     txt = txt.strip()
 
@@ -62,23 +62,23 @@ def onSearch(self, reset=True):
             pass
         else:
             txt = "deck:current " + txt
-    elif deckChanged:
+    elif deckToggleChanged:
         if txt != 'deck:current' and txt != 'card:1 deck:current':
             txt = txt.replace("deck:current","")
-    deckChanged = False
+    deckToggleChanged = False
 
     self.form.searchEdit.lineEdit().setText(txt)
 
 def onDeckChecked(state):
     '''Save the checked state in Anki's configuration.'''
-    global deckChanged
+    global deckToggleChanged
     mw.col.conf['browser_checkbox_conf']['deck_check_checked'] = state
-    deckChanged = True
+    deckToggleChanged = True
 
 def onCardChecked(state):
-    global cardChanged
+    global cardToggleChanged
     mw.col.conf['browser_checkbox_conf']['card_check_checked'] = state
-    cardChanged = True
+    cardToggleChanged = True
 
 def mySetupUi(self, mw):
     """Add new items to the browser UI to allow toggling the add-on."""
