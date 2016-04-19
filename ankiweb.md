@@ -106,6 +106,10 @@ Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 A simple Anki add-on that adds a context-menu entry to search the card browser for selected words.
 
+**Changes**
+
+2016-04-19 - double-quote phrases when searching
+
 **License**
 
 *Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
@@ -120,33 +124,28 @@ Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 **Quick Field Navigation Add-on for Anki**
 
-**Overview**
+**Quickly navigate through your entry fields in the card editor**
 
-This add-on streamlines navigating fields in the editor by providing the following shortcuts:
+This add-on provides the following shortcuts:
 
-- <kbd>Ctrl</kbd> + <kbd>1</kbd> - <kbd>9</kbd>: Switch focus to field 1-9
-- <kbd>Ctrl</kbd> + <kbd>0</kbd>: Switch focus to last field
-- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>: Switch focus back to note fields from tag field (to complement Anki's inbuilt <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>) hotkey to switch to the tags field)
+**Ctrl** + **1-9**: Switch focus to field 1-9
+**Ctrl** + **0**: Switch focus to last field
+**Alt** + **Shift** + **F**: Switch focus back to note fields from tag field (to complement Anki's inbuilt Ctrl + Shift + T) hotkey to switch to the tags field)
 
-You can customize these shortcuts by editing the script. A list of all possible key assignments can be found [here](http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum).
-
-**Limitations**
-
-- in their current implementation the hotkeys will not work when the tag suggestions drop-down box is active. I am [still looking for a fix for this](https://anki.tenderapp.com/discussions/add-ons/4725-dd-on-development-unable-to-switch-editor-focus-back-to-web-view-when-tags-completer-is-active).
-
-**Source code**
-
-The add-on's source code is available on [Github](https://github.com/Glutanimate/anki-quick-field-navigation). Bug reports and pull requests are welcome!
+Note: In their current implementation the hotkeys will not work when the tag suggestions drop-down box is active. I am [still looking for a fix for this](https://anki.tenderapp.com/discussions/add-ons/4725-dd-on-development-unable-to-switch-editor-focus-back-to-web-view-when-tags-completer-is-active).
 
 **Changelog**
 
-- 2015-09-04 – Initial release
+2016-04-19 – Reworked the add-on from scratch to have a much leaner footprint
+2015-09-04 – Initial release
 
 **License**
 
-*Copyright 2015 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
 
-Quick Field Navigation add-on for Anki is licensed under the [GNU GPLv3](http://www.gnu.de/documents/gpl-3.0.en.html).
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 
 -------------------------------
