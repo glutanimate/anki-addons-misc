@@ -17,8 +17,8 @@ from aqt import mw, dialogs
 from anki.lang import ngettext
 
 menu_items = {
-    'Shift+T': {'search': 'added:1', 'label': 'Added today'},
-    'Shift+D': {'search': 'deck:current', 'label': 'Current deck'},
+    'Shift+T': {'search': 'added:1', 'label': _('Added Today')},
+    'Shift+D': {'search': 'deck:current', 'label': _('Current Deck')},
 }
 
 
