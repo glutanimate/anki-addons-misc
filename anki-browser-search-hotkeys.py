@@ -33,15 +33,20 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 # assign hotkeys to searches
 search_shortcuts = {
-    'A': {'search': ''},
-    'T': {'search': 'added:1'},
-    'C': {'search': 'deck:current'},
-    'N': {'search': 'is:new'},
-    'L': {'search': 'is:learn'},
-    'R': {'search': 'is:review'},
-    'D': {'search': 'is:due'},
-    'S': {'search': 'is:suspended'},
-    'M': {'search': 'tag:marked'},
+    'A': {'search': ''},            # All together now
+    'T': {'search': 'added:1'},     # Today
+    'V': {'search': 'rated:1'},     # Viewed
+    'G': {'search': 'rated:1:1'},   # aGain today
+    'F': {'search': 'card:1'},      # First
+    'C': {'search': 'deck:current'},# Current
+    'N': {'search': 'is:new'},      # New
+    'L': {'search': 'is:learn'},    # Learn
+    'R': {'search': 'is:review'},   # Review
+    'D': {'search': 'is:due'},      # Due
+    'S': {'search': 'is:suspended'},# Suspended
+    'B': {'search': 'is:buried'},   # Buried
+    'M': {'search': 'tag:marked'},  # Marked
+    'E': {'search': 'tag:leech'},   # lEech
 }
 
 # define the sequence starter hotkey
@@ -72,7 +77,7 @@ def setSearchField(self, search, action):
     elif action == "add-negate":
         search  = cur + " " + "-" + search
     elif action == "add-or":
-        search  = cur + "or" + search
+        search  = cur + " or " + search
     self.form.searchEdit.lineEdit().setText(search)
     self.onSearch()
 
