@@ -2,16 +2,22 @@
 
 """
 Anki Add-on: Browser search modifiers
+
 Adds two checkboxes to the browser search form that, when toggled, modify
 searches in the following way:
+
 Deck (Hotkey: Alt+D): Limit results to current deck
 Card (Hotkey: Alt+C): Limit results to first card of each note
+
 Based on the following add-ons:
+
 - "Limit searches to current deck" by Damien Elmes
    (https://github.com/dae/ankiplugins/blob/master/searchdeck.py)
 - "Ignore accents in browser search" by Houssam Salem
    (https://github.com/hssm/anki-addons)
+
 Original idea by Keven on Anki tenderapp
+
 Copyright: (c) Glutanimate 2016
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
