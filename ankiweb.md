@@ -164,6 +164,8 @@ Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 - **anki-sibling-spacing-whitelist**: based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andreas Klauer. Modified to follow a whitelist approach when choosing which note types to enable on. Check the comments in the source file for more information.
 
+- **anki-browser-refresh**: Adds a hotkey to the browser that refreshes the current view. Useful when you've added new cards and want to repeat an existing search.
+
 ------------------------
 
 ## The rest
