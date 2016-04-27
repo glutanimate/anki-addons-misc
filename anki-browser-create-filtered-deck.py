@@ -14,7 +14,12 @@ from PyQt4.QtGui import QKeySequence
 from anki.hooks import addHook
 
 def createFilteredDeck(self):
+    col = self.mw.col
     search = unicode(self.form.searchEdit.lineEdit().text())
+    if 'deck:current' in search:
+        did = col.conf['curDeck']
+        curDeck = col.decks.get(did)['name']
+        search = search.replace('deck:current', '"deck:' + curDeck + '"')
     self.mw.onCram(search)
     
 def setupMenu(self):
