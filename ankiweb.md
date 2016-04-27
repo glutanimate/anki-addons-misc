@@ -26,12 +26,24 @@ in the browser:
 
 The following keys are assigned by default:
 
-    'A': ''
-    'C': 'deck:current'
-    'N': 'is:new'
-    'R': 'is:review'
-    'D': 'is:due'
-    'M': 'tag:marked'
+    'A': {'search': ''},            # All together now
+    'T': {'search': 'added:1'},     # Today
+    'V': {'search': 'rated:1'},     # Viewed
+    'G': {'search': 'rated:1:1'},   # aGain today
+    'F': {'search': 'card:1'},      # First
+    'C': {'search': 'deck:current'},# Current
+    'N': {'search': 'is:new'},      # New
+    'L': {'search': 'is:learn'},    # Learn
+    'R': {'search': 'is:review'},   # Review
+    'D': {'search': 'is:due'},      # Due
+    'S': {'search': 'is:suspended'},# Suspended
+    'B': {'search': 'is:buried'},   # Buried
+    'M': {'search': 'tag:marked'},  # Marked
+    'E': {'search': 'tag:leech'},   # lEech
+
+**Changes**
+
+2016-04-27 - Implemented hotkeys for more searches. Thanks to ankitest!
 
 **License**
 
