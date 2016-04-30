@@ -33,8 +33,9 @@ def replaceTag(self):
         tooltip("No cards selected.", period=2000)
         return
     firstNote =  mw.col.getNote(selected[0])
-    (oldTag, r) = myGetTag(self, mw.col, firstNote.tags, 
-                    "Which tag would you like to replace?<br>Please select just one.")
+    (oldTag, r) = myGetTag(self, mw.col, firstNote.tags,
+                    "Which tag would you like to replace?<br>Please select just one.",
+                    title="Choose tag")
     if not r or not oldTag.strip():
         return
     oldTag = oldTag.split()[0]

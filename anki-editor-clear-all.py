@@ -36,12 +36,12 @@ def clear_all_editor_fields(self, mode):
 
 def onSetupButtons(self):
     if not isinstance(self.parentWindow, browser.Browser):
-        # avoid shortcut conflict in browser
+        # avoid shortcut conflicts in browser
         t = QShortcut(QKeySequence(clear_all_shortcut), self.parentWindow)
         t.connect(t, SIGNAL("activated()"),
                   lambda a=self: clear_all_editor_fields(a, "all"))
-    t = QShortcut(QKeySequence(clear_most_shortcut), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda a=self: clear_all_editor_fields(a, "most"))
+        t = QShortcut(QKeySequence(clear_most_shortcut), self.parentWindow)
+        t.connect(t, SIGNAL("activated()"),
+                  lambda a=self: clear_all_editor_fields(a, "most"))
 
 addHook("setupEditorButtons", onSetupButtons)
