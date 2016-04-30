@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Anki Add-on: Create Duplicate Notes 
+Anki Add-on: Duplicate Selected Notes 
 
 Select any number of cards in the card browser and duplicate their notes
 
@@ -23,6 +23,11 @@ A few pointers:
 - Tags are preserved in the duplicated notes
 - Review history is NOT duplicated to the new cards (they appear as new cards)
 - The notes will be marked as duplicates (because they are!)
+
+This add-on is based on "Create Copy of Selected Cards" by Kealan Hobelmann
+
+Copyright: (c) Glutanimate 2016
+License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
 from PyQt4.QtCore import SIGNAL
