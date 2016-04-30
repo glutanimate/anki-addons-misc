@@ -26,15 +26,15 @@ A few pointers:
 """
 
 from PyQt4.QtCore import SIGNAL
-from PyQt4.QtGui import QAction, QKeySequence
+from PyQt4.QtGui import QKeySequence
 from anki.hooks import addHook
-from aqt import mw
 from aqt.utils import tooltip
 from anki.utils import timestampID
 
-def createDuplicate(browser):
+def createDuplicate(self):
+    mw = self.mw
     # Get deck of first selected card
-    cids = browser.selectedCards()
+    cids = self.selectedCards()
     if not cids:
         tooltip(_("No cards selected."), period=2000)
         return
@@ -45,10 +45,13 @@ def createDuplicate(browser):
         tooltip(_("Cards can't be duplicated when they are in a filtered deck."), period=2000)
         return
     
+    # Set checkpoint
     mw.progress.start()
+    mw.checkpoint("Duplicate Notes")
+    self.model.beginReset()
 
     # Copy notes
-    for nid in browser.selectedNotes():
+    for nid in self.selectedNotes():
         # print "Found note: %s" % (nid)
         note = mw.col.getNote(nid)
         model = note._model
@@ -74,22 +77,23 @@ def createDuplicate(browser):
         mw.col.addNote(note_copy)
         
     # Reset collection and main window
+    self.model.endReset()
     mw.col.reset()
     mw.reset()
-
     mw.progress.finish()
 
     tooltip(_("Notes duplicated."), period=1000)
     
     
-def setupMenu(browser):
-    a = QAction("Create Duplicate", browser)
-    a.setShortcut(QKeySequence("Ctrl+Alt+C"))
-    browser.connect(a, SIGNAL("triggered()"), lambda e=browser: onCreateDuplicate(e))
-    browser.form.menuEdit.addSeparator()
-    browser.form.menuEdit.addAction(a)
+def setupMenu(self):
+    menu = self.form.menuEdit
+    menu.addSeparator()
 
-def onCreateDuplicate(browser):
-    createDuplicate(browser)
+    a = menu.addAction('Create Duplicate')
+    a.setShortcut(QKeySequence("Ctrl+Alt+C"))
+    self.connect(a, SIGNAL("triggered()"), lambda b=self: onCreateDuplicate(b))
+
+def onCreateDuplicate(self):
+    createDuplicate(self)
 
 addHook("browser.setupMenus", setupMenu)
