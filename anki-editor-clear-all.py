@@ -15,7 +15,7 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 from anki.hooks import addHook
 from aqt.qt import *
-from aqt import mw
+from aqt import mw, browser
 
 excluded_from_clearing = ["Quellen"]
 
@@ -35,9 +35,11 @@ def clear_all_editor_fields(self, mode):
 
 
 def onSetupButtons(self):
-    t = QShortcut(QKeySequence(clear_all_shortcut), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda a=self: clear_all_editor_fields(a, "all"))
+    if not isinstance(self.parentWindow, browser.Browser):
+        # avoid shortcut conflict in browser
+        t = QShortcut(QKeySequence(clear_all_shortcut), self.parentWindow)
+        t.connect(t, SIGNAL("activated()"),
+                  lambda a=self: clear_all_editor_fields(a, "all"))
     t = QShortcut(QKeySequence(clear_most_shortcut), self.parentWindow)
     t.connect(t, SIGNAL("activated()"),
               lambda a=self: clear_all_editor_fields(a, "most"))
