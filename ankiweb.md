@@ -165,6 +165,77 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
+### anki-editor-tag-hotkeys.py
+
+**Editor Tag Hotkeys Add-on for Anki**
+
+This is a very simple add-on for [Anki](http://ankisrs.net/) that adds a few hotkey toggles for user-defined tags. It also includes a hotkey that clears the tags field (<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> by default)
+
+**Usage**
+
+*Adding a tag hotkey*
+
+Edit `anki-editor-tag.hotkeys.py` and modify the `onSetupButtons` function with your custom hotkeys and tags. For instance, to add a toggle for the tag *important* and assign it to <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> you would replace the following block:
+
+```python
+s = QShortcut(QKeySequence(Qt.CTRL + Qt.SHIFT + Qt.Key_1), editor.parentWindow)
+s.connect(s, SIGNAL("activated()"),
+          lambda : toggleTag(editor, "toggled-tag1"))
+```
+
+with:
+
+```python
+s = QShortcut(QKeySequence(Qt.CTRL + Qt.SHIFT + Qt.Key_I), editor.parentWindow)
+s.connect(s, SIGNAL("activated()"),
+          lambda : toggleTag(editor, "important"))
+```
+
+You can add as many toggles as you want by placing additional blocks of this type under the `def onSetupButtons(editor):` line. Make sure to preserve the indenting!
+
+For a list of all possible key assignments check here:
+
+- [keys](http://ftp.ics.uci.edu/pub/centos0/ics-custom-build/BUILD/PyQt-x11-gpl-4.7.2/doc/html/qt.html#Key-enum)
+- [modifiers](http://ftp.ics.uci.edu/pub/centos0/ics-custom-build/BUILD/PyQt-x11-gpl-4.7.2/doc/html/qt.html#Modifier-enum)
+
+*Defining a unique tag*
+
+Sometimes you might want to quickly toggle between several different tags. For this purpose I've implemented a configuration option called uniqueTags. Any items added to this list will cause their respective hotkeys to delete all other instances of unique tags aside from the one currently being triggered. 
+
+For instance, if you set up hotkeys for "subject-a" and "subject-b" and add these tags to `uniqueTags`, hitting the hotkey for "subject-a" will delete "subject-b" from the tags list and vice-versa.
+
+To add a unique tag, simply update the following excerpt in the script:
+
+```python
+uniqueTags = [
+    "subject-a", "subject-b"
+]
+```
+
+Please make sure to preserve the formatting and quoting while doing so!
+
+**License**
+
+*Copyright 2015 [Glutanimate](https://github.com/Glutanimate)*
+
+Anki Editor Tag Hotkeys add-on for Anki is licensed under the [GNU GPLv3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+
+### anki-editor-autocomplete-whitelist.py
+
+**Overview**
+
+This is a modified version of the [Editor Autocomplete add-on for Anki](https://github.com/sartak/anki-editor-autocomplete). Instead of checking against a blacklist of non-autocompleted fields this implementation of the add-on will only enable autocomplete on fields you specify.
+
+Fields to enable autocomplete on can be specified by modifying the `AutocompleteFields` array at the beginning of the script, e.g.:
+
+```python
+AutocompleteFields = [ "sources", "additional-info" ]
+```
+
+This version of the add-on also includes a hotkey that saves you the trouble of clicking on the autocomplete suggestion. It's set to <kbd>Alt</kbd> + <kbd>Return</kbd> by default.
+
+All credit for the original add-on goes to Shawn M Moore ([@sartak](https://github.com/sartak/)).
 
 -------------------------------
 
