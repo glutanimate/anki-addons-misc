@@ -13,15 +13,17 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 from PyQt4.QtCore import SIGNAL
 from PyQt4.QtGui import QMenu, QKeySequence
 
-from anki.hooks import addHook
-from aqt.utils import getText, getOnlyText, getTag, tooltip
+from aqt.utils import getText, tooltip
 from aqt.tagedit import TagEdit
+from anki.hooks import addHook
 
 
-def myGetTag(parent, deck, taglist, question, tags="user", **kwargs):
+def myGetTag(parent, deck, question, tags="user", taglist=None, **kwargs):
     te = TagEdit(parent)
     te.setCol(deck)
-    te.model.setStringList(taglist)
+    if taglist is not None:
+        # set tag list manually
+        te.model.setStringList(taglist)
     ret = getText(question, parent, edit=te, **kwargs)
     te.hideCompleter()
     return ret
@@ -32,15 +34,19 @@ def replaceTag(self):
     if not selected:
         tooltip("No cards selected.", period=2000)
         return
+    
     firstNote =  mw.col.getNote(selected[0])
-    (oldTag, r) = myGetTag(self, mw.col, firstNote.tags,
-                    "Which tag would you like to replace?<br>Please select just one.",
-                    title="Choose tag")
+    msg = "Which tag would you like to replace?<br>Please select just one."
+    (oldTag, r) = myGetTag(self, mw.col, msg, taglist=firstNote.tags, title="Choose tag")
     if not r or not oldTag.strip():
         return
     oldTag = oldTag.split()[0]
+
     msg = "Which tag would you like to replace %s with?" % oldTag
-    newTag = getOnlyText(msg, parent=self, default=oldTag, title="Replace tag")
+    (newTag, r) = myGetTag(self, mw.col, msg, title="Replace tag", default=oldTag)
+    if not r or not newTag.strip():
+        return
+
     mw.checkpoint("replace tag")
     mw.progress.start()
     self.model.beginReset()
