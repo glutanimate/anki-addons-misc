@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Anki Add-on: Editor Reverse Toggle
+Anki Add-on: self Reverse Toggle
 
 Simple addon to quickly toggle the reverse card for a given note
 
@@ -13,31 +13,29 @@ Copyright: Glutanimate 2015 (https://github.com/Glutanimate)
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
-from aqt import editor
 from aqt.qt import *
 from anki.hooks import addHook
 
+# set reverse field name here
 rev_field_name = "Bidirektional"
 
-def toggleReverseField(editor):
-    # set  reverse field name here
-    if rev_field_name in editor.note:
-      if editor.note[rev_field_name] == "y":
-        editor.note[rev_field_name] = ""
-      else:
-        editor.note[rev_field_name] = "y"
-      editor.web.eval("""
-          if (currentField) {
-            saveField("key");
-          }
-      """)
-      editor.loadNote()
+def toggleReverseField(self):
+    if rev_field_name in self.note:
+        if self.note[rev_field_name] == "y":
+            self.note[rev_field_name] = ""
+        else:
+            self.note[rev_field_name] = "y"
+        self.web.eval("""
+            if (currentField) {
+              saveField("key");
+            }
+        """)
+        self.loadNote()
 
 
-# assign hotkey
-def onSetupButtons(editor):
-    t = QShortcut(QKeySequence(Qt.ALT + Qt.SHIFT + Qt.Key_B), editor.parentWindow)
+def onSetupButtons(self):
+    t = QShortcut(QKeySequence(Qt.ALT + Qt.SHIFT + Qt.Key_B), self.parentWindow)
     t.connect(t, SIGNAL("activated()"),
-              lambda : toggleReverseField(editor))
+              lambda : toggleReverseField(self))
 
 addHook("setupEditorButtons", onSetupButtons)
