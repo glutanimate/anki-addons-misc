@@ -19,8 +19,8 @@ from aqt import mw, browser
 
 excluded_from_clearing = ["Quellen"]
 
-clear_all_shortcut = "Ctrl+Shift+R"
-clear_most_shortcut = "Ctrl+Alt+Shift+R"
+clear_all_shortcut = "Ctrl+Alt+Shift+R"
+clear_most_shortcut = "Ctrl+Shift+R"
     
 def clear_all_editor_fields(self, mode):
     u'''Remove text from fields in editor. '''
