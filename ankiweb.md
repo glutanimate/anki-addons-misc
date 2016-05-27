@@ -237,6 +237,123 @@ This version of the add-on also includes a hotkey that saves you the trouble of 
 
 All credit for the original add-on goes to Shawn M Moore ([@sartak](https://github.com/sartak/)).
 
+
+### anki-editor-restore-fields.py
+
+**Restore field values to last used values**
+
+**Overview**
+
+Looks for last created note in the same deck and copies over tags and values of user-specified fields.
+
+The following hotkeys are provided:
+
+*Alt+Z* – Restore current field
+*Alt+Shift+Z* – Restore a number of user-defined fields (see below)
+*Ctrl+Alt+Shift+Z* – Restore all fields
+
+**Configuration**
+
+You can edit the add-on's source code to modify the following:
+
+`field_restore_shortcut`: controls "Restore current field hotkey"
+`partial_restore_shortcut`: controls "Restore a number of user-defined fields" hotkey
+`full_restore_shortcut`: controls "Restore all fields" hotkey
+`partial_restore_fields`: list of fields that are restored by the `partial_restore_shortcut`. Needs to be formatted as a python list (e.g. `["field1", "field2", "field3"]`).
+
+**Changelog**
+
+2016-05-27 – Initial release
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+
+### anki-editor-restore-fields.py
+
+**Restore field values to last used values**
+
+**Overview**
+
+Looks for last created note in the same deck and copies over tags and values of user-specified fields.
+
+The following hotkeys are provided:
+
+*Alt+Z* – Restore current field
+*Alt+Shift+Z* – Restore a number of user-defined fields (see below)
+*Ctrl+Alt+Shift+Z* – Restore all fields
+
+**Configuration**
+
+You can edit the add-on's source code to modify the following:
+
+`field_restore_shortcut`: controls "Restore current field hotkey"
+`partial_restore_shortcut`: controls "Restore a number of user-defined fields" hotkey
+`full_restore_shortcut`: controls "Restore all fields" hotkey
+`partial_restore_fields`: list of fields that are restored by the `partial_restore_shortcut`. Needs to be formatted as a python list (e.g. `["field1", "field2", "field3"]`).
+
+**Changelog**
+
+2016-05-27 – Initial release
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+
+### anki-browser-refresh.py
+
+**F5 to Refresh the Browser**
+
+Adds a hotkey to the browser that refreshes the current view. Useful when you've added new cards and want to repeat an existing search. Note: cards are sorted by creation time when refreshing the view.
+
+Hotkey: *F5*
+
+**Changelog**
+
+2016-05-27 – Initial release
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+
+### anki-browser-replace-tag
+
+**Search and replace tags**
+
+**Overview**
+
+Adds a "Replace tag" dialog to the card browser that prompts for a tag and its replacement and then replaces the tag in all selected notes.
+
+Hotkey: *Ctrl+Alt+Shift+T*
+
+**Changelog**
+
+2016-05-27 – Initial release
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+
 -------------------------------
 
 ## Yet to be published
@@ -252,8 +369,6 @@ All credit for the original add-on goes to Shawn M Moore ([@sartak](https://gith
 - **anki-card-stats**: based on [Card Info During Review](https://ankiweb.net/shared/info/2179254157) by Damien Elmes and [reviewer_show_cardinfo](https://github.com/steveaw/anki_addons/blob/master/reviewer_show_cardinfo.py) by Steve AM. Extends Damien's add-on with the review log table that can also be found in the Browser.
 
 - **anki-sibling-spacing-whitelist**: based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andreas Klauer. Modified to follow a whitelist approach when choosing which note types to enable on. Check the comments in the source file for more information.
-
-- **anki-browser-refresh**: Adds a hotkey to the browser that refreshes the current view. Useful when you've added new cards and want to repeat an existing search.
 
 ------------------------
 
