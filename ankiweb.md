@@ -240,22 +240,27 @@ All credit for the original add-on goes to Shawn M Moore ([@sartak](https://gith
 
 ### anki-editor-restore-fields.py
 
-**Restore field values to last used values**
+**Editor Field History**
 
 **Overview**
 
-Looks for last created note in the same deck and copies over tags and values of user-specified fields.
+This add-on supplements Anki's note editor with the following:
 
-The following hotkeys are provided:
+- hotkeys that copy over tags and field values of the last note in the same deck
+- a history window that provides a list of last used values for the current field
 
-*Alt+Z* – Restore current field
-*Alt+Shift+Z* – Restore a number of user-defined fields (see below)
-*Ctrl+Alt+Shift+Z* – Restore all fields
+Overview of all available hotkeys:
+
+*Ctrl + Alt + H* – Invoke history window
+*Alt+Z* – Copy over current field from last note directly
+*Alt+Shift+Z* – Copy over a a number of user-defined fields (see below) directly
+*Ctrl+Alt+Shift+Z* – Copy over all fields directly
 
 **Configuration**
 
 You can edit the add-on's source code to modify the following:
 
+`history_window_shortcut`: controls the hotkey for invoking the history window
 `field_restore_shortcut`: controls "Restore current field hotkey"
 `partial_restore_shortcut`: controls "Restore a number of user-defined fields" hotkey
 `full_restore_shortcut`: controls "Restore all fields" hotkey
@@ -263,6 +268,7 @@ You can edit the add-on's source code to modify the following:
 
 **Changelog**
 
+2016-06-04 – Added history window to the add-on (invoked via Ctrl+Alt+H)
 2016-05-27 – Initial release
 
 **License**
@@ -322,7 +328,7 @@ Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 **Create Filtered Deck from the Browser**
 
-Adds a hotkey and menu item to the browser that launches the filtered deck creation dialog based on the current search.
+Adds a hotkey and menu item to the browser that launches a filtered deck creation dialog based on the current search.
 
 Hotkey: *Ctrl+Shift+D*
 
