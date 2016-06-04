@@ -43,7 +43,7 @@ def replaceTag(self):
     oldTag = oldTag.split()[0]
 
     msg = "Which tag would you like to replace %s with?" % oldTag
-    (newTag, r) = myGetTag(self, mw.col, msg, title="Replace tag", default=oldTag)
+    (newTag, r) = myGetTag(self, mw.col, msg, title="Replace Tag", default=oldTag)
     if not r or not newTag.strip():
         return
 
@@ -71,7 +71,7 @@ def setupMenu(self):
         action = self.menuBar().insertMenu(self.mw.form.menuTools.menuAction(), self.menuTags)
     menu = self.menuTags
     menu.addSeparator()
-    a = menu.addAction('Replace tag...')
+    a = menu.addAction('Replace Tag...')
     a.setShortcut(QKeySequence("Ctrl+Alt+Shift+T"))
     self.connect(a, SIGNAL("triggered()"), lambda b=self: replaceTag(b))
 
