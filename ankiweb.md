@@ -244,7 +244,7 @@ All credit for the original add-on goes to Shawn M Moore ([@sartak](https://gith
 
 **Overview**
 
-This add-on supplements Anki's note editor with the following:
+This add-on enhances Anki's note editor with the following:
 
 - hotkeys that copy over tags and field values of the last note in the same deck
 - a history window that provides a list of last used values for the current field
@@ -252,9 +252,9 @@ This add-on supplements Anki's note editor with the following:
 Overview of all available hotkeys:
 
 *Ctrl + Alt + H* – Invoke history window
-*Alt+Z* – Copy over current field from last note directly
-*Alt+Shift+Z* – Copy over a a number of user-defined fields (see below) directly
-*Ctrl+Alt+Shift+Z* – Copy over all fields directly
+*Alt+Z* – Copy over current field from last note
+*Alt+Shift+Z* – Copy over a a number of user-defined fields (see below)
+*Ctrl+Alt+Shift+Z* – Copy over all fields
 
 **Configuration**
 
@@ -301,18 +301,19 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 
-### anki-browser-replace-tag
+### anki-browser-replace-tag.py
 
-**Search and replace tags**
+**Search and Replace Tags**
 
 **Overview**
 
-Adds a "Replace tag" dialog to the card browser that prompts for a tag and its replacement and then replaces the tag in all selected notes.
+Adds a "Replace Tag" dialog to the card browser that prompts for a tag and its replacement and then replaces the tag in all selected notes.
 
 Hotkey: *Ctrl+Alt+Shift+T*
 
 **Changelog**
 
+2016-06-04 – Switch to title case for menu entries
 2016-05-27 – Initial release
 
 **License**
