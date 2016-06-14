@@ -37,7 +37,7 @@ def myInit(self, mw):
     if curDialogs[self.dialogName][1] != None:
         self.dialogName = "AddCards2"
         self.setWindowTitle(_("Add") + " 2")
-        restoreGeom(self, self.dialogName)
+        restoreGeom(self, "add2")
 
 def myReject(self):
     if not self.canClose():
@@ -50,7 +50,10 @@ def myReject(self):
     self.deckChooser.cleanup()
     self.mw.maybeReset()
     # save geometry of current dialog
-    saveGeom(self, self.dialogName)
+    if self.dialogName == "AddCards":
+        saveGeom(self, "add")
+    else:
+        saveGeom(self, "add2")
     # close dialog
     dialogs.close(self.dialogName)
     QDialog.reject(self)
