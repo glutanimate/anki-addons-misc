@@ -3,15 +3,16 @@
 """
 Anki Add-on: Second Add Cards Dialog
 
-Hotkey that launches a second AddCards dialog from AddCards 
-window. Can also be used to toggle between the two dialog
-instances. 
+Hotkey that launches a second AddCards dialog from an existing
+AddCards instance. Pressing the hotkey after launching the second
+dialog will toggle between the two. 
 
 Hotkey: Ctrl+Shift+A
 
-TODO: support for an arbitrary number AddCards dialogs
+TODO: support for an arbitrary number of AddCards dialogs
 
 Copyright: (c) Glutanimate 2016
+License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
 #============USER CONFIGURATION START===============
