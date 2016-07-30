@@ -347,6 +347,37 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
+### anki-overview-deck-switcher.py
+
+**Switch Between Decks on the Main Screen**
+
+Adds the following hotkeys to Anki's main deck browser screen:
+
+Ctrl + Tab: Switch to next deck
+Ctrl + Shift + Tab: Switch to previous deck
+
+These also work in the detailed view of each deck and in the reviewer.
+
+**Configuration**
+
+By default the hotkeys will skip decks that don't have any cards that are due or new. Filtered decks and custom study sessions are also ignored. You can change this by editing the add-on and setting the variables defined in the USER CONFIGURATION section at the top.
+
+**Changelog**
+
+2016-07-30 – Initial release
+
+**Compatibility**
+
+Only works with Anki releases 2.0.x for now, i.e. the Anki 2.1.x alpha/beta is not yet supported.
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
 -------------------------------
 
 ## Yet to be published
