@@ -1,0 +1,80 @@
+# -*- coding: utf-8 -*-
+
+"""
+Anki Add-on: Overview Deck Switcher
+
+Switch between decks in the deck overview screen.
+
+Hotkeys:
+Ctrl + (Shift) + Tab : Switch to next/previous deck
+
+Options:
+See below under USER CONFIGURATION
+
+Copyright: (c) Glutanimate 2016
+License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+
+"""
+
+# USER CONFIGURATION START
+
+# possible values: True False
+
+deck_switcher_skip_filtered = True # skip filtered decks
+deck_switcher_skip_empty = True # skip empty decks
+
+# USER CONFIGURATION END
+
+from PyQt4.QtCore import SIGNAL
+from PyQt4.QtGui import QAction, QKeySequence
+from aqt import mw
+
+def quickSwitchDeck(drc):
+    # get info on current decks
+    oldid = mw.col.decks.current()["id"]
+    dl = mw.col.sched.deckDueList()
+    cnt = mw.col.decks.count()
+    # find index of current deck in duelist
+    for i, deck in enumerate(dl):
+        if deck[1] == oldid:
+            idx = i
+            break
+    i = idx + drc
+    newid = oldid
+    # iterate through decks and skip based on configuration
+    while (i != idx):
+        if i == cnt:
+            i = 0
+        did = dl[i][1]
+        crds = dl[i][2] + dl[i][3] + dl[i][4]
+        i += drc
+        if deck_switcher_skip_filtered and mw.col.decks.isDyn(did):
+            continue
+        if crds > 0 or not deck_switcher_skip_empty:
+            newid = did
+            break
+    # set new did
+    mw.col.decks.select(newid)
+    # uncollapse parent decks if applicable
+    parents = mw.col.decks.parents(newid)
+    for parent in parents:
+        if parent["collapsed"]:
+            mw.col.decks.collapse(parent["id"])
+    # refresh view
+    if mw.state == "deckBrowser":
+        mw.deckBrowser.refresh()
+    else:
+        mw.onOverview()
+
+# Set up menu entries and hotkeys
+action = QAction(mw)
+action.setText("Next deck")
+action.setShortcut(QKeySequence("Ctrl+Tab"))
+mw.form.menuEdit.addAction(action)
+mw.connect(action, SIGNAL("triggered()"), lambda drc=1: quickSwitchDeck(drc))
+
+action = QAction(mw)
+action.setText("Previous deck")
+action.setShortcut(QKeySequence("Ctrl+Shift+Tab"))
+mw.form.menuEdit.addAction(action)
+mw.connect(action, SIGNAL("triggered()"), lambda drc=-1: quickSwitchDeck(drc))
