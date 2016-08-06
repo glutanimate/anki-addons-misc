@@ -23,6 +23,11 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 deck_switcher_skip_filtered = True # skip filtered decks
 deck_switcher_skip_empty = True # skip empty decks
 
+# possible values: valid key sequences
+
+deck_switcher_key_forward = "Ctrl+Tab"
+deck_switcher_key_backward = "Ctrl+Shift+Tab"
+
 # USER CONFIGURATION END
 
 from PyQt4.QtCore import SIGNAL
@@ -44,6 +49,7 @@ def quickSwitchDeck(drc):
     # iterate through decks and skip based on configuration
     while (i != idx):
         if i == cnt:
+            # reached end of list
             i = 0
         did = dl[i][1]
         crds = dl[i][2] + dl[i][3] + dl[i][4]
@@ -69,12 +75,12 @@ def quickSwitchDeck(drc):
 # Set up menu entries and hotkeys
 action = QAction(mw)
 action.setText("Next deck")
-action.setShortcut(QKeySequence("Ctrl+Tab"))
+action.setShortcut(QKeySequence(deck_switcher_key_forward))
 mw.form.menuEdit.addAction(action)
 mw.connect(action, SIGNAL("triggered()"), lambda drc=1: quickSwitchDeck(drc))
 
 action = QAction(mw)
 action.setText("Previous deck")
-action.setShortcut(QKeySequence("Ctrl+Shift+Tab"))
+action.setShortcut(QKeySequence(deck_switcher_key_backward))
 mw.form.menuEdit.addAction(action)
 mw.connect(action, SIGNAL("triggered()"), lambda drc=-1: quickSwitchDeck(drc))
