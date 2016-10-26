@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 """
-Anki Add-on: Skip sibling burying for specific note types.
+Anki Add-on: Skip sibling burying for notes with an "-ns" suffix
 
 This won't influence scheduling on any other Anki client, such
 as AnkiWeb, AnkiMobile, or AnkiDroid.
@@ -14,12 +14,10 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 from anki.hooks import addHook, wrap
 from aqt import *
 
-NO_BURY_NOTE_TYPES = []
-
 def myBurySiblings(self, card, _old):
     model = card.note().model()['name']
-    if model in NO_BURY_NOTE_TYPES:
-        # print "Skipping burying for %s", % model
+    if model.endswith("-ns"):
+        print "Skipping burying for %s" % model
         return
     _old(self,card)
 
