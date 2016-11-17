@@ -1,0 +1,116 @@
+# Anki add-on: Puppy Reinforcement
+#
+# Uses intermittent reinforcement to encourage card review streaks
+#
+# (c) Glutanimate 2016
+#
+# Based on "Show Cute Dogs"
+# (https://ankiweb.net/shared/info/1125592690)
+# Uses a customized version of aqt.utils.tooltip by Damien Elmes
+
+# SETTINGS
+encourage_every = 10 # show encouragement about every n cards; default: 10
+tooltip_color = "#AFFFC5" # default: light green
+encouragements = {
+    "low": ["Great job!", "Keep it up!", "Way to go!", "Keep up the good work!"],
+    "middle": ["You're on a streak!", "You're crushing it!", "Don't stop now!",
+            "You're doing great!"],
+    "high": ["Fantastic job!", "Wow!", "You're really crushing it today!", "Awesome!",
+            "I'm proud of you!"],
+    "maximum": ["Incredible!", "You're on fire!", "Bravo!", "So many cards..."]
+}
+# END SETTINGS
+
+import os
+import random
+
+from aqt import mw
+from aqt.qt import *
+from anki.hooks import wrap
+
+mw.dogs = {
+    "cnt": 0,
+    "last": 0,
+    "enc": None,
+    "ivl": encourage_every
+}
+
+dogs_dir = os.path.join(mw.pm.addonFolder(), 'puppy_reinforcement')
+dogs_imgs = [i for i in os.listdir(dogs_dir) if i.endswith(".jpg")]
+
+_tooltipTimer = None
+_tooltipLabel = None
+
+def dogTooltip(msg, image=":/icons/help-hint.png", period=2000, parent=None):
+    global _tooltipTimer, _tooltipLabel
+    class CustomLabel(QLabel):
+        def mousePressEvent(self, evt):
+            evt.accept()
+            self.hide()
+    closeTooltip()
+    aw = parent or mw.app.activeWindow() or mw
+    lab = CustomLabel("""\
+<table cellpadding=10>
+<tr>
+<td><img height=128 src="%s"></td>
+<td valign="middle">
+    <center><b>%i cards done so far!</b><br>%s</center>
+</td>
+</tr>
+</table>""" % (image, mw.dogs["cnt"], msg), aw)
+    lab.setFrameStyle(QFrame.Panel)
+    lab.setLineWidth(2)
+    lab.setWindowFlags(Qt.ToolTip)
+    p = QPalette()
+    p.setColor(QPalette.Window, QColor(tooltip_color))
+    p.setColor(QPalette.WindowText, QColor("#000000"))
+    lab.setPalette(p)
+    lab.move(
+        aw.mapToGlobal(QPoint(0, -260 + aw.height())))
+    lab.show()
+    _tooltipTimer = mw.progress.timer(
+        period, closeTooltip, False)
+    _tooltipLabel = lab
+
+def closeTooltip():
+    global _tooltipLabel, _tooltipTimer
+    if _tooltipLabel:
+        try:
+            _tooltipLabel.deleteLater()
+        except:
+            # already deleted as parent window closed
+            pass
+        _tooltipLabel = None
+    if _tooltipTimer:
+        _tooltipTimer.stop()
+        _tooltipTimer = None
+
+def getEncouragement(cards):
+    last = mw.dogs["enc"]
+    if cards >= 100:
+        lst = list(encouragements["maximum"])
+    elif cards >= 50:
+        lst = list(encouragements["high"])
+    elif cards >= 25:
+        lst = list(encouragements["middle"])
+    else:
+        lst = list(encouragements["low"])
+    if last and last in lst:
+        # skip identical encouragement
+        lst.remove(last)
+    idx = random.randrange(len(lst))
+    last = lst[idx]
+    return lst[idx]
+
+def showDog():
+    mw.dogs["cnt"] += 1
+    if mw.dogs["cnt"] != mw.dogs["last"] + mw.dogs["ivl"]:  
+        return
+    image_path = os.path.join(dogs_dir, random.choice(dogs_imgs))
+    msg = getEncouragement(mw.dogs["cnt"])
+    dogTooltip(msg, image=image_path)
+    # intermittent reinforcement:
+    mw.dogs["ivl"] = max(1, encourage_every + random.randint(-3,3))
+    mw.dogs["last"] = mw.dogs["cnt"]
+
+mw.reviewer.nextCard = wrap(mw.reviewer.nextCard, showDog)
