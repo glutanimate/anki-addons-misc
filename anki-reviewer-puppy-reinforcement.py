@@ -10,14 +10,14 @@
 
 # SETTINGS
 encourage_every = 10 # show encouragement about every n cards; default: 10
-tooltip_color = "#AFFFC5" # default: light green
+max_spread = 5 # max spread around interval
+tooltip_color = "#AFFFC5" # HTML color code; default: light green
 encouragements = {
     "low": ["Great job!", "Keep it up!", "Way to go!", "Keep up the good work!"],
     "middle": ["You're on a streak!", "You're crushing it!", "Don't stop now!",
             "You're doing great!"],
-    "high": ["Fantastic job!", "Wow!", "You're really crushing it today!", "Awesome!",
-            "I'm proud of you!"],
-    "maximum": ["Incredible!", "You're on fire!", "Bravo!", "So many cards..."]
+    "high": ["Fantastic job!", "Wow!", "Beautiful!", "Awesome!", "I'm proud of you!"],
+    "max": ["Incredible!", "You're on fire!", "Bravo!", "So many cards..."]
 }
 # END SETTINGS
 
@@ -41,7 +41,7 @@ dogs_imgs = [i for i in os.listdir(dogs_dir) if i.endswith(".jpg")]
 _tooltipTimer = None
 _tooltipLabel = None
 
-def dogTooltip(msg, image=":/icons/help-hint.png", period=2000, parent=None):
+def dogTooltip(msg, image=":/icons/help-hint.png", period=3000, parent=None):
     global _tooltipTimer, _tooltipLabel
     class CustomLabel(QLabel):
         def mousePressEvent(self, evt):
@@ -87,8 +87,9 @@ def closeTooltip():
 
 def getEncouragement(cards):
     last = mw.dogs["enc"]
+    print last
     if cards >= 100:
-        lst = list(encouragements["maximum"])
+        lst = list(encouragements["max"])
     elif cards >= 50:
         lst = list(encouragements["high"])
     elif cards >= 25:
@@ -99,7 +100,7 @@ def getEncouragement(cards):
         # skip identical encouragement
         lst.remove(last)
     idx = random.randrange(len(lst))
-    last = lst[idx]
+    mw.dogs["enc"] = lst[idx]
     return lst[idx]
 
 def showDog():
@@ -110,7 +111,7 @@ def showDog():
     msg = getEncouragement(mw.dogs["cnt"])
     dogTooltip(msg, image=image_path)
     # intermittent reinforcement:
-    mw.dogs["ivl"] = max(1, encourage_every + random.randint(-3,3))
+    mw.dogs["ivl"] = max(1, encourage_every + random.randint(-max_spread,max_spread))
     mw.dogs["last"] = mw.dogs["cnt"]
 
 mw.reviewer.nextCard = wrap(mw.reviewer.nextCard, showDog)
