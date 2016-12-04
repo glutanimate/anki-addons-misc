@@ -443,7 +443,7 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
-This add-on was written on commission.
+This add-on was written [on commission](https://anki.tenderapp.com/discussions/add-ons/8504-100-for-add-on-developer).
 
 -------------------------------
 
