@@ -87,7 +87,6 @@ def closeTooltip():
 
 def getEncouragement(cards):
     last = mw.dogs["enc"]
-    print last
     if cards >= 100:
         lst = list(encouragements["max"])
     elif cards >= 50:

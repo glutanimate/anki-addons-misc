@@ -378,6 +378,73 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
+### anki-reviewer-puppy-reinforcement.py
+
+**Puppy Reinforcement**
+
+**Overview**
+
+Uses intermittent reinforcement with cute puppies to encourage card review streaks.
+
+Based on "Show Cute Dogs" (https://ankiweb.net/shared/info/1125592690).
+
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/anki-reviewer-puppy-reinforcement.png)
+
+**What's new in this version**
+
+- Uses tooltips instead of a separate window
+- The puppies are spread intermittently through your reviews. By default they will appear around every 10 cards (some take longer than others). You can customize this by editing the add-on)
+- Customizable encouragement messages that change based on the card tally
+- Removed cats and other non-puppies
+
+**Other notes**
+
+- The add-on comes with around 50 puppies by default, but you can add more by placing additional images in the puppy_reinforcement folder next to the add-on
+- the tooltip will appear slightly higher than tooltips in Anki usually do. This is to prevent overlapping with other tooltips (e.g. the ones produced by the answer confirmation add-on)
+
+**Credits**
+
+(c) 2015 mbertolacci (https://github.com/mbertolacci)
+(c) 2016 Glutanimate (https://github.com/Glutanimate)
+
+Source code: https://github.com/Glutanimate/anki-addons-misc/blob/master/anki-reviewer-puppy-reinforcement.py
+
+### anki-browser-advanced-preview.py
+
+**Advanced Previewer**
+
+**Overview**
+
+Extends the card previewer with the following features:
+
+- Preview multiple cards at the same time
+- Option to show both the front and back of your cards (toggled via a button or the hotkey 'B')
+- Customizable preview content styling (by editing the source code)
+
+**Demo**
+
+Here's a quick demo video that showcases these features:
+
+[![YouTube: Anki add-on demo: Advanced  Previewer](https://i.ytimg.com/vi/yQ1fpGsPRMU/mqdefault.jpg)](https://youtu.be/yQ1fpGsPRMU)
+
+**Other Remarks**
+
+Rendering multiple notes at once can be taxing on the system, so please don't try invoking the preview window on too many notes. Otherwise Anki might stop responding and need to be restarted.
+
+**Changelog**
+
+2016-04-12 – Initial release
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+This add-on was written on commission.
+
 -------------------------------
 
 ## Yet to be published
