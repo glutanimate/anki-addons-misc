@@ -433,7 +433,7 @@ Rendering multiple notes at once can be taxing on the system, so please don't tr
 
 **Changelog**
 
-2016-04-12 – Initial release
+2016-12-04 – Initial release
 
 **License**
 
@@ -444,6 +444,45 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 This add-on was written [on commission](https://anki.tenderapp.com/discussions/add-ons/8504-100-for-add-on-developer).
+
+### anki-browser-batch-edit.py
+
+**Batch Note Editing**
+
+**Overview**
+
+Adds a new menu item to the card browser that allows you to:
+
+- batch-add information/media to a specific field
+- batch-replace the contents of a specific field
+
+The changes will be applied to all selected notes that feature the selected field.
+
+**Demo**
+
+Here's a quick demo video that showcases these features:
+
+[![YouTube: Anki add-on demo: Batch Note Editing](https://i.ytimg.com/vi/iCZzcSnAeH4/mqdefault.jpg)](https://youtu.be/iCZzcSnAeH4)
+
+**Other Remarks**
+
+The add-on uses the first selected note to generate the field list you're presented with. So please make sure to select a note with the right fields.
+
+**Changelog**
+
+2016-12-08 – Initial release
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+All credit for the original idea for this add-on goes to [/u/TryhardasaurusRex on Reddit](https://www.reddit.com/user/TryhardasaurusRex) who commissioned its development.
+
+The code is also hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+
 
 -------------------------------
 
