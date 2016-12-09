@@ -199,6 +199,9 @@ def renderPreview(self, cardChanged=False):
     txt = ""
     css = self.mw.reviewer._styles() + preview_css
     html = u"""<div id="{0}" class="card card{1}">{2}</div>"""
+    # RegEx to remove multiple imports of external JS/CSS (JS-Booster-specific)
+    jspattern = r"""(<script type=".*" src|<style>@import).*(</script>|</style>)"""
+    scriptre = re.compile(jspattern)
     js = browserSel
     if multi:
         # only apply custom CSS and JS when previewing multiple cards
@@ -206,13 +209,16 @@ def renderPreview(self, cardChanged=False):
                class="card card{1}">{2}</div>"""
         css += multi_preview_css
         js += multi_preview_js
-    for cid in cids:
+    for idx, cid in enumerate(cids):
         # add contents of each card to preview
         c = self.col.getCard(cid)
         if self._previewState == "answer":
             ctxt = c.a()
         else:
             ctxt = c.q()
+        # Remove subsequent imports of external JS/CSS
+        if idx >= 1:
+            ctxt = scriptre.sub("", ctxt)
         txt += html.format(cid, c.ord+1, ctxt)
     txt = re.sub("\[\[type:[^]]+\]\]", "", txt)
     ti = lambda x: x
