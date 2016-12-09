@@ -27,6 +27,13 @@ from anki.hooks import wrap
 from anki.sound import clearAudioQueue, playFromText, play
 from anki.js import browserSel
 
+# support for JS Booster add-on
+try:
+    from jsbooster.location_hack import getBaseUrlText, stdHtmlWithBaseUrl
+    preview_jsbooster = True
+except ImportError:
+    preview_jsbooster = False
+
 
 # General preview window styling
 preview_css = """
@@ -210,8 +217,16 @@ def renderPreview(self, cardChanged=False):
     txt = re.sub("\[\[type:[^]]+\]\]", "", txt)
     ti = lambda x: x
     base = getBase(self.mw.col)
-    self._previewWeb.stdHtml(
-        ti(mungeQA(self.col, txt)), css, head=base, js=js)
+    if preview_jsbooster:
+        # JS Booster available
+        baseUrlText = getBaseUrlText(self.mw.col) + "__previewer__.html"
+        stdHtmlWithBaseUrl(self._previewWeb,
+            ti(mungeQA(self.col, txt)), baseUrlText,
+            css, head=base, js=browserSel + multi_preview_js)
+    else:
+        # fall back to default
+        self._previewWeb.stdHtml(
+            ti(mungeQA(self.col, txt)), css, head=base, js=js)
     if oldfocus and multi:
         self.scrollToPreview(oldfocus)
     self._previewCurr = cids
