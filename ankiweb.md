@@ -411,7 +411,7 @@ Source code: https://github.com/Glutanimate/anki-addons-misc/blob/master/anki-re
 
 ### anki-browser-advanced-preview.py
 
-**#Advanced Previewer**
+**Advanced Previewer**
 
 **Overview**
 
@@ -435,12 +435,6 @@ Rendering multiple notes at once can be taxing on the system, so please don't tr
 
 2016-12-09 – Add support for "Replay Buttons on Card" and "JS Booster" add-ons
 2016-12-04 – Initial release
-
-**News**
-
-*2016-12-09*:
-
-I had to rename the add-on in order to fix some compatibility issues with other add-ons. If you are updating from an earlier release, please delete your local add-on installation first and then install the new version.
 
 **License**
 
