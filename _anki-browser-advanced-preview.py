@@ -151,6 +151,7 @@ def previewLinkHandler(self, l):
         self.focusCid(cid)
     elif l.startswith("ankiplay"):
         # support for 'Replay Buttons on Card' add-on
+        clearAudioQueue() # stop current playback
         play(l[8:])
     else:
         # handle regular links with the default link handler
