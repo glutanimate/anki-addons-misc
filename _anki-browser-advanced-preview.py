@@ -24,7 +24,7 @@ from aqt.webview import AnkiWebView
 
 from aqt.utils import getBase, mungeQA, openLink, saveGeom, restoreGeom
 from anki.hooks import wrap
-from anki.sound import clearAudioQueue, playFromText
+from anki.sound import clearAudioQueue, playFromText, play
 from anki.js import browserSel
 
 
@@ -142,6 +142,9 @@ def previewLinkHandler(self, l):
         cid = int(l.split()[1])
         self._previewLinkClicked = True
         self.focusCid(cid)
+    elif l.startswith("ankiplay"):
+        # support for 'Replay Buttons on Card' add-on
+        play(l[8:])
     else:
         # handle regular links with the default link handler
         openLink(l)
