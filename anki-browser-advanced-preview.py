@@ -78,6 +78,15 @@ function toggleActive(elm) {
 }
 """
 
+def onTogglePreview(self):
+    # only used to set the link handler after loading the preview window
+    # (required in order to be compatible with "Replay Buttons on Card")
+    if self._previewWindow:
+        self._closePreview()
+    else:
+        self._openPreview()
+        self._previewWeb.setLinkHandler(self._previewLinkHandler)
+
 def openPreview(self):
     """Creates and launches the preview window"""
     # Initialize a number of variables used by the add-on:
@@ -90,20 +99,17 @@ def openPreview(self):
         self._previewState = "question"
     self._previewCurr = [] # list of currently previewed card ids
     self._previewLinkClicked = False # indicates whether user clicked on card in preview
-    
     # Set up window and layout:
     c = self.connect
     self._previewWindow = QDialog(None, Qt.Window)
     self._previewWindow.setWindowTitle(_("Preview"))
     c(self._previewWindow, SIGNAL("finished(int)"), self._onPreviewFinished)
-
     vbox = QVBoxLayout()
     vbox.setMargin(0)
     self._previewWeb = AnkiWebView()
     self._previewWeb.setLinkHandler(self._previewLinkHandler) # set up custom link handler
     vbox.addWidget(self._previewWeb)
     bbox = QDialogButtonBox()
-
     # Set up buttons:
     self._previewToggle = bbox.addButton(_("Show Both Sides"), QDialogButtonBox.ActionRole)
     self._previewToggle.setCheckable(True)
@@ -121,11 +127,10 @@ def openPreview(self):
     self._previewNext = bbox.addButton(">", QDialogButtonBox.ActionRole)
     self._previewNext.setAutoDefault(False)
     self._previewNext.setShortcut(QKeySequence("Right"))
-    c(self._previewToggle, SIGNAL("clicked()"), self._onPreviewToggle)
+    c(self._previewToggle, SIGNAL("clicked()"), self._onPreviewModeToggle)
     c(self._previewPrev, SIGNAL("clicked()"), self._onPreviewPrev)
     c(self._previewNext, SIGNAL("clicked()"), self._onPreviewNext)
     c(self._previewReplay, SIGNAL("clicked()"), self._onReplayAudio)
-
     # Set up window and launch preview
     vbox.addWidget(bbox)
     self._previewWindow.setLayout(vbox)
@@ -133,7 +138,7 @@ def openPreview(self):
     self._previewWindow.show()
     self._renderPreview(True)
 
-def onPreviewToggle(self):
+def onPreviewModeToggle(self):
     """Switches between preview modes ('front' vs 'back and front')"""
     self._previewBoth = self._previewToggle.isChecked()
     if self._previewBoth:
@@ -247,8 +252,9 @@ def renderPreview(self, cardChanged=False):
         playFromText(txt)
 
 # Monkey patch Anki's default preview methods
+Browser._onTogglePreview = onTogglePreview
 Browser._renderPreview = renderPreview
-Browser._onPreviewToggle = onPreviewToggle
+Browser._onPreviewModeToggle = onPreviewModeToggle
 Browser._previewLinkHandler = previewLinkHandler
 Browser.scrollToPreview = scrollToPreview
 Browser._openPreview = openPreview
