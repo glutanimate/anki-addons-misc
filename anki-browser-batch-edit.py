@@ -51,9 +51,9 @@ class BatchEditDialog(QDialog):
         f_hbox.setAlignment(Qt.AlignLeft)
 
         button_box = QDialogButtonBox(Qt.Horizontal, self)
-        adda_btn = button_box.addButton("&Add after", 
+        adda_btn = button_box.addButton("Add &after", 
             QDialogButtonBox.ActionRole)
-        addb_btn = button_box.addButton("&Add before", 
+        addb_btn = button_box.addButton("Add &before", 
             QDialogButtonBox.ActionRole)
         replace_btn = button_box.addButton("&Replace", 
             QDialogButtonBox.ActionRole)
