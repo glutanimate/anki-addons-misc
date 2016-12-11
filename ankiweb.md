@@ -471,6 +471,7 @@ The add-on uses the first selected note to generate the field list you're presen
 
 **Changelog**
 
+2016-12-11 – Support for adding text before existing content (thanks to @luminousspice for the idea)
 2016-12-08 – Initial release
 
 **License**
