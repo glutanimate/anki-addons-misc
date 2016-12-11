@@ -51,15 +51,19 @@ class BatchEditDialog(QDialog):
         f_hbox.setAlignment(Qt.AlignLeft)
 
         button_box = QDialogButtonBox(Qt.Horizontal, self)
-        add_btn = button_box.addButton("&Add", 
+        adda_btn = button_box.addButton("&Add after", 
+            QDialogButtonBox.ActionRole)
+        addb_btn = button_box.addButton("&Add before", 
             QDialogButtonBox.ActionRole)
         replace_btn = button_box.addButton("&Replace", 
             QDialogButtonBox.ActionRole)
         close_btn = button_box.addButton("&Cancel",
             QDialogButtonBox.RejectRole)
-        add_btn.setToolTip("Add to existing field contents")
+        adda_btn.setToolTip("Add after existing field contents")
+        addb_btn.setToolTip("Add before existing field contents")
         replace_btn.setToolTip("Replace existing field contents")
-        add_btn.clicked.connect(lambda state, x="add": self.onConfirm(x))
+        adda_btn.clicked.connect(lambda state, x="adda": self.onConfirm(x))
+        addb_btn.clicked.connect(lambda state, x="addb": self.onConfirm(x))
         replace_btn.clicked.connect(lambda state, x="replace": self.onConfirm(x))
         close_btn.clicked.connect(self.close)
         bottom_hbox = QHBoxLayout()
@@ -143,8 +147,10 @@ def batchEditNotes(browser, mode, nids, fld, text):
     for nid in nids:
         note = mw.col.getNote(nid)
         if fld in note:
-            if mode == "add":
+            if mode == "adda":
                 note[fld] += "<br/>" + html
+            elif mode == "addb":
+                note[fld] = html + "<br/>" + note[fld]
             elif mode == "replace":
                 note[fld] = html
             cnt += 1
