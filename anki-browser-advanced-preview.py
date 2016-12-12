@@ -38,7 +38,7 @@ except ImportError:
 # General preview window styling
 preview_css = """
 body{
-    background-color: #FFFFFF;
+    // body css here
 }
 """
 
