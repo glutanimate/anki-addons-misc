@@ -113,8 +113,6 @@ def restoreEditorFields(self, mode, history=False):
               saveField("key");
             }
         """)
-    self.note.flush()
-    self.mw.requireReset()
     self.loadNote()
 
 

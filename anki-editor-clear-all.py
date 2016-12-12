@@ -30,7 +30,6 @@ def clear_all_editor_fields(self, mode):
         if mode == "most" and field_name in excluded_from_clearing:
             continue
         note[field_name] = ''
-    note.flush()  # never forget to flush
     self.loadNote()
 
 

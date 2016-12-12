@@ -43,8 +43,6 @@ def paste_to_my_field(self, action):
               saveField("key");
             }
         """)
-        self.note.flush()
-        self.mw.requireReset()
         self.loadNote()
 
 # assign hotkey
