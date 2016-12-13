@@ -82,9 +82,6 @@ def onTogglePreview(self):
     # only used to set the link handler after loading the preview window
     # (required in order to be compatible with "Replay Buttons on Card")
     if self._previewWindow:
-        self._closePreview()
-    else:
-        self._openPreview()
         self._previewWeb.setLinkHandler(self._previewLinkHandler)
 
 def openPreview(self):
@@ -252,7 +249,7 @@ def renderPreview(self, cardChanged=False):
         playFromText(txt)
 
 # Monkey patch Anki's default preview methods
-Browser._onTogglePreview = onTogglePreview
+Browser.onTogglePreview = wrap(Browser.onTogglePreview, onTogglePreview)
 Browser._renderPreview = renderPreview
 Browser._onPreviewModeToggle = onPreviewModeToggle
 Browser._previewLinkHandler = previewLinkHandler
