@@ -18,6 +18,7 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 # import modules this add-on depends on
 import re
 
+import aqt
 from aqt.qt import *
 from aqt.browser import Browser
 from aqt.webview import AnkiWebView
@@ -144,20 +145,29 @@ def onPreviewModeToggle(self):
         self._previewState = "question"
     self._renderPreview()
 
-def previewLinkHandler(self, l):
+def previewLinkHandler(self, url):
     """Executed when clicking on a card"""
-    if l.startswith("focus"):
+    if url.startswith("focus"):
         # bring card into focus
-        cid = int(l.split()[1])
+        cid = int(url.split()[1])
         self._previewLinkClicked = True
         self.focusCid(cid)
-    elif l.startswith("ankiplay"):
+    elif url.startswith("tagdeck"):
+        # support for anki-reviewer-clickable-tags
+        tag = url.split()[1]
+        deck = self.mw.col.decks.name(self.card.did)
+        search = 'tag:{0} deck:"{1}"'.format(tag, deck)
+        browser = aqt.dialogs.open("Browser", self.mw)
+        # not using setfilter because it grabs keyboard modifiers
+        browser.form.searchEdit.lineEdit().setText(search)
+        browser.onSearch()
+    elif url.startswith("ankiplay"):
         # support for 'Replay Buttons on Card' add-on
         clearAudioQueue() # stop current playback
-        play(l[8:])
+        play(url[8:])
     else:
         # handle regular links with the default link handler
-        openLink(l)
+        openLink(url)
 
 def scrollToPreview(self, cid):
     """Adjusts preview window scrolling position to show supplied card"""
