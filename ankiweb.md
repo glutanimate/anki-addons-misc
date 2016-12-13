@@ -484,7 +484,25 @@ The code is also hosted in my [misc Anki add-ons repository](https://github.com/
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
+### anki-reviewer-card-stats.py
 
+**Extended Card Stats During Review**
+
+Based on [Card Info During Review](https://ankiweb.net/shared/info/2179254157) by Damien Elmes and [Reviewer Show Cardinfo](https://github.com/steveaw/anki_addons/blob/master/reviewer_show_cardinfo.py) by Steve AW. Extends Damien's add-on with a review log table similar to the one found in the Browser.
+
+**Screenshot**
+
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/anki-reviewer-card-stats.png)
+
+**License**
+
+*Copyright (c) 2012 Damien Elmes*
+*Copyright (c) 2013 Steve AW*
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 -------------------------------
 
@@ -497,8 +515,6 @@ Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 - **anki-browser-more-hotkeys**: adds two additional hotkeys to the card browser, CTRL+R for rescheduling cards and CTRL+ALT+I for inverting the selection.
 
 - **anki-reviewer-hint-hotkeys**: based on [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/2616209911) by Ben Lickly. Adds two hotkeys to the reviewer: 'H' to reveal hints one by one, 'G' to reveal all hints at once.
-
-- **anki-card-stats**: based on [Card Info During Review](https://ankiweb.net/shared/info/2179254157) by Damien Elmes and [reviewer_show_cardinfo](https://github.com/steveaw/anki_addons/blob/master/reviewer_show_cardinfo.py) by Steve AM. Extends Damien's add-on with the review log table that can also be found in the Browser.
 
 - **anki-sibling-spacing-whitelist**: based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andreas Klauer. Modified to follow a whitelist approach when choosing which note types to enable on. Check the comments in the source file for more information.
 

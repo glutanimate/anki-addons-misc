@@ -11,7 +11,7 @@ For the most part based on the following add-ons:
 - reviewer_show_cardinfo by Steve AM (https://github.com/steveaw/anki_addons/)
 
 This version of Card Stats combines the sidebar in Damien's add-on with the extra
-review log info found in Steve AM'd add-on.
+review log info found in Steve AW's add-on.
 
 Copyright: (c) Glutanimate 2016
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
