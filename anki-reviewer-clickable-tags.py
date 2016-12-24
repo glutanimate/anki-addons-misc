@@ -8,7 +8,7 @@ Adds clickable tags to the Reviewer
 - regular click: search for tag in deck
 (- shift+click: search for tag in complete collection) currently disabled
 
-Simplified version of  "Clickable Tags on Reviewer" by amsaravi
+Simplified version of "Clickable Tags on Reviewer" by amsaravi
 (https://bitbucket.org/amsaravi/ankiaddons)
 
 Copyright: Glutanimate 2016

@@ -268,6 +268,7 @@ You can edit the add-on's source code to modify the following:
 
 **Changelog**
 
+2016-12-13 – Fixed a rare bug that caused empty notes to appear
 2016-06-04 – Added history window to the add-on (invoked via Ctrl+Alt+H)
 2016-05-27 – Initial release
 
@@ -433,6 +434,7 @@ Rendering multiple notes at once can be taxing on the system, so please don't tr
 
 **Changelog**
 
+2016-12-24 – Add tooltips and shortcuts that were introduced in Anki 2.0.37
 2016-12-09 – Add support for "Replay Buttons on Card" and "JS Booster" add-ons
 2016-12-04 – Initial release
 
