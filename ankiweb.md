@@ -506,6 +506,28 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
+### anki-editor-custom-tagedit.py
+
+**Tag Entry Enhancements**
+
+A number of enhancements meant to improve keyboard navigation in Anki's tag entry field:
+
+- adds *Return/Enter* as a hotkey to apply the first suggested tag
+- adds *Ctrl+Tab* as a hotkey to move through the list of suggestions
+- disables initial suggestion box popup when entering the field
+
+**Changelog**
+
+2016-12-28 – Initial release
+
+**License**
+
+*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+
+Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
 -------------------------------
 
 ## Yet to be published
