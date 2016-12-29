@@ -19,15 +19,23 @@ TAG_LIMITED_DECKS = ["Medizin"]
 from aqt.editor import Editor
 from aqt.addcards import AddCards
 from aqt.tagedit import TagEdit
+from aqt.editcurrent import EditCurrent
+from aqt.browser import Browser
 from anki.hooks import addHook
 
 def myUpdateTags(self):
     taglist = None
-    did = self.parentWindow.deckChooser.selectedId()
+    if isinstance(self.parentWindow, AddCards):
+        did = self.parentWindow.deckChooser.selectedId()
+    elif isinstance(self.parentWindow, EditCurrent):
+        did = self.mw.reviewer.card.did
+    elif isinstance(self.parentWindow, Browser):
+        cids = self.parentWindow.selectedCards()
+        did = self.mw.col.db.scalar("select did from cards where id = ?", cids[0])
     parents = self.mw.col.decks.parents(did)
     if parents:
         # if subdeck use topmost parent deck
-        did = parents[0]
+        did = parents[0]['id']
     deck = self.mw.col.decks.nameOrNone(did)
     for deckname in TAG_LIMITED_DECKS:
         if deck == deckname:
