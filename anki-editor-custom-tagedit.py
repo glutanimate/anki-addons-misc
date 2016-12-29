@@ -8,6 +8,7 @@ Various modifications to the tag editor:
 - disable initial popup when entering tag editor
 - apply current completion with Enter/Return
 - go to next completion with Ctrl+Tab
+- show completer with Up/Down arrows
 
 Copyright: (c) Glutanimate 2016
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
@@ -21,7 +22,12 @@ def myFocusInEvent(self, evt):
     QLineEdit.focusInEvent(self, evt)
 
 def myKeyPressEvent(self, evt):
-    if (evt.key() == Qt.Key_Tab and  evt.modifiers() == Qt.ControlModifier
+    if evt.key() in (Qt.Key_Up, Qt.Key_Down):
+        # show completer on up/down
+        if not self.completer.popup().isVisible():
+            self.showCompleter()
+        return
+    if (evt.key() == Qt.Key_Tab and evt.modifiers() == Qt.ControlModifier
       and self.completer.popup().isVisible()):
         # select next completion
         index = self.completer.currentIndex()
@@ -30,7 +36,7 @@ def myKeyPressEvent(self, evt):
         if not self.completer.setCurrentRow(start + 1):
             self.completer.setCurrentRow(0)
         return
-    elif evt.key() in (Qt.Key_Enter, Qt.Key_Return):
+    if evt.key() in (Qt.Key_Enter, Qt.Key_Return):
         # set current completion
         popidx = self.completer.popup().currentIndex()
         selected = QCompleter.pathFromIndex(self.completer, popidx)
