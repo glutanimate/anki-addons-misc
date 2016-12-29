@@ -22,6 +22,7 @@ partial_restore_fields = ["Quellen"]
 #==============USER CONFIGURATION END===============
 
 from aqt.qt import *
+from aqt.addcards import AddCards
 from aqt.utils import getText
 from aqt.tagedit import TagEdit
 from anki.hooks import addHook
@@ -118,6 +119,9 @@ def restoreEditorFields(self, mode, history=False):
 
 # assign hotkeys
 def onSetupButtons(self):
+    if not isinstance(self.parentWindow, AddCards):
+        # only enable in add cards dialog
+        return
     t = QShortcut(QKeySequence(full_restore_shortcut), self.parentWindow)
     t.connect(t, SIGNAL("activated()"),
               lambda a=self: restoreEditorFields(a, "full"))
