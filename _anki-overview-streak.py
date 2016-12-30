@@ -138,14 +138,16 @@ def dayS(n):
     return color, retstr
 
 def report_activity(self):
+    """Calculate stats and generate report"""
     #self is anki.stats.CollectionStats
     revlog = self._done(None, 1)
     if not revlog:
         return ""
-    daylog = {}
+
+    curtime = int(time.time())
+    revs_by_day = {}
     streaks = []
     cur = 0
-    curtime = int(time.time())
     for idx, item in enumerate(revlog):
         cur += 1
         diff = item[0]
@@ -155,10 +157,12 @@ def report_activity(self):
                 cur = 0
         except IndexError:
             streaks.append(cur)
-        day = curtime + diff * 86400
-        cards = sum(item[1:5])
-        daylog[day] = cards
-    jsonlog = json.dumps(daylog)
+
+        day = curtime + diff * 86400 # date in unix time
+        reviews = sum(item[1:5]) # all review types on that day
+        revs_by_day[day] = reviews
+    jsonlog = json.dumps(revs_by_day)
+
     smax = max(streaks)
     if revlog[-1][0] == 0:
         # last recorded date is today
@@ -184,6 +188,7 @@ def report_activity(self):
             domainMargin: [1, 1, 1, 1],
             cellSize: 10,
             onClick: function(date, nb){
+                // call link handler
                 if (nb === null || nb == 0){return;}
                 today = new Date();
                 other = new Date(date);
@@ -236,6 +241,7 @@ def find_seen_on(self, val):
     return ("c.id in (select cid from revlog where id between %d and %d)" % (cutoff1, cutoff2))
 
 def add_finder(self, col):
+    """Add custom finder to search dictionary"""
     self.search["seenon"] = self.find_seen_on
 
 
