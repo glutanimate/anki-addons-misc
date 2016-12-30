@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 """
-Anki Add-on: Review Heatmap Graph
+Anki Add-on: Review Heatmap
 
 Adds a heatmap graph to Anki's main window which visualizes
 card review activity, similar to the contribution graph on
@@ -12,12 +12,12 @@ cards reviewed on that day.
 Note: Needs to be loaded after add-ons like 'More Overview Stats'
 as these tend to overwrite the changes applied by this add-on.
 
-Based on "Forecast graph on Overview page" by Steve AW
+Inspired by "Forecast graph on Overview page" by Steve AW
 
 Ships with the following javascript libraries:
 
-- d3.js (v3.5.17)
-- cal-heatmap (v3.6.2)
+- d3.js (v3.5.17), (c) Mike Bostock, BSD license
+- cal-heatmap (v3.6.2), (c) Wan Qi Chen, MIT license
 
 Copyright: Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
@@ -86,8 +86,17 @@ heatmap_boilerplate = r"""
         font-weight: bold;
     }
     .cal-heatmap-container rect.highlight-now {
-        stroke: #2935B9;
+        stroke: black;
     }
+    .cal-heatmap-container .q6{
+        background-color: #274E14;
+        fill: #274E14
+    }
+    .cal-heatmap-container .q7{
+        background-color: #153306;
+        fill: #153306
+    }
+
 </style>
 <div class="heatmap">
     <div class="heatmap-controls">
@@ -178,15 +187,14 @@ def report_activity(self):
         cal.init({
             domain: "year",
             subDomain: "day",
-            cellSize: 10,
             range: 1,
-            legend: [20, 40, 60, 80],
+            cellSize: 10,
+            domainMargin: [1, 1, 1, 1],
+            itemName: ["review", "reviews"],
+            highlight: "now",
+            legend: [20, 40, 60, 80, 120, 200],
             legendMargin: [0, 0, 0, 0],
             legendCellSize: 10,
-            itemName: ["activity", "activities"],
-            highlight: "now",
-            domainMargin: [1, 1, 1, 1],
-            cellSize: 10,
             onClick: function(date, nb){
                 // call link handler
                 if (nb === null || nb == 0){return;}
@@ -217,7 +225,7 @@ def my_link_handler(self, url, _old):
     if not url.startswith("showday"):
         return _old(self, url)
     days = url.split(":")[1]
-    search = "seenon:" + days
+    search = "seen:" + days
     if isinstance(self, Overview):
         search += " deck:current"
     browser = aqt.dialogs.open("Browser", self.mw)
@@ -242,7 +250,7 @@ def find_seen_on(self, val):
 
 def add_finder(self, col):
     """Add custom finder to search dictionary"""
-    self.search["seenon"] = self.find_seen_on
+    self.search["seen"] = self.find_seen_on
 
 
 # Stats calculation and rendering
