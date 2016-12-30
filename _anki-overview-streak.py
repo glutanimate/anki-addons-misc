@@ -25,11 +25,11 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 import time
 import json
 
-from aqt import mw
-
+import aqt
 from aqt.overview import Overview
 from aqt.deckbrowser import DeckBrowser
 from anki.stats import CollectionStats
+from anki.find import Finder
 from anki.hooks import wrap
 
 
@@ -100,7 +100,7 @@ heatmap_boilerplate = r"""
 def add_streak_element_ov(self, _old):
     #self is overview
     ret = _old(self)
-    stats = mw.col.stats()
+    stats = self.mw.col.stats()
     stats.wholeCollection = False
     report = stats.report_streaks()
     html = ret + report
@@ -109,7 +109,7 @@ def add_streak_element_ov(self, _old):
 def add_streak_element_db(self, _old):
     #self is overview
     ret = _old(self)
-    stats = mw.col.stats()
+    stats = self.mw.col.stats()
     stats.wholeCollection = True
     report = stats.report_streaks()
     html = ret + report
@@ -162,6 +162,9 @@ def report_streaks(self):
     if rdays[0] == 0:
         scur = streaks[0]
 
+    col_cur, str_cur = dayS(scur)
+    col_max, str_max = dayS(smax)
+
     heatmap = """<script type="text/javascript">
         var cal = new CalHeatMap();
         cal.init({
@@ -171,15 +174,21 @@ def report_streaks(self):
             range: 1,
             legend: [20, 40, 60, 80],
             legendMargin: [0, 0, 0, 0],
-            itemName: ["card", "cards"],
+            itemName: ["activity", "activities"],
             highlight: "now",
             domainMargin: [5, 5, 5, 5],
+            onClick: function(date, nb){
+                if (nb === null || nb == 0){return;}
+                today = new Date();
+                other = new Date(date);
+                diff = today.getTime() - other.getTime();
+                if (diff < 0){return;}
+                diffdays = Math.ceil(diff / (1000 * 60 * 60 * 24))
+                py.link("browseday:" + diffdays)
+            },
             data: %s
         });
     </script>""" % jsonlog
-
-    col_cur, str_cur = dayS(scur)
-    col_max, str_max = dayS(smax)
 
     streakinfo = r"""
     <div class="streak">
@@ -192,6 +201,38 @@ def report_streaks(self):
 
     return heatmap_boilerplate + heatmap + streakinfo
 
+def my_link_handler(self, url, _old):
+    if not url.startswith("browseday"):
+        return _old(self, url)
+    daysago = url.split(":")[1]
+    search = "seenon:" + daysago
+    browser = aqt.dialogs.open("Browser", self.mw)
+    browser.form.searchEdit.lineEdit().setText(search)
+    browser.onSearch()
+
+def find_seen_on(self, val):
+    # self is find.Finder
+    try:
+        days = int(val[0])
+    except ValueError:
+        return
+    days = max(days, 0)
+    # first cutoff at x days ago
+    cutoff1 = (self.col.sched.dayCutoff - 86400*days)*1000
+    # second cutoff at x-1 days ago
+    cutoff2 = cutoff1 + 86400000
+    # select cards that were seen at some point in that day
+    return ("c.id in (select cid from revlog where id between %d and %d)" % (cutoff1, cutoff2))
+
+def add_finder(self, col):
+    self.search["seenon"] = self.find_seen_on
+
+
 CollectionStats.report_streaks = report_streaks
 Overview._table = wrap(Overview._table, add_streak_element_ov, "around")
 DeckBrowser._renderStats = wrap(DeckBrowser._renderStats, add_streak_element_db, "around")
+Overview._linkHandler = wrap(Overview._linkHandler, my_link_handler, "around")
+DeckBrowser._linkHandler = wrap(DeckBrowser._linkHandler, my_link_handler, "around")
+
+Finder.find_seen_on = find_seen_on
+Finder.__init__ = wrap(Finder.__init__, add_finder, "after")
