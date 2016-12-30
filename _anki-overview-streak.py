@@ -98,7 +98,7 @@ heatmap_boilerplate = r"""
     <div id="cal-heatmap"></div>
 </div>""" % (js_d3, js_heat, css_heat)
 
-def add_streak_element_ov(self, _old):
+def add_heatmap_ov(self, _old):
     #self is overview
     ret = _old(self)
     stats = self.mw.col.stats()
@@ -107,7 +107,7 @@ def add_streak_element_ov(self, _old):
     html = ret + report
     return html
 
-def add_streak_element_db(self, _old):
+def add_heatmap_db(self, _old):
     #self is overview
     ret = _old(self)
     stats = self.mw.col.stats()
@@ -117,6 +117,7 @@ def add_streak_element_db(self, _old):
     return html
 
 def dayS(n):
+    """Return color and string depending on number of items"""
     if n == 0:
         color = "#CBCBCC"
     elif n < 20:
@@ -212,6 +213,8 @@ def my_link_handler(self, url, _old):
         return _old(self, url)
     days = url.split(":")[1]
     search = "seenon:" + days
+    if isinstance(self, Overview):
+        search += " deck:current"
     browser = aqt.dialogs.open("Browser", self.mw)
     browser.form.searchEdit.lineEdit().setText(search)
     browser.onSearch()
@@ -229,6 +232,7 @@ def find_seen_on(self, val):
     # second cutoff at x-1 days ago
     cutoff2 = cutoff1 + 86400000
     # select cards that were seen at some point in that day
+    # results are empty sometimes, possibly because corresponding cards deleted?
     return ("c.id in (select cid from revlog where id between %d and %d)" % (cutoff1, cutoff2))
 
 def add_finder(self, col):
@@ -237,8 +241,8 @@ def add_finder(self, col):
 
 # Stats calculation and rendering
 CollectionStats.report_activity = report_activity
-Overview._table = wrap(Overview._table, add_streak_element_ov, "around")
-DeckBrowser._renderStats = wrap(DeckBrowser._renderStats, add_streak_element_db, "around")
+Overview._table = wrap(Overview._table, add_heatmap_ov, "around")
+DeckBrowser._renderStats = wrap(DeckBrowser._renderStats, add_heatmap_db, "around")
 
 # Custom link handler and finder
 Overview._linkHandler = wrap(Overview._linkHandler, my_link_handler, "around")
