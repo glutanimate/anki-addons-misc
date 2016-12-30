@@ -1,24 +1,25 @@
 #-*- coding: utf-8 -*-
 
 """
-Anki Add-on: Anki Overview Streak
+Anki Add-on: Review Heatmap Graph
 
-Adds information on the current and longest review streak
-to the deck overview and deck browser.
+Adds a heatmap graph to Anki's main window which visualizes
+card review activity, similar to the contribution graph on
+GitHub. Information on the current streak is displayed
+alongside the heatmap. Clicking on an item shows the
+cards reviewed on that day.
 
-Criteria for streak: At least one review performed on that day.
-
-Note: leading underscore is necessary to avoid coinflicts with
-the popular "More Overview Stats" add-on
+Note: Needs to be loaded after add-ons like 'More Overview Stats'
+as these tend to overwrite the changes applied by this add-on.
 
 Based on "Forecast graph on Overview page" by Steve AW
 
-Ships with the following libraries:
+Ships with the following javascript libraries:
 
-- d3.js v3.5.17 (v4 and up are not supported, yet, by cal-heatmap)
-- cal-heatmap v3.6.2 
+- d3.js (v3.5.17)
+- cal-heatmap (v3.6.2)
 
-Copyright: Glutanimate 2016
+Copyright: Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
@@ -102,7 +103,7 @@ def add_streak_element_ov(self, _old):
     ret = _old(self)
     stats = self.mw.col.stats()
     stats.wholeCollection = False
-    report = stats.report_streaks()
+    report = stats.report_activity()
     html = ret + report
     return html
 
@@ -111,7 +112,7 @@ def add_streak_element_db(self, _old):
     ret = _old(self)
     stats = self.mw.col.stats()
     stats.wholeCollection = True
-    report = stats.report_streaks()
+    report = stats.report_activity()
     html = ret + report
     return html
 
@@ -135,32 +136,34 @@ def dayS(n):
         retstr = d + " days"
     return color, retstr
 
-def report_streaks(self):
+def report_activity(self):
     #self is anki.stats.CollectionStats
-    # days, chunk
     revlog = self._done(None, 1)
+    if not revlog:
+        return ""
     daylog = {}
+    streaks = []
+    cur = 0
     curtime = int(time.time())
-    for item in revlog:
-        day = curtime + item[0] * 86400
+    for idx, item in enumerate(revlog):
+        cur += 1
+        diff = item[0]
+        try:
+            if diff + 1 != revlog[idx+1][0]:
+                streaks.append(cur)
+                cur = 0
+        except IndexError:
+            streaks.append(cur)
+        day = curtime + diff * 86400
         cards = sum(item[1:5])
         daylog[day] = cards
     jsonlog = json.dumps(daylog)
-    rdays = sorted([-x[0] for x in revlog])
-
-    streaks = []
-    scur = 0
-    cur = 0
-    for idx, day in enumerate(rdays[:-1]):
-        cur += 1
-        if day+1 != rdays[idx+1]:
-            streaks.append(cur)
-            cur = 0
-    if not streaks:
-        return ""
     smax = max(streaks)
-    if rdays[0] == 0:
-        scur = streaks[0]
+    if revlog[-1][0] == 0:
+        # last recorded date is today
+        scur = streaks[-1]
+    else:
+        scur = 0
 
     col_cur, str_cur = dayS(scur)
     col_max, str_max = dayS(smax)
@@ -174,9 +177,11 @@ def report_streaks(self):
             range: 1,
             legend: [20, 40, 60, 80],
             legendMargin: [0, 0, 0, 0],
+            legendCellSize: 10,
             itemName: ["activity", "activities"],
             highlight: "now",
-            domainMargin: [5, 5, 5, 5],
+            domainMargin: [1, 1, 1, 1],
+            cellSize: 10,
             onClick: function(date, nb){
                 if (nb === null || nb == 0){return;}
                 today = new Date();
@@ -184,7 +189,7 @@ def report_streaks(self):
                 diff = today.getTime() - other.getTime();
                 if (diff < 0){return;}
                 diffdays = Math.ceil(diff / (1000 * 60 * 60 * 24))
-                py.link("browseday:" + diffdays)
+                py.link("showday:" + diffdays)
             },
             data: %s
         });
@@ -202,15 +207,17 @@ def report_streaks(self):
     return heatmap_boilerplate + heatmap + streakinfo
 
 def my_link_handler(self, url, _old):
-    if not url.startswith("browseday"):
+    """Launches Browser when clicking on a graph subdomain"""
+    if not url.startswith("showday"):
         return _old(self, url)
-    daysago = url.split(":")[1]
-    search = "seenon:" + daysago
+    days = url.split(":")[1]
+    search = "seenon:" + days
     browser = aqt.dialogs.open("Browser", self.mw)
     browser.form.searchEdit.lineEdit().setText(search)
     browser.onSearch()
 
 def find_seen_on(self, val):
+    """Find cards seen on a specific day"""
     # self is find.Finder
     try:
         days = int(val[0])
@@ -228,11 +235,13 @@ def add_finder(self, col):
     self.search["seenon"] = self.find_seen_on
 
 
-CollectionStats.report_streaks = report_streaks
+# Stats calculation and rendering
+CollectionStats.report_activity = report_activity
 Overview._table = wrap(Overview._table, add_streak_element_ov, "around")
 DeckBrowser._renderStats = wrap(DeckBrowser._renderStats, add_streak_element_db, "around")
+
+# Custom link handler and finder
 Overview._linkHandler = wrap(Overview._linkHandler, my_link_handler, "around")
 DeckBrowser._linkHandler = wrap(DeckBrowser._linkHandler, my_link_handler, "around")
-
 Finder.find_seen_on = find_seen_on
 Finder.__init__ = wrap(Finder.__init__, add_finder, "after")
