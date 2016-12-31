@@ -22,6 +22,8 @@ Ships with the following javascript libraries:
 Copyright: Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
+
+
 ### USER CONFIGURATION START ###
 
 # The following values control the number of days calculated
@@ -69,9 +71,10 @@ heatmap_boilerplate = r"""
 <script type="text/javascript">%s</script>
 <style>%s</style>
 <style>
- .graph-label {
+.graph-label {
     /* fill because its an svg element */
-    fill: #808080;}
+    fill: #808080;
+}
 .hm-btn {
     cursor: pointer;
     background: #e6e6e6;
