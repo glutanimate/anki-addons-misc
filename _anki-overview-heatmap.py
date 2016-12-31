@@ -57,98 +57,70 @@ heatmap_boilerplate = r"""
 <script type="text/javascript">%s</script>
 <style>%s</style>
 <style>
-     .graph-label {
-        /* need to use fill because its an svg element */
-        fill: #808080;
-     }
-    .hm-btn {
-        cursor: pointer;
-        background: #e6e6e6;
-        color: #808080;
-        padding: 2px 8px;
-        border-radius: 3px;
-        margin-left: 2px;
-        text-decoration: none;
-    }
-    .hm-btn:hover {
-        background: #808080;
-        color: #fff
-    }
-    .hm-btn:active {
-        background: #000
-    }
-    .heatmap {
-        margin-top: 2em;
-    }
-    .heatmap-controls {
-        margin-bottom: 1em;
-    }
-    .streak-info {
-        margin-left: 1em;
-    }
-    .sdata {
-        font-weight: bold;
-    }
-    .cal-heatmap-container rect.highlight-now {
-        stroke: black;
-    }
-    .cal-heatmap-container rect.highlight {
-        stroke: #E9002E;
-    }
-    .streak{
-        margin-top: 1em;
-    }
+ .graph-label {
+    /* fill because its an svg element */
+    fill: #808080;}
+.hm-btn {
+    cursor: pointer;
+    background: #e6e6e6;
+    color: #808080;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 2px;
+    text-decoration: none;}
+.hm-btn:hover {
+    background: #808080;
+    color: #fff}
+.hm-btn:active {background: #000}
 
-    .cal-heatmap-container .q1{
-        background-color: #525252;
-        fill: #525252;
-    }
-    .cal-heatmap-container .q2{
-        background-color: #737373;
-        fill: #737373;
-    }
-    .cal-heatmap-container .q3{
-        background-color: #969696;
-        fill: #969696;
-    }
-    .cal-heatmap-container .q4{
-        background-color: #bdbdbd;
-        fill: #bdbdbd;
-    }
-    .cal-heatmap-container .q5{
-        background-color: #d9d9d9;
-        fill: #d9d9d9;
-    }
-    .cal-heatmap-container .q6{
-        background-color: #dae289;
-        fill: #dae289;
-    }
-    .cal-heatmap-container .q7{
-        background-color: #cedb9c;
-        fill: #9cc069
-    }
-    .cal-heatmap-container .q8{
-        background-color: #b5cf6b;
-        fill: #669d45
-    }
-    .cal-heatmap-container .q9{
-        background-color: #637939;
-        fill: #637939
-    }
-    .cal-heatmap-container .q10{
-        background-color: #3b6427;
-        fill: #3b6427
-    }
-    .cal-heatmap-container .q11{
-        background-color: #274E14;
-        fill: #274E14
-    }
-    .cal-heatmap-container .q12{
-        background-color: #153306;
-        fill: #153306
-    }
+.heatmap {margin-top: 2em;}
+.streak-info {margin-left: 1em;}
+.heatmap-controls {margin-bottom: 1em;}
+.sdata {font-weight: bold;}
+.streak{margin-top: 1em;}
 
+.cal-heatmap-container rect.highlight-now {
+    stroke: black;}
+.cal-heatmap-container rect.highlight {
+    stroke: #E9002E;}
+.cal-heatmap-container .q1{
+    background-color: #525252;
+    fill: #525252;}
+.cal-heatmap-container .q2{
+    background-color: #737373;
+    fill: #737373;}
+.cal-heatmap-container .q3{
+    background-color: #969696;
+    fill: #969696;}
+.cal-heatmap-container .q4{
+    background-color: #bdbdbd;
+    fill: #bdbdbd;}
+.cal-heatmap-container .q5{
+    background-color: #d9d9d9;
+    fill: #d9d9d9;}
+.cal-heatmap-container .q6{
+    background-color: #dae289;
+    fill: #dae289;}
+.cal-heatmap-container .q7{
+    background-color: #cedb9c;
+    fill: #9cc069}
+.cal-heatmap-container .q8{
+    background-color: #b5cf6b;
+    fill: #669d45}
+.cal-heatmap-container .q9{
+    background-color: #637939;
+    fill: #637939}
+.cal-heatmap-container .q10{
+    background-color: #3b6427;
+    fill: #3b6427}
+.cal-heatmap-container .q11{
+    background-color: #274E14;
+    fill: #274E14}
+.cal-heatmap-container .q12{
+    background-color: #153306;
+    fill: #153306}
 </style>
+
 <div class="heatmap">
     <div class="heatmap-controls">
         <span onclick="cal.previous();" class="hm-btn">&lt;</i></span>
@@ -204,10 +176,12 @@ def report_activity(self):
     if not revlog:
         return ""
 
-    curtime = int(time.time())
+    # reviews and streaks:
+    today = int(time.time())
     revs_by_day = {}
     streaks = []
     cur = 0
+    first_day = None
     for idx, item in enumerate(revlog):
         cur += 1
         diff = item[0] # days ago
@@ -218,21 +192,27 @@ def report_activity(self):
         except IndexError:
             streaks.append(cur)
 
-        day = curtime + diff * 86400 # date in unix time
+        day = today + diff * 86400 # date in unix time
+        if not first_day:
+            first_day = day
         reviews = sum(item[1:5]) # all reviews of any type on that day
         revs_by_day[day] = reviews
 
-    revfut = self._due(1, None)
-    for item in revfut:
-        day = curtime + item[0] * 86400
-        reviews = sum(item[1:3])
-        revs_by_day[day] = -reviews
+    # forecast of due cards
+    forecast = self._due(1, None)
+    for item in forecast:
+        day = today + item[0] * 86400
+        due = sum(item[1:3])
+        revs_by_day[day] = -due
+    last_day = day
 
+    first_year = time.strftime("%Y", time.gmtime(first_day))
+    last_year = time.strftime("%Y", time.gmtime(last_day))
     jsonlog = json.dumps(revs_by_day)
 
     smax = max(streaks)
     if revlog[-1][0] == 0:
-        # last recorded date is today
+        # is last recorded date today?
         scur = streaks[-1]
     else:
         scur = 0
@@ -245,6 +225,8 @@ def report_activity(self):
         cal.init({
             domain: "year",
             subDomain: "day",
+            minDate: new Date(%s, 01),
+            maxDate: new Date(%s, 01),
             range: 1,
             cellSize: 10,
             domainMargin: [1, 1, 1, 1],
@@ -253,6 +235,10 @@ def report_activity(self):
             highlight: "now",
             legend: [-80, -60, -40, -20, 0, 20, 40, 60, 80, 120, 200],
             displayLegend: false,
+            subDomainTitleFormat: {
+                    empty: "No reviews on {date}",
+                    filled: "{count} {name} {connector} {date}"
+                },
             onClick: function(date, nb){
                 // call link handler
                 if (nb === null || nb == 0){
@@ -273,7 +259,7 @@ def report_activity(self):
             },
             data: %s
         });
-    </script>""" % jsonlog
+    </script>""" % (first_year, last_year, jsonlog)
 
     streakinfo = r"""
     <div class="streak">
