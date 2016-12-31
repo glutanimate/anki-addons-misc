@@ -1,6 +1,12 @@
-# Misc Anki Add-ons
+# Miscellaneous Anki Add-ons
 
-This repository contains a number of smaller add-ons I've written for Anki over time. For more information on each add-on please take a look at the comments in the respective source file. Some of these add-ons have been published on AnkiWeb. Check out [ankiweb.md](/ankiweb.md) for their descriptions.
+This repository contains most of the add-ons I've written for Anki over the years. For more information on each add-on please take a look at the comments in the respective source file. Most of the add-ons I've published on AnkiWeb are documented in the [ankiweb.md document](/ankiweb.md).
+
+Make sure to also check out my other Anki-related projects:
+
+- [Image Occlusion Enhanced](https://github.com/Glutanimate/image-occlusion-enhanced)
+- [Anki Remote](https://github.com/Glutanimate/unified-remote-anki)
+- [My fork](https://github.com/Glutanimate/anki-addons-misc1) of [steveaw/anki_addons](https://github.com/steveaw/anki_addons)
 
 ## Naming scheme
 
