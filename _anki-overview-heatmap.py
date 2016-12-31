@@ -22,6 +22,18 @@ Ships with the following javascript libraries:
 Copyright: Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
+### USER CONFIGURATION START ###
+
+# The following values control the number of days calculated
+# and displayed by the add-on. Limiting these can improve performance
+# on slower systems.
+
+# Nr of days to limit review history to (e.g. 365)
+HEATMAP_HISTORY_LIMIT = None # default: None, i.e. no limit
+# Nr of days to to limit review forecast to
+HEATMAP_FORECAST_LIMIT = None # default: None, i.e. no limit
+
+### USER CONFIGURATION END ###
 
 import time
 import json
@@ -123,9 +135,9 @@ heatmap_boilerplate = r"""
 
 <div class="heatmap">
     <div class="heatmap-controls">
-        <span onclick="cal.previous();" class="hm-btn">&lt;</i></span>
-        <span onclick="cal.rewind();" class="hm-btn">T</i></span>
-        <span onclick="cal.next();" class="hm-btn">&gt;</span>
+        <span title="Got to previous year" onclick="cal.previous();" class="hm-btn">&lt;</i></span>
+        <span title="Today" onclick="cal.rewind();" class="hm-btn">T</i></span>
+        <span title="Go to next year" onclick="cal.next();" class="hm-btn">&gt;</span>
     </div>
     <div id="cal-heatmap"></div>
 </div>""" % (js_d3, js_heat, css_heat)
@@ -172,7 +184,7 @@ def dayS(n):
 def report_activity(self):
     """Calculate stats and generate report"""
     #self is anki.stats.CollectionStats
-    revlog = self._done(None, 1)
+    revlog = self._done(HEATMAP_HISTORY_LIMIT, 1)
     if not revlog:
         return ""
 
@@ -199,7 +211,7 @@ def report_activity(self):
         revs_by_day[day] = reviews
 
     # forecast of due cards
-    forecast = self._due(1, None)
+    forecast = self._due(1, HEATMAP_FORECAST_LIMIT)
     for item in forecast:
         day = today + item[0] * 86400
         due = sum(item[1:3])
@@ -264,9 +276,9 @@ def report_activity(self):
     streakinfo = r"""
     <div class="streak">
         <span class="streak-info">Longest streak:</span>
-        <span style="color: %s;" class="smax sdata">%s</span>
+        <span title="All types of reviews included" style="color: %s;" class="smax sdata">%s</span>
         <span class="streak-info">Current streak:</span>
-        <span style="color: %s;" class="scur sdata">%s</span>
+        <span title="All types of reviews included" style="color: %s;" class="scur sdata">%s</span>
     </div>
     """ % (col_max, str_max, col_cur, str_cur)
 
@@ -276,7 +288,9 @@ def my_link_handler(self, url, _old):
     """Launches Browser when clicking on a graph subdomain"""
     if ":" in url:
         (cmd, arg) = url.split(":")
-    if cmd not in ("showseen", "showdue"):
+    else:
+        cmd = None
+    if not cmd or cmd not in ("showseen", "showdue"):
         return _old(self, url)
     days = url.split(":")[1]
     if cmd == "showseen":
