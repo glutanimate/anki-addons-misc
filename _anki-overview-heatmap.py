@@ -49,7 +49,7 @@ function mergeRecursive(a,b){"use strict";for(var c in b)try{b[c].constructor===
 """
 
 css_heat = """
-.cal-heatmap-container{display:block}.cal-heatmap-container .graph{font-family:"Lucida Grande",Lucida,Verdana,sans-serif}.cal-heatmap-container .graph-label{fill:#999;font-size:10px}.cal-heatmap-container .graph,.cal-heatmap-container .graph-legend rect{shape-rendering:crispedges}.cal-heatmap-container .graph-rect{fill:#ededed}.cal-heatmap-container .graph-subdomain-group rect:hover{stroke:#000;stroke-width:1px}.cal-heatmap-container .subdomain-text{font-size:8px;fill:#999;pointer-events:none}.cal-heatmap-container .hover_cursor:hover{cursor:pointer}.cal-heatmap-container .qi{background-color:#999;fill:#999}.cal-heatmap-container .q1{background-color:#dae289;fill:#dae289}.cal-heatmap-container .q2{background-color:#cedb9c;fill:#9cc069}.cal-heatmap-container .q3{background-color:#b5cf6b;fill:#669d45}.cal-heatmap-container .q4{background-color:#637939;fill:#637939}.cal-heatmap-container .q5{background-color:#3b6427;fill:#3b6427}.cal-heatmap-container rect.highlight{stroke:#444;stroke-width:1}.cal-heatmap-container text.highlight{fill:#444}.cal-heatmap-container rect.highlight-now{stroke:red}.cal-heatmap-container text.highlight-now{fill:red;font-weight:800}.cal-heatmap-container .domain-background{fill:none;shape-rendering:crispedges}.ch-tooltip{padding:10px;background:#222;color:#bbb;font-size:12px;line-height:1.4;width:140px;position:absolute;z-index:99999;text-align:center;border-radius:2px;box-shadow:2px 2px 2px rgba(0,0,0,.2);display:none;box-sizing:border-box}.ch-tooltip::after{position:absolute;width:0;height:0;border-color:#222 transparent transparent;border-style:solid;content:"";padding:0;display:block;bottom:-6px;left:50%;margin-left:-6px;border-width:6px 6px 0}
+.cal-heatmap-container{display:block}.cal-heatmap-container .cal-heatmap-container .graph-label{fill:#999;font-size:10px}.cal-heatmap-container .graph,.cal-heatmap-container .graph-legend rect{shape-rendering:crispedges}.cal-heatmap-container .graph-rect{fill:#ededed}.cal-heatmap-container .graph-subdomain-group rect:hover{stroke:#000;stroke-width:1px}.cal-heatmap-container .subdomain-text{font-size:8px;fill:#999;pointer-events:none}.cal-heatmap-container .hover_cursor:hover{cursor:pointer}.cal-heatmap-container .qi{background-color:#999;fill:#999}.cal-heatmap-container .q1{background-color:#dae289;fill:#dae289}.cal-heatmap-container .q2{background-color:#cedb9c;fill:#9cc069}.cal-heatmap-container .q3{background-color:#b5cf6b;fill:#669d45}.cal-heatmap-container .q4{background-color:#637939;fill:#637939}.cal-heatmap-container .q5{background-color:#3b6427;fill:#3b6427}.cal-heatmap-container rect.highlight{stroke:#444;stroke-width:1}.cal-heatmap-container text.highlight{fill:#444}.cal-heatmap-container rect.highlight-now{stroke:red}.cal-heatmap-container text.highlight-now{fill:red;font-weight:800}.cal-heatmap-container .domain-background{fill:none;shape-rendering:crispedges}.ch-tooltip{padding:10px;background:#222;color:#bbb;font-size:12px;line-height:1.4;width:140px;position:absolute;z-index:99999;text-align:center;border-radius:2px;box-shadow:2px 2px 2px rgba(0,0,0,.2);display:none;box-sizing:border-box}.ch-tooltip::after{position:absolute;width:0;height:0;border-color:#222 transparent transparent;border-style:solid;content:"";padding:0;display:block;bottom:-6px;left:50%;margin-left:-6px;border-width:6px 6px 0}
 """
 
 heatmap_boilerplate = r"""
@@ -57,6 +57,10 @@ heatmap_boilerplate = r"""
 <script type="text/javascript">%s</script>
 <style>%s</style>
 <style>
+     .graph-label {
+        /* need to use fill because its an svg element */
+        fill: #808080;
+     }
     .hm-btn {
         cursor: pointer;
         background: #e6e6e6;
@@ -88,11 +92,58 @@ heatmap_boilerplate = r"""
     .cal-heatmap-container rect.highlight-now {
         stroke: black;
     }
+    .cal-heatmap-container rect.highlight {
+        stroke: #E9002E;
+    }
+    .streak{
+        margin-top: 1em;
+    }
+
+    .cal-heatmap-container .q1{
+        background-color: #525252;
+        fill: #525252;
+    }
+    .cal-heatmap-container .q2{
+        background-color: #737373;
+        fill: #737373;
+    }
+    .cal-heatmap-container .q3{
+        background-color: #969696;
+        fill: #969696;
+    }
+    .cal-heatmap-container .q4{
+        background-color: #bdbdbd;
+        fill: #bdbdbd;
+    }
+    .cal-heatmap-container .q5{
+        background-color: #d9d9d9;
+        fill: #d9d9d9;
+    }
     .cal-heatmap-container .q6{
+        background-color: #dae289;
+        fill: #dae289;
+    }
+    .cal-heatmap-container .q7{
+        background-color: #cedb9c;
+        fill: #9cc069
+    }
+    .cal-heatmap-container .q8{
+        background-color: #b5cf6b;
+        fill: #669d45
+    }
+    .cal-heatmap-container .q9{
+        background-color: #637939;
+        fill: #637939
+    }
+    .cal-heatmap-container .q10{
+        background-color: #3b6427;
+        fill: #3b6427
+    }
+    .cal-heatmap-container .q11{
         background-color: #274E14;
         fill: #274E14
     }
-    .cal-heatmap-container .q7{
+    .cal-heatmap-container .q12{
         background-color: #153306;
         fill: #153306
     }
@@ -101,7 +152,7 @@ heatmap_boilerplate = r"""
 <div class="heatmap">
     <div class="heatmap-controls">
         <span onclick="cal.previous();" class="hm-btn">&lt;</i></span>
-        <span onclick="cal.rewind();" class="hm-btn">Today</i></span>
+        <span onclick="cal.rewind();" class="hm-btn">T</i></span>
         <span onclick="cal.next();" class="hm-btn">&gt;</span>
     </div>
     <div id="cal-heatmap"></div>
@@ -159,17 +210,24 @@ def report_activity(self):
     cur = 0
     for idx, item in enumerate(revlog):
         cur += 1
-        diff = item[0]
+        diff = item[0] # days ago
         try:
-            if diff + 1 != revlog[idx+1][0]:
+            if diff + 1 != revlog[idx+1][0]: # days+1 ago
                 streaks.append(cur)
                 cur = 0
         except IndexError:
             streaks.append(cur)
 
         day = curtime + diff * 86400 # date in unix time
-        reviews = sum(item[1:5]) # all review types on that day
+        reviews = sum(item[1:5]) # all reviews of any type on that day
         revs_by_day[day] = reviews
+
+    revfut = self._due(1, None)
+    for item in revfut:
+        day = curtime + item[0] * 86400
+        reviews = sum(item[1:3])
+        revs_by_day[day] = -reviews
+
     jsonlog = json.dumps(revs_by_day)
 
     smax = max(streaks)
@@ -191,19 +249,27 @@ def report_activity(self):
             cellSize: 10,
             domainMargin: [1, 1, 1, 1],
             itemName: ["review", "reviews"],
+            domainLabelFormat: "Reviews in %%Y",
             highlight: "now",
-            legend: [20, 40, 60, 80, 120, 200],
-            legendMargin: [0, 0, 0, 0],
-            legendCellSize: 10,
+            legend: [-80, -60, -40, -20, 0, 20, 40, 60, 80, 120, 200],
+            displayLegend: false,
             onClick: function(date, nb){
                 // call link handler
-                if (nb === null || nb == 0){return;}
+                if (nb === null || nb == 0){
+                    cal.highlight("now"); return;
+                }
                 today = new Date();
                 other = new Date(date);
-                diff = today.getTime() - other.getTime();
-                if (diff < 0){return;}
+                if (nb >= 0) {
+                    diff = today.getTime() - other.getTime();
+                    cmd = "showseen:"
+                } else {
+                    diff = other.getTime() - today.getTime();
+                    cmd = "showdue:"
+                }
+                cal.highlight(["now", date])
                 diffdays = Math.ceil(diff / (1000 * 60 * 60 * 24))
-                py.link("showday:" + diffdays)
+                py.link(cmd + diffdays)
             },
             data: %s
         });
@@ -222,10 +288,15 @@ def report_activity(self):
 
 def my_link_handler(self, url, _old):
     """Launches Browser when clicking on a graph subdomain"""
-    if not url.startswith("showday"):
+    if ":" in url:
+        (cmd, arg) = url.split(":")
+    if cmd not in ("showseen", "showdue"):
         return _old(self, url)
     days = url.split(":")[1]
-    search = "seen:" + days
+    if cmd == "showseen":
+        search = "seen:" + days
+    else:
+        search = "prop:due=" + days
     if isinstance(self, Overview):
         search += " deck:current"
     browser = aqt.dialogs.open("Browser", self.mw)
