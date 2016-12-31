@@ -1,5 +1,32 @@
 # Add-on descriptions
 
+<!-- MarkdownTOC -->
+
+- [Published on Ankiweb](#published-on-ankiweb)
+    - [anki-browser-search-hotkeys.py](#anki-browser-search-hotkeyspy)
+    - [anki-browser-search-modifiers.py](#anki-browser-search-modifierspy)
+    - [anki-browser-create-duplicate.py](#anki-browser-create-duplicatepy)
+    - [anki-browser-lookup.py](#anki-browser-lookuppy)
+    - [anki-editor-field-navigation.py](#anki-editor-field-navigationpy)
+    - [anki-editor-tag-hotkeys.py](#anki-editor-tag-hotkeyspy)
+    - [anki-editor-autocomplete-whitelist.py](#anki-editor-autocomplete-whitelistpy)
+    - [anki-editor-restore-fields.py](#anki-editor-restore-fieldspy)
+    - [anki-browser-refresh.py](#anki-browser-refreshpy)
+    - [anki-browser-replace-tag.py](#anki-browser-replace-tagpy)
+    - [anki-browser-create-filtered-deck.py](#anki-browser-create-filtered-deckpy)
+    - [anki-overview-deck-switcher.py](#anki-overview-deck-switcherpy)
+    - [anki-reviewer-puppy-reinforcement.py](#anki-reviewer-puppy-reinforcementpy)
+    - [anki-browser-advanced-preview.py](#anki-browser-advanced-previewpy)
+    - [anki-browser-batch-edit.py](#anki-browser-batch-editpy)
+    - [anki-reviewer-card-stats.py](#anki-reviewer-card-statspy)
+    - [anki-editor-custom-tagedit.py](#anki-editor-custom-tageditpy)
+    - [_anki-overview-heatmap.py](#_anki-overview-heatmappy)
+- [Yet to be published](#yet-to-be-published)
+- [The rest](#the-rest)
+
+<!-- /MarkdownTOC -->
+
+
 ## Published on Ankiweb
 
 ### anki-browser-search-hotkeys.py
