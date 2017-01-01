@@ -38,7 +38,6 @@ HEATMAP_FORECAST_LIMIT = None # default: None, i.e. no limit
 ### USER CONFIGURATION END ###
 
 import time
-import json
 
 import aqt
 from aqt.overview import Overview
@@ -99,43 +98,27 @@ heatmap_boilerplate = r"""
 .cal-heatmap-container rect.highlight {
     stroke: #E9002E;}
 /* future reviews (shades of grey): */
-.cal-heatmap-container .q1{
-    background-color: #525252;
-    fill: #525252;}
-.cal-heatmap-container .q2{
-    background-color: #737373;
-    fill: #737373;}
-.cal-heatmap-container .q3{
-    background-color: #969696;
-    fill: #969696;}
-.cal-heatmap-container .q4{
-    background-color: #bdbdbd;
-    fill: #bdbdbd;}
+.cal-heatmap-container .q1{fill: #525252}
+.cal-heatmap-container .q2{fill: #616161}
+.cal-heatmap-container .q3{fill: #707070}
+.cal-heatmap-container .q4{fill: #7F7F7F}
+.cal-heatmap-container .q5{fill: #8E8E8E}
+.cal-heatmap-container .q6{fill: #9D9D9D}
+.cal-heatmap-container .q7{fill: #ACACAC}
+.cal-heatmap-container .q8{fill: #BBBBBB}
+.cal-heatmap-container .q9{fill: #CACACA}
+.cal-heatmap-container .q10{fill: #D9D9D9}
 /* past reviews (shades of green): */
-.cal-heatmap-container .q5{
-    background-color: #d9d9d9;
-    fill: #d9d9d9;}
-.cal-heatmap-container .q6{
-    background-color: #dae289;
-    fill: #dae289;}
-.cal-heatmap-container .q7{
-    background-color: #cedb9c;
-    fill: #9cc069}
-.cal-heatmap-container .q8{
-    background-color: #b5cf6b;
-    fill: #669d45}
-.cal-heatmap-container .q9{
-    background-color: #637939;
-    fill: #637939}
-.cal-heatmap-container .q10{
-    background-color: #3b6427;
-    fill: #3b6427}
-.cal-heatmap-container .q11{
-    background-color: #274E14;
-    fill: #274E14}
-.cal-heatmap-container .q12{
-    background-color: #153306;
-    fill: #153306}
+.cal-heatmap-container .q11{fill: #DAE289}
+.cal-heatmap-container .q12{fill: #C8D47E}
+.cal-heatmap-container .q13{fill: #B6C673}
+.cal-heatmap-container .q14{fill: #A5B868}
+.cal-heatmap-container .q15{fill: #93AA5D}
+.cal-heatmap-container .q16{fill: #819C52}
+.cal-heatmap-container .q17{fill: #708E47}
+.cal-heatmap-container .q18{fill: #5E803C}
+.cal-heatmap-container .q19{fill: #4C7231}
+.cal-heatmap-container .q20{fill: #3B6427}
 </style>
 
 <div class="heatmap">
@@ -199,6 +182,7 @@ def report_activity(self):
     streaks = []
     cur = 0
     first_day = None
+    tot = 0
     for idx, item in enumerate(revlog):
         cur += 1
         diff = item[0] # days ago
@@ -213,7 +197,30 @@ def report_activity(self):
         if not first_day:
             first_day = day
         reviews = sum(item[1:5]) # all reviews of any type on that day
+        tot += reviews
         revs_by_day[day] = reviews
+
+    # adapt legend to number of average reviews across entire collection
+    avg = tot / (idx+1)
+    if avg < 20:
+        avg = 20 # set a default average if avg too low
+
+    try:
+        self.col.hm_avg
+    except AttributeError: # avg for col not set yet
+        self.col.hm_avg = None
+        self.col.hm_leg = [-80, -40, -30, -25, -20, -15, -10, -5, -2,
+                            0, 2, 5, 10, 15, 20, 25, 30, 40, 80] # leg for avg=20
+
+    if self.wholeCollection: # only adjust leg when data comes from full col
+        if avg != self.col.hm_avg: # avg changed, new leg necessary
+            legpos = [0.125*avg, 0.25*avg, 0.5*avg, 0.75*avg,
+                            avg, 1.25*avg, 1.5*avg, 2*avg, 4*avg]
+            legneg = [-i for i in legpos[::-1]]
+            leg = legneg + [0] + legpos
+            print leg
+            self.col.hm_leg = leg
+            self.col.hm_avg = avg
 
     # forecast of due cards
     forecast = self._due(1, HEATMAP_FORECAST_LIMIT)
@@ -225,7 +232,6 @@ def report_activity(self):
 
     first_year = time.strftime("%Y", time.gmtime(first_day))
     last_year = time.strftime("%Y", time.gmtime(last_day))
-    jsonlog = json.dumps(revs_by_day)
 
     smax = max(streaks)
     if revlog[-1][0] in (0, -1):
@@ -234,9 +240,10 @@ def report_activity(self):
     else:
         scur = 0
 
-    col_cur, str_cur = dayS(scur)
-    col_max, str_max = dayS(smax)
+    return compose_heatmap(revs_by_day, self.col.hm_leg, first_year, last_year,
+                            scur, smax)
 
+def compose_heatmap(data, legend, start, stop, scur, smax):
     heatmap = """<script type="text/javascript">
         var cal = new CalHeatMap();
         cal.init({
@@ -250,8 +257,8 @@ def report_activity(self):
             itemName: ["review", "reviews"],
             domainLabelFormat: "Reviews in %%Y",
             highlight: "now",
-            legend: [-80, -60, -40, -20, 0, 20, 40, 60, 80, 120, 200],
-            displayLegend: false,
+            legend: %s,
+            displayLegend: true,
             subDomainTitleFormat: {
                     empty: "No reviews on {date}",
                     filled: "{count} {name} {connector} {date}"
@@ -276,7 +283,10 @@ def report_activity(self):
             },
             data: %s
         });
-    </script>""" % (first_year, last_year, jsonlog)
+    </script>""" % (start, stop, legend, data)
+
+    col_cur, str_cur = dayS(scur)
+    col_max, str_max = dayS(smax)
 
     streakinfo = r"""
     <div class="streak">
