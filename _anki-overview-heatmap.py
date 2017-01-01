@@ -187,7 +187,7 @@ def report_activity(self):
             if diff + 1 != revlog[idx+1][0]: # days+1 ago
                 streaks.append(cur)
                 cur = 0
-        except IndexError:
+        except IndexError: # last item
             streaks.append(cur)
 
         day = today + diff * 86400 # date in unix time
@@ -226,8 +226,8 @@ def report_activity(self):
         revs_by_day[day] = -due
     last_day = day
 
-    first_year = time.strftime("%Y", time.gmtime(first_day))
-    last_year = time.strftime("%Y", time.gmtime(last_day))
+    first_year = time.gmtime(first_day).tm_year
+    last_year = max(time.gmtime(last_day).tm_year, time.gmtime().tm_year)
 
     smax = max(streaks)
     if revlog[-1][0] in (0, -1):
