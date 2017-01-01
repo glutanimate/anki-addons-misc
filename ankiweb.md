@@ -573,8 +573,8 @@ Adds a **heatmap graph** to Anki's main window which visualizes past and future 
 
 **Features**
 
-- Color-coded overview of past and future review activity: Hues of green for past reviews, Shades of grey for pending reviews
-- Tooltips provide additional information on each day (negative review counts signify pending/future reviews)
+- Color-coded overview of past and future review activity: Hues of green for past reviews, shades of grey for pending reviews
+- Tooltips provide additional information on each day
 - Ability to navigate between different years
 - Clicking on a day will draw up the cards seen on that day in the browser. In case of a future date all cards that are due on that day will be shown instead
 - Going to the overview page of a specific deck will show deck-specific information
@@ -588,12 +588,19 @@ If you are experiencing slow-downs you can limit the number of days calculated b
 
 **Other notes**
 
-As the add-on uses the review log to draw its entries, it will also include reviews of cards that might have been deleted in the meantime. For that reason the browser might not draw up any results when clicking on a day sometimes.
+Pending review counts will appear as negative numbers. Rather than a deliberate design decision this is a workaround I had to employ in order to utilize two distinct color schemes for past and future reviews.
+
+The browser might not draw up any results when clicking on a day sometimes. This is because the review log also contains entries on cards that might have been deleted in the meantime.
 
 In order to show the cards reviewed on a specific day the add-on adds a new search filter to Anki. This filter can also be used outside of the add-on, e.g. in regular browser searches and is called in the following way: "seen:days_ago" (e.g. "seen:365").
 
+**Bug Reports and Suggestions**
+
+Bug reports and suggestions are always welcome, but it might take me a while to get to them. Please don't post them here, as I won't be able to help you or reply. Instead, please either use the [issues page](https://github.com/Glutanimate/anki-addons-misc/issues) on GitHub or create a new thread on the [add-on forums](https://anki.tenderapp.com/discussions/add-ons/) (no registration required).
+
 **Changelog**
 
+2017-01-01 – Switched from an absolute color scale to one that's relative to the average daily review count (inspired by the comment below)
 2016-12-31 – Initial release
 
 **Credits and License**
