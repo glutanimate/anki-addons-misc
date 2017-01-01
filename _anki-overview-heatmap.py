@@ -98,6 +98,7 @@ heatmap_boilerplate = r"""
     stroke: black;}
 .cal-heatmap-container rect.highlight {
     stroke: #E9002E;}
+/* future reviews (shades of grey): */
 .cal-heatmap-container .q1{
     background-color: #525252;
     fill: #525252;}
@@ -110,6 +111,7 @@ heatmap_boilerplate = r"""
 .cal-heatmap-container .q4{
     background-color: #bdbdbd;
     fill: #bdbdbd;}
+/* past reviews (shades of green): */
 .cal-heatmap-container .q5{
     background-color: #d9d9d9;
     fill: #d9d9d9;}
@@ -226,8 +228,8 @@ def report_activity(self):
     jsonlog = json.dumps(revs_by_day)
 
     smax = max(streaks)
-    if revlog[-1][0] == 0:
-        # is last recorded date today?
+    if revlog[-1][0] in (0, -1):
+        # is last recorded date today or yesterday?
         scur = streaks[-1]
     else:
         scur = 0
