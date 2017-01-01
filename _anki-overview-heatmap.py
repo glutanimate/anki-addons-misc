@@ -150,18 +150,15 @@ def add_heatmap_db(self, _old):
 
 def dayS(n):
     """Return color and string depending on number of items"""
-    if n == 0:
-        color = "#CBCBCC"
-    elif n < 20:
-        color = "#D1D883"
-    elif n < 40:
-        color = "#9CC069"
-    elif n < 60:
-        color = "#669D45"
-    elif n < 80:
-        color = "#3B6427"
+    levels = [(0, "#CBCBCC"), (20, "#D1D883"), (40, "#9CC069"),
+                (60, "#669D45"), (80, "#3B6427")]
+    for l in levels:
+        if n > l[0]:
+            continue
+        color = l[1]
+        break
     else:
-        color = "#637939"
+         color = "#637939"
     d = str(n)
     if n == 1:
         retstr = d + " day"
@@ -218,7 +215,6 @@ def report_activity(self):
                             avg, 1.25*avg, 1.5*avg, 2*avg, 4*avg]
             legneg = [-i for i in legpos[::-1]]
             leg = legneg + [0] + legpos
-            print leg
             self.col.hm_leg = leg
             self.col.hm_avg = avg
 
@@ -258,7 +254,7 @@ def compose_heatmap(data, legend, start, stop, scur, smax):
             domainLabelFormat: "Reviews in %%Y",
             highlight: "now",
             legend: %s,
-            displayLegend: true,
+            displayLegend: false,
             subDomainTitleFormat: {
                     empty: "No reviews on {date}",
                     filled: "{count} {name} {connector} {date}"
