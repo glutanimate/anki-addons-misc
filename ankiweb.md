@@ -588,8 +588,6 @@ If you are experiencing slow-downs you can limit the number of days calculated b
 
 **Other notes**
 
-Pending review counts will appear as negative numbers. Rather than a deliberate design decision this is a workaround I had to employ in order to utilize two distinct color schemes for past and future reviews.
-
 The browser might not draw up any results when clicking on a day sometimes. This is because the review log also contains entries on cards that might have been deleted in the meantime.
 
 In order to show the cards reviewed on a specific day the add-on adds a new search filter to Anki. This filter can also be used outside of the add-on, e.g. in regular browser searches, and is called in the following way: "seen:days_ago" (e.g. "seen:365").
@@ -600,6 +598,7 @@ Bug reports and suggestions are always welcome, but it might take me a while to 
 
 **Changelog**
 
+- 2017-01-02 – Future review counts will appear positive as well now (thanks to David on GitHub!)
 - 2017-01-02 – The add-on should now be compatible with "More Overview Stats"
 - 2017-01-01 – Switched from an absolute color scale to one that's relative to the average daily review count (inspired by the comment below). Fixed a bug with the calendar controls. Improved streak calculation.
 - 2016-12-31 – Initial release
