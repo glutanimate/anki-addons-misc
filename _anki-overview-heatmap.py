@@ -130,17 +130,45 @@ heatmap_boilerplate = r"""
     <div id="cal-heatmap"></div>
 </div>""" % (js_d3, js_heat, css_heat)
 
-def add_heatmap_ov(self, _old):
-    #self is overview
-    ret = _old(self)
+ov_body = """
+<center>
+<h3>%(deck)s</h3>
+%(shareLink)s
+%(desc)s
+%(table)s
+%(stats)s
+</center>
+<script>$(function () { $("#study").focus(); });</script>
+"""
+
+def render_page_ov(self):
+    """Replace original _renderPage() in order to stay compatible
+    with add-ons like More Overview Stats that overwrite _body()"""
+    # self is overview
+    self._body = ov_body # modified body with stats section
     stats = self.mw.col.stats()
     stats.wholeCollection = False
     report = stats.report_activity()
-    html = ret + report
-    return html
+
+    but = self.mw.button
+    deck = self.mw.col.decks.current()
+    self.sid = deck.get("sharedFrom")
+    if self.sid:
+        self.sidVer = deck.get("ver", None)
+        shareLink = '<a class=smallLink href="review">Reviews and Updates</a>'
+    else:
+        shareLink = ""
+    self.web.stdHtml(self._body % dict(
+        deck=deck['name'],
+        shareLink=shareLink,
+        desc=self._desc(deck),
+        table=self._table(),
+        stats=report
+        ), self.mw.sharedCSS + self._css)
 
 def add_heatmap_db(self, _old):
-    #self is overview
+    """Add heatmap to _renderStats() return"""
+    #self is deckbrowser
     ret = _old(self)
     stats = self.mw.col.stats()
     stats.wholeCollection = True
@@ -337,7 +365,7 @@ def add_finder(self, col):
 
 # Stats calculation and rendering
 CollectionStats.report_activity = report_activity
-Overview._table = wrap(Overview._table, add_heatmap_ov, "around")
+Overview._renderPage = render_page_ov
 DeckBrowser._renderStats = wrap(DeckBrowser._renderStats, add_heatmap_db, "around")
 
 # Custom link handler and finder
