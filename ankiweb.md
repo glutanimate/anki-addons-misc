@@ -594,7 +594,7 @@ In order to show the cards reviewed on a specific day the add-on adds a new sear
 
 **Bug Reports and Suggestions**
 
-Bug reports and suggestions are always welcome, but it might take me a while to get to them. Please don't post them here, as I won't be able to help you or reply. Instead, please either use the [issues page](https://github.com/Glutanimate/anki-addons-misc/issues) on GitHub or create a new thread on the [add-on forums](https://anki.tenderapp.com/discussions/add-ons/) (no registration required).
+**I can't reply to your comments on this page**. If you are experiencing an issue and would like me to help, please use the [official support thread](https://anki.tenderapp.com/discussions/add-ons/8707-review-heatmap-official-thread) on Anki's forums (no registration required).
 
 **Changelog**
 
