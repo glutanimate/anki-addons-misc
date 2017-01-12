@@ -12,7 +12,7 @@ Make sure to also check out my other Anki-related projects:
 
 The source file naming describes which part of Anki each add-on interacts with. As such, the names don't always correspond to how the add-ons are listed on AnkiWeb. 
 
-Anki loads add-on modules alphabetically. Add-ons with a leading underscore are designed to be imported after most other add-ons have been loaded as they might interact with them.
+Anki loads add-on modules alphabetically. Add-ons with a leading special character are designed to be imported after most other add-ons have been loaded as they might interact with them.
 
 ## License
 
