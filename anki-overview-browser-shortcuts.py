@@ -13,6 +13,7 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 from PyQt4.QtCore import SIGNAL
 from PyQt4.QtGui import QMenu, QKeySequence
+import aqt
 from aqt import mw, dialogs
 from anki.lang import ngettext
 
@@ -23,7 +24,7 @@ menu_items = {
 
 
 def openBrowserWithSearch(mw, search):
-    browser = dialogs.open("Browser", mw)
+    browser = aqt.dialogs.open("Browser", mw)
     browser.form.searchEdit.lineEdit().setText(search)
     browser.onSearch()
 
