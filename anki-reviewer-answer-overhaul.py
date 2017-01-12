@@ -71,6 +71,7 @@ assert len(extra_buttons) <= 4
 
 def keyHandler(self, evt, _old):
     key = unicode(evt.text())
+    print key
     state = self.state
     # disable space/return on answer screen:
     if key == " " or (evt.key() in (Qt.Key_Return, Qt.Key_Enter) and state == "answer"):
@@ -95,12 +96,12 @@ def keyHandler(self, evt, _old):
         else:
             ease = ease_keys[key]
             self._answerCard(ease)
-    # extra buttons:
-    elif self.state == "answer":
-        for idx, btn in enumerate(extra_buttons):
-            if key in btn["hotkeys"]:
-                return self._answerCard(idx + INTERCEPT_EASE_BASE)
     else:
+        # extra buttons:
+        if self.state == "answer":
+            for idx, btn in enumerate(extra_buttons):
+                if key in btn["hotkeys"]:
+                    return self._answerCard(idx + INTERCEPT_EASE_BASE)
         return _old(self, evt)
 
 button_html = '''
