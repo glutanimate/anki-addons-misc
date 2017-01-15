@@ -45,14 +45,9 @@ def myKeyPressEvent(self, evt):
             txt = self.text()
             pos = self.cursorPosition()
             pfx = txt[:pos]
-            cur = pfx.split()[-1]
-            wend = len(pfx)
-            wstart = wend - len(cur)
             self.completer.setCompletionPrefix(txt[:pos])
             completion = self.completer.currentCompletion()
-            self.setSelection(wstart, wend)
-            self.backspace()
-            self.insert(completion[wstart:])
+            self.insert(completion[len(pfx):])
         self.hideCompleter()
         QWidget.keyPressEvent(self, evt)
         return
