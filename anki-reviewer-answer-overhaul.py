@@ -15,6 +15,10 @@ Combines the following add-ons...
 
 ...and applies a number of customizations specific to my workflow.
 
+Also includes code from the following add-ons:
+
+- Gamepad add-on (custom tooltips), (c) tmbb
+
 Copyright: (c) Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """ 
@@ -58,10 +62,10 @@ extra_buttons = [{"label": "+" + _("Easy"), "color": "#0292D3", "hotkeys": ("5",
                  {"label": "++" + _("Easy"), "color": "#0276AB", "hotkeys": ("6", u"ü"), "factor": 3},
                  {"label": "+++" + _("Easy"), "color": "#015276", "hotkeys": ("7", "+"), "factor": 4.5}]
 
+# fuzzing level, set this to 0 to disable fuzzing on rescheduling
 RESCH_FUZZING_IVL = 3
 
 # USER CONFIGURATION END
-
 
 #Anki uses a single digit to track which button has been clicked.
 #We will use 6 and above to track the extra buttons.
@@ -69,11 +73,69 @@ INTERCEPT_EASE_BASE = 6
 #Must be four or less
 assert len(extra_buttons) <= 4
 
+
+### Tooltips
+
+_tooltipTimer = None
+_tooltipLabel = None
+
+def custom_tooltip(msg, period=3000, color="#feffc4", textcolor="#000000",
+                   parent=None, x=None, y=None):
+    global _tooltipTimer, _tooltipLabel
+    class CustomLabel(QLabel):
+        def mousePressEvent(self, evt):
+            evt.accept()
+            self.hide()
+    closeTooltip()
+    aw = parent or mw.app.activeWindow() or mw
+    lab = CustomLabel("""\
+<table cellpadding=10>
+<tr>
+<td>%s</td>
+</tr>
+</table>""" % msg, aw)
+    lab.setFrameStyle(QFrame.Panel)
+    lab.setLineWidth(2)
+    lab.setWindowFlags(Qt.ToolTip)
+    p = QPalette()
+    p.setColor(QPalette.Window, QColor(color))
+    p.setColor(QPalette.WindowText, QColor(textcolor))
+    lab.setPalette(p)
+    if x == "center":
+        pt_x = (aw.width() - lab.width()) / 2
+    else:
+        pt_x = x or 0
+    if y == "center":
+        pt_y = (aw.height() - lab.height()) / 2
+    else:
+        pt_y = y or -100 + aw.height() 
+    lab.move(
+        aw.mapToGlobal(QPoint(pt_x, pt_y)))
+    lab.show()
+    _tooltipTimer = mw.progress.timer(
+        period, closeTooltip, False)
+    _tooltipLabel = lab
+
+def closeTooltip():
+    global _tooltipLabel, _tooltipTimer
+    if _tooltipLabel:
+        try:
+            _tooltipLabel.deleteLater()
+        except:
+            # already deleted as parent window closed
+            pass
+        _tooltipLabel = None
+    if _tooltipTimer:
+        _tooltipTimer.stop()
+        _tooltipTimer = None
+
+### Reviewer key handler
+
 def keyHandler(self, evt, _old):
     key = unicode(evt.text())
     state = self.state
     # disable space/return on answer screen:
-    if key == " " or (evt.key() in (Qt.Key_Return, Qt.Key_Enter) and state == "answer"):
+    if (key == " " or evt.key() in (Qt.Key_Return, Qt.Key_Enter)) and state == "answer":
         return
     # z as a standin for ctrl+z
     elif key == "z":
@@ -102,6 +164,9 @@ def keyHandler(self, evt, _old):
                 if key in btn["hotkeys"]:
                     return self._answerCard(idx + INTERCEPT_EASE_BASE)
         return _old(self, evt)
+
+
+### Answer button generation
 
 button_html = '''
 <td align=center>%s
@@ -147,6 +212,9 @@ def myAnswerButtons(self):
 <script>$(function () { $("#defease").focus(); });</script>"""
     return buf + script
 
+
+### Answering
+
 def myAnswerCard(self, actual_ease, _old):
     # More answer buttons start
     ease = actual_ease
@@ -166,12 +234,11 @@ def myAnswerCard(self, actual_ease, _old):
     except (KeyError, IndexError):
         pass
 
-    # Answer confirmation tooltip
+    # Answer confirmation color
     if actual_ease < INTERCEPT_EASE_BASE:
         answers = self._answerButtonList()
         answer = answers[ease-1][1]
-        if answer:
-            tooltip("<font color='{0}'>{1}</font>".format(colors[answer], answer))
+        color = colors[answer]
 
     ret = _old(self, ease)
 
@@ -182,13 +249,25 @@ def myAnswerCard(self, actual_ease, _old):
         low = int(round(easyivl * btn["factor"]))
         up = low + int(round(RESCH_FUZZING_IVL * btn["factor"] * 0.25))
         self.mw.col.sched.reschedCards([prev_card.id], low, up)
-        formatstr = u"<center><font color='{0}'>Rescheduled: <br>{1}–{2} days</font></center>"
-        tooltip(formatstr.format(btn["color"], low, up))
+        msg = u"<center>Rescheduled: <br>{0}–{1} days</center>".format(low, up)
+        color = btn["color"]
+        custom_tooltip(msg, period=1000, color=color, textcolor="#FFFFFF")
+
+    # Answer confirmation color
+    self.mw.toolbar.web.eval("""
+        document.body.style.background = "-webkit-gradient(linear, left top, left bottom, from(%s), to(#fff))";
+        setTimeout(function(){
+            document.body.style.background = "-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd))";
+        }, 1000);
+        """ % color)
     return ret
 
 
 def interface_refocus():
    mw.web.setFocus()
+
+
+### Hooks and patches
 
 Reviewer._generateButton = generateButton
 Reviewer._answerButtons = myAnswerButtons
