@@ -73,17 +73,19 @@ def applyCompletion(self):
         pfx = before[-1]
     elif before != after:
         pfx = before[-1] + after[0]
+    elif not before and not after:
+        return False
     else:
         pfx = before[0]
-    tidx = tags.index(pfx)
+    try:
+        tidx = tags.index(pfx)
+    except ValueError:
+        return False
     self.completer.setCompletionPrefix(pfx)
     completion = self.completer.currentCompletion()
     if not completion:
         return False
-    if completion not in tags:
-        tags[tidx] = completion + " "
-    else:
-        tags[tidx] = ""
+    tags[tidx] = completion + " "
     self.setText(" ".join(tags))
     newpos = len(" ".join(tags[:tidx+1]))
     self.setCursorPosition(newpos)
