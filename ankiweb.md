@@ -542,14 +542,16 @@ A number of enhancements meant to improve keyboard navigation in Anki's tag entr
 - adds *Return/Enter* as a hotkey to apply the first suggested tag
 - adds *Ctrl+Tab* as a hotkey to move through the list of suggestions
 - disables initial suggestion box popup when entering the field
+- allows using ↑/↓ to invoke the tag suggestion box
 
 **Changelog**
 
+2017-01-15 – Tags completed via *Enter* now follow the suggestion's capitalization; automatically append space to quick-completed tags
 2016-12-28 – Initial release
 
 **License**
 
-*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
 The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
 
