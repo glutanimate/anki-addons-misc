@@ -13,7 +13,7 @@ TODO: file a pull request to get these changes integrated into Anki
 CAVE: Overwrites a lot of default methods. Might lead to compatibility issues
 with other add-ons.
 
-Copyright: (c) Glutanimate 2016
+Copyright: (c) Glutanimate 2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 from aqt.qt import *

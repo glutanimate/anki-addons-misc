@@ -15,7 +15,7 @@ Combines the following add-ons...
 
 ...and applies a number of customizations specific to my workflow.
 
-Copyright: (c) Glutanimate 2016
+Copyright: (c) Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """ 
 
@@ -71,7 +71,6 @@ assert len(extra_buttons) <= 4
 
 def keyHandler(self, evt, _old):
     key = unicode(evt.text())
-    print key
     state = self.state
     # disable space/return on answer screen:
     if key == " " or (evt.key() in (Qt.Key_Return, Qt.Key_Enter) and state == "answer"):

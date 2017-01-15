@@ -13,7 +13,7 @@ are only applied if they differ from the defaults (Arial 12).
 Setting the attributes to Arial 12 on a card with non-default
 font attributes will reset it to the defaults.
 
-Copyright: (c) Glutanimate 2016
+Copyright: (c) Glutanimate 2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
  

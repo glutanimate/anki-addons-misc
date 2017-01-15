@@ -10,7 +10,7 @@ Various modifications to the tag editor:
 - go to next completion with Ctrl+Tab
 - show completer with Up/Down arrows
 
-Copyright: (c) Glutanimate 2016
+Copyright: (c) Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 

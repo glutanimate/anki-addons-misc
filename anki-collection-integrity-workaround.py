@@ -6,7 +6,7 @@ Anki Add-on: Collection Integrity Workaround
 Quick workaround designed to bridge the gap until I figure out
 why my collection keeps ending up with notes without cards.
 
-Copyright: (c) Glutanimate 2016
+Copyright: (c) Glutanimate 2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 import os

@@ -6,7 +6,7 @@ Anki Add-on: Overview Browser Shortcuts
 Specify hotkeys that allow you to go directly from the deck overview
 to a specific search in the card browser (e.g. cards added today)
 
-Copyright: (c) Glutanimate 2016
+Copyright: (c) Glutanimate 2016-2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 """
