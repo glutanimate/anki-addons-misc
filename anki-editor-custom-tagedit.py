@@ -42,12 +42,7 @@ def myKeyPressEvent(self, evt):
         selected = QCompleter.pathFromIndex(self.completer, popidx)
         if not selected:
             # only apply completion if no list item selected:
-            txt = self.text()
-            pos = self.cursorPosition()
-            pfx = txt[:pos]
-            self.completer.setCompletionPrefix(txt[:pos])
-            completion = self.completer.currentCompletion()
-            self.insert(completion[len(pfx):])
+            self.applyCompletion()
         self.hideCompleter()
         QWidget.keyPressEvent(self, evt)
         return
@@ -60,5 +55,40 @@ def myKeyPressEvent(self, evt):
         Qt.Key_Tab, Qt.Key_Backspace, Qt.Key_Delete):
         self.showCompleter()
 
+def applyCompletion(self):
+    txt = self.text()
+    pos = self.cursorPosition()
+    tags = txt.split()
+    after = txt[pos:].split()
+    before = txt[:pos].split()
+    try:
+        cur = txt[pos]
+        if cur == " ": # cur is at tag boundary
+            after = None
+    except IndexError:
+        pass
+    if not before and after:
+        pfx = after[0]
+    elif not after and before:
+        pfx = before[-1]
+    elif before != after:
+        pfx = before[-1] + after[0]
+    else:
+        pfx = before[0]
+    tidx = tags.index(pfx)
+    self.completer.setCompletionPrefix(pfx)
+    completion = self.completer.currentCompletion()
+    if not completion:
+        return False
+    if completion not in tags:
+        tags[tidx] = completion + " "
+    else:
+        tags[tidx] = ""
+    self.setText(" ".join(tags))
+    newpos = len(" ".join(tags[:tidx+1]))
+    self.setCursorPosition(newpos)
+    return True
+
+TagEdit.applyCompletion = applyCompletion
 TagEdit.focusInEvent = myFocusInEvent
 TagEdit.keyPressEvent = myKeyPressEvent
