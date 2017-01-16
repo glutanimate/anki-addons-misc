@@ -260,8 +260,9 @@ def myAnswerCard(self, actual_ease, _old):
         custom_tooltip(msg, period=1000, color=color, textcolor="#FFFFFF")
 
     self.bottom.web.eval("""
+        if (document.flashTimer !== null){clearTimeout(document.flashTimer);}
         document.body.style.background = "-webkit-gradient(linear, left top, left bottom, from(#fff), to(%s))";
-        setTimeout(function(){
+        document.flashTimer = setTimeout(function(){
             document.body.style.background = "-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd))";
         }, 1000);
         """ % color)
