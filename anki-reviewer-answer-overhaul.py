@@ -239,6 +239,7 @@ def myAnswerCard(self, actual_ease, _old):
         answers = self._answerButtonList()
         answer = answers[ease-1][1]
         color = colors[answer]
+        msg = answer
 
     ret = _old(self, ease)
 
@@ -254,6 +255,10 @@ def myAnswerCard(self, actual_ease, _old):
         custom_tooltip(msg, period=1000, color=color, textcolor="#FFFFFF")
 
     # Answer confirmation color
+
+    if not self.card: # cards finished, back on overview screen
+        custom_tooltip(msg, period=1000, color=color, textcolor="#FFFFFF")
+
     self.bottom.web.eval("""
         document.body.style.background = "-webkit-gradient(linear, left top, left bottom, from(#fff), to(%s))";
         setTimeout(function(){
