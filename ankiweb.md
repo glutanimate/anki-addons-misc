@@ -6,7 +6,7 @@
     - [anki-browser-search-hotkeys.py](#anki-browser-search-hotkeyspy)
     - [anki-browser-search-modifiers.py](#anki-browser-search-modifierspy)
     - [anki-browser-create-duplicate.py](#anki-browser-create-duplicatepy)
-    - [anki-browser-lookup.py](#anki-browser-lookuppy)
+    - [anki-web-contextsearch.py](#anki-web-contextsearchpy)
     - [anki-editor-field-navigation.py](#anki-editor-field-navigationpy)
     - [anki-editor-tag-hotkeys.py](#anki-editor-tag-hotkeyspy)
     - [anki-editor-autocomplete-whitelist.py](#anki-editor-autocomplete-whitelistpy)
@@ -145,23 +145,28 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
-### anki-browser-lookup.py
+### anki-web-contextsearch.py
 
-**Search browser for selected words**
+**Context Menu Search**
 
-A simple Anki add-on that adds a context-menu entry to search the card browser for selected words.
+A simple Anki add-on that adds context-menu entries to search the card browser and various online search providers for selected words. The entries will appear both in the Reviewer and Card Editor. This add-on was formerly known as "Search Browser for Selected Words".
 
-**Changes**
+**Search Providers**
 
-2016-04-19 - double-quote phrases when searching
+Currently supported are Google, Google Images, and Wikipedia. You can add new providers by editing the source code and modifying the *SEARCH_PROVIDERS* list. Just make sure to follow the syntax of the other entries.
+
+**Changelog**
+
+2017-01-17 – Rewrote add-on, added support for online search providers
+2016-04-19 – double-quote phrases when searching
 
 **License**
 
-*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Based on ['OSX Dictionary Lookup'](https://gist.github.com/eddie/ff3d820fb267ae26ca0e) by Eddie Blundell.
+Based on 'OSX Dictionary Lookup' by Eddie Blundell and 'Search Google Images' by Steve AW.
 
-The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+The code for this add-on is hosted in my [misc add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
