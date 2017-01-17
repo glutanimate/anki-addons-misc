@@ -35,8 +35,8 @@ def onUpdateStats(self, card, type, cnt=1):
 def myFillDyn(self, deck, _old):
     """Fill filtered deck using custom filter"""
     search, limit, order = deck['terms'][0]
-    if search == "is:today":
-        ids = self.dynToday(order)
+    if "is:today" in search:
+        ids = self.dynToday(search, order=order)
         # move the cards over
         self.col.log(deck['id'], ids)
         self._moveToDyn(deck['id'], ids)
@@ -44,10 +44,31 @@ def myFillDyn(self, deck, _old):
     else:  
         return _old(self, deck)
 
-
-def dynToday(self, order=False):
+def dynToday(self, search, order=False):
     """Find all cards that are scheduled for today"""
-    dids = self.col.decks.allIds()
+    tokens = search.split()
+    dids = [int(i) for i in self.col.decks.allIds()]
+    idids = []
+    sdids = []
+    for t in tokens:
+        # set decks according to search phrase
+        if t.startswith("-deck:"):
+            l = idids
+        elif t.startswith("deck:"):
+            l = sdids
+        else:
+            continue
+        name = ":".join(t.split(":")[1:]).replace('"', '').replace("'", "")
+        deck = self.col.decks.byName(name)
+        if not deck:
+            continue
+        did = deck["id"]
+        if did not in l:
+            l += [did] + [a[1] for a in self.col.decks.children(did)]
+    if sdids:
+        dids = sdids
+    if idids:
+        dids = [did for did in dids if did not in idids]
     ids = []
     for did in dids:
         newlim = self._deckNewLimit(did)
