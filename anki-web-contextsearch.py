@@ -23,7 +23,7 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 # '%s' will be replaced with the search term
 SEARCH_PROVIDERS = [
     ("&Google", u"https://www.google.com/search?&q=%s"),
-    ("Google &Images", u"https://www.google.de/search?&tbm=isch&q=%s"),
+    ("Google &Images", u"https://www.google.com/search?&tbm=isch&q=%s"),
     ("&Wikipedia (en)", u"https://en.wikipedia.org/w/index.php?search=%s"),
     ("Wikipedia (&de)", u"https://de.wikipedia.org/w/index.php?search=%s")
 ]
