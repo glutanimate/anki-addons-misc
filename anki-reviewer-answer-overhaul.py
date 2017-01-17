@@ -195,7 +195,11 @@ def myAnswerButtons(self):
     if self.card.type in (0, 1, 3): # New, Learn, Day learning
         #Check that the number of answer buttons is as expected.
         assert self.mw.col.sched.answerButtons(self.card) == 3
-        easyivl = self.mw.col.decks.confForDid(self.card.did)['new']['ints'][1]
+        if self.card.odid:
+            did = self.card.odid
+        else:
+            did = self.card.did
+        easyivl = self.mw.col.decks.confForDid(did)['new']['ints'][1]
         showdue = self.mw.col.conf['estTimes']
         for idx, btn in enumerate(extra_buttons):
             low = int(round(easyivl * btn["factor"]))
@@ -246,7 +250,11 @@ def myAnswerCard(self, actual_ease, _old):
     # More answer buttons:
     if is_extra_button:
         btn = extra_buttons[actual_ease - INTERCEPT_EASE_BASE]
-        easyivl = self.mw.col.decks.confForDid(prev_card.did)['new']['ints'][1]
+        if self.card.odid:
+            did = self.card.odid
+        else:
+            did = self.card.did
+        easyivl = self.mw.col.decks.confForDid(did)['new']['ints'][1]
         low = int(round(easyivl * btn["factor"]))
         up = low + int(round(RESCH_FUZZING_IVL * btn["factor"] * 0.25))
         self.mw.col.sched.reschedCards([prev_card.id], low, up)
