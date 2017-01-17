@@ -259,13 +259,10 @@ def myAnswerCard(self, actual_ease, _old):
         up = low + int(round(RESCH_FUZZING_IVL * btn["factor"] * 0.25))
         self.mw.col.sched.reschedCards([prev_card.id], low, up)
         msg = u"<center>Rescheduled: <br>{0}–{1} days</center>".format(low, up)
-        color = btn["color"]
-        custom_tooltip(msg, period=1000, color=color, textcolor="#FFFFFF")
+        color = btn["color"]    
 
     # Answer confirmation color
-
-    if not self.card: # cards finished, back on overview screen
-        custom_tooltip(msg, period=1000, color=color, textcolor="#FFFFFF")
+    custom_tooltip(msg, period=1000, color=color, textcolor="#FFFFFF")
 
     self.bottom.web.eval("""
         if (document.flashTimer !== null){clearTimeout(document.flashTimer);}
