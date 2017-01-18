@@ -22,8 +22,9 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 # list of tuples of search provider names and urls.
 # '%s' will be replaced with the search term
 SEARCH_PROVIDERS = [
-    ("&Google", u"https://www.google.com/search?&q=%s"),
-    ("Google &Images", u"https://www.google.com/search?&tbm=isch&q=%s"),
+    ("&Google (en)", u"https://www.google.com/search?q=%s"),
+    ("G&oogle (de)", u"https://www.google.de/search?q=%s"),
+    ("Google &Images", u"https://www.google.com/search?tbm=isch&q=%s"),
     ("&Wikipedia (en)", u"https://en.wikipedia.org/w/index.php?search=%s"),
     ("Wikipedia (&de)", u"https://de.wikipedia.org/w/index.php?search=%s")
 ]
@@ -53,11 +54,11 @@ def add_lookup_action(view, menu):
     if not selected:
         return
     suffix = (selected[:20] + '..') if len(selected) > 20 else selected
-    label = u'Search for "%s" in the &Browser' % suffix
+    label = u'Search for "%s" in Anki &Browser' % suffix
     action = menu.addAction(label)
     action.connect(action, SIGNAL('triggered()'),
         lambda t=selected: lookup_browser(t))
-    search_menu = menu.addMenu(u'&Search for "%s" with...' % suffix)
+    search_menu = menu.addMenu(u'&Search for "%s" in web browser...' % suffix)
     for idx, provider in enumerate(SEARCH_PROVIDERS):
         a = search_menu.addAction(provider[0])
         a.connect(a, SIGNAL('triggered()'), 
