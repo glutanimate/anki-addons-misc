@@ -5,6 +5,7 @@ This repository contains most of the add-ons I've written for Anki over the year
 Make sure to also check out my other Anki-related projects:
 
 - [Image Occlusion Enhanced](https://github.com/Glutanimate/image-occlusion-enhanced)
+- [Review Heatmap](https://github.com/Glutanimate/review-heatmap)
 - [Anki Remote](https://github.com/Glutanimate/unified-remote-anki)
 - [My fork](https://github.com/Glutanimate/anki-addons-misc1) of [steveaw/anki_addons](https://github.com/steveaw/anki_addons)
 
