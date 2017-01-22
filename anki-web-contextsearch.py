@@ -53,13 +53,22 @@ def add_lookup_action(view, menu):
     if not selected:
         return
     suffix = (selected[:20] + '..') if len(selected) > 20 else selected
-    label = u'Search for "%s" in the &Browser' % suffix
+    label = u'Search for "%s" in Card &Browser' % suffix
     action = menu.addAction(label)
     action.connect(action, SIGNAL('triggered()'),
         lambda t=selected: lookup_browser(t))
-    search_menu = menu.addMenu(u'&Search for "%s" with...' % suffix)
+
+    search_menu = None
+    if len(SEARCH_PROVIDERS) > 10:  
+        search_menu = menu.addMenu(u'&Search for "%s" with...' % suffix)
+
     for idx, provider in enumerate(SEARCH_PROVIDERS):
-        a = search_menu.addAction(provider[0])
+        if search_menu:
+            label = provider[0]
+            menu = search_menu
+        else:
+            label = u'Search for "%s" on %s' % (suffix, provider[0])
+        a = menu.addAction(label)
         a.connect(a, SIGNAL('triggered()'), 
             lambda i=idx,t=selected: lookup_online(t, i))
 
