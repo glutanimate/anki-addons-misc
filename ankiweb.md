@@ -20,7 +20,7 @@
     - [anki-browser-batch-edit.py](#anki-browser-batch-editpy)
     - [anki-reviewer-card-stats.py](#anki-reviewer-card-statspy)
     - [anki-editor-custom-tagedit.py](#anki-editor-custom-tageditpy)
-    - [anki-overview-heatmap.py](#anki-overview-heatmappy)
+- [anki-overview-refreshmedia.py](#anki-overview-refreshmediapy)
 - [Yet to be published](#yet-to-be-published)
 - [The rest](#the-rest)
 
@@ -157,6 +157,7 @@ Currently supported are Google, Google Images, and Wikipedia. You can add new pr
 
 **Changelog**
 
+2016-01-26 – Only create a submenu when needed
 2017-01-17 – Rewrote add-on, added support for online search providers
 2016-04-19 – double-quote phrases when searching
 
@@ -562,76 +563,32 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
-### anki-overview-heatmap.py
 
-**Review Heatmap**
+## anki-overview-refreshmedia.py
 
-Adds a **heatmap graph** to Anki's main window which visualizes past and future card review activity, similar to the contribution view on GitHub. Information on the **current streak** is displayed alongside the heatmap. Clicking on an item shows the cards reviewed on that day.
+**Refresh Media References**
 
-![heatmap of past reviews](https://github.com/Glutanimate/anki-addons-misc/blob/master/screenshots/_anki-overview-heatmap-1.png)
+Adds an entry in the Tools menu that clears the webview cache (hotkey: Ctrl+Alt+M). This will effectively refresh all media files used by your cards and templates, allowing you to display changes to external files without having to restart Anki.
 
-![heatmap of pending reviews](https://github.com/Glutanimate/anki-addons-misc/blob/master/screenshots/_anki-overview-heatmap-2.png)
+The add-on will also update the modification time of your media collection which will force an upload of any updated files on the next synchronization with AnkiWeb.
 
-**Video demonstration**
-
-[![YouTube: Anki add-on demo: Batch Note Editing](https://i.ytimg.com/vi/3Hk5TYdvKnM/mqdefault.jpg)](https://youtu.be/3Hk5TYdvKnM)
-
-(Make sure to enable closed-captions for comments on the demonstrated features)
-
-**Features**
-
-- Color-coded overview of past and future review activity: Hues of green for past reviews, shades of grey for pending reviews
-- Tooltips provide additional information on each day
-- Ability to navigate between different years
-- Clicking on a day will draw up the cards seen on that day in the browser. In case of a future date all cards that are due on that day will be shown instead
-- Going to the overview page of a specific deck will show deck-specific information
-- The heatmap is updated in real-time as you review more cards
-
-**Configuration**
-
-The add-on will map your entire review history and calculate all available review forecasts by default. With larger collections and slower machines this can have a performance toll.
-
-If you are experiencing slow-downs you can limit the number of days calculated by the add-on. These are controlled by the *HEATMAP_HISTORY_LIMIT* and *HEATMAP_FORECAST_LIMIT* variables in the source code. More information on how to modify these variables is provided in the header section of the add-on.
-
-**Other notes**
-
-The browser might not draw up any results when clicking on a day sometimes. This is because the review log also contains entries on cards that might have been deleted in the meantime.
-
-In order to show the cards reviewed on a specific day the add-on adds a new search filter to Anki. This filter can also be used outside of the add-on, e.g. in regular browser searches, and is called in the following way: "seen:days_ago" (e.g. "seen:365").
-
-**Bug Reports and Suggestions**
-
-**I can't reply to your comments on this page**. If you are experiencing an issue and would like me to help, please use the [official support thread](https://anki.tenderapp.com/discussions/add-ons/8707-review-heatmap-official-thread) on Anki's forums (no registration required).
+Note: Might lead to increased memory consumption if used excessively
 
 **Changelog**
 
-- 2017-01-02 – Future review counts will appear positive as well now (thanks to David on GitHub!)
-- 2017-01-02 – The add-on should now be compatible with "More Overview Stats"
-- 2017-01-01 – Switched from an absolute color scale to one that's relative to the average daily review count (inspired by the comment below). Fixed a bug with the calendar controls. Improved streak calculation.
-- 2016-12-31 – Initial release
+2017-01-29 – Initial release
 
-**Credits and License**
+**License**
 
-*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Inspired by GitHub's contribution calendar and *Forecast graph on Overview page* by Steve AW.
-
-Ships with the following javascript libraries:
-
-- d3.js (v3.5.17), (c) Mike Bostock, BSD license
-- cal-heatmap (v3.6.2), (c) Wan Qi Chen, MIT license
-
-The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
+The code for this add-on is hostedu [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 -------------------------------
 
 ## Yet to be published
-
-- **anki-add-reverse-toggle**: adds a user-defined key-binding that toggles the 'reverse' field in optionally reversible note types (default: Alt+Shift+B)
- 
-    This one is locale-dependent, so make sure to edit the source file with the name of the 'reverse' field in your note models
 
 - **anki-browser-more-hotkeys**: adds two additional hotkeys to the card browser, CTRL+R for rescheduling cards and CTRL+ALT+I for inverting the selection.
 
