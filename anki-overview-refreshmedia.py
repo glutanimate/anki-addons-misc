@@ -37,7 +37,7 @@ def refresh_media():
     os.remove(fpath)
     # reset Anki
     mw.reset()
-    tooltip("Media references updated")
+    tooltip("Media References Updated")
 
 # Set up menus and hooks
 refresh_media_action = QAction("Refresh &Media", mw)
