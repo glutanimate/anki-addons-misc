@@ -36,10 +36,9 @@ def newKeyHandler(self, evt, _old):
     """Show hint when the SHOW_HINT_KEY is pressed."""
     if evt.key() == SHOW_HINT_KEY:
         self._showHint("one")
-    if evt.key() == SHOW_ALL_HINTS_KEY:
+    elif evt.key() == SHOW_ALL_HINTS_KEY:
         self._showHint("all")
-    else:
-        return _old(self, evt)
+    return _old(self, evt)
 
 
 def _showHint(self, unhideMode):
