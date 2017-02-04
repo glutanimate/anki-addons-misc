@@ -34,11 +34,9 @@ from aqt.reviewer import Reviewer
 
 def newKeyHandler(self, evt, _old):
     """Show hint when the SHOW_HINT_KEY is pressed."""
-    if (self.state == "question"
-            and evt.key() == SHOW_HINT_KEY):
+    if evt.key() == SHOW_HINT_KEY:
         self._showHint("one")
-    elif (self.state == "question"
-            and evt.key() == SHOW_ALL_HINTS_KEY):
+    if evt.key() == SHOW_ALL_HINTS_KEY:
         self._showHint("all")
     else:
         return _old(self, evt)
