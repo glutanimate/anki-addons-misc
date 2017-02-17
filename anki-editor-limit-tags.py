@@ -32,6 +32,9 @@ def myUpdateTags(self):
     elif isinstance(self.parentWindow, Browser):
         cids = self.parentWindow.selectedCards()
         did = self.mw.col.db.scalar("select did from cards where id = ?", cids[0])
+    else:
+        # BrowserEditCurrent instance
+        did = self.parentWindow.browser.card.did
     parents = self.mw.col.decks.parents(did)
     if parents:
         # if subdeck use topmost parent deck
