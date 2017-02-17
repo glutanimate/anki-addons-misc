@@ -12,7 +12,7 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 from aqt.qt import *
 import aqt.editor
-from aqt.utils import saveGeom, restoreGeom, tooltip
+from aqt.utils import saveGeom, restoreGeom
 from anki.hooks import addHook, remHook, wrap
 from anki.utils import isMac
 
