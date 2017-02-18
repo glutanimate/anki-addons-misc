@@ -76,15 +76,14 @@ class BrowserEditCurrent(QDialog):
     def canClose(self):
         return True
 
-def onDeleteNotes(self, _old):
+def onDeleteNotes(self):
     """Close window before deleting notes"""
     nids = self.selectedNotes()
     if nids and self.externalNid in nids:
         self.editCurrent.close()
-    return _old(self)
 
 def onRowChanged(self, current, previous):
-    """Hide inbuilt editor for externally edited note"""
+    """Disable inbuilt editor for externally edited note"""
     nids = self.selectedNotes()
     if nids and nids[0] == self.externalNid:
         self.form.splitter.widget(1).setVisible(False)
@@ -118,4 +117,4 @@ addHook("browser.setupMenus", onSetupMenus)
 
 # Modify existing methods
 Browser.onRowChanged = wrap(Browser.onRowChanged, onRowChanged, "after")
-Browser.deleteNotes = wrap(Browser.deleteNotes, onDeleteNotes, "around")
+Browser.deleteNotes = wrap(Browser.deleteNotes, onDeleteNotes, "before")
