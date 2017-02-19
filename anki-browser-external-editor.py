@@ -69,7 +69,7 @@ class BrowserEditCurrent(QDialog):
         self.editor.saveNow()
         self.browser.externalNid = None
         self.browser.form.splitter.widget(1).setVisible(True)
-        self.browser.editor.setNote(self.browser.card.note())
+        self.browser.editor.setNote(self.browser.card.note(reload=True))
         saveGeom(self, "browsereditcurrent")
         aqt.dialogs.close("BrowserEditCurrent")
 
