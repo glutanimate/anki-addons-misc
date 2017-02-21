@@ -20,7 +20,8 @@
     - [anki-browser-batch-edit.py](#anki-browser-batch-editpy)
     - [anki-reviewer-card-stats.py](#anki-reviewer-card-statspy)
     - [anki-editor-custom-tagedit.py](#anki-editor-custom-tageditpy)
-- [anki-overview-refreshmedia.py](#anki-overview-refreshmediapy)
+    - [anki-overview-refreshmedia.py](#anki-overview-refreshmediapy)
+    - [anki-browser-external-editor.py](#anki-browser-external-editorpy)
 - [Yet to be published](#yet-to-be-published)
 - [The rest](#the-rest)
 
@@ -564,7 +565,7 @@ The code for this add-on is hosted in my [misc Anki add-ons repository](https://
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 
-## anki-overview-refreshmedia.py
+### anki-overview-refreshmedia.py
 
 **Refresh Media References**
 
@@ -582,7 +583,27 @@ Note: Might lead to increased memory consumption if used excessively
 
 *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
 
-The code for this add-on is hostedu [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+### anki-browser-external-editor.py
+
+**External Note Editor for the Browser**
+
+Extends the card browser with a shortcut and menu action that launches an external editor window for the current note (`CTRL`+`ALT`+`E`).
+
+Here's a quick video demonstration:
+
+[![YouTube: Anki add-on: External Note Editor for the Card Browser](https://i.ytimg.com/vi/dEL8204lOq4/mqdefault.jpg)](https://youtu.be/dEL8204lOq4)
+
+**Changelog**
+
+2017-01-29 – Initial release
+
+**License**
+
+*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
