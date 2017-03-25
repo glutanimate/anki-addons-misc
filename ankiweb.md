@@ -16,7 +16,6 @@
     - [anki-browser-create-filtered-deck.py](#anki-browser-create-filtered-deckpy)
     - [anki-overview-deck-switcher.py](#anki-overview-deck-switcherpy)
     - [anki-reviewer-puppy-reinforcement.py](#anki-reviewer-puppy-reinforcementpy)
-    - [anki-browser-advanced-preview.py](#anki-browser-advanced-previewpy)
     - [anki-browser-batch-edit.py](#anki-browser-batch-editpy)
     - [anki-reviewer-card-stats.py](#anki-reviewer-card-statspy)
     - [anki-editor-custom-tagedit.py](#anki-editor-custom-tageditpy)
@@ -302,6 +301,7 @@ You can edit the add-on's source code to modify the following:
 
 **Changelog**
 
+2017-03-11 – Ensure that the add-on can only be run in the Add Cards screen
 2016-12-13 – Fixed a rare bug that caused empty notes to appear
 2016-06-04 – Added history window to the add-on (invoked via Ctrl+Alt+H)
 2016-05-27 – Initial release
@@ -444,44 +444,6 @@ Based on "Show Cute Dogs" (https://ankiweb.net/shared/info/1125592690).
 
 Source code: https://github.com/Glutanimate/anki-addons-misc/blob/master/anki-reviewer-puppy-reinforcement.py
 
-### anki-browser-advanced-preview.py
-
-**Advanced Previewer**
-
-**Overview**
-
-Extends the card previewer with the following features:
-
-- Preview multiple cards at the same time
-- Option to show both the front and back of your cards (toggled via a button or the hotkey 'B')
-- Customizable preview content styling (by editing the source code)
-
-**Demo**
-
-Here's a quick demo video that showcases these features:
-
-[![YouTube: Anki add-on demo: Advanced  Previewer](https://i.ytimg.com/vi/yQ1fpGsPRMU/mqdefault.jpg)](https://youtu.be/yQ1fpGsPRMU)
-
-**Other Remarks**
-
-Rendering multiple notes at once can be taxing on the system, so please don't try invoking the preview window on too many notes. Otherwise Anki might stop responding and need to be restarted.
-
-**Changelog**
-
-2016-12-24 – Add tooltips and shortcuts that were introduced in Anki 2.0.37
-2016-12-09 – Add support for "Replay Buttons on Card" and "JS Booster" add-ons
-2016-12-04 – Initial release
-
-**License**
-
-*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
-
-The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
-
-Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
-
-This add-on was written [on commission](https://anki.tenderapp.com/discussions/add-ons/8504-100-for-add-on-developer).
-
 ### anki-browser-batch-edit.py
 
 **Batch Note Editing**
@@ -597,7 +559,7 @@ Here's a quick video demonstration:
 
 **Changelog**
 
-2017-01-29 – Initial release
+2017-02-21 – Initial release
 
 **License**
 
