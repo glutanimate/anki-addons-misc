@@ -583,7 +583,7 @@ In addition to this, the add-on also allows you to define a custom card maturity
 
 **Credits and License**
 
-All credit for the original True Retention add-on go to Strider. This modified version is based on a [post on the Anki support forums](https://anki.tenderapp.com/discussions/add-ons/8986-true-retention-how-to-change-value-of-mature-cards-extracted-from-21-to-90-days) by peter19220.
+All credit for the original True Retention add-on goes to Strider. This modified version is based on a [post on the Anki support forums](https://anki.tenderapp.com/discussions/add-ons/8986-true-retention-how-to-change-value-of-mature-cards-extracted-from-21-to-90-days) by peter19220.
 
 *Copyright 2016 Strider*
 
