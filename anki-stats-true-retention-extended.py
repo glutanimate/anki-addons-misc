@@ -82,7 +82,7 @@ def statList(self, lim, span):
     i.append("<tr class='trsct'><td colspan='2'>Total</center></td></tr>")
     _line_now(self, i, "True retention", ttemp)
     _line_now(self, i, "Passed reviews", ypassed+mpassed)
-    _line_now(self, i, "Flunked reviews", yflunked+yflunked)
+    _line_now(self, i, "Flunked reviews", yflunked+mflunked)
     _line_now(self, i, "New cards learned", learned)
     _line_now(self, i, "Cards relearned", relearned)
     return _lineTbl_now(self, i)
