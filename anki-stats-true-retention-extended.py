@@ -3,10 +3,10 @@
 """
 True Retention Add-on for Anki (extended)
 
-Based on True Retention by unknown author
+Based on True Retention by Strider (?)
 (https://ankiweb.net/shared/info/613684242)
 
-Copyright: (c) 2016 unknown author
+Copyright: (c) 2016 Strider (?)
            (c) 2017 Glutanimate (https://github.com/Glutanimate)
 
 License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.en.html
