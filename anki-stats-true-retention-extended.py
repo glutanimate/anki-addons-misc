@@ -20,14 +20,14 @@ MATURE_IVL = 21 # mature card interval in days
 
 import anki.stats
 
-from anki.utils import fmtTimeSpan, ids2str
+from anki.utils import fmtTimeSpan
 from anki.lang import _, ngettext
 
 
 # Types: 0 - new today; 1 - review; 2 - relearn; 3 - (cram?) [before the answer was pressed]
 # "Learning" corresponds to New|Relearn. "Review" corresponds to Young|Mature.
 # Ease: 1 - flunk button; 2 - second; 3 - third; 4 - fourth (easy) [which button was pressed]
-# Intervals: -60 <1m -600 10m etc; otherwise days (>=21 is mature)
+# Intervals: -60 <1m -600 10m etc; otherwise days
 def _line_now(self, i, a, b, bold=True):
     colon = _(":")
     if bold:
@@ -48,39 +48,39 @@ def statList(self, lim, span):
     sum(case when ivl > 0 and type == 0 then 1 else 0 end), /* learned */
     sum(case when ivl > 0 and type == 2 then 1 else 0 end) /* relearned */
     from revlog where id > ? """ % dict(i=MATURE_IVL) +lim, span)
-    yflunked = yflunked or 0
-    mflunked = mflunked or 0
-    ypassed = ypassed or 0
-    mpassed = mpassed or 0
-    learned = learned or 0
-    relearned = relearned or 0
-    try:
-        ytemp = "%0.1f%%" %(ypassed/float(ypassed+yflunked)*100)
-    except ZeroDivisionError:
-        ytemp = "N/A"
+    yflunked, mflunked = yflunked or 0, mflunked or 0
+    ypassed, mpassed = ypassed or 0, mpassed or 0
+    learned, relearned = learned or 0, relearned or 0
 
+    # True retention
+    # young
     try:
-        mtemp = "%0.1f%%" %(mpassed/float(mpassed+mflunked)*100)
+        yret = "%0.1f%%" %(ypassed/float(ypassed+yflunked)*100)
     except ZeroDivisionError:
-        mtemp = "N/A"
-
+        yret = "N/A"
+    # mature
     try:
-        ttemp = "%0.1f%%" %((ypassed+mpassed)/float(ypassed+mpassed+yflunked+mflunked)*100)
+        mret = "%0.1f%%" %(mpassed/float(mpassed+mflunked)*100)
     except ZeroDivisionError:
-        ttemp = "N/A"
+        mret = "N/A"
+    # total
+    try:
+        tret = "%0.1f%%" %((ypassed+mpassed)/float(ypassed+mpassed+yflunked+mflunked)*100)
+    except ZeroDivisionError:
+        tret = "N/A"
     
     i = []
     i.append("""<style>tr.trsct{height: 2.5em; text-align: center; font-style: italic;}</style>""")
     i.append("<tr class='trsct'><td colspan='2'>Young cards</center></td></tr>")
-    _line_now(self, i, "True retention", ytemp)
+    _line_now(self, i, "True retention", yret)
     _line_now(self, i, "Passed reviews", ypassed)
     _line_now(self, i, "Flunked reviews", yflunked)
-    i.append("<tr class='trsct'><td colspan='2'>Mature cards (ivl≥%d)</center></td></tr>" % MATURE_IVL)
-    _line_now(self, i, "True retention", mtemp)
+    i.append("<tr class='trsct'><td colspan='2'>Mature cards (ivl≥%d)</td></tr>" % MATURE_IVL)
+    _line_now(self, i, "True retention", mret)
     _line_now(self, i, "Passed reviews", mpassed)
     _line_now(self, i, "Flunked reviews", mflunked)
     i.append("<tr class='trsct'><td colspan='2'>Total</center></td></tr>")
-    _line_now(self, i, "True retention", ttemp)
+    _line_now(self, i, "True retention", tret)
     _line_now(self, i, "Passed reviews", ypassed+mpassed)
     _line_now(self, i, "Flunked reviews", yflunked+mflunked)
     _line_now(self, i, "New cards learned", learned)
