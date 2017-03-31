@@ -21,6 +21,7 @@
     - [anki-editor-custom-tagedit.py](#anki-editor-custom-tageditpy)
     - [anki-overview-refreshmedia.py](#anki-overview-refreshmediapy)
     - [anki-browser-external-editor.py](#anki-browser-external-editorpy)
+    - [anki-stats-true-retention-extended.py](#anki-stats-true-retention-extendedpy)
 - [Yet to be published](#yet-to-be-published)
 - [The rest](#the-rest)
 
@@ -568,6 +569,27 @@ Here's a quick video demonstration:
 The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+
+
+### anki-stats-true-retention-extended.py
+
+**True Retention by Card Maturity**
+
+This is a slightly modified version of the [True Retention add-on](https://ankiweb.net/shared/info/613684242) by Strider that breaks the retention statistics up by card maturity:
+
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/anki-stats-true-retention-extended.png)
+
+In addition to this, the add-on also allows you to define a custom card maturity threshold (`MATURE_IVL` at the top of the source code). This is set to 21 days by default.
+
+**Credits and License**
+
+All credit for the original True Retention add-on go to Strider. This modified version is based on a [post on the Anki support forums](https://anki.tenderapp.com/discussions/add-ons/8986-true-retention-how-to-change-value-of-mature-cards-extracted-from-21-to-90-days) by peter19220.
+
+*Copyright 2016 Strider*
+
+*Copyright 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+I wasn't able to find any licensing information for the original add-on, but since it reuses parts of Anki's code I think it's fair to assume that it's licensed under the same license as Anki itself (GNU GPLv3).
 
 -------------------------------
 
