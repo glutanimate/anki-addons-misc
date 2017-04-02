@@ -70,44 +70,45 @@ def statList(self, lim, span):
         tret = "N/A"
     
     i = []
-    i.append("""<style>tr.trsct{height: 2.5em; text-align: center; font-style: italic;}</style>""")
-    i.append("<tr class='trsct'><td colspan='2'>Young cards</center></td></tr>")
-    _line_now(self, i, "True retention", yret)
-    _line_now(self, i, "Passed reviews", ypassed)
-    _line_now(self, i, "Flunked reviews", yflunked)
-    i.append("<tr class='trsct'><td colspan='2'>Mature cards (ivl≥%d)</td></tr>" % MATURE_IVL)
-    _line_now(self, i, "True retention", mret)
-    _line_now(self, i, "Passed reviews", mpassed)
-    _line_now(self, i, "Flunked reviews", mflunked)
-    i.append("<tr class='trsct'><td colspan='2'>Total</center></td></tr>")
-    _line_now(self, i, "True retention", tret)
-    _line_now(self, i, "Passed reviews", ypassed+mpassed)
-    _line_now(self, i, "Flunked reviews", yflunked+mflunked)
-    _line_now(self, i, "New cards learned", learned)
-    _line_now(self, i, "Cards relearned", relearned)
+    i.append(u"""<style>tr.trsct>td{text-align: center; font-style: italic;
+            padding-top:1em;padding-bottom:0.5em}</style>""")
+    i.append(u"<tr class='trsct'><td colspan='2'>Young cards</center></td></tr>")
+    _line_now(self, i, u"True retention", yret)
+    _line_now(self, i, u"Passed reviews", ypassed)
+    _line_now(self, i, u"Flunked reviews", yflunked)
+    i.append(u"<tr class='trsct'><td colspan='2'>Mature cards (ivl≥%d)</td></tr>" % MATURE_IVL)
+    _line_now(self, i, u"True retention", mret)
+    _line_now(self, i, u"Passed reviews", mpassed)
+    _line_now(self, i, u"Flunked reviews", mflunked)
+    i.append(u"<tr class='trsct'><td colspan='2'>Total</center></td></tr>")
+    _line_now(self, i, u"True retention", tret)
+    _line_now(self, i, u"Passed reviews", ypassed+mpassed)
+    _line_now(self, i, u"Flunked reviews", yflunked+mflunked)
+    _line_now(self, i, u"New cards learned", learned)
+    _line_now(self, i, u"Cards relearned", relearned)
     return _lineTbl_now(self, i)
 
 def todayStats_new(self):
     lim = self._revlogLimit()
     if lim:
-        lim = " and " + lim
+        lim = u" and " + lim
     
     pastDay = statList(self, lim, (self.col.sched.dayCutoff-86400)*1000)
     pastWeek = statList(self, lim, (self.col.sched.dayCutoff-86400*7)*1000)
     
     if self.type == 0:
-        period = 31; name = "<strong>Past month:</strong>"
+        period = 31; name = u"<strong>Past month</strong>"
     elif self.type == 1:
-        period = 365; name = "<strong>Past year:</strong>"
+        period = 365; name = u"<strong>Past year</strong>"
     elif self.type == 2:
-        period = float('inf'); name = "<strong>All time:</strong>"
+        period = float('inf'); name = u"<strong>All time</strong>"
     
     pastPeriod = statList(self, lim, (self.col.sched.dayCutoff-86400*period)*1000)
     
-    return todayStats_old(self) + "<br><br><table style='text-align: center'><tr><td style='padding: 5px'>" \
-        + "<span><strong>Past day:</strong></span>" + pastDay + "</td><td style='padding: 5px'>" \
-        + "<span><strong>Past week:</strong></span>" + pastWeek + "</td><td style='padding: 5px'>" \
-        + "<span>" + name + "</span>" + pastPeriod + "</td></tr></table>"
+    return todayStats_old(self) + u"<br><br><table style='text-align: center'><tr><td style='padding: 5px'>" \
+        + u"<span><strong>Past day</strong></span>" + pastDay + u"</td><td style='padding: 5px'>" \
+        + u"<span><strong>Past week</strong></span>" + pastWeek + u"</td><td style='padding: 5px'>" \
+        + u"<span>" + name + u"</span>" + pastPeriod + u"</td></tr></table>"
 
 def todayStats_old(self):
     """We need to overwrite the entire method to change the mature ivl"""
