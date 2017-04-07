@@ -22,6 +22,8 @@
     - [anki-overview-refreshmedia.py](#anki-overview-refreshmediapy)
     - [anki-browser-external-editor.py](#anki-browser-external-editorpy)
     - [anki-stats-true-retention-extended.py](#anki-stats-true-retention-extendedpy)
+    - [anki-editor-sync-cursor-position.py](#anki-editor-sync-cursor-positionpy)
+    - [anki-sched-advanced-newcard-limits.py](#anki-sched-advanced-newcard-limitspy)
 - [Yet to be published](#yet-to-be-published)
 - [The rest](#the-rest)
 
@@ -590,6 +592,54 @@ All credit for the original True Retention add-on goes to Strider. This modified
 *Copyright 2017 [Glutanimate](https://github.com/Glutanimate)*
 
 I wasn't able to find any licensing information for the original add-on, but since it reuses parts of Anki's code I think it's fair to assume that it's licensed under the same license as Anki itself (GNU GPLv3).
+
+### anki-editor-sync-cursor-position.py
+
+**Sync Cursor Position Between Editor and HTML Window**
+
+Preserves the cursor position when switching back and forth between the note editor and HTML editing window (CTRL+SHIFT+X).
+
+**CREDITS AND LICENSE**
+
+*Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
+
+I'm always happy for new add-on commissions. If you have an idea for an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at glutanimate [αt] gmail . com.
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+### anki-sched-advanced-newcard-limits.py
+
+**Advanced New Cards Limits**
+
+Allows you to restrict the number of new cards for specific decks to less than one per day.
+
+**CONFIGURATION**
+
+Please edit the configuration section at the top of the source code to define the card limits. The syntax for setting up limits for a specific deck is as follows:
+
+    deck_limits = {
+        u"My deck name": 3
+    }
+
+where "3" corresponds to one new card every three days.
+
+These settings will only apply to decks that have their new card limit set to "1" within Anki, so please make sure to do so before using this add-on.
+
+**SUPPORTED PLATFORMS**
+
+Like all add-ons that modify scheduling this add-on will only work on the desktop releases.
+
+**CREDITS AND LICENSE**
+
+*Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
+
+I'm always happy for new add-on commissions. If you have an idea for an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at glutanimate [αt] gmail . com.
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 -------------------------------
 
