@@ -25,14 +25,16 @@ from aqt.qt import *
 from aqt.addcards import AddCards
 from aqt.utils import getText
 from aqt.tagedit import TagEdit
+
+from anki.utils import stripHTML
 from anki.hooks import addHook
 
-def myGetField(parent, question, lastValues, **kwargs):
+def myGetField(parent, question, last_val, **kwargs):
     te = TagEdit(parent, type=1)
     te.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
-    if lastValues is not None:
+    if last_val is not None:
         # set completion list manually
-        te.model.setStringList(lastValues)
+        te.model.setStringList(last_val)
     ret = getText(question, parent, edit=te, **kwargs)
     te.hideCompleter()
     return ret
@@ -40,24 +42,27 @@ def myGetField(parent, question, lastValues, **kwargs):
 def historyRestore(self, mode, sorted_res, model):
     n = self.currentField
     field = model['flds'][n]['name']
-    lastValues=[]
-    del sorted_res[30:] # limit to a maximum of last 30 results
-    for nid in sorted_res:
+    last_val = {}
+    for nid in sorted_res[:100]:
         oldNote = self.note.col.getNote(nid)
         if field in oldNote:
-            value = oldNote[field]
+            html = oldNote[field]
         else:
             try:
-                value = oldNote.fields[n]
+                html = oldNote.fields[n]
             except IndexError:
                 pass
-        if value.strip() and value not in lastValues:
-            lastValues.append(value)
+        if html.strip():
+            text = stripHTML(html)
+        else:
+            text = None
+        if text and text not in last_val:
+            last_val[text] = html
     guiTxt="Please select the value you would like to set the field to"
-    (val, r) = myGetField(self.widget, guiTxt, lastValues, title="Field history")
-    if not r or not val.strip():
+    (text, r) = myGetField(self.widget, guiTxt, last_val.keys(), title="Field history")
+    if not r or not text.strip():
         return False
-    self.note[field] = val
+    self.note[field] = last_val[text]
 
 def quickRestore(self, mode, sorted_res, model):
     # collect old data
