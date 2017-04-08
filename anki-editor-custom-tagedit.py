@@ -18,8 +18,9 @@ from aqt.qt import *
 from aqt.tagedit import TagEdit
 
 def myFocusInEvent(self, evt):
-    # don't show completer by default
     QLineEdit.focusInEvent(self, evt)
+    if self.type == 1: # only show completer for decks
+        self.showCompleter()
 
 def myKeyPressEvent(self, evt):
     if evt.key() in (Qt.Key_Up, Qt.Key_Down):
