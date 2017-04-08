@@ -10,7 +10,7 @@
     - [anki-editor-field-navigation.py](#anki-editor-field-navigationpy)
     - [anki-editor-tag-hotkeys.py](#anki-editor-tag-hotkeyspy)
     - [anki-editor-autocomplete-whitelist.py](#anki-editor-autocomplete-whitelistpy)
-    - [anki-editor-restore-fields.py](#anki-editor-restore-fieldspy)
+    - [anki-editor-field-history.py](#anki-editor-field-historypy)
     - [anki-browser-refresh.py](#anki-browser-refreshpy)
     - [anki-browser-replace-tag.py](#anki-browser-replace-tagpy)
     - [anki-browser-create-filtered-deck.py](#anki-browser-create-filtered-deckpy)
@@ -274,7 +274,7 @@ This version of the add-on also includes a hotkey that saves you the trouble of 
 All credit for the original add-on goes to Shawn M Moore ([@sartak](https://github.com/sartak/)).
 
 
-### anki-editor-restore-fields.py
+### anki-editor-field-history.py
 
 **Editor Field History**
 
@@ -287,7 +287,7 @@ This add-on enhances Anki's note editor with the following:
 
 Overview of all available hotkeys:
 
-*Ctrl + Alt + H* – Invoke history window
+*Ctrl + Alt + H* (Win/Linux) or *Ctrl + Alt + Shift + H* (macOS) – Invoke history window
 *Alt+Z* – Copy over current field from last note
 *Alt+Shift+Z* – Copy over a a number of user-defined fields (see below)
 *Ctrl+Alt+Shift+Z* – Copy over all fields
@@ -304,6 +304,7 @@ You can edit the add-on's source code to modify the following:
 
 **Changelog**
 
+2017-03-08 – Add full-text-search to history window, increase entries to 100, new hotkey on macOS
 2017-03-11 – Ensure that the add-on can only be run in the Add Cards screen
 2016-12-13 – Fixed a rare bug that caused empty notes to appear
 2016-06-04 – Added history window to the add-on (invoked via Ctrl+Alt+H)

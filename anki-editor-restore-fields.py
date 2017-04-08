@@ -26,9 +26,12 @@ from aqt.addcards import AddCards
 from aqt.utils import getText, tooltip
 from aqt.tagedit import TagEdit
 
-from anki.utils import stripHTML
+from anki.utils import stripHTML, isMac
 from anki.hooks import addHook
 
+# Ctrl+Alt+H is a global hotkey on macOS
+if isMac and history_window_shortcut == "Ctrl+Alt+H":
+    history_window_shortcut = "Ctrl+Alt+Shift+H"
 
 def showCompleter(self):
     text = self.text()
