@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """
-Anki Add-on: Restore Editor fields
+Anki Add-on: Editor Field History
 
-Looks for last created note in the same deck and copies over tags and
-values of user-specified fields
+Allows you to restore fields to their previous values.
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2016-2017
+License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.de.html
 
 """
 
@@ -17,24 +16,34 @@ history_window_shortcut = "Ctrl+Alt+H"
 field_restore_shortcut = "Alt+Z"
 partial_restore_shortcut = "Alt+Shift+Z"
 full_restore_shortcut = "Ctrl+Alt+Shift+Z"
-partial_restore_fields = ["Quellen"]
+partial_restore_fields = ["Quellen"] # fields to restore with the partial_restore_shortcut
 
 #==============USER CONFIGURATION END===============
 
 from aqt.qt import *
+
 from aqt.addcards import AddCards
-from aqt.utils import getText
+from aqt.utils import getText, tooltip
 from aqt.tagedit import TagEdit
 
 from anki.utils import stripHTML
 from anki.hooks import addHook
 
+
+def showCompleter(self):
+    text = self.text()
+    if not text:
+        filtered = self.strings
+    else:
+        filtered = [i for i in self.strings if text.lower() in i.lower()]
+    self.model.setStringList(filtered)
+    self.completer.complete()
+
 def myGetField(parent, question, last_val, **kwargs):
     te = TagEdit(parent, type=1)
     te.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
-    if last_val is not None:
-        # set completion list manually
-        te.model.setStringList(last_val)
+    te.strings = last_val
+    te.showCompleter = lambda te=te: showCompleter(te)
     ret = getText(question, parent, edit=te, **kwargs)
     te.hideCompleter()
     return ret
@@ -58,9 +67,13 @@ def historyRestore(self, mode, sorted_res, model):
             text = None
         if text and text not in last_val:
             last_val[text] = html
-    guiTxt="Please select the value you would like to set the field to"
-    (text, r) = myGetField(self.widget, guiTxt, last_val.keys(), title="Field history")
-    if not r or not text.strip():
+    if not last_val:
+        tooltip("No prior entries for this field found.")
+        return False
+    txt = "Set field to:"
+    (text, ret) = myGetField(self.parentWindow, 
+            txt, last_val.keys(), title="Field History")
+    if not ret or not text.strip() or text not in last_val:
         return False
     self.note[field] = last_val[text]
 
@@ -94,50 +107,40 @@ def quickRestore(self, mode, sorted_res, model):
     else:
         return False
 
-def restoreEditorFields(self, mode, history=False):
+def restoreEditorFields(self, mode):
     # perform search
     did = self.parentWindow.deckChooser.selectedId()
     deck = self.mw.col.decks.nameOrNone(did)
     model = self.note.model()
     if deck:
-          query = "deck:'%s'" % ( deck )
+          query = "deck:'%s'" % (deck)
           res = self.note.col.findNotes(query)
     if not res:
         return False
     sorted_res = sorted(res, reverse=True)
-    if history:
+    if mode == "history":
         res = historyRestore(self, mode, sorted_res, model)
     else:
         res = quickRestore(self, mode, sorted_res, model)
     if res == False:
         return False
     # apply changes
-    if mode in ["partial", "full"]:
-        # save current field
-        self.web.eval("""
-            if (currentField) {
-              saveField("key");
-            }
-        """)
     self.loadNote()
-
+    self.web.setFocus()
+    self.web.eval("focusField(%d);" % self.currentField)
+    self.web.eval('saveField("key");')
 
 # assign hotkeys
 def onSetupButtons(self):
     if not isinstance(self.parentWindow, AddCards):
-        # only enable in add cards dialog
-        return
+        return # only enable in add cards dialog
     t = QShortcut(QKeySequence(full_restore_shortcut), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda a=self: restoreEditorFields(a, "full"))
+    t.activated.connect(lambda a=self: restoreEditorFields(a, "full"))
     t = QShortcut(QKeySequence(partial_restore_shortcut), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda a=self: restoreEditorFields(a, "partial"))
+    t.activated.connect(lambda a=self: restoreEditorFields(a, "partial"))
     t = QShortcut(QKeySequence(field_restore_shortcut), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda a=self: restoreEditorFields(a, "field"))
+    t.activated.connect(lambda a=self: restoreEditorFields(a, "field"))
     t = QShortcut(QKeySequence(history_window_shortcut), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda a=self: restoreEditorFields(a, "field", history=True))
+    t.activated.connect(lambda a=self: restoreEditorFields(a, "history"))
 
 addHook("setupEditorButtons", onSetupButtons)
