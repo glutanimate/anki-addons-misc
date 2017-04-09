@@ -9,11 +9,13 @@ Copyright: (c) Glutanimate 2017
 License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
+import re
+from BeautifulSoup import BeautifulSoup
+
 import aqt
 from aqt.qt import *
 from aqt import editor
 
-from BeautifulSoup import BeautifulSoup
 from aqt.utils import openHelp
 
 # remove second caretToEnd call to support custom cursor positioning:
@@ -124,14 +126,16 @@ def myHtmlEdit(self):
         currentField.innerHTML = currentField.innerHTML.replace("|-|c|-|", "")
         saveField("key");
         """)
-    new = html.replace("|-|c|-|", "")
     pos = len(html.split("|-|c|-|")[0])
-    
+
+    txt = html.replace("|-|c|-|", "")
+    txt = re.sub(r"(</(div|p|br|blockquote)>)([^\n])", r"\1\n\3", txt)
+
     d = QDialog(self.widget)
     form = aqt.forms.edithtml.Ui_Dialog()
     form.setupUi(d)
     form.buttonBox.helpRequested.connect(lambda: openHelp("editor"))
-    form.textEdit.setPlainText(new)
+    form.textEdit.setPlainText(txt)
     cursor = form.textEdit.textCursor()
     cursor.setPosition(pos)
     form.textEdit.setTextCursor(cursor)
