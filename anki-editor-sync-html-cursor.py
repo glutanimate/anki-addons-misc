@@ -116,12 +116,13 @@ def myHtmlEdit(self):
         // need to collapse selection to prevent losing selected text:
         window.getSelection().collapseToStart();
         // use placeholder to mark current cursor position
-        setFormat("insertText", "|-|c|-|");
+        document.execCommand("insertText", false, "|-|c|-|");
         function retHtml(){return currentField.innerHTML};
         retHtml();
         """)
     self.web.eval("""
         currentField.innerHTML = currentField.innerHTML.replace("|-|c|-|", "")
+        saveField("key");
         """)
     new = html.replace("|-|c|-|", "")
     pos = len(html.split("|-|c|-|")[0])
