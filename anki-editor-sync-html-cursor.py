@@ -138,7 +138,7 @@ def myHtmlEdit(self):
 
     # Get html cursor position
     curpos = form.textEdit.textCursor().position()
-    html = form.textEdit.toPlainText().replace("\n", "")
+    html = form.textEdit.toPlainText()
     before, after = html[:curpos], html[curpos:]
 
     # Move cursor out of tag
