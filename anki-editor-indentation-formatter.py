@@ -12,11 +12,14 @@ License: GNU AGPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 # USER CONFIGURATION START
 
+# hotkeys
+HOTKEY_INDENT = "Alt+L"
+HOTKEY_OUTDENT = "Alt+J"
+
 # indentation steps in px (default: 40)
 INDENTATION_STEP = 40
 
 # USER CONFIGURATION END
-
 
 from aqt.editor import Editor
 from anki.hooks import wrap
@@ -28,6 +31,7 @@ def onIndent(self, mode):
             var parent = window.getSelection().focusNode.parentNode;
             var isPE = elm.toString() == "[object HTMLParagraphElement]"
             var isParPE = parent.toString() == "[object HTMLParagraphElement]"
+            var newNode = false
 
             if (mode == "in" && !isPE && !isParPE){
                 document.execCommand("formatBlock", false, "p");
@@ -35,21 +39,30 @@ def onIndent(self, mode):
                 if (elm.toString() !== "[object HTMLParagraphElement]") {
                     elm = elm.parentNode;
                 }
-                var margin = %(step)i
+                var marginL = %(step)i
+                var newNode = true
             } else if (isPE || isParPE) {
                 if (isParPE) {
                     elm = parent;
                 }
                 mleft = parseInt(elm.style.marginLeft)
+                if (isNaN(mleft)){
+                    mleft = 0;
+                }
                 if (mode == "in"){
-                    var margin = mleft + %(step)i
+                    var marginL = mleft + %(step)i
                 } else {
-                    var margin = Math.max(mleft-%(step)i, 0)
+                    var marginL = Math.max(mleft-%(step)i, 0)
                 }
             } else {
                 return
             }
-            elm.setAttribute("style", "margin: 0; margin-left:" + margin + "px;");
+
+            if (newNode) {
+                elm.style.margin = "0px";
+            }
+            elm.style.marginLeft = marginL + "px";
+            
         }
         indent("%(mode)s");
         saveField('key');
@@ -58,9 +71,11 @@ def onIndent(self, mode):
 
 def setupButtons(self):
     self._addButton("OutdentBtn", lambda: self.onIndent("out"),
-        text=u"←", tip="Outdent (Alt+J)", key="Alt+J")
+        text=u"←", tip="Outdent ({})".format(HOTKEY_OUTDENT),
+        key=HOTKEY_OUTDENT)
     self._addButton("IndentBtn", lambda: self.onIndent("in"),
-        text=u"→", tip="Indent (Alt+L)", key="Alt+L")
+        text=u"→", tip="Indent ({})".format(HOTKEY_INDENT),
+        key=HOTKEY_INDENT)
          
 Editor.onIndent = onIndent
 Editor.setupButtons = wrap(Editor.setupButtons, setupButtons)
