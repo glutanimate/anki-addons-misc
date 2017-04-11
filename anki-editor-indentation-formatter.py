@@ -7,7 +7,7 @@ Extends Anki's note editing toolbar with an "indent" and "outdent" button
 that insert indented paragraphs.
 
 Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+License: GNU AGPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """ 
 
 # USER CONFIGURATION START
