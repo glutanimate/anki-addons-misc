@@ -205,56 +205,49 @@ Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 **Editor Tag Hotkeys Add-on for Anki**
 
-This is a very simple add-on for [Anki](http://ankisrs.net/) that adds a few hotkey toggles for user-defined tags. It also includes a hotkey that clears the tags field (<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> by default)
+This is a very simple add-on that allows you to define hotkeys that toggle specific tags in the note editor. It also includes a hotkey that clears the tags field (<code>Alt</code> + <code>Shift</code> + <code>R</code>)
 
-**Usage**
+**USAGE**
 
 *Adding a tag hotkey*
 
-Edit `anki-editor-tag.hotkeys.py` and modify the `onSetupButtons` function with your custom hotkeys and tags. For instance, to add a toggle for the tag *important* and assign it to <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> you would replace the following block:
+Edit `anki-editor-tag.hotkeys.py` and modify the `tags` dictionary with your custom hotkey assignments, e.g.:
 
-```python
-s = QShortcut(QKeySequence(Qt.CTRL + Qt.SHIFT + Qt.Key_1), editor.parentWindow)
-s.connect(s, SIGNAL("activated()"),
-          lambda : toggleTag(editor, "toggled-tag1"))
-```
+    tags = {
+        "Alt+Shift+1": u"Anatomy",
+        "Alt+Shift+2": u"Physiology"
+    }
 
-with:
+Supported keyboard modifiers: `Alt`, `Shift`, `Ctrl`, `Meta` (on Mac: `Meta` ≙ Control, `Ctrl` ≙ Cmd)
 
-```python
-s = QShortcut(QKeySequence(Qt.CTRL + Qt.SHIFT + Qt.Key_I), editor.parentWindow)
-s.connect(s, SIGNAL("activated()"),
-          lambda : toggleTag(editor, "important"))
-```
-
-You can add as many toggles as you want by placing additional blocks of this type under the `def onSetupButtons(editor):` line. Make sure to preserve the indenting!
-
-For a list of all possible key assignments check here:
-
-- [keys](http://ftp.ics.uci.edu/pub/centos0/ics-custom-build/BUILD/PyQt-x11-gpl-4.7.2/doc/html/qt.html#Key-enum)
-- [modifiers](http://ftp.ics.uci.edu/pub/centos0/ics-custom-build/BUILD/PyQt-x11-gpl-4.7.2/doc/html/qt.html#Modifier-enum)
+The exact syntax is explained in the comments next to the dictionary.
 
 *Defining a unique tag*
 
-Sometimes you might want to quickly toggle between several different tags. For this purpose I've implemented a configuration option called uniqueTags. Any items added to this list will cause their respective hotkeys to delete all other instances of unique tags aside from the one currently being triggered. 
+Sometimes you might want to quickly toggle between several different tags. For this purpose I've implemented a configuration option called unique_tags. Any items added to this list will cause their respective hotkeys to delete all other instances of unique tags aside from the one currently being triggered. 
 
-For instance, if you set up hotkeys for "subject-a" and "subject-b" and add these tags to `uniqueTags`, hitting the hotkey for "subject-a" will delete "subject-b" from the tags list and vice-versa.
+For instance, if you set up hotkeys for "tag1" and "tag2" and add these tags to `unique_tags`, hitting the hotkey for "tag1" will delete "tag2" from the tags list and vice-versa.
 
 To add a unique tag, simply update the following excerpt in the script:
 
-```python
-uniqueTags = [
-    "subject-a", "subject-b"
-]
-```
+    unique_tags = ["tag1", "tag2"]
 
 Please make sure to preserve the formatting and quoting while doing so!
 
-**License**
+**CHANGELOG**
 
-*Copyright 2015 [Glutanimate](https://github.com/Glutanimate)*
+2015-10-27 – Initial release
+2015-10-27 – Added a hotkey to clear the tags field
+2015-11-06 – Toggling tags also works in the card browser now
+2015-12-25 – Add support for unicode in toggled tags (thanks to aleksejrs)
+2016-02-18 – Add support for unique tags; Misc bug fixes and improvements
+2017-04-11 – Reworked add-on from the ground-up: much more intuitive key assignments, preparations for Anki 2.1
 
-Anki Editor Tag Hotkeys add-on for Anki is licensed under the [GNU GPLv3](http://www.gnu.de/documents/gpl-3.0.en.html).
+**CREDITS AND LICENSE**
+
+*Copyright © 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 
 ### anki-editor-autocomplete-whitelist.py
