@@ -122,14 +122,18 @@ def myHtmlEdit(self):
         function retHtml(){return currentField.innerHTML};
         retHtml();
         """)
-    self.web.eval("""
-        currentField.innerHTML = currentField.innerHTML.replace("|-|c|-|", "")
-        saveField("key");
-        """)
-    pos = len(html.split("|-|c|-|")[0])
+    if html:
+        self.web.eval("""
+            currentField.innerHTML = currentField.innerHTML.replace("|-|c|-|", "")
+            saveField("key");
+            """)
+        pos = len(html.split("|-|c|-|")[0])
 
-    txt = html.replace("|-|c|-|", "")
-    txt = re.sub(r"(</(div|p|br|blockquote)>)([^\n])", r"\1\n\3", txt)
+        txt = html.replace("|-|c|-|", "")
+        txt = re.sub(r"(</(div|p|br|blockquote)>)([^\n])", r"\1\n\3", txt)
+    else:
+        txt = self.note.fields[self.currentField]
+        pos = len(txt)
 
     d = QDialog(self.widget)
     form = aqt.forms.edithtml.Ui_Dialog()
