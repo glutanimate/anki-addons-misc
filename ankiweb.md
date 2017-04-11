@@ -24,6 +24,7 @@
     - [anki-stats-true-retention-extended.py](#anki-stats-true-retention-extendedpy)
     - [anki-editor-sync-cursor-position.py](#anki-editor-sync-cursor-positionpy)
     - [anki-sched-advanced-newcard-limits.py](#anki-sched-advanced-newcard-limitspy)
+    - [anki-editor-indentation-formatter.py](#anki-editor-indentation-formatterpy)
 - [Yet to be published](#yet-to-be-published)
 - [The rest](#the-rest)
 
@@ -205,7 +206,7 @@ Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
 
 **Editor Tag Hotkeys Add-on for Anki**
 
-This is a very simple add-on that allows you to define hotkeys that toggle specific tags in the note editor. It also includes a hotkey that clears the tags field (<code>Alt</code> + <code>Shift</code> + <code>R</code>)
+Allows you to define **hotkeys that toggle specific tags in the note editor**. Also includes a hotkey that clears the tags field (<code>Alt</code> + <code>Shift</code> + <code>R</code>)
 
 **USAGE**
 
@@ -271,21 +272,19 @@ All credit for the original add-on goes to Shawn M Moore ([@sartak](https://gith
 
 **Editor Field History**
 
-**Overview**
+Improves Anki's *Add Notes* dialog with the following features:
 
-This add-on enhances Anki's note editor with the following:
+- **hotkeys** that copy over tags and field values of the last note in the same deck
+- a **searchable history window** that provides a list of last used values for the current field
 
-- hotkeys that copy over tags and field values of the last note in the same deck
-- a history window that provides a list of last used values for the current field
-
-Overview of all available hotkeys:
+**USAGE**
 
 *Ctrl + Alt + H* (Win/Linux) or *Ctrl + Alt + Shift + H* (macOS) – Invoke history window
 *Alt+Z* – Copy over current field from last note
 *Alt+Shift+Z* – Copy over a a number of user-defined fields (see below)
 *Ctrl+Alt+Shift+Z* – Copy over all fields
 
-**Configuration**
+**CONFIGURATION**
 
 You can edit the add-on's source code to modify the following:
 
@@ -295,7 +294,7 @@ You can edit the add-on's source code to modify the following:
 `full_restore_shortcut`: controls "Restore all fields" hotkey
 `partial_restore_fields`: list of fields that are restored by the `partial_restore_shortcut`. Needs to be formatted as a python list (e.g. `["field1", "field2", "field3"]`).
 
-**Changelog**
+**CHANGELOG**
 
 2017-03-08 – Add full-text-search to history window, increase entries to 100, new hotkey on macOS
 2017-03-11 – Ensure that the add-on can only be run in the Add Cards screen
@@ -303,13 +302,11 @@ You can edit the add-on's source code to modify the following:
 2016-06-04 – Added history window to the add-on (invoked via Ctrl+Alt+H)
 2016-05-27 – Initial release
 
-**License**
+**CREDITS AND LICENSE**
 
-*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
-
-Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 
 ### anki-browser-refresh.py
@@ -510,18 +507,17 @@ A number of enhancements meant to improve keyboard navigation in Anki's tag entr
 - disables initial suggestion box popup when entering the field
 - allows using ↑/↓ to invoke the tag suggestion box
 
-**Changelog**
+**CHANGELOG**
 
+2017-04-11 – Smaller bug fixes
 2017-01-15 – Tags completed via *Enter* now follow the suggestion's capitalization; automatically append space to quick-completed tags
 2016-12-28 – Initial release
 
-**License**
+**CREDITS AND LICENSE**
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-The code for this add-on is hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
-
-Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 
 ### anki-overview-refreshmedia.py
@@ -589,9 +585,13 @@ I wasn't able to find any licensing information for the original add-on, but sin
 
 ### anki-editor-sync-cursor-position.py
 
-**Sync Cursor Position Between Editor and HTML Window**
+**Sync Cursor Between Fields and HTML Editor**
 
-Preserves the cursor position when switching back and forth between the note editor and HTML editing window (CTRL+SHIFT+X).
+Preserves the cursor position when switching back and forth between the note editor and HTML editing window (CTRL+SHIFT+X). Also improves the readability of the HTML code by introducing new lines between specific tags (`div`, `p`, etc.).
+
+**ADD-ON COMPATIBILITY**
+
+Some add-ons like the the [Power Format Pack](https://ankiweb.net/shared/info/162313389) overwrite the same functions as this add-on. This doesn't pose an issue as long as *Sync Cursor Position* is loaded last. In case of the Power Format Pack add-on, the fact that *Sync Cursor Position* starts with an "S" should ensure that the latter is loaded after the former, but for some reason that's not always the case. If you do end up experiencing compatibility issues like this, you could try renaming the add-on, e.g. by prepending it with a "z" or a special character like "#".
 
 **CREDITS AND LICENSE**
 
@@ -624,6 +624,22 @@ These settings will only apply to decks that have their new card limit set to "1
 **SUPPORTED PLATFORMS**
 
 Like all add-ons that modify scheduling this add-on will only work on the desktop releases.
+
+**CREDITS AND LICENSE**
+
+*Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
+
+I'm always happy for new add-on commissions. If you have an idea for an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at glutanimate [αt] gmail . com.
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+### anki-editor-indentation-formatter.py
+
+**Indent and Outdent**
+
+Introduces two new buttons to the editor toolbar that allow you to change the indentation of the current paragraph. This add-on uses `<p>` elements instead of the `<blockquote>`s found in add-ons such as the Power Format Pack which should result in a more readable HTML source code.
 
 **CREDITS AND LICENSE**
 

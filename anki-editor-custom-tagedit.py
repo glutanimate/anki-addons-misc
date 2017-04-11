@@ -11,7 +11,7 @@ Various modifications to the tag editor:
 - show completer with Up/Down arrows
 
 Copyright: (c) Glutanimate 2016-2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+License: GNU AGPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 """
 
 from aqt.qt import *
