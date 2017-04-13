@@ -130,7 +130,7 @@ def myHtmlEdit(self):
         pos = len(html.split("|-|c|-|")[0])
 
         txt = html.replace("|-|c|-|", "")
-        txt = re.sub(r"(</(div|p|br|blockquote)>)([^\n])", r"\1\n\3", txt)
+        txt = re.sub(r"(</(div|p|br|li|ul|ol|blockquote)>)([^\n])", r"\1\n\3", txt)
     else:
         txt = self.note.fields[self.currentField]
         pos = len(txt)
