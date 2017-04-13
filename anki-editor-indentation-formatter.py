@@ -33,8 +33,8 @@ def onIndent(self, mode):
         function indent(mode){
             var elm = window.getSelection().focusNode;
             var parent = window.getSelection().focusNode.parentNode;
-            var isElm = parent.toString() !== "[object HTMLTableCellElement]" && elm.toString() !== "[object Text]";
-            var isParElm = parent.toString() !== "[object HTMLTableCellElement]" && parent.parentNode.toString() !== "[object HTMLTableCellElement]";
+            var isElm = parent.isContentEditable && elm.toString() !== "[object Text]";
+            var isParElm = parent.isContentEditable && parent.parentNode.isContentEditable;
             var newNode = false
 
             if (mode == "in" && !isElm && !isParElm){
