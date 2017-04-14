@@ -18,6 +18,13 @@ from aqt import editor
 
 from aqt.utils import openHelp
 
+####### USER CONFIGURATION START #######
+
+# HTML Editor window dimensions in px:
+DIALOG_SIZE = (800,480) 
+
+####### USER CONFIGURATION END #######
+
 # remove second caretToEnd call to support custom cursor positioning:
 html_override = """
 <script>
@@ -138,6 +145,7 @@ def myHtmlEdit(self):
     d = QDialog(self.widget)
     form = aqt.forms.edithtml.Ui_Dialog()
     form.setupUi(d)
+    d.resize(*DIALOG_SIZE)
     form.buttonBox.helpRequested.connect(lambda: openHelp("editor"))
     form.textEdit.setPlainText(txt)
     cursor = form.textEdit.textCursor()
