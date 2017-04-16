@@ -1,0 +1,78 @@
+<script>
+
+var createCookie = function(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
+
+function getRandomElms(){
+    var ul = document.querySelectorAll('ul.shuffle');
+    return ul
+}
+
+function getRandArr(elm, array){
+    for (var i = elm.children.length; i >= 0; i--) {
+        rand = Math.random() * i | 0;
+        array.push(rand)
+    }
+}
+
+function shuffleWithArr(elm, array){
+    elm.style.backgroundColor = "inherit"
+    for (var i = elm.children.length; i >= 0; i--) {
+        elm.appendChild(elm.children[array[i]]);
+    }
+}
+
+function run() {
+    var elms = getRandomElms()
+    var isFront = document.getElementById("front");
+
+    for (var i = 0; i < elms.length; i++) {
+        var idxArr = [];
+        elm = elms[i]
+        if (isFront) {
+            getRandArr(elm, idxArr);
+            // convert idxArr array to a JSON string to be stored
+            var json_str = JSON.stringify(idxArr);
+
+            // persist the idxArr order and correct answers
+            createCookie('idxArr' + i, json_str);
+
+            var stored_data = idxArr
+        } else {
+            // get the idxArr order
+            var json_data = getCookie('idxArr' + i);
+            // get the array back from storage
+            var stored_data = JSON.parse(json_data);
+        }
+        shuffleWithArr(elm, stored_data)
+    }
+}
+
+run();
+
+</script>

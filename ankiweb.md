@@ -470,11 +470,9 @@ The add-on uses the first selected note to generate the field list you're presen
 
 *Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
 
-All credit for the original idea for this add-on goes to [/u/TryhardasaurusRex on Reddit](https://www.reddit.com/user/TryhardasaurusRex) who commissioned its development.
+All credit for the original idea goes to <a href="https://www.reddit.com/user/TryhardasaurusRex" rel="nofollow">/u/TryhardasaurusRex on Reddit</a> who commissioned this add-on. I'm always happy for new add-on commissions. If you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on <a href="https://twitter.com/glutanimate" rel="nofollow">Twitter</a>, or through <em>ankiglutanimate [αt] gmail . com</em>.
 
-The code is also hosted in my [misc Anki add-ons repository](https://github.com/Glutanimate/anki-addons-misc).
-
-Licensed under the [GNU GPL v3](http://www.gnu.de/documents/gpl-3.0.en.html).
+Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 ### anki-reviewer-card-stats.py
 
@@ -599,7 +597,7 @@ Some add-ons like the the [Power Format Pack](https://ankiweb.net/shared/info/16
 
 This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
 
-I'm always happy for new add-on commissions. If you have an idea for an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at glutanimate [αt] gmail . com.
+I'm always happy for new add-on commissions. IIf you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at *ankiglutanimate [αt] gmail . com*.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
@@ -631,7 +629,7 @@ Like all add-ons that modify scheduling this add-on will only work on the deskto
 
 This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
 
-I'm always happy for new add-on commissions. If you have an idea for an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at glutanimate [αt] gmail . com.
+I'm always happy for new add-on commissions. IIf you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at *ankiglutanimate [αt] gmail . com*.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
@@ -647,7 +645,7 @@ Introduces two new buttons to the editor toolbar that allow you to change the in
 
 This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
 
-I'm always happy for new add-on commissions. If you have an idea for an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at glutanimate [αt] gmail . com.
+I'm always happy for new add-on commissions. IIf you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at *ankiglutanimate [αt] gmail . com*.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
