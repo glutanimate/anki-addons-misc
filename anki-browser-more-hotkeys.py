@@ -17,7 +17,7 @@ def onBrowserSetupMenus(self):
     c(self.invCut, SIGNAL("activated()"), self.invertSelection)
 
     c = self.connect; f = self.form; s = SIGNAL("triggered()")
-    self.schedCut = QShortcut(QKeySequence("Ctrl+R"), self)
+    self.schedCut = QShortcut(QKeySequence("Ctrl+Alt+Shift+R"), self)
     c(self.schedCut, SIGNAL("activated()"), self.reschedule)
 
 addHook("browser.setupMenus", onBrowserSetupMenus)
