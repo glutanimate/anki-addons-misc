@@ -147,10 +147,17 @@ def batchEditNotes(browser, mode, nids, fld, text):
     for nid in nids:
         note = mw.col.getNote(nid)
         if fld in note:
+            content = note[fld]
+            breaks = ("<div>", "</div>", "<br>", "<br/>")
+            spacer = "<br/>"
             if mode == "adda":
-                note[fld] += "<br/>" + html
+                if content.endswith(breaks):
+                    spacer = ""
+                note[fld] += spacer + html
             elif mode == "addb":
-                note[fld] = html + "<br/>" + note[fld]
+                if content.startswith(breaks):
+                    spacer = ""
+                note[fld] = html + spacer + note[fld]
             elif mode == "replace":
                 note[fld] = html
             cnt += 1
