@@ -34,21 +34,25 @@ def toggleFrozenState(self, state):
     model['flds'][n]['sticky'] = state
 
 def toggleReverseField(self, freezeToggle=False):
-    if rev_field_name in self.note:
-        if self.note[rev_field_name] == "y":
-            self.note[rev_field_name] = ""
-            if freezeToggle:
-                toggleFrozenState(self, False)
-        else:
-            self.note[rev_field_name] = "y"
-            if freezeToggle:
-                toggleFrozenState(self, True)
-        self.web.eval("""
-            if (currentField) {
-              saveField("key");
-            }
-        """)
-        self.loadNote()
+    if rev_field_name not in self.note:
+        return
+    if self.note[rev_field_name] == "y":
+        self.note[rev_field_name] = ""
+        if freezeToggle:
+            toggleFrozenState(self, False)
+    else:
+        self.note[rev_field_name] = "y"
+        if freezeToggle:
+            toggleFrozenState(self, True)
+    self.web.eval("""
+        if (currentField) {
+          saveField("key");
+        }
+    """)
+    self.loadNote()
+    self.web.setFocus()
+    self.web.eval("focusField(%d);" % self.currentField)
+    self.web.eval('saveField("key");')
 
 
 def onSetupButtons(self):
