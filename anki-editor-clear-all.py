@@ -31,6 +31,9 @@ def clear_all_editor_fields(self, mode):
             continue
         note[field_name] = ''
     self.loadNote()
+    self.web.setFocus()
+    self.web.eval("focusField(%d);" % self.currentField)
+    self.web.eval('saveField("key");')
 
 
 def onSetupButtons(self):
