@@ -55,6 +55,7 @@ def historyRestore(self, mode, sorted_res, model):
     n = self.currentField
     field = model['flds'][n]['name']
     last_val = {}
+    keys = []
     for nid in sorted_res[:100]:
         oldNote = self.note.col.getNote(nid)
         if field in oldNote:
@@ -69,13 +70,14 @@ def historyRestore(self, mode, sorted_res, model):
         else:
             text = None
         if text and text not in last_val:
+            keys.append(text)
             last_val[text] = html
     if not last_val:
         tooltip("No prior entries for this field found.")
         return False
     txt = "Set field to:"
     (text, ret) = myGetField(self.parentWindow, 
-            txt, last_val.keys(), title="Field History")
+            txt, keys, title="Field History")
     if not ret or not text.strip() or text not in last_val:
         return False
     self.note[field] = last_val[text]
