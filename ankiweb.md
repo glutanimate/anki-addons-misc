@@ -25,6 +25,7 @@
     - [anki-editor-sync-cursor-position.py](#anki-editor-sync-cursor-positionpy)
     - [anki-sched-advanced-newcard-limits.py](#anki-sched-advanced-newcard-limitspy)
     - [anki-editor-indentation-formatter.py](#anki-editor-indentation-formatterpy)
+    - [anki-editor-random-list.py](#anki-editor-random-listpy)
 - [Yet to be published](#yet-to-be-published)
 - [The rest](#the-rest)
 
@@ -296,6 +297,7 @@ You can edit the add-on's source code to modify the following:
 
 **CHANGELOG**
 
+2017-05-13 – Preserve chronological order of suggestions
 2017-03-08 – Add full-text-search to history window, increase entries to 100, new hotkey on macOS
 2017-03-11 – Ensure that the add-on can only be run in the Add Cards screen
 2016-12-13 – Fixed a rare bug that caused empty notes to appear
@@ -463,12 +465,13 @@ The add-on uses the first selected note to generate the field list you're presen
 
 **Changelog**
 
+2017-05-13 – Only insert line-breaks when necessary
 2016-12-11 – Support for adding text before existing content (thanks to @luminousspice for the idea)
 2016-12-08 – Initial release
 
 **License**
 
-*Copyright (c) 2016 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
 All credit for the original idea goes to <a href="https://www.reddit.com/user/TryhardasaurusRex" rel="nofollow">/u/TryhardasaurusRex on Reddit</a> who commissioned this add-on. I'm always happy for new add-on commissions. If you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on <a href="https://twitter.com/glutanimate" rel="nofollow">Twitter</a>, or through <em>ankiglutanimate [αt] gmail . com</em>.
 
@@ -591,13 +594,17 @@ Preserves the cursor position when switching back and forth between the note edi
 
 Some add-ons like the the [Power Format Pack](https://ankiweb.net/shared/info/162313389) overwrite the same functions as this add-on. This doesn't pose an issue as long as *Sync Cursor Position* is loaded last. In case of the Power Format Pack add-on, the fact that *Sync Cursor Position* starts with an "S" should ensure that the latter is loaded after the former, but for some reason that's not always the case. If you do end up experiencing compatibility issues like this, you could try renaming the add-on, e.g. by prepending it with a "z" or a special character like "#".
 
+**CHANGELOG**
+
+2017-05-13 – Increase default window size (the size can also be adjusted in the config section of the source code now). Various smaller bugfixes.
+
 **CREDITS AND LICENSE**
 
 *Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
 
 This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
 
-I'm always happy for new add-on commissions. IIf you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at *ankiglutanimate [αt] gmail . com*.
+I'm always happy for new add-on commissions. If you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at *ankiglutanimate [αt] gmail . com*.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
@@ -639,13 +646,42 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The so
 
 Introduces two new buttons to the editor toolbar that allow you to change the indentation of the current paragraph. This add-on uses `<p>` elements instead of the `<blockquote>`s found in add-ons such as the Power Format Pack which should result in a more readable HTML source code.
 
+**CHANGELOG**
+
+2017-05-13 – Ability to indent arbitrary tags. More config options (check the source-code header for more information)
+
 **CREDITS AND LICENSE**
 
 *Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
 
 This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
 
-I'm always happy for new add-on commissions. IIf you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at *ankiglutanimate [αt] gmail . com*.
+I'm always happy for new add-on commissions. If you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me on [Twitter](https://twitter.com/glutanimate), or at *ankiglutanimate [αt] gmail . com*.
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+
+### anki-editor-random-list.py
+
+**Insert Randomized Lists**
+
+Allows you to insert randomized lists into your notes.
+
+**DOCUMENTATION**
+
+The add-on requires a custom note type to work properly. Please consult the [README](https://github.com/glutanimate/anki-addons-misc/blob/master/anki-editor-random-list/README.md) for more information on its set-up. The add-on's use is detailed  on that page.
+
+**COMPATIBILITY**
+
+The lists generated by this add-on should be compatible with Anki and AnkiDroid. I have not tested this with AnkiWeb or AnkiMobile.
+
+**CREDITS AND LICENSE**
+
+*Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user who would like to remain anonymous. All credit for the original idea goes to them.
+
+I'm always happy for new add-on commissions. If you'd like to hire my services to work an add-on or new feature, please feel free to reach out to me through *ankiglutanimate [αt] gmail . com*.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The source code for this add-on is available on [GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
