@@ -218,7 +218,7 @@ Please note that the JS script above might change over time (as a result of upda
 
 #### Installing the Add-on
 
-Having performed all of the changes above you can then proceed to install the add-on itself by either moving `anki-editor-random-list.py` into your Anki add-on directory (*Tools* –> *Add-ons* –> *Open Add-ons folder*) or by installing the add-on from [AnkiWeb](not available yet).
+Having performed all of the changes above you can then proceed to install the add-on itself by either moving `anki-editor-random-list.py` into your Anki add-on directory (*Tools* –> *Add-ons* –> *Open Add-ons folder*) or by installing the add-on from [AnkiWeb](https://ankiweb.net/shared/info/1280092568).
 
 ### Usage
 
