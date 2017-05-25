@@ -280,10 +280,10 @@ Improves Anki's *Add Notes* dialog with the following features:
 
 **USAGE**
 
-*Ctrl + Alt + H* (Win/Linux) or *Ctrl + Alt + Shift + H* (macOS) – Invoke history window
+*Ctrl + Alt + H* (Win/Linux) or *Cmd + O* (macOS) – Invoke history window
 *Alt+Z* – Copy over current field from last note
 *Alt+Shift+Z* – Copy over a a number of user-defined fields (see below)
-*Ctrl+Alt+Shift+Z* – Copy over all fields
+*Ctrl + Alt + Shift + Z* (Win/Linux) or *Cmd + Alt + Shift + Z* (macOS) – Copy over all fields
 
 **CONFIGURATION**
 
@@ -297,6 +297,7 @@ You can edit the add-on's source code to modify the following:
 
 **CHANGELOG**
 
+2017-05-25 – Change history window hotkey on macOS to avoid key conflicts (thanks to Rene)
 2017-05-13 – Preserve chronological order of suggestions
 2017-03-08 – Add full-text-search to history window, increase entries to 100, new hotkey on macOS
 2017-03-11 – Ensure that the add-on can only be run in the Add Cards screen

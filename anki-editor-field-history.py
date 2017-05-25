@@ -31,7 +31,7 @@ from anki.hooks import addHook
 
 # Ctrl+Alt+H is a global hotkey on macOS
 if isMac and history_window_shortcut == "Ctrl+Alt+H":
-    history_window_shortcut = "Ctrl+Alt+Shift+H"
+    history_window_shortcut = "Ctrl+O"
 
 def showCompleter(self):
     text = self.text()
