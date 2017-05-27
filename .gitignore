@@ -1,4 +1,7 @@
-anki-addons-misc.sublime-project
-anki-addons-misc.sublime-workspace
-.directory
 .sublime-backup/
+*.pyo
+*.pyc
+*.sublime-project
+*.sublime-workspace
+.hidden
+.directory
