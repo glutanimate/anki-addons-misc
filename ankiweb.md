@@ -696,7 +696,7 @@ Allows you to customize the stylesheet of the Editor widget in Anki.
 
 **USAGE**
 
-Create a `_editor.css` file in your media collection, add our custom CSS rules to it, and restart Anki.
+Create a `_editor.css` file in your media collection, add your custom CSS rules to it, and restart Anki.
 
 **CREDITS AND LICENSE**
 
