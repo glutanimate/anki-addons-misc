@@ -23,6 +23,12 @@ from anki.hooks import addHook
 # set reverse field name here
 rev_field_name = "Bidirektional"
 
+# set up different field content toggles
+key_toggles = {
+    "b": "y", # paste "y" into field
+    "a": "a" # paste "a" into field
+}
+
 
 def toggleFrozenState(self, state):
     model = self.note.model()
@@ -33,16 +39,16 @@ def toggleFrozenState(self, state):
             break
     model['flds'][n]['sticky'] = state
 
-def toggleReverseField(self, freezeToggle=False):
+def toggleReverseField(self, toggle, freeze=False):
     if rev_field_name not in self.note:
         return
-    if self.note[rev_field_name] == "y":
+    if self.note[rev_field_name] == toggle:
         self.note[rev_field_name] = ""
-        if freezeToggle:
+        if freeze:
             toggleFrozenState(self, False)
     else:
-        self.note[rev_field_name] = "y"
-        if freezeToggle:
+        self.note[rev_field_name] = toggle
+        if freeze:
             toggleFrozenState(self, True)
     self.web.eval("""
         if (currentField) {
@@ -56,11 +62,12 @@ def toggleReverseField(self, freezeToggle=False):
 
 
 def onSetupButtons(self):
-    t = QShortcut(QKeySequence("Alt+Shift+B"), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda : toggleReverseField(self))
-    t = QShortcut(QKeySequence("Ctrl+Alt+Shift+B"), self.parentWindow)
-    t.connect(t, SIGNAL("activated()"),
-              lambda : toggleReverseField(self, freezeToggle=True))
+    for key, toggle in list(key_toggles.items()):
+        
+        t = QShortcut(QKeySequence("Alt+Shift+" + key), self.parentWindow)
+        t.activated.connect(lambda x=toggle: toggleReverseField(self, x))
+        
+        t = QShortcut(QKeySequence("Ctrl+Alt+Shift" + key), self.parentWindow)
+        t.activated.connect(lambda x=toggle: toggleReverseField(self, x, freeze=True))
 
 addHook("setupEditorButtons", onSetupButtons)
