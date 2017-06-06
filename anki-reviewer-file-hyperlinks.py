@@ -22,7 +22,7 @@ external_handler_unix = r"notify-send"
 
 #### USER CONFIGURATION END ####
 
-from subprocess import check_output
+import subprocess
 import re
 
 from aqt.utils import tooltip
@@ -41,7 +41,7 @@ def openFileHandler(file):
             external_handler = external_handler_win
         else:
             external_handler = external_handler_unix
-        out = check_output([external_handler, file])
+        out = subprocess.Popen([external_handler, file])
     except OSError:
         tooltip("External handler produced an error.<br>"
             "Please confirm that it is assigned correctly.")
