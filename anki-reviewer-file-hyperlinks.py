@@ -35,7 +35,7 @@ regex_link = r"(qv.+?\..+?\b(#\b.+?\b)?)"
 replacement = r"""<a href='' class="flink" onclick='py.link("open:\1");return false;'>\1</a>"""
 
 def openFileHandler(file):
-    print file
+    print(file)
     try:
         if isWin:
             external_handler = external_handler_win
