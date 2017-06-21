@@ -67,7 +67,7 @@ def onSetupButtons(self):
         t = QShortcut(QKeySequence("Alt+Shift+" + key), self.parentWindow)
         t.activated.connect(lambda x=toggle: toggleReverseField(self, x))
         
-        t = QShortcut(QKeySequence("Ctrl+Alt+Shift" + key), self.parentWindow)
+        t = QShortcut(QKeySequence("Ctrl+Alt+Shift+" + key), self.parentWindow)
         t.activated.connect(lambda x=toggle: toggleReverseField(self, x, freeze=True))
 
 addHook("setupEditorButtons", onSetupButtons)
