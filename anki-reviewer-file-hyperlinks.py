@@ -27,15 +27,16 @@ import re
 
 from aqt.utils import tooltip
 from aqt.reviewer import Reviewer
-from anki.hooks import wrap
+from aqt.browser import Browser
+from anki.hooks import wrap, addHook
 
 from anki.utils import isWin
 
 regex_link = r"(qv.+?\..+?\b(#\b.+?\b)?)"
 replacement = r"""<a href='' class="flink" onclick='py.link("open:\1");return false;'>\1</a>"""
 
+
 def openFileHandler(file):
-    print(file)
     try:
         if isWin:
             external_handler = external_handler_win
@@ -45,6 +46,7 @@ def openFileHandler(file):
     except OSError:
         tooltip("External handler produced an error.<br>"
             "Please confirm that it is assigned correctly.")
+
 
 def linkHandler(self, url, _old):
     if not url.startswith("open"):
@@ -61,5 +63,18 @@ def onMungeQA(self, buf, _old):
     buf = _old(self, buf)
     return linkInserter(buf)
 
+
+def profileLoaded():
+    """Support for Advanced Previewer"""
+    try:
+        from advanced_previewer import previewer
+    except ImportError:
+        return
+    Browser._previewLinkHandler = wrap(
+        Browser._previewLinkHandler, linkHandler, "around")
+    addHook("previewerMungeQA", linkInserter)
+
+
 Reviewer._linkHandler = wrap(Reviewer._linkHandler, linkHandler, "around")
 Reviewer._mungeQA = wrap(Reviewer._mungeQA, onMungeQA, "around")
+addHook("profileLoaded", profileLoaded)
