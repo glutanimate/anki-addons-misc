@@ -67,11 +67,11 @@ def onMungeQA(self, buf, _old):
 def profileLoaded():
     """Support for Advanced Previewer"""
     try:
-        from advanced_previewer import previewer
+        from advanced_previewer.previewer import Previewer
     except ImportError:
         return
-    Browser._previewLinkHandler = wrap(
-        Browser._previewLinkHandler, linkHandler, "around")
+    Previewer.linkHandler = wrap(
+        Previewer.linkHandler, linkHandler, "around")
     addHook("previewerMungeQA", linkInserter)
 
 
