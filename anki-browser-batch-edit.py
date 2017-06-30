@@ -66,7 +66,13 @@ class BatchEditDialog(QDialog):
         addb_btn.clicked.connect(lambda state, x="addb": self.onConfirm(x))
         replace_btn.clicked.connect(lambda state, x="replace": self.onConfirm(x))
         close_btn.clicked.connect(self.close)
+
+        self.cb_html = QCheckBox(self)
+        self.cb_html.setText("Insert as HTML")
+        self.cb_html.setChecked(False)
+
         bottom_hbox = QHBoxLayout()
+        bottom_hbox.addWidget(self.cb_html)
         bottom_hbox.addWidget(button_box)
 
         vbox_main = QVBoxLayout()
@@ -76,7 +82,7 @@ class BatchEditDialog(QDialog):
         vbox_main.addLayout(bottom_hbox)
         self.setLayout(vbox_main)
         self.tedit.setFocus()
-        self.setMinimumWidth(480)
+        self.setMinimumWidth(540)
         self.setWindowTitle("Batch Edit Selected Notes")
 
     def _getFields(self):
@@ -128,17 +134,20 @@ class BatchEditDialog(QDialog):
         nids = self.nids
         fld = self.fsel.currentText()
         text = self.tedit.toPlainText()
+        isHtml = self.cb_html.isChecked()
         if mode == "replace":
             q = (u"This will replace the contents of the <b>'{0}'</b> field "
                 u"in <b>{1} selected note(s)</b>. Proceed?").format(fld, len(nids))
             if not askUser(q, parent=self):
                 return
-        batchEditNotes(browser, mode, nids, fld, text)
+        batchEditNotes(browser, mode, nids, fld, text, isHtml=isHtml)
         self.close()
         
 
-def batchEditNotes(browser, mode, nids, fld, text):
-    html = text.replace('\n', '<br/>') # convert newlines to br elms
+def batchEditNotes(browser, mode, nids, fld, html, isHtml=False):
+    if not isHtml:
+        # convert newlines to <br> elms
+        html = html.replace('\n', '<br/>')
     mw = browser.mw
     mw.checkpoint("batch edit")
     mw.progress.start()
@@ -149,7 +158,10 @@ def batchEditNotes(browser, mode, nids, fld, text):
         if fld in note:
             content = note[fld]
             breaks = ("<div>", "</div>", "<br>", "<br/>")
-            spacer = "<br/>"
+            if isHtml:
+                spacer = ""
+            else:
+                spacer = "<br/>"
             if mode == "adda":
                 if content.endswith(breaks):
                     spacer = ""
@@ -157,7 +169,7 @@ def batchEditNotes(browser, mode, nids, fld, text):
             elif mode == "addb":
                 if content.startswith(breaks):
                     spacer = ""
-                note[fld] = html + spacer + note[fld]
+                note[fld] = html + spacer + content
             elif mode == "replace":
                 note[fld] = html
             cnt += 1
@@ -176,6 +188,7 @@ def onBatchEdit(browser):
         return
     dialog = BatchEditDialog(browser, nids)
     dialog.exec_()
+
 
 def setupMenu(browser):
     menu = browser.form.menuEdit
