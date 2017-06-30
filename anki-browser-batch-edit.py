@@ -70,6 +70,9 @@ class BatchEditDialog(QDialog):
         self.cb_html = QCheckBox(self)
         self.cb_html.setText("Insert as HTML")
         self.cb_html.setChecked(False)
+        s = QShortcut(QKeySequence(_("Alt+H")), 
+            self, activated=lambda: self.cb_html.setChecked(True))
+
 
         bottom_hbox = QHBoxLayout()
         bottom_hbox.addWidget(self.cb_html)
@@ -83,6 +86,7 @@ class BatchEditDialog(QDialog):
         self.setLayout(vbox_main)
         self.tedit.setFocus()
         self.setMinimumWidth(540)
+        self.setMinimumHeight(400)
         self.setWindowTitle("Batch Edit Selected Notes")
 
     def _getFields(self):
@@ -157,10 +161,11 @@ def batchEditNotes(browser, mode, nids, fld, html, isHtml=False):
         note = mw.col.getNote(nid)
         if fld in note:
             content = note[fld]
-            breaks = ("<div>", "</div>", "<br>", "<br/>")
             if isHtml:
-                spacer = ""
+                spacer = "\n"
+                breaks = (spacer)
             else:
+                breaks = ("<div>", "</div>", "<br>", "<br/>")
                 spacer = "<br/>"
             if mode == "adda":
                 if content.endswith(breaks):
