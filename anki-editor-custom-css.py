@@ -11,7 +11,11 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 ######### USER CONFIGURATION START ##########
 
-TAGS_BACKGROUND = "#F5F6CE"
+# Set a custom tag field background color
+# (default: "", i.e. disabled)
+TAGS_BACKGROUND = "" # e.g. #F5F6CE
+# Disable custom CSS adjustments when Night Mode add-on active
+# (default. True)
 DISABLE_FOR_NIGHTMODE = True
 
 ######### USER CONFIGURATION END ##########
@@ -36,9 +40,10 @@ def updateTagsBackground(self):
         except ImportError:
             pass
 
-    self.tags.setStyleSheet(
-        """QLineEdit {{ background: {}; }}""".format(
-            TAGS_BACKGROUND))
+    if TAGS_BACKGROUND:
+        self.tags.setStyleSheet(
+            """QLineEdit {{ background: {}; }}""".format(
+                TAGS_BACKGROUND))
 
 def profileLoaded():
     """Import modified CSS code into editor"""
