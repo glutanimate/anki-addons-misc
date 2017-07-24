@@ -3,12 +3,18 @@
 """
 Anki Add-on: Sticky Searches
 
-Adds three checkboxes to the browser search form that, when toggled, modify
-searches in the following way:
+Adds a configurable number of checkboxes to the browser search form that, 
+when toggled, add sticky query parameters to your search.
+
+By default the add-on comes with four checkboxes:
 
 Deck (Hotkey: Alt+D): Limit results to current deck
 Tags (Hotkey: Alt+T): Limit results to current tag selection
 Card (Hotkey: Alt+C): Limit results to first card of each note
+State (Hotkey: Alt+S): Limit results to current card state (disabled)
+
+Advanced users can set up additional checkboxes by modifying the VARIABLES
+section below.
 
 Inspired by the following add-ons:
 
@@ -34,6 +40,7 @@ from __future__ import unicode_literals
 DECK_TOGGLE_HOTKEY = "Alt+D" # Default: Alt+D
 TAGS_TOGGLE_HOTKEY = "Alt+T" # Default: Alt+T
 CARD_TOGGLE_HOTKEY = "Alt+C" # Default: Alt+C
+STATE_TOGGLE_HOTKEY = "" # Deafult: "" (disabled)
 
 # OPTIONS
 
@@ -55,6 +62,7 @@ from anki.hooks import wrap
 ##############  VARIABLES START  ##############
 
 # You can set-up additional checkboxes here if you know what you are doing
+# please do not use any of the following as dictionary keys: tokens, last
 checkboxes = {
     "deck": {
         "hotkey": DECK_TOGGLE_HOTKEY,
@@ -72,6 +80,14 @@ checkboxes = {
         "prefix": "tag:",
         "value": None
     },
+    "state": {
+        "hotkey": STATE_TOGGLE_HOTKEY,
+        "label": "S",
+        "tooltip": "Limit results to current card state", 
+        "default": Qt.Unchecked,
+        "prefix": "is:",
+        "value": None
+    },
     "card": {
         "hotkey": CARD_TOGGLE_HOTKEY,
         "label": "C",
@@ -81,17 +97,19 @@ checkboxes = {
         "value": "1"
     },
 }
-# Any checkboy you add will also have to be appended to the following tuple:
-order = ("deck", "tags", "card")
+# Any checkboxes you add will also have to be appended to the following tuple:
+order = ("deck", "tags", "card", "state")
 
-# Disable our sticky tokens for the following searches:
+# Disable sticky tokens for the following searches:
 empty_queries = (
     _("<type here to search; hit enter to show current deck>"),
     "is:current"
 )
 
 default_prefs = {key: checkboxes[key]["default"] for key in order}
+# FIXME: more elegant implementation for 'tokens' and 'last' storage
 default_prefs["tokens"] = []
+default_prefs["last"] = {}
 
 ##############  VARIABLES END  ##############
 
@@ -209,6 +227,10 @@ def onCbStateChanged(self, state, key):
     elif prefix:
         if mode == "add":  
             to_add = [t for t in query_tokens if t.startswith(prefix)]
+            if to_add:
+                self.cbState["last"][key] = to_add
+            else:
+                to_add = self.cbState["last"].get(key, [])
             cb_tokens = list(set(cb_tokens + to_add))
         elif mode == "remove":
             cb_tokens = [t for t in cb_tokens if not t.startswith(prefix)]
@@ -226,12 +248,8 @@ def onCbStateChanged(self, state, key):
     self.onReset()
 
     # DEBUG
-    print(key)
-    if state == Qt.Unchecked:
-        print("unchecked")
-    elif state == Qt.Checked:
-        print("checked")
-    print("new tokens: ", cb_tokens)
+    print("{} is {}. New sticky tokens: ".format(key, state))
+    print(cb_tokens)
 
 
 
