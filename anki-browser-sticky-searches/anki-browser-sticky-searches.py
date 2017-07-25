@@ -62,24 +62,21 @@ checkboxes = {
     },
     "deck": {
         "hotkey": "Alt+D", # Default: Alt+D
-        "label": "D",
-        "icons": "dot",
+        "icons": "deck",
         "tooltip": "Limit results to current deck", 
         "prefix": "deck:",
         "value": "current"
     },
     "tags": {
         "hotkey": "Alt+T", # Default: Alt+T
-        "label": "T",
-        "icons": "dot",
+        "icons": "tag",
         "tooltip": "Limit results to current tag selection", 
         "prefix": "tag:",
         "value": None
     },
     "card": {
         "hotkey": "Alt+C", # Default: Alt+C
-        "label": "C",
-        "icons": "dot",
+        "icons": "card",
         "tooltip": "Limit results to first card of each note", 
         "prefix": "card:",
         "value": "1"
@@ -88,7 +85,7 @@ checkboxes = {
 
 # Any checkboxes you add will also have to be appended to the following tuple
 # Entries you remove from this list will be disabled
-order = ("sticky", "deck", "tags", "card", "deck1")
+order = ("sticky", "deck", "tags", "card")
 
 # OPTIONS
 
@@ -103,7 +100,7 @@ EMPTY_CLEAR = True # Default: True
 
 from aqt.qt import *
 
-from aqt import *
+from aqt import mw
 from aqt.browser import Browser
 from anki.hooks import wrap
 
@@ -125,14 +122,31 @@ default_prefs = {
 # Checkbox styling
 icon_path = os.path.join(mw.pm.addonFolder(), "sticky_searches")
 
+def image2url(name):
+    path = os.path.join(icon_path, "{}.png".format(name))
+    qurl = QUrl.fromLocalFile(path).toString()
+    return qurl.replace("file://", "")
+
 iconsets = {
     "snowflake": (
-        os.path.join(icon_path, "sticky.png"),
-        os.path.join(icon_path, "unsticky.png")
+        image2url("sticky"),
+        image2url("unsticky"),
     ),
     "dot": (
-        os.path.join(icon_path, "active.png"),
-        os.path.join(icon_path, "inactive.png")
+        image2url("active"),
+        image2url("inactive"),
+    ),
+    "tag": (
+        image2url("tag_active"),
+        image2url("tag_inactive"),
+    ),
+    "deck": (
+        image2url("deck_active"),
+        image2url("deck_inactive"),
+    ),
+    "card": (
+        image2url("card_active"),
+        image2url("card_inactive"),
     ),
 }
 
@@ -233,6 +247,7 @@ def sortTokens(s):
         return 4
     else:
         return s
+
 
 def onSearch(self, reset=True):
     """Intercept search and modify query with our tokens"""
