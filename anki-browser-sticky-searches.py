@@ -37,10 +37,11 @@ from __future__ import unicode_literals
 # HOTKEYS
 
 # (set to "" to disable both the corresponding checkbox and hotkey)
+STICKY_TOGGLE_HOTKEY = "Alt+S" # Default: Alt+S
 DECK_TOGGLE_HOTKEY = "Alt+D" # Default: Alt+D
 TAGS_TOGGLE_HOTKEY = "Alt+T" # Default: Alt+T
 CARD_TOGGLE_HOTKEY = "Alt+C" # Default: Alt+C
-STATE_TOGGLE_HOTKEY = "" # Deafult: "" (disabled)
+IS_TOGGLE_HOTKEY = "" # Deafult: "" (disabled)
 
 # OPTIONS
 
@@ -62,8 +63,20 @@ from anki.hooks import wrap
 ##############  VARIABLES START  ##############
 
 # You can set-up additional checkboxes here if you know what you are doing
-# please do not use any of the following as dictionary keys: tokens, last
+#
+# - checkboxes with an empty "value" entry ("value": None) set their sticky
+#   search tokens dynamically, i.e. by parsing the current query for the supplied
+#   prefix (e.g. "tag:") and saving all values of that particular prefix
+# - please do not use any of the following as dictionary keys: tokens, last
 checkboxes = {
+    "sticky": {
+        "hotkey": STICKY_TOGGLE_HOTKEY,
+        "label": "S",
+        "tooltip": "Sticky current search", 
+        "default": Qt.Unchecked,
+        "prefix": None,
+        "value": None
+    },
     "deck": {
         "hotkey": DECK_TOGGLE_HOTKEY,
         "label": "D",
@@ -80,14 +93,6 @@ checkboxes = {
         "prefix": "tag:",
         "value": None
     },
-    "state": {
-        "hotkey": STATE_TOGGLE_HOTKEY,
-        "label": "S",
-        "tooltip": "Limit results to current card state", 
-        "default": Qt.Unchecked,
-        "prefix": "is:",
-        "value": None
-    },
     "card": {
         "hotkey": CARD_TOGGLE_HOTKEY,
         "label": "C",
@@ -96,9 +101,17 @@ checkboxes = {
         "prefix": "card:",
         "value": "1"
     },
+    "is": {
+        "hotkey": IS_TOGGLE_HOTKEY,
+        "label": "I",
+        "tooltip": "Limit results to current 'is' state", 
+        "default": Qt.Unchecked,
+        "prefix": "is:",
+        "value": None
+    },
 }
 # Any checkboxes you add will also have to be appended to the following tuple:
-order = ("deck", "tags", "card", "state")
+order = ("sticky", "deck", "tags", "card", "is")
 
 # Disable sticky tokens for the following searches:
 empty_queries = (
@@ -109,6 +122,7 @@ empty_queries = (
 default_prefs = {key: checkboxes[key]["default"] for key in order}
 # FIXME: more elegant implementation for 'tokens' and 'last' storage
 default_prefs["tokens"] = []
+default_prefs["stickied"] = ""
 default_prefs["last"] = {}
 
 ##############  VARIABLES END  ##############
@@ -124,16 +138,12 @@ def tokenize(query):
             if inQuote:
                 if c == inQuote:
                     inQuote = False
-                else:
-                    token += c
             elif token:
                 # quotes are allowed to start directly after a :
-                if token[-1] == ":":
-                    inQuote = c
-                else:
-                    token += c
+                inQuote = c
             else:
                 inQuote = c
+            token += c
         # separator (space and ideographic space)
         elif c in (" ", u'\u3000'):
             if inQuote:
@@ -142,22 +152,18 @@ def tokenize(query):
                 # space marks token finished
                 tokens.append(token)
                 token = ""
-        # nesting
+        # nesting - modified not to tokenize inside bracket
         elif c in ("(", ")"):
             if inQuote:
-                token += c
+                if c == inQuote:
+                    inQuote = False
+            elif token:
+                # brackets are allowed to start directly after a " "
+                if token[-1] in (" ", u'\u3000'):
+                    inQuote = c
             else:
-                if c == ")" and token:
-                    tokens.append(token)
-                    token = ""
-                tokens.append(c)
-        # negation
-        elif c == "-":
-            if token:
-                token += c
-            elif not tokens or tokens[-1] != "-":
-                tokens.append("-")
-        # normal character
+                inQuote = ")"
+            token += c
         else:
             token += c
     # if we finished in a token, add it
@@ -175,13 +181,19 @@ def uniqueList(seq):
 
 def onSearch(self, reset=True):
     """Intercept search and modify query with our tokens"""
-    
+    sticky_query = ""
     query = unicode(self.form.searchEdit.lineEdit().text()).strip()
     if query in empty_queries or (EMPTY_CLEAR and query == ""):
         return
+    if not any(self.cbState[i] for i in order):
+        # all checkboxes inactive
+        return
+    if self.cbState["stickied"]:
+        sticky_query = self.cbState["stickied"]
+        query = query.replace(sticky_query, "")
     cur_tokens = tokenize(query)
     new_tokens = uniqueList(self.cbState["tokens"] + cur_tokens)
-    new_query = " ".join(new_tokens)
+    new_query = " ".join([sticky_query] + new_tokens)
     self.form.searchEdit.lineEdit().setText(new_query)
 
     # # filter out conflicting tokens
@@ -215,6 +227,9 @@ def onCbStateChanged(self, state, key):
     else:
         mode = "remove"
 
+    sticky_query = ""
+    stickied_changed = False
+    
     # Update sticky tokens
     prefix = checkboxes[key].get("prefix", None)
     value = checkboxes[key].get("value", None)
@@ -225,26 +240,34 @@ def onCbStateChanged(self, state, key):
         elif mode == "remove" and token in cb_tokens:
             cb_tokens.remove(token)
     elif prefix:
-        if mode == "add":  
-            to_add = [t for t in query_tokens if t.startswith(prefix)]
+        prefixes = (prefix, "-" + prefix)
+        if mode == "add":
+            to_add = [t for t in query_tokens if t.startswith(prefixes)]
             if to_add:
                 self.cbState["last"][key] = to_add
             else:
                 to_add = self.cbState["last"].get(key, [])
             cb_tokens = list(set(cb_tokens + to_add))
         elif mode == "remove":
-            cb_tokens = [t for t in cb_tokens if not t.startswith(prefix)]
+            cb_tokens = [t for t in cb_tokens if not t.startswith(prefixes)]
     else:
-        return False
+        stickied_changed = True
+        if mode == "add":
+            sticky_query = query
+        else:
+            q = query.replace(self.cbState["stickied"], "")
+            self.form.searchEdit.lineEdit().setText(q)
+            sticky_query = ""
 
     # Update search bar
-    if query_tokens:
+    if query_tokens and not stickied_changed:
         new_query_tokens = uniqueList(cb_tokens + uniq_tokens)
         self.form.searchEdit.lineEdit().setText(" ".join(new_query_tokens))
 
     # Save state and reset
     self.cbState[key] = state
     self.cbState["tokens"] = cb_tokens
+    self.cbState["stickied"] = sticky_query
     self.onReset()
 
     # DEBUG
@@ -262,6 +285,9 @@ def onSetupSearch(self):
     prefs = mw.pm.profile.get("browserCbs", None)
     if not prefs:
         prefs = default_prefs
+    for key in default_prefs:
+        if key not in prefs:
+            prefs[key] = default_prefs[key]
     self.cbState = prefs
 
     # Create check buttons and hotkeys
