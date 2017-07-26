@@ -364,8 +364,8 @@ def onCbStateChanged(self, state, key):
     self.onReset()
 
     # DEBUG
-    print("{} is {}. New tokens:[{}]. New sticky: {}".format(
-        key, state, ", ".join(cb_tokens), sticky))
+    # print("{} is {}. New tokens:[{}]. New sticky: {}".format(
+    #     key, state, ", ".join(cb_tokens), sticky))
 
 
 def onSetupSearch(self):
