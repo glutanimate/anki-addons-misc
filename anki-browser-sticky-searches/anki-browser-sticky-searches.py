@@ -3,18 +3,27 @@
 """
 Anki Add-on: Sticky Searches
 
-Adds a configurable number of checkboxes to the browser search form that, 
-when toggled, add sticky query parameters to your search.
+Adds a number of quick-toggles to the Browser search bar that allow
+you to preserve specific search parameters across multiple searches,
+so that you do not have to type them in repeatedly.
 
-By default the add-on comes with four checkboxes:
+These are either predefined, or dynamically extracted from
+the current search.
 
-Deck (Hotkey: Alt+D): Limit results to current deck
-Tags (Hotkey: Alt+T): Limit results to current tag selection
-Card (Hotkey: Alt+C): Limit results to first card of each note
-State (Hotkey: Alt+S): Limit results to current card state (disabled)
+By default the add-on comes with four toggles:
 
-Advanced users can set up additional checkboxes by modifying the VARIABLES
-section below.
+Static:
+
+- Deck (Hotkey: Alt+D): Limit results to current deck
+- Card (Hotkey: Alt+C): Limit results to first card of each note
+
+Dynamic
+
+- Sticky (Hotkey: Alt+S): Will remember the entirety of the current query
+- Tags (Hotkey: Alt+T): Limit results to current tag selection
+
+Advanced users can customize these toggles and set up additional ones
+by modifying the configuration section below.
 
 Inspired by the following add-ons:
 
@@ -23,7 +32,9 @@ Inspired by the following add-ons:
 - "Ignore accents in browser search" by Houssam Salem
    (https://github.com/hssm/anki-addons)
 
-Original idea by Keven on Anki tenderapp
+This add-on was originally known as "Browser Search Modifiers", but has
+since been reworked from the ground up with the kind support of a
+fellow Anki user.
 
 Copyright: Glutanimate 2016-2017 <https://glutanimate.com/>
 License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.en.html
@@ -34,7 +45,7 @@ from __future__ import unicode_literals
 
 ############## USER CONFIGURATION START ##############
 
-# CHECKBOXES
+# CHECKBOX SETTINGS
 
 # You can set-up additional checkboxes here if you know what you are doing
 #
@@ -51,6 +62,16 @@ from __future__ import unicode_literals
 #     "tooltip": "Limit results to current 'is' state", 
 #     "prefix": "is:",
 #     "value": None
+# },
+# Example of an additional entry for a static deck checkbox:
+#
+# "mydeck": {
+#     "hotkey": "Alt+M",
+#     "label": "My deck",
+#     "icons": "deck",
+#     "tooltip": "Limit results to my deck", 
+#     "prefix": "deck:",
+#     "value": "'my deck'"
 # },
 checkboxes = {
     "sticky": {
@@ -83,18 +104,17 @@ checkboxes = {
     },
 }
 
-# Any checkboxes you add will also have to be appended to the following tuple
-# Entries you remove from this list will be disabled
-order = ("sticky", "deck", "tags", "card")
+# ENABLED CHECKBOXES
+
+# - any additional checkboxes you set up have to be added to this list
+# - all checkboxes will be arranged according to the order of this list
+# - entries you remove here will stop being displayed
+enabled = ("sticky", "deck", "tags", "card")
 
 # OPTIONS
 
 # whether empty queries should clear all sticky parameters
 EMPTY_CLEAR = True # Default: True
-
-# Note: If you are familiar with Python and know what you are doing 
-#       you can also modify the VARIABLES section below
-#       for more advanced customization
 
 ##############  USER CONFIGURATION END  ##############
 
@@ -105,7 +125,6 @@ from aqt.browser import Browser
 from anki.hooks import wrap
 
 ##############  VARIABLES START  ##############
-
 
 # Disable sticky tokens for the following searches:
 empty_queries = (
@@ -367,7 +386,7 @@ def onSetupSearch(self):
     new_btns = []
     tokens = []
     
-    for key in order:
+    for key in enabled:
         cb = checkboxes[key]
 
         # Set up tokens
