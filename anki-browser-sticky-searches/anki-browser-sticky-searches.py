@@ -249,26 +249,29 @@ def sortTokens(s):
         return s
 
 
-def onSearch(self, reset=True):
+def onSearch(self, _old=None, reset=True):
     """Intercept search and modify query with our tokens"""
     query = unicode(self.form.searchEdit.lineEdit().text()).strip()
     sticky = self.cbPrefs["last"].get("sticky", "")
     cb_state = self.cbPrefs["state"]
 
-    if query in empty_queries or (EMPTY_CLEAR and query == ""):
-        return
-    if not any(i for i in cb_state.values()):
-        # all checkboxes inactive
-        return
+    # empty query or all checkboxes inactive
+    if (query in empty_queries or (EMPTY_CLEAR and query == "")
+            or not any(i for i in cb_state.values()) ):
+        return _old(self, reset)
     
+    # prepare query
     if sticky:
         query = query.replace(sticky, "")
     
+    # apply tokens and sticky prefix to query
     cur_tokens = tokenize(query)
     new_tokens = uniqueList(self.cbTokens + cur_tokens)
     new_query = " ".join([sticky] + new_tokens)
     
     self.form.searchEdit.lineEdit().setText(new_query)
+
+    return _old(self, reset)
 
 
 def onCbStateChanged(self, state, key):
@@ -431,4 +434,4 @@ def onCloseEvent(self, evt):
 Browser.onCbStateChanged = onCbStateChanged
 Browser.setupSearch = wrap(Browser.setupSearch, onSetupSearch, "after")
 Browser.closeEvent = wrap(Browser.closeEvent, onCloseEvent, "before")
-Browser.onSearch = wrap(Browser.onSearch, onSearch, "before")
+Browser.onSearch = wrap(Browser.onSearch, onSearch, "around")
