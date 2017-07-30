@@ -11,17 +11,22 @@ License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 ######### USER CONFIGURATION START ##########
 
+# Whether to style editor window by default
+DEFAULT_STATE = True # default: True
+
 # Set a custom tag field background color
-# (default: "", i.e. disabled)
-TAGS_BACKGROUND = "" # e.g. #F5F6CE
+# If this is set to an empty string no changes are applied
+# (e.g. "#F5F6CE" or "")
+TAGS_BACKGROUND = "" # default: ""
+
 # Disable custom CSS adjustments when Night Mode add-on active
-# (default. True)
-DISABLE_FOR_NIGHTMODE = True
+DISABLE_FOR_NIGHTMODE = True # default: True
 
 ######### USER CONFIGURATION END ##########
 
 import os
 
+from aqt.qt import *
 from aqt import mw
 from aqt import editor
 
@@ -32,18 +37,21 @@ new_html = old_html
 
 def updateTagsBackground(self):
     """Modify tagEdit background color"""
+    nm_state_on = False
     if DISABLE_FOR_NIGHTMODE:
         try:
             from Night_Mode import nm_state_on
-            if nm_state_on:
-                return
         except ImportError:
             pass
+
+    if not mw._styleEditor or nm_state_on:
+        return
 
     if TAGS_BACKGROUND:
         self.tags.setStyleSheet(
             """QLineEdit {{ background: {}; }}""".format(
                 TAGS_BACKGROUND))
+
 
 def profileLoaded():
     """Import modified CSS code into editor"""
@@ -62,17 +70,38 @@ def profileLoaded():
     editor._html = editor._html + editor_style
     new_html = editor._html
 
+
 def onSetNote(self, *args, **kwargs):
+    """Apply modified Editor HTML"""
+    nm_state_on = False
     if DISABLE_FOR_NIGHTMODE:
         try:
             from Night_Mode import nm_state_on
-            if nm_state_on:
-                editor._html = old_html
-            else:
-                editor._html = new_html
         except ImportError:
             pass
+    if not mw._styleEditor or nm_state_on:
+        editor._html = old_html
+    else:
+        editor._html = new_html
 
+
+def onStylingToggle(checked):
+    """Set mw variable that controls styling state"""
+    mw._styleEditor = checked
+
+
+# Menu toggle:
+
+mw._styleEditor = DEFAULT_STATE
+action = QAction(mw)
+action.setText("Custom Editor Styling")
+action.setCheckable(True)
+action.setChecked(DEFAULT_STATE)
+action.setShortcut(QKeySequence("Shift+E"))
+mw.form.menuTools.addAction(action)
+action.toggled.connect(onStylingToggle)
+
+# Hooks:
 
 addHook("profileLoaded", profileLoaded)
 
