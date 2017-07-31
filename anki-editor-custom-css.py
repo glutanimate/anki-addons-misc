@@ -71,7 +71,7 @@ def profileLoaded():
     new_html = editor._html
 
 
-def onSetNote(self, *args, **kwargs):
+def onEditorInit(self, *args, **kwargs):
     """Apply modified Editor HTML"""
     nm_state_on = False
     if DISABLE_FOR_NIGHTMODE:
@@ -105,6 +105,6 @@ action.toggled.connect(onStylingToggle)
 
 addHook("profileLoaded", profileLoaded)
 
-editor.Editor.setNote = wrap(editor.Editor.setNote, onSetNote, "before")
+editor.Editor.__init__ = wrap(editor.Editor.__init__, onEditorInit, "after")
 editor.Editor.setupTags = wrap(editor.Editor.setupTags, 
                                updateTagsBackground, "after")
