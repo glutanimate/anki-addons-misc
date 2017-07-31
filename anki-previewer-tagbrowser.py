@@ -5,6 +5,12 @@ Anki Add-on: Previewer Tag Browser
 
 This is an extension to the Advanced Previewer add-on.
 
+It modified the previewer window to act as a tag browser, allowing
+you to go through the items in the tag sidebar by using Up and Down.
+
+Clicking on any of the tags in the sidebar will  also automatically
+launch a new previewer window.
+
 Dependencies: Advanced Previewer
 
 Copyright: (c) Glutanimate 2017
