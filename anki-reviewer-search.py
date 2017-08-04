@@ -22,7 +22,7 @@ from __future__ import unicode_literals
 
 HOTKEY_SEARCH = "Ctrl+F"
 HOTKEY_NEXT = "F3"
-HOTKEY_PREVIOUS = "F4"
+HOTKEY_PREVIOUS = "Shift+F3"
 
 ##############  USER CONFIGURATION END  ##############
 
