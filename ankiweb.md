@@ -696,7 +696,27 @@ Allows you to customize the stylesheet of the Editor widget in Anki.
 
 **USAGE**
 
-Create a `_editor.css` file in your media collection, add your custom CSS rules to it, and restart Anki.
+Create an `_editor.css` file in your media collection, add your custom CSS rules to it, and restart Anki. Use the css class `.field` to format all fields in the Editor widget. The addon can be switched on and off in the main window via Tools - "Custom Editor Styling" (hotkey Shift+E in the Deck View). After changing this setting, reopen all Browser and Add windows.
+
+Compatibility with the addon [Night Mode](https://ankiweb.net/shared/info/1496166067) (Version 2017-03-06): By default this addon is disabled when the Night Mode is activated.
+
+Compatibility with the addon [Power Format Pack](https://ankiweb.net/shared/info/162313389) (Version 2017-05-14 ): If you have set a background-color in the class `.field` in your `_editor.css`, this overrides the orange background color that PFP applies in [Markdown Mode](https://github.com/Neftas/supplementary-buttons-anki#using-markdown). If you would like to restore that color you can modify your `_editor.css` as follows:
+
+```
+/* applies to all fields that are not in markdown mode */
+.field:not(.mdstyle){
+    /* place your custom field background color here: */
+    background-color: #F5F6CE ! important;
+}
+
+/* applies to all fields in markdown mode */
+.mdstyle {
+    /* The default color PFP uses is #FFEDD3 */
+    background-color: #FFEDD3 ! important;
+}
+```
+
+Compatibility with future versions of Night Mode and Power Format Pack is not guaranteed. No further updates of this addon are planned.
 
 **CREDITS AND LICENSE**
 
