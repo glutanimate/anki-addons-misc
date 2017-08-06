@@ -91,7 +91,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -133,7 +133,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -165,7 +165,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -196,7 +196,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -236,7 +236,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -266,7 +266,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -328,7 +328,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -399,7 +399,7 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The so
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -428,7 +428,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -480,7 +480,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -518,7 +518,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -547,7 +547,7 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The so
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -581,7 +581,7 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The so
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -613,7 +613,7 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The so
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -674,7 +674,7 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The so
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -709,7 +709,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -736,7 +736,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -766,7 +766,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -800,7 +800,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -823,7 +823,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -851,7 +851,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -960,7 +960,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -1011,7 +1011,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -1059,7 +1059,7 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The so
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -1093,7 +1093,7 @@ I wasn't able to find any licensing information for the original add-on, but sin
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
@@ -1130,7 +1130,7 @@ Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). T
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 

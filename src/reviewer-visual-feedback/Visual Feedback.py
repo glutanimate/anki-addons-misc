@@ -12,7 +12,7 @@ import shutil, os
 
 lapsed = '_ansfeed_lapsed.png'
 passed = '_ansfeed_passed.png'
-folder = 'answer_feedback'
+folder = 'visual_feedback'
           
 def imgLoad():
     lp = [lapsed, passed]
