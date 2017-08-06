@@ -37,7 +37,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [reviewer-progress-bar.py: Progress Bar](#reviewer-progress-barpy-progress-bar)
 - [reviewer-puppy-reinforcement.py: Puppy Reinforcement](#reviewer-puppy-reinforcementpy-puppy-reinforcement)
 - [reviewer-track-unseen.py](#reviewer-track-unseenpy)
-- [reviewer-visual-feedback.py](#reviewer-visual-feedbackpy)
+- [reviewer-visual-feedback.py: Visual Feedback for Reviews](#reviewer-visual-feedbackpy-visual-feedback-for-reviews)
 - [sched-advanced-newcard-limits.py: Limit New Cards to Less Than One](#sched-advanced-newcard-limitspy-limit-new-cards-to-less-than-one)
 - [sched-sibling-spacing-whitelist.py](#sched-sibling-spacing-whitelistpy)
 - [stats-true-retention-extended.py: True Retention by Card Maturity](#stats-true-retention-extendedpy-true-retention-by-card-maturity)
@@ -87,7 +87,7 @@ The add-on uses the first selected note to generate the field list you're presen
 
 All credit for the original idea goes to <a href="https://www.reddit.com/user/TryhardasaurusRex" rel="nofollow">/u/TryhardasaurusRex on Reddit</a> who commissioned this add-on.
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -129,7 +129,7 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 This add-on is based on "[Create Copy of Selected Cards](https://ankiweb.net/shared/info/787914845)" by Kealan Hobelmann.
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -161,7 +161,7 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -192,7 +192,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -232,7 +232,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 This add-on was extended with the kind support of a fellow Anki user.
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -262,7 +262,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -324,7 +324,7 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -424,7 +424,7 @@ A number of enhancements meant to **improve keyboard navigation** in Anki's **ta
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -476,7 +476,7 @@ You can edit the add-on's source code to modify the following:
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -514,7 +514,7 @@ Note: In their current implementation the hotkeys will not work when the tag sug
 
 *Copyright (c) 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -705,7 +705,7 @@ By default the hotkeys will skip decks that don't have any cards that are due or
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -732,7 +732,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -762,7 +762,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -796,7 +796,7 @@ The visibility of the panel can be controlled through the *Tools* menu or `SHIFT
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -819,7 +819,7 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -847,7 +847,7 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc1).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc1).
 
 **MORE RESOURCES**
 
@@ -888,7 +888,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 ------------------------------------------
 
@@ -956,7 +956,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -968,7 +968,54 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ### reviewer-progress-bar.py: Progress Bar
 
+A **progress bar** that shows your progress in terms of **passed cards per review session**.
 
+**SCREENSHOTS**
+
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-progress-bar-1.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-progress-bar-2.png)
+
+First screenshot: Default settings.
+Second: Bottom location, rounded corners.
+
+**VIDEO TUTORIAL**
+
+The customization and use of the Progress Bar add-on is demonstrated in the following video (alongside other similar add-ons):
+
+[![YouTube: Anki add-on guide: Gamify Your Reviews](https://i.ytimg.com/vi/UkveLkAgXiM/mqdefault.jpg)](https://youtu.be/UkveLkAgXiM)
+
+**COMPATIBILITY**
+
+This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+
+**BEHAVIOR**
+
+The bar can't be seen from the list of decks. It opens in a deck's overview page, and, by default, the bar goal for a session is the total new, lapsed, and due cards in the deck at that point. Upon completion, the bar remains full as you're taken to the deck's overview state. If you leave the review state otherwise, the bar resets.
+
+**CONFIGURATION**
+
+By making small changes at the top of the add-on's source code, you can change the colors, make the corners more rounded, decide whether to  see the percentage (e.g., "50%"), or alter the bar's orientation (horizontal or vertical), location (which of the window's four sides), and direction (which way it moves).
+
+The configuration section will also allow you to customize how your card tally is calculated. By default, both new cards, cards in learning, and review cards are factored in. Each of these queues can be individually toggled off by setting its respective variable to `False` at the top of the config section.
+
+**CHANGELOG**
+
+2017-08-06 – Rework configuration section, add options for width and new/review queue
+2017-06-15 – Re-upload
+
+**CREDITS AND LICENSE**
+
+This is a fork of an add-on which was removed from AnkiWeb in early 2017. The original was most likely written by nest0r/Ja-Dark who [apparently deleted all of their shared Anki resources](https://forum.koohii.com/thread-14570.html). There is no way to tell for sure since the original add-on description did not contain a copyright notice or attribution to a specific author.
+
+The modifications since the re-upload are *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*.
+
+Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+
+New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
 ------------------------------------------
 
@@ -1007,7 +1054,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 (c) 2015 [mbertolacci](https://github.com/mbertolacci)
 (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
@@ -1021,7 +1068,46 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-### reviewer-visual-feedback.py
+### reviewer-visual-feedback.py: Visual Feedback for Reviews
+
+Provides **feedback** for reviews by **flashing** a **small transparent image** at the center of your screen that varies between lapses and passed cards.
+
+**SCREENSHOT**
+
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-visual-feedback.png)
+
+**VIDEO TUTORIAL**
+
+The customization and use of the Visual Feedback add-on is demonstrated in the following video (alongside other similar add-ons):
+
+[![YouTube: Anki add-on guide: Gamify Your Reviews](https://i.ytimg.com/vi/UkveLkAgXiM/mqdefault.jpg)](https://youtu.be/UkveLkAgXiM)
+
+**COMPATIBILITY**
+
+This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+
+**CONFIGURATION**
+
+The displayed image and the duration it is shown for can be customized by modifying the configuration section at the top of the add-on.
+
+**CHANGELOG**
+
+2017-08-06 – Add configuration section
+2017-06-15 – Re-upload
+
+**CREDITS AND LICENSE**
+
+This is a fork of an add-on which was removed from AnkiWeb in early 2017. The original was most likely written by nest0r/Ja-Dark who [apparently deleted all of their shared Anki resources](https://forum.koohii.com/thread-14570.html). There is no way to tell for sure since the original add-on description did not contain a copyright notice or attribution to a specific author.
+
+The modifications since the re-upload are *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*.
+
+Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+
+New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
 ------------------------------------------
 
@@ -1126,7 +1212,7 @@ Based on 'OSX Dictionary Lookup' by Eddie Blundell and 'Search Google Images' by
 
 This add-on was formerly known as "Search Browser for Selected Words".
 
-Licensed under the [GNU AGPL v3](http://www.gnu.de/documents/gpl-3.0.en.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
