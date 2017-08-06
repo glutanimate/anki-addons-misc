@@ -1,29 +1,18 @@
 # -*- coding: utf-8 -*-
 
 """
-Browse Card creation.
-
-https://ankiweb.net/shared/info/3466942638
+Anki Add-on: Browse Card creation.
 
 Adds commands to the Reviewer "More" menu to open the browser on the selected card.
 The browser is configured to sort based on creation date, and select the card.
 Enables the card to be viewed in its  "creation context" ie notes that were created
 before/after in the same deck
 
-Copyright: Steve AW <steveawa@gmail.com>
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
-Modified by Glutanimate, 2016
-
-Support: Use at your own risk. If you do find a problem please email me
-or use one the following forums, however there are certain periods
-throughout the year when I will not have time to do any work on
-these addons.
-
-Github page:  https://github.com/steveaw/anki_addons
-Anki addons: https://groups.google.com/forum/?hl=en#!forum/anki-addons
-
+Copyright:  (c) Steve AW 2013 <steveawa@gmail.com>
+            (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
+
 from PyQt4.QtGui import QApplication
 from anki.lang import _
 from aqt.reviewer import Reviewer

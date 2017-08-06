@@ -1,28 +1,16 @@
 ﻿# -*- coding: utf-8 -*-
+
 """
+Anki Add-on: Open 'Added Today' from Reviewer.
+
 Adds a menu item into the "History" menu of the "Add" notes dialog that
-   opens a Browser on the 'Added Today' view.
+opens a Browser on the 'Added Today' view.
 
-   https://ankiweb.net/shared/info/4168112055
-
-Copyright: Steve AW <steveawa@gmail.com>
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
-Modified by Glutanimate, 2016
-
-Support: Use at your own risk. If you do find a problem please email me
-or use one the following forums, however there are certain periods
-throughout the year when I will not have time to do any work on
-these addons.
-
-Github page:  https://github.com/steveaw/anki_addons
-Anki addons: https://groups.google.com/forum/?hl=en#!forum/anki-addons
-
-Changes:
-20130715: After opening the browser, change the sort order to "Created"
-    and select the most recent (top) card
-
+Copyright:  (c) Steve AW 2013 <steveawa@gmail.com>
+            (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
+
 from anki.lang import _
 
 from aqt.qt import *

@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-Copyright: Steve AW <steveawa@gmail.com>
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
-Modified by Glutanimate, 2016
+"""
+Anki Add-on: Track Unseen Cards
 
 Original Description:
 
@@ -13,8 +11,10 @@ it automatically removes that card's tag from its note. The idea behind it is: S
 an exam in a week. My goal is to review all my cards that relate to the exam over the 
 coming week, doing bits and pieces wherever I can. In reality, I often don't get the time 
 to do all of them, but if each day I can do a random smattering of 50-100 extra cards, 
-that is generally good enough. I never found a good way, with the inbuilt cramming/study 
-more tools, to reliably keep track of what cards had been crammed when cramming across 
+that is generally good enough.
+
+I never found a good way, with the inbuilt cramming/study more tools,
+to reliably keep track of what cards had been crammed when cramming across 
 multiple sessions (the changed field/ "Last reviewed" gets updated when cards are added 
 to dynamic decks which makes it useless for my needs). This addon allows me to add the 
 tags to those cards I want to see. I can then create dynamic decks for those tags 
@@ -22,7 +22,12 @@ tags to those cards I want to see. I can then create dynamic decks for those tag
 that I am not re-cramming a card, and also allows me to see how many are still "unseen". 
 I will see how it goes this semester, but I think it is going to finally give me a good 
 way to systematically cram.
+
+Copyright:  (c) Steve AW 2013 <steveawa@gmail.com>
+            (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
+
 from PyQt4.QtCore import SIGNAL
 from PyQt4.QtGui import QMenu, QKeySequence
 from anki.hooks import addHook, wrap
