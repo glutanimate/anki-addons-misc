@@ -6,46 +6,46 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 
 <!-- MarkdownTOC -->
 
-- [browser-batch-edit: Batch Note Editing](#browser-batch-edit-batch-note-editing)
-- [browser-create-duplicate: Duplicate Selected Notes](#browser-create-duplicate-duplicate-selected-notes)
-- [browser-create-filtered-deck: Create Filtered Deck from the Browser](#browser-create-filtered-deck-create-filtered-deck-from-the-browser)
-- [browser-external-editor: External Note Editor for the Browser](#browser-external-editor-external-note-editor-for-the-browser)
-- [browser-more-hotkeys.py](#browser-more-hotkeyspy)
-- [browser-refresh: F5 to Refresh the Browser](#browser-refresh-f5-to-refresh-the-browser)
-- [browser-replace-tag: Search and Replace Tags](#browser-replace-tag-search-and-replace-tags)
-- [browser-search-hotkeys: Browser Search Hotkeys](#browser-search-hotkeys-browser-search-hotkeys)
-- [editor-autocomplete-whitelist.py](#editor-autocomplete-whitelistpy)
-- [editor-custom-stylesheet: Customize Editor Stylesheet](#editor-custom-stylesheet-customize-editor-stylesheet)
-- [editor-field-history: Editor Field History](#editor-field-history-editor-field-history)
-- [editor-field-navigation: Quick Field Navigation Add-on for Anki](#editor-field-navigation-quick-field-navigation-add-on-for-anki)
-- [editor-indentation-formatter: Indent and Outdent Paragraphs](#editor-indentation-formatter-indent-and-outdent-paragraphs)
-- [editor-random-list: Insert Randomized Lists](#editor-random-list-insert-randomized-lists)
-- [editor-sync-cursor-position: Sync Cursor Between Fields and HTML Editor](#editor-sync-cursor-position-sync-cursor-between-fields-and-html-editor)
-- [editor-tag-hotkeys: Editor Tag Hotkeys Add-on for Anki](#editor-tag-hotkeys-editor-tag-hotkeys-add-on-for-anki)
-- [overview-deck-switcher: Switch Between Decks on the Main Screen](#overview-deck-switcher-switch-between-decks-on-the-main-screen)
-- [overview-deck-tooltip: Deck Overview Stats Tooltip](#overview-deck-tooltip-deck-overview-stats-tooltip)
-- [overview-refresh-media: Refresh Media References](#overview-refresh-media-refresh-media-references)
-- [reviewer-card-stats: Extended Card Stats During Review](#reviewer-card-stats-extended-card-stats-during-review)
-- [reviewer-browse-creation: Browse Card in its Creation Context](#reviewer-browse-creation-browse-card-in-its-creation-context)
-- [reviewer-browse-today: Open 'Added Today' from Reviewer](#reviewer-browse-today-open-added-today-from-reviewer)
-- [reviewer-hide-toolbar: Hide Toolbar in Reviewer](#reviewer-hide-toolbar-hide-toolbar-in-reviewer)
-- [reviewer-hint-hotkeys.py](#reviewer-hint-hotkeyspy)
-- [reviewer-more-answer-buttons: More Answer Buttons for New Cards](#reviewer-more-answer-buttons-more-answer-buttons-for-new-cards)
-- [reviewer-progress-bar: Progress Bar](#reviewer-progress-bar-progress-bar)
-- [reviewer-puppy-reinforcement: Puppy Reinforcement](#reviewer-puppy-reinforcement-puppy-reinforcement)
-- [reviewer-track-unseen.py](#reviewer-track-unseenpy)
-- [reviewer-visual-feedback: Visual Feedback for Reviews](#reviewer-visual-feedback-visual-feedback-for-reviews)
-- [sched-advanced-newcard-limits: Limit New Cards to Less Than One](#sched-advanced-newcard-limits-limit-new-cards-to-less-than-one)
-- [sched-sibling-spacing-whitelist.py](#sched-sibling-spacing-whitelistpy)
-- [stats-true-retention-extended: True Retention by Card Maturity](#stats-true-retention-extended-true-retention-by-card-maturity)
-- [tagedit-enhancements: Tag Entry Enhancements](#tagedit-enhancements-tag-entry-enhancements)
-- [webview-context-search: Context Menu Search](#webview-context-search-context-menu-search)
+- [browser_batch_edit: Batch Note Editing](#browserbatchedit-batch-note-editing)
+- [browser_create_duplicate: Duplicate Selected Notes](#browsercreateduplicate-duplicate-selected-notes)
+- [browser_create_filtered_deck: Create Filtered Deck from the Browser](#browsercreatefiltereddeck-create-filtered-deck-from-the-browser)
+- [browser_external_editor: External Note Editor for the Browser](#browserexternaleditor-external-note-editor-for-the-browser)
+- [browser_more_hotkeys](#browsermorehotkeys)
+- [browser_refresh: F5 to Refresh the Browser](#browserrefresh-f5-to-refresh-the-browser)
+- [browser_replace_tag: Search and Replace Tags](#browserreplacetag-search-and-replace-tags)
+- [browser_search_hotkeys: Browser Search Hotkeys](#browsersearchhotkeys-browser-search-hotkeys)
+- [editor_autocomplete_whitelist](#editorautocompletewhitelist)
+- [editor_custom_stylesheet: Customize Editor Stylesheet](#editorcustomstylesheet-customize-editor-stylesheet)
+- [editor_field_history: Editor Field History](#editorfieldhistory-editor-field-history)
+- [editor_field_navigation: Quick Field Navigation Add-on for Anki](#editorfieldnavigation-quick-field-navigation-add-on-for-anki)
+- [editor_indentation_formatter: Indent and Outdent Paragraphs](#editorindentationformatter-indent-and-outdent-paragraphs)
+- [editor_random_list: Insert Randomized Lists](#editorrandomlist-insert-randomized-lists)
+- [editor_sync_cursor_position: Sync Cursor Between Fields and HTML Editor](#editorsynccursorposition-sync-cursor-between-fields-and-html-editor)
+- [editor_tag_hotkeys: Editor Tag Hotkeys Add-on for Anki](#editortaghotkeys-editor-tag-hotkeys-add-on-for-anki)
+- [overview_deck_switcher: Switch Between Decks on the Main Screen](#overviewdeckswitcher-switch-between-decks-on-the-main-screen)
+- [overview_deck_tooltip: Deck Overview Stats Tooltip](#overviewdecktooltip-deck-overview-stats-tooltip)
+- [overview_refresh_media: Refresh Media References](#overviewrefreshmedia-refresh-media-references)
+- [reviewer_card_stats: Extended Card Stats During Review](#reviewercardstats-extended-card-stats-during-review)
+- [reviewer_browse_creation: Browse Card in its Creation Context](#reviewerbrowsecreation-browse-card-in-its-creation-context)
+- [reviewer_browse_today: Open 'Added Today' from Reviewer](#reviewerbrowsetoday-open-added-today-from-reviewer)
+- [reviewer_hide_toolbar: Hide Toolbar in Reviewer](#reviewerhidetoolbar-hide-toolbar-in-reviewer)
+- [reviewer_hint_hotkeys](#reviewerhinthotkeys)
+- [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewermoreanswerbuttons-more-answer-buttons-for-new-cards)
+- [reviewer_progress_bar: Progress Bar](#reviewerprogressbar-progress-bar)
+- [reviewer_pu_reinforcement: Puppy Reinforcement](#reviewerpureinforcement-puppy-reinforcement)
+- [reviewer_track_unseen](#reviewertrackunseen)
+- [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewervisualfeedback-visual-feedback-for-reviews)
+- [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#schedadvancednewcardlimits-limit-new-cards-to-less-than-one)
+- [sched_sibling_spacing_whitelist](#schedsiblingspacingwhitelist)
+- [stats_true_retention_extended: True Retention by Card Maturity](#statstrueretentionextended-true-retention-by-card-maturity)
+- [tagedit_enhancements: Tag Entry Enhancements](#tageditenhancements-tag-entry-enhancements)
+- [webview_context_search: Context Menu Search](#webviewcontextsearch-context-menu-search)
 
 <!-- /MarkdownTOC -->
 
 ------------------------------------------
 
-## browser-batch-edit: Batch Note Editing
+## browser_batch_edit: Batch Note Editing
 
 Adds a new menu item to the card browser that allows you to:
 
@@ -95,7 +95,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-create-duplicate: Duplicate Selected Notes
+## browser_create_duplicate: Duplicate Selected Notes
 
 This add-on supplements the **card browser** by adding a keyboard shortcut and **menu** entry for **creating duplicates of notes**.
 
@@ -142,7 +142,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-create-filtered-deck: Create Filtered Deck from the Browser
+## browser_create_filtered_deck: Create Filtered Deck from the Browser
 
 Adds a hotkey and menu item to the browser that launches a **filtered deck creation** dialog **based on the current search**.
 
@@ -178,7 +178,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-external-editor: External Note Editor for the Browser
+## browser_external_editor: External Note Editor for the Browser
 
 Extends the card browser with a **shortcut** and menu action that **launches an external editor window** for the current note (`CTRL`+`ALT`+`E`).
 
@@ -214,7 +214,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-more-hotkeys.py
+## browser_more_hotkeys
 
 Unpublished.
 
@@ -222,7 +222,7 @@ Adds two additional hotkeys to the card browser, CTRL+R for rescheduling cards a
 
 ------------------------------------------
 
-## browser-refresh: F5 to Refresh the Browser
+## browser_refresh: F5 to Refresh the Browser
 
 Adds a **hotkey** to the browser that **refreshes the current view**. Useful when you've added new cards and want to repeat an existing search. Note: cards are sorted by creation time when refreshing the view.
 
@@ -257,7 +257,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-replace-tag: Search and Replace Tags
+## browser_replace_tag: Search and Replace Tags
 
 Adds a **"Replace Tag" dialog** to the card **browser** that prompts for a tag and its replacement and then replaces the tag in all selected notes.
 
@@ -291,7 +291,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-search-hotkeys: Browser Search Hotkeys
+## browser_search_hotkeys: Browser Search Hotkeys
 
 Allows you to set up **hotkeys for searches** in the **browser**
 
@@ -357,7 +357,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-autocomplete-whitelist.py
+## editor_autocomplete_whitelist
 
 **Overview**
 
@@ -376,7 +376,7 @@ All credit for the original add-on goes to Shawn M Moore ([@sartak](https://gith
 
 ------------------------------------------
 
-## editor-custom-stylesheet: Customize Editor Stylesheet
+## editor_custom_stylesheet: Customize Editor Stylesheet
 
 Allows you to customize the **stylesheet** of the **Editor widget** in Anki.
 
@@ -432,7 +432,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-field-history: Editor Field History
+## editor_field_history: Editor Field History
 
 Improves Anki's *Add Notes* dialog with the following features:
 
@@ -489,7 +489,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-field-navigation: Quick Field Navigation Add-on for Anki
+## editor_field_navigation: Quick Field Navigation Add-on for Anki
 
 Implements shortcuts that allow you to **navigate** through your **fields** in the card **editor**.
 
@@ -531,7 +531,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-indentation-formatter: Indent and Outdent Paragraphs
+## editor_indentation_formatter: Indent and Outdent Paragraphs
 
 Introduces two new buttons to the editor toolbar that allow you to **change the indentation of the current paragraph**. This add-on uses `<p>` elements instead of the `<blockquote>`s found in add-ons such as the Power Format Pack which should result in a more readable HTML source code.
 
@@ -564,7 +564,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-random-list: Insert Randomized Lists
+## editor_random_list: Insert Randomized Lists
 
 Allows you to insert **randomized lists** into your notes.
 
@@ -603,7 +603,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-sync-cursor-position: Sync Cursor Between Fields and HTML Editor
+## editor_sync_cursor_position: Sync Cursor Between Fields and HTML Editor
 
 Preserves the **cursor position** when switching back and forth between the **note editor** and **HTML editing window** (`CTRL+SHIFT+X`). Also improves the readability of the HTML code by introducing new lines between specific tags (`div`, `p`, etc.).
 
@@ -640,7 +640,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-tag-hotkeys: Editor Tag Hotkeys Add-on for Anki
+## editor_tag_hotkeys: Editor Tag Hotkeys Add-on for Anki
 
 Allows you to define **hotkeys** that **toggle specific tags** in the note **editor**.
 
@@ -711,7 +711,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## overview-deck-switcher: Switch Between Decks on the Main Screen
+## overview_deck_switcher: Switch Between Decks on the Main Screen
 
 Adds the following hotkeys to Anki's main deck browser screen:
 
@@ -751,7 +751,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## overview-deck-tooltip: Deck Overview Stats Tooltip
+## overview_deck_tooltip: Deck Overview Stats Tooltip
 
 **Hover** over your **decks** to see an overview of **review stats** and other information on the deck.
 
@@ -782,7 +782,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## overview-refresh-media: Refresh Media References
+## overview_refresh_media: Refresh Media References
 
 Adds an entry in the **Tools menu** that **clears the webview cache** (hotkey: `Ctrl+Alt+M`). This will effectively refresh all media files used by your cards and templates, allowing you to display changes to external files without having to restart Anki.
 
@@ -817,7 +817,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-card-stats: Extended Card Stats During Review
+## reviewer_card_stats: Extended Card Stats During Review
 
 Provides a **'Card Info' panel** that can be toggled on and off **while reviewing cards**.
 
@@ -860,7 +860,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-browse-creation: Browse Card in its Creation Context
+## reviewer_browse_creation: Browse Card in its Creation Context
 
 Adds a command to the **Reviewer** that enables the card to be viewed in its "**creation context**", i.e. notes that were created before/after in the same deck.
 
@@ -891,7 +891,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-browse-today: Open 'Added Today' from Reviewer
+## reviewer_browse_today: Open 'Added Today' from Reviewer
 
 Adds a **menu item** into the **History menu** of the *Add* notes dialog that **opens a Browser on the 'Added Today'** view with the cards ordered by their creation time.
 
@@ -923,7 +923,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-hide-toolbar: Hide Toolbar in Reviewer
+## reviewer_hide_toolbar: Hide Toolbar in Reviewer
 
 The aim of the addon is to **free up** some **vertical screen space** while **reviewing** cards.
 
@@ -969,7 +969,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-hint-hotkeys.py
+## reviewer_hint_hotkeys
 
 Unpublished.
 
@@ -977,7 +977,7 @@ Based on [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/261620
 
 ------------------------------------------
 
-## reviewer-more-answer-buttons: More Answer Buttons for New Cards
+## reviewer_more_answer_buttons: More Answer Buttons for New Cards
 
 Adds **extra buttons** to the Reviewer **for new cards** and **cards in learning**.
 
@@ -1048,7 +1048,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-progress-bar: Progress Bar
+## reviewer_progress_bar: Progress Bar
 
 A **progress bar** that shows your progress in terms of **passed cards per review session**.
 
@@ -1107,7 +1107,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-puppy-reinforcement: Puppy Reinforcement
+## reviewer_pu_reinforcement: Puppy Reinforcement
 
 Uses **intermittent reinforcement** with **cute puppies** to encourage card review streaks.
 
@@ -1157,11 +1157,11 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-track-unseen.py
+## reviewer_track_unseen
 
 ------------------------------------------
 
-## reviewer-visual-feedback: Visual Feedback for Reviews
+## reviewer_visual_feedback: Visual Feedback for Reviews
 
 Provides **feedback** for reviews by **flashing** a **small transparent image** at the center of your screen that varies between lapses and passed cards.
 
@@ -1208,7 +1208,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## sched-advanced-newcard-limits: Limit New Cards to Less Than One
+## sched_advanced_newcard_limits: Limit New Cards to Less Than One
 
 Allows you to restrict the **number of new cards** for specific decks to **less than one per day**.
 
@@ -1257,7 +1257,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## sched-sibling-spacing-whitelist.py
+## sched_sibling_spacing_whitelist
 
 Unpublished.
 
@@ -1266,7 +1266,7 @@ Based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andrea
 
 ------------------------------------------
 
-## stats-true-retention-extended: True Retention by Card Maturity
+## stats_true_retention_extended: True Retention by Card Maturity
 
 This is a slightly modified version of the [True Retention add-on](https://ankiweb.net/shared/info/613684242) by Strider that breaks the **retention statistics** up **by card maturity**:
 
@@ -1300,7 +1300,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## tagedit-enhancements: Tag Entry Enhancements
+## tagedit_enhancements: Tag Entry Enhancements
 
 A number of enhancements meant to **improve keyboard navigation** in Anki's **tag entry** field:
 
@@ -1333,7 +1333,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## webview-context-search: Context Menu Search
+## webview_context_search: Context Menu Search
 
 A simple Anki add-on that adds **context-menu entries** to **search** the card browser and various online search providers for selected words. The entries will appear both in the Reviewer and Card Editor.
 
