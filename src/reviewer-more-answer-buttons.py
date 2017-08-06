@@ -1,60 +1,35 @@
 ﻿# -*- coding: utf-8 -*-
+
 """
-Adds extra buttons to the Reviewer window for new cards
-https://ankiweb.net/shared/info/468253198
+Anki Add-on: More Answer Buttons for New Cards
 
-Copyright: Steve AW <steveawa@gmail.com>
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Adds extra buttons to the answer button area for new cards
 
-Modified by Glutanimate, 2016
-
-WARNING: this addon uses private methods to achieve its goals. Use at your
-    own risk and keep backups.
-
-What it does: Adds anywhere between 1 to 4 new buttons to the review window
-    when reviewing a new card. The new buttons function like the existing "Easy"
-    button, but in addition, they reschedule the card to different interval, which
-    is randomly assigned between a lower and upper limit that is preset
-    by the user (see below).
-
-By default 3 buttons are added, with intervals: "3-4d" , "5-7d" , "8-15d"
-    This can be changed below.
-
-I wanted this addon because many of my new cards do not need to be
-    "Learned" as I created and added them myself, typically an hour or so before
-    my first review session. I often add around 100-200 new cards per day, all on
-    a related topic, and this addon allows me to spread the next review of the new
-    cards that don't need learning out in time.
-
-How it works: This addon works by intercepting the creation of the reviewer buttons
-  and adds up to 4 extra buttons to the review window. The answer function
-  is wrapped and the ease parameter is checked to see if it one of the new
-  buttons. If it is, the standard answer function is used to add the card
-  as an easy card, and then the browser 'reschedCards' function is used
-  to reschedule it to the desired interval.
-
-In summary, this functions as if you click the "Easy" button on a new card,
-  and then go to the browser and reschedule the card.
-
-Warning: This completely replaces the Reviewer._answerButtons fn, so any changes
-   to that function in future updates will be lost. Could ask for a hook?
-Warning: buyer beware ... The author is not a python, nor a qt programmer
-
-Support: None. Use at your own risk. If you do find a problem please email me
-    at steveawa@gmail.com
-
-Setup data
-List of dicts, where each item of the list (a dict) is the data for a new button.
-This can be edited to suit, but there can not be more than 4 buttons.
-    Description ... appears above the button
-    Label ... the label of the button
-    ShortCut ... the shortcut key for the button
-    ReschedMin ... same as the lower number in the Browser's "Edit/Rescedule" command
-    ReschedMax ... same as the higher number in the Browser's "Edit/Rescedule" command
+Copyright:  (c) Steve AW 2013 <steveawa@gmail.com>
+            (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
-extra_buttons = [{"Description": "3-4d", "Label": "3-4", "ShortCut": "5", "ReschedMin": 3, "ReschedMax": 5},
-                 {"Description": "5-7d", "Label": "5-7", "ShortCut": "6", "ReschedMin": 5, "ReschedMax": 7},
-                 {"Description": "8-15d", "Label": "8-15", "ShortCut": "7", "ReschedMin": 8, "ReschedMax": 15}]
+
+############## USER CONFIGURATION START ##############
+
+# Setup data:
+#
+# List of dicts, where each item of the list (a dict) is the data for a new button.
+# This can be edited to suit, but there can not be more than 4 buttons.
+#     Description ... appears above the button
+#     Label ... the label of the button
+#     ShortCut ... the shortcut key for the button
+#     ReschedMin ... same as the lower number in the Browser's "Edit/Rescedule" command
+#     ReschedMax ... same as the higher number in the Browser's "Edit/Rescedule" command
+
+extra_buttons = [{"Description": "3-4d", "Label": "3-4", "ShortCut": "5",
+                        "ReschedMin": 3, "ReschedMax": 5},
+                 {"Description": "5-7d", "Label": "5-7", "ShortCut": "6",
+                        "ReschedMin": 5, "ReschedMax": 7},
+                 {"Description": "8-15d", "Label": "8-15", "ShortCut": "7",
+                        "ReschedMin": 8, "ReschedMax": 15}]
+
+##############  USER CONFIGURATION END  ##############
 
 #Must be four or less
 assert len(extra_buttons) <= 4
