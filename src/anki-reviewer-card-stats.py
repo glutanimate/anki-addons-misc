@@ -8,7 +8,7 @@ Displays stats in a sidebar while reviewing.
 For the most part based on the following add-ons:
 
 - Card Info During Review by Damien Elmes (https://ankiweb.net/shared/info/2179254157)
-- reviewer_show_cardinfo by Steve AM (https://github.com/steveaw/anki_addons/)
+- reviewer_show_cardinfo by Steve AW (https://github.com/steveaw/anki_addons/)
 
 This version of Card Stats combines the sidebar in Damien's add-on with the extra
 review log info found in Steve AW's add-on.

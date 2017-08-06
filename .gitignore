@@ -5,3 +5,4 @@
 *.sublime-workspace
 .hidden
 .directory
+docs/sort-sections.sh
