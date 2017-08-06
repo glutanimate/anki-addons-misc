@@ -58,7 +58,7 @@ def _generate_jquery_scripts():
     tip_script = "    $(function(){"
     template = """
     $('tr#%(id)s a').miniTip({
-        content: 'Loading...', offset: 1, delay: 1000, maxW: '500px',
+        content: 'Loading...', offset: 1, delay: 500, maxW: '500px',
 		render: function(tt) {
         $('#miniTip_c').html(py_deck_inf.deck_information_for(%(id)s) );}});
         """
