@@ -987,7 +987,7 @@ This is a slightly modified re-upload of an add-on by [Steve AW](https://github.
 
 **SCREENSHOT**
 
-![screenshot](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_more_answer_buttons.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_more_answer_buttons.png)
 
 **DESCRIPTION**
 
@@ -1117,6 +1117,12 @@ Based on [Show Cute Dogs](https://ankiweb.net/shared/info/1125592690) by Michael
 
 ![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_puppy_reinforcement.png)
 
+**VIDEO TUTORIAL**
+
+The customization and use of the Puppy Reinforcement add-on is demonstrated in the following video (alongside other similar add-ons):
+
+[![YouTube: Anki add-on guide: Gamify Your Reviews](https://i.ytimg.com/vi/UkveLkAgXiM/mqdefault.jpg)](https://youtu.be/UkveLkAgXiM)
+
 **COMPATIBILITY**
 
 This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
@@ -1167,7 +1173,7 @@ Provides **feedback** for reviews by **flashing** a **small transparent image** 
 
 **SCREENSHOT**
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-visual-feedback.png)
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/reviewer_visual_feedback.png)
 
 **VIDEO TUTORIAL**
 
