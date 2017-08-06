@@ -32,7 +32,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [reviewer_hint_hotkeys](#reviewerhinthotkeys)
 - [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewermoreanswerbuttons-more-answer-buttons-for-new-cards)
 - [reviewer_progress_bar: Progress Bar](#reviewerprogressbar-progress-bar)
-- [reviewer_pu_reinforcement: Puppy Reinforcement](#reviewerpureinforcement-puppy-reinforcement)
+- [reviewer_puppy_reinforcement: Puppy Reinforcement](#reviewerpuppyreinforcement-puppy-reinforcement)
 - [reviewer_track_unseen](#reviewertrackunseen)
 - [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewervisualfeedback-visual-feedback-for-reviews)
 - [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#schedadvancednewcardlimits-limit-new-cards-to-less-than-one)
@@ -757,7 +757,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 **SCREENSHOT**
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/overview-deck-tooltip.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/overview_deck_tooltip.png)
 
 **COMPATIBILITY**
 
@@ -825,7 +825,7 @@ This add-on is based on [Card Info During Review](https://ankiweb.net/shared/inf
 
 **SCREENSHOT**
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-card-stats.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_card_stats.png)
 
 **COMPATIBILITY**
 
@@ -987,7 +987,7 @@ This is a slightly modified re-upload of an add-on by [Steve AW](https://github.
 
 **SCREENSHOT**
 
-![screenshot](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-more-answer-buttons.png)
+![screenshot](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_more_answer_buttons.png)
 
 **DESCRIPTION**
 
@@ -1056,11 +1056,11 @@ A **progress bar** that shows your progress in terms of **passed cards per revie
 
 Default settings:
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-progress-bar-1.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_progress_bar_1.png)
 
 Bottom location, rounded corners:
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-progress-bar-2.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_progress_bar_2.png)
 
 **VIDEO TUTORIAL**
 
@@ -1107,7 +1107,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer_pu_reinforcement: Puppy Reinforcement
+## reviewer_puppy_reinforcement: Puppy Reinforcement
 
 Uses **intermittent reinforcement** with **cute puppies** to encourage card review streaks.
 
@@ -1115,7 +1115,7 @@ Based on [Show Cute Dogs](https://ankiweb.net/shared/info/1125592690) by Michael
 
 **SCREENSHOT**
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-puppy-reinforcement.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_puppy_reinforcement.png)
 
 **COMPATIBILITY**
 
@@ -1270,7 +1270,7 @@ Based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andrea
 
 This is a slightly modified version of the [True Retention add-on](https://ankiweb.net/shared/info/613684242) by Strider that breaks the **retention statistics** up **by card maturity**:
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/stats-true-retention-extended.png)
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/stats_true_retention_extended.png)
 
 In addition to this, the add-on also allows you to define a custom card maturity threshold (`MATURE_IVL` at the top of the source code). This is set to 21 days by default.
 
