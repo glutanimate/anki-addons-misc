@@ -24,10 +24,11 @@ in the browser:
     Ctrl+S -> Ctrl+Alt+T:   add '-added:1' to existing search
     Ctrl+S -> Shift+T:      add 'or added:1' to existing search
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
+
+from __future__ import unicode_literals
 
 #============USER CONFIGURATION START===============
 
@@ -54,8 +55,8 @@ sequence_starter = "Ctrl+S"
 
 #==============USER CONFIGURATION END==============
 
-from PyQt4.QtCore import Qt, SIGNAL
-from PyQt4.QtGui import QKeySequence, QShortcut
+from aqt.qt import *
+from aqt.browser import Browser
 from anki.hooks import addHook
 
 search_modifiers = {
@@ -67,7 +68,7 @@ search_modifiers = {
 }
 
 def setSearchField(self, search, action):
-    cur = unicode(self.form.searchEdit.lineEdit().text())
+    cur = self.form.searchEdit.lineEdit().text()
     if action == "replace":
         pass
     elif action == "add":
@@ -82,11 +83,12 @@ def setSearchField(self, search, action):
     self.onSearch()
 
 def onSetupMenus(self):
-    for key, binding in search_shortcuts.iteritems():
+    for key, binding in search_shortcuts.items():
         search = binding["search"]
-        for modifier, action in search_modifiers.iteritems():
+        for modifier, action in search_modifiers.items():
             key_sequence = modifier + key
-            self.a = QShortcut(QKeySequence(sequence_starter + ', ' + key_sequence), self)
-            self.connect(self.a, SIGNAL("activated()"), lambda c=search,d=action: setSearchField(self,c,d))
+            a = QShortcut(QKeySequence(sequence_starter + ', ' + key_sequence), self)
+            a.activated.connect(lambda c=search,d=action: self.setSearchField(c,d))
 
 addHook("browser.setupMenus", onSetupMenus)
+Browser.setSearchField = setSearchField
