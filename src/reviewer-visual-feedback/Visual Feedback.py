@@ -1,8 +1,31 @@
 # -*- coding: utf-8 -*-
-#   License: CC BY-SA 4.0
-#  Answer Feedback
-# Tested only on Anki 2.0.34
-__version__ = "1.0.1"
+"""
+Anki Add-on: Visual Feedback for Reviews
+
+Provides feedback for reviews by flashing a small transparent image
+at the center of your screen that varies between lapses and passed cards.
+
+Copyright:  (c) Unknown author (nest0r/Ja-Dark?) 2017
+            (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
+"""
+
+############## USER CONFIGURATION START ##############
+
+# feedback duration in ms
+duration = 250 # default: 250
+
+# Images need to be located in add-on directory
+#(visual_feedback folder):
+
+# image for lapsed cards
+lapsed = '_ansfeed_lapsed.png'
+# image for passed cards
+passed = '_ansfeed_passed.png'
+
+##############  USER CONFIGURATION END  ##############
+
+__version__ = "1.1.0"
 
 from aqt.reviewer import Reviewer
 from anki.hooks import addHook, wrap
@@ -10,8 +33,6 @@ from aqt import mw
 from aqt.qt import *
 import shutil, os
 
-lapsed = '_ansfeed_lapsed.png'
-passed = '_ansfeed_passed.png'
 folder = 'visual_feedback'
           
 def imgLoad():
@@ -27,17 +48,17 @@ def _keyHandler(self, evt, _old):
     key = str(evt.text())
     if self.state == "answer":
         if key == "1": 
-            confirm(lapsed, 250)
+            confirm(lapsed, duration)
         elif key in ("2", "3", "4"): 
-            confirm(passed, 250)
+            confirm(passed, duration)
     _old(self, evt)
 
 def _linkHandler(self, url, _old):
     if url.startswith("ease") and self.state == "answer":
         if int(url[4:]) == 1: 
-            confirm(lapsed, 250)
+            confirm(lapsed, duration)
         elif int(url[4:]) in (2, 3, 4): 
-            confirm(passed, 250) 
+            confirm(passed, duration) 
     _old(self, url)
         
 _lab = None
