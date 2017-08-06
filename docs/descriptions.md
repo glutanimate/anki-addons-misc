@@ -47,8 +47,6 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 
 ## browser-batch-edit.py: Batch Note Editing
 
-**OVERVIEW**
-
 Adds a new menu item to the card browser that allows you to:
 
 - **batch-add** information/media to a specific field
@@ -72,10 +70,14 @@ The add-on uses the first selected note to generate the field list you're presen
 
 **CHANGELOG**
 
-2017-08-05 – Ability to insert text as HTML
+2017-08-06 – Ability to insert text as HTML
 2017-05-13 – Only insert line-breaks when necessary
 2016-12-11 – Support for adding text before existing content (thanks to @luminousspice for the idea)
 2016-12-08 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -119,7 +121,11 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 2017-08-07 – Refactored code
 2016-04-30 – Duplications can now be undone via CTRL+Z (using Anki's default restoration points)
 
-**CREDITS**
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
@@ -150,8 +156,12 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 **CHANGELOG**
 
-2017-08-05 – Refactored code
+2017-08-06 – Refactored code
 2016-05-28 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -183,6 +193,10 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 **CHANGELOG**
 
 2017-02-21 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -219,8 +233,12 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
-2017-08-05 – Ability to define custom sorting column by editing the source code
+2017-08-06 – Ability to define custom sorting column by editing the source code
 2016-05-27 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -250,9 +268,13 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
-2017-08-05 – Some smaller improvements and bug fixes
+2017-08-06 – Some smaller improvements and bug fixes
 2016-06-04 – Switch to title case for menu entries
 2016-05-27 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -313,8 +335,12 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 **CHANGES**
 
-2017-08-05 – Refactored code
+2017-08-06 – Refactored code
 2016-04-27 – Implemented hotkeys for more searches. Thanks to ankitest!
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -385,6 +411,10 @@ Compatibility with future versions of Night Mode and Power Format Pack is not gu
 
 2017-08-04 – Initial release
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -415,6 +445,10 @@ A number of enhancements meant to **improve keyboard navigation** in Anki's **ta
 2017-04-11 – Smaller bug fixes
 2017-01-15 – Tags completed via *Enter* now follow the suggestion's capitalization; automatically append space to quick-completed tags
 2016-12-28 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -468,6 +502,10 @@ You can edit the add-on's source code to modify the following:
 2016-06-04 – Added history window to the add-on (invoked via Ctrl+Alt+H)
 2016-05-27 – Initial release
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -506,6 +544,10 @@ Note: In their current implementation the hotkeys will not work when the tag sug
 2016-04-19 – Reworked the add-on from scratch to have a much leaner footprint
 2015-09-04 – Initial release
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright (c) 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -530,8 +572,12 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
-2017-08-05 – Config option that controls whether to use existing tags or not
+2017-08-06 – Config option that controls whether to use existing tags or not
 2017-05-13 – Ability to indent arbitrary tags. More config options (check the source-code header for more information)
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -567,6 +613,10 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 2017-05-14 – Initial release
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -598,6 +648,10 @@ Some add-ons like the the [Power Format Pack](https://ankiweb.net/shared/info/16
 **CHANGELOG**
 
 2017-05-13 – Increase default window size (the size can also be adjusted in the config section of the source code now). Various smaller bugfixes.
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -662,6 +716,10 @@ Please make sure to preserve the formatting and quoting while doing so!
 2015-10-27 – Added a hotkey to clear the tags field
 2015-10-27 – Initial release
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright © 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -697,6 +755,10 @@ By default the hotkeys will skip decks that don't have any cards that are due or
 
 2016-07-30 – Initial release
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -715,7 +777,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 **Hover** over your **decks** to see an overview of **review stats** and other information on the deck.
 
-**Screenshot**
+**SCREENSHOT**
 
 ![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/overview-deck-tooltip.png)
 
@@ -723,7 +785,11 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
 
-**LICENSE AND CREDITS**
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
 
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -753,6 +819,10 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 **CHANGELOG**
 
 2017-01-29 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -786,6 +856,10 @@ The visibility of the panel can be controlled through the *Tools* menu or `SHIFT
 
 ![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-card-stats.png)
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright (c) 2012 Damien Elmes*
@@ -804,13 +878,21 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ## reviewer-browse-creation.py: Browse Card in its Creation Context
 
-Adds commands to the Reviewer "More" menu and a hotkey (*C*) to **open the browser** on the **selected card**. The browser is configured to sort based on **creation date**, and select the card. Enables the card to be viewed in its  "creation context" ie notes that were created before/after in the same deck.
+Adds a command to the **Reviewer** that enables the card to be viewed in its "**creation context**", i.e. notes that were created before/after in the same deck.
+
+**USAGE**
+
+The add-on can either be invoked via its menu entry in the "More" menu of the Reviewer, or by using its assigned hotkey `C`.
 
 **COMPATIBILITY**
 
 This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is probably **not supported** at this point in time.
 
-**LICENSE AND CREDITS**
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
 
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -835,8 +917,12 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 **CHANGELOG**
 
-2017-08-05 – Add hotkey for menu entry
+2017-08-06 – Add hotkey for menu entry
 2016-04-04 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -879,12 +965,22 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 2016-04-03: Use internationalization for toolbar items (thanks to comment below)
 
-**LICENSE AND CREDITS**
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
 
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+
+New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
 ------------------------------------------
 
@@ -947,7 +1043,11 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 2016-05-11: Made answer buttons work properly when card is in learning mode (thanks to Dmitry Mikheev)
 2016-05-10: Extend answer buttons to cards in learning (thanks to Dmitry Mikheev)
 
-**LICENSE AND CREDITS**
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
 
 *Copyright (c) 2013 Steve AW*
 *Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -969,9 +1069,11 @@ A **progress bar** that shows your progress in terms of **passed cards per revie
 **SCREENSHOTS**
 
 Default settings:
+
 ![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-progress-bar-1.png)
 
 Bottom location, rounded corners:
+
 ![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-progress-bar-2.png)
 
 **VIDEO TUTORIAL**
@@ -998,6 +1100,10 @@ The configuration section will also allow you to customize how your card tally i
 
 2017-08-06 – Rework configuration section, add options for width and new/review queue
 2017-06-15 – Re-upload
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
@@ -1045,6 +1151,10 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 2016-11-18 – Initial release
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 (c) 2015 [mbertolacci](https://github.com/mbertolacci)
@@ -1091,6 +1201,10 @@ The displayed image and the duration it is shown for can be customized by modify
 2017-08-06 – Add configuration section
 2017-06-15 – Re-upload
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 This is a fork of an add-on which was removed from AnkiWeb in early 2017. The original was most likely written by nest0r/Ja-Dark who [apparently deleted all of their shared Anki resources](https://forum.koohii.com/thread-14570.html). There is no way to tell for sure since the original add-on description did not contain a copyright notice or attribution to a specific author.
@@ -1131,6 +1245,10 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 Like all add-ons that modify scheduling this add-on will only work on the desktop releases.
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
@@ -1164,6 +1282,10 @@ This is a slightly modified version of the [True Retention add-on](https://ankiw
 
 In addition to this, the add-on also allows you to define a custom card maturity threshold (`MATURE_IVL` at the top of the source code). This is set to 21 days by default.
 
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
 **CREDITS AND LICENSE**
 
 *Copyright 2016 Strider*
@@ -1195,10 +1317,14 @@ Currently supported are Google, Google Images, and Wikipedia. You can add new pr
 
 **CHANGELOG**
 
-2017-08-05 – Refactored code
+2017-08-06 – Refactored code
 2016-01-26 – Only create a submenu when needed
 2017-01-17 – Rewrote add-on, added support for online search providers
 2016-04-19 – double-quote phrases when searching
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
 
 **CREDITS AND LICENSE**
 
