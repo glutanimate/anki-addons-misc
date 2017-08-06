@@ -1,6 +1,14 @@
-# based on: https://github.com/sartak/anki-editor-autocomplete
-# modified by Glutanimate (https://github.com/Glutanimate/anki-editor-autocomplete)
 # -*- coding: utf8 -*-
+"""
+Anki Add-on: Editor Autocomplete Whitelist
+
+This is a slightly modified versions of Editor Autocomplete by
+Sartak that switches out the field blacklist with a whitelist.
+
+Copyright: (c) Sartak 2013 <https://github.com/sartak/anki-editor-autocomplete>
+           (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
+"""
 
 from aqt import mw, editor
 from aqt.qt import *

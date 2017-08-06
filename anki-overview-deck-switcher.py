@@ -11,12 +11,11 @@ Ctrl + (Shift) + Tab : Switch to next/previous deck
 Options:
 See below under USER CONFIGURATION
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-# USER CONFIGURATION START
+############## USER CONFIGURATION START ##############
 
 # possible values: True False
 
@@ -28,10 +27,9 @@ deck_switcher_skip_empty = True # skip empty decks
 deck_switcher_key_forward = "Ctrl+Tab"
 deck_switcher_key_backward = "Ctrl+Shift+Tab"
 
-# USER CONFIGURATION END
+##############  USER CONFIGURATION END  ##############
 
-from PyQt4.QtCore import SIGNAL
-from PyQt4.QtGui import QAction, QKeySequence
+from aqt.qt import *
 from aqt import mw
 
 def quickSwitchDeck(drc):

@@ -27,13 +27,9 @@ Note:
 This add-on is incompatible with Cloze Overlapper and any other add-ons
 that overwrite the Editor.onCloze method.
 
-Copyright: Glutanimate 2017 <https://glutanimate.com/>
-License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.en.html
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
-
-############## USER CONFIGURATION START ##############
-
-##############  USER CONFIGURATION END  ##############
 
 import re
 

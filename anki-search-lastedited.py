@@ -11,13 +11,9 @@ Adds two new properties to Anki's search module:
 These can be used across all search interfaces that Anki provides
 (Browser, Filtered Decks Creation, etc.)
 
-Copyright: Glutanimate 2017 <https://glutanimate.com/>
-License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.en.html
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
-
-############## USER CONFIGURATION START ##############
-
-##############  USER CONFIGURATION END  ##############
 
 from anki.find import Finder
 from anki.utils import ids2str

@@ -12,12 +12,11 @@ editing the SEARCH_PROVIDERS list below.
 Based on 'OSX Dictionary Lookup' by Eddie Blundell and 
 'Search Google Images' by Steve AW.
 
-Copyright: (c) Glutanimate 2015-2017
-
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: Glutanimate 2015-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-### USER CONFIGURATION START
+############## USER CONFIGURATION START ##############
 
 # list of tuples of search provider names and urls.
 # '%s' will be replaced with the search term
@@ -28,7 +27,7 @@ SEARCH_PROVIDERS = [
     ("Wikipedia (&de)", u"https://de.wikipedia.org/w/index.php?search=%s")
 ]
 
-### USER CONFIGURATION END
+##############  USER CONFIGURATION END  ##############
 
 import urllib
 
@@ -52,11 +51,11 @@ def add_lookup_action(view, menu):
     selected = view.page().selectedText()
     if not selected:
         return
+    
     suffix = (selected[:20] + '..') if len(selected) > 20 else selected
     label = u'Search for "%s" in Card &Browser' % suffix
-    action = menu.addAction(label)
-    action.connect(action, SIGNAL('triggered()'),
-        lambda t=selected: lookup_browser(t))
+    a = menu.addAction(label)
+    a.triggered.connect(lambda _, t=selected: lookup_browser(t))
 
     search_menu = None
     if len(SEARCH_PROVIDERS) > 10:  
@@ -69,8 +68,7 @@ def add_lookup_action(view, menu):
         else:
             label = u'Search for "%s" on %s' % (suffix, provider[0])
         a = menu.addAction(label)
-        a.connect(a, SIGNAL('triggered()'), 
-            lambda i=idx,t=selected: lookup_online(t, i))
+        a.triggered.connect(lambda _, i=idx,t=selected: lookup_online(t, i))
 
 addHook("AnkiWebView.contextMenuEvent", add_lookup_action)
 addHook("EditorWebView.contextMenuEvent", add_lookup_action)

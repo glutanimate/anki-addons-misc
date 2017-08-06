@@ -10,8 +10,8 @@ Various modifications to the tag editor:
 - go to next completion with Ctrl+Tab
 - show completer with Up/Down arrows
 
-Copyright: (c) Glutanimate 2016-2017
-License: GNU AGPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 from aqt.qt import *

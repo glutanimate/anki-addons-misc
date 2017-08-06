@@ -7,9 +7,8 @@ Based on https://ankiweb.net/shared/info/1830523200
 
 Makes all important Anki windows stay on top
 
-Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 from anki.hooks import wrap
@@ -42,6 +41,9 @@ action.setCheckable(True)
 mw.connect(action, SIGNAL("triggered()"), alwaysOnTop)
 mw.form.menuTools.addAction(action)
 
-addcards.AddCards.__init__ = wrap(addcards.AddCards.__init__, onWindowInit, "after")
-editcurrent.EditCurrent.__init__ = wrap(editcurrent.EditCurrent.__init__, onWindowInit, "after")
-browser.Browser.__init__ = wrap(browser.Browser.__init__, onWindowInit, "after")
+addcards.AddCards.__init__ = wrap(
+    addcards.AddCards.__init__, onWindowInit, "after")
+editcurrent.EditCurrent.__init__ = wrap(
+    editcurrent.EditCurrent.__init__, onWindowInit, "after")
+browser.Browser.__init__ = wrap(
+    browser.Browser.__init__, onWindowInit, "after")

@@ -6,8 +6,8 @@ Anki Add-on: Indentation Formatter
 Extends Anki's note editing toolbar with an "indent" and "outdent" button
 that insert indented paragraphs.
 
-Copyright: (c) Glutanimate 2017
-License: GNU AGPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """ 
 
 # USER CONFIGURATION START

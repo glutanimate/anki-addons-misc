@@ -13,15 +13,15 @@ launch a new previewer window.
 
 Dependencies: Advanced Previewer
 
-Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-##### USER CONFIGURATION START #####
+############## USER CONFIGURATION START ##############
 
 TAG_BROWSER_MODE = True
 
-##### USER CONFIGURATION END #####
+##############  USER CONFIGURATION END  ##############
 
 from aqt.qt import *
 from aqt.browser import Browser
@@ -83,6 +83,7 @@ def onProfileLoaded():
     Browser.switchToSidebarItem = switchToSidebarItem
     Browser.setFilter = wrap(Browser.setFilter, onSetFilter, "around")
     Previewer.setupHotkeys = wrap(Previewer.setupHotkeys, onSetupHotkeys, "after")
+
 
 if Previewer and TAG_BROWSER_MODE:
     addHook("profileLoaded", onProfileLoaded)

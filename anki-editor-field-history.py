@@ -5,9 +5,8 @@ Anki Add-on: Editor Field History
 
 Allows you to restore fields to their previous values.
 
-Copyright: (c) Glutanimate 2016-2017
-License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.de.html
-
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 #============USER CONFIGURATION START===============
@@ -16,7 +15,8 @@ history_window_shortcut = "Ctrl+Alt+H"
 field_restore_shortcut = "Alt+Z"
 partial_restore_shortcut = "Alt+Shift+Z"
 full_restore_shortcut = "Ctrl+Alt+Shift+Z"
-partial_restore_fields = ["Quellen"] # fields to restore with the partial_restore_shortcut
+# fields to restore with the partial_restore_shortcut:
+partial_restore_fields = ["Quellen"]
 
 #==============USER CONFIGURATION END===============
 

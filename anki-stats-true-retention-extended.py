@@ -8,15 +8,14 @@ Based on True Retention by Strider (?)
 
 Copyright: (c) 2016 Strider (?)
            (c) 2017 Glutanimate (https://github.com/Glutanimate)
-
-License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.en.html
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-### USER CONFIGURATION START ###
+############## USER CONFIGURATION START ##############
 
 MATURE_IVL = 21 # mature card interval in days
 
-### USER CONFIGURATION END ####
+##############  USER CONFIGURATION END  ##############
 
 import anki.stats
 

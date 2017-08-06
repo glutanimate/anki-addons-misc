@@ -1,14 +1,14 @@
-# Anki add-on: Puppy Reinforcement
-#
-# Uses intermittent reinforcement to encourage card review streaks
-#
-# (c) Glutanimate 2016
-#
-# Based on "Show Cute Dogs"
-# (https://ankiweb.net/shared/info/1125592690)
-# Uses a customized version of aqt.utils.tooltip by Damien Elmes
+"""
+Anki Add-on: Puppy Reinforcement
 
-# SETTINGS
+Uses intermittent reinforcement to encourage card review streaks
+
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
+"""
+
+############## USER CONFIGURATION START ##############
+
 encourage_every = 10 # show encouragement about every n cards; default: 10
 max_spread = 5 # max spread around interval
 tooltip_color = "#AFFFC5" # HTML color code; default: light green
@@ -19,7 +19,8 @@ encouragements = {
     "high": ["Fantastic job!", "Wow!", "Beautiful!", "Awesome!", "I'm proud of you!"],
     "max": ["Incredible!", "You're on fire!", "Bravo!", "So many cards..."]
 }
-# END SETTINGS
+
+##############  USER CONFIGURATION END  ##############
 
 import os
 import random

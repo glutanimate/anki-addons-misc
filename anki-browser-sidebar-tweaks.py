@@ -18,16 +18,14 @@ List of changes:
   - items with leading _ are sorted first
   - items with leading . are sorted last
   - items with leading capital letter are sorted after leading _, but before the rest
-  - 
 
 Contains code found in the following add-ons:
 
 - Hierarchical Tags add-on by Patice Neff (https://github.com/pneff/anki-hierarchical-tags)
 - Tag Tweaks add-on by Arthaey Angosii (https://github.com/Arthaey/anki-tag-tweaks)
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 from PyQt4.QtGui import *

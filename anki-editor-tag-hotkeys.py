@@ -5,9 +5,11 @@ Anki Add-on: Editor Tag Hotkeys
 
 Extends Anki's note editor with hotkeys that toggle specific tags.
 
-Copyright: (c) Glutanimate 2015-2017
-License: GNU AGPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """ 
+
+from __future__ import unicode_literals
 
 ################## USER CONFIGURATION START #####################
 
@@ -40,7 +42,6 @@ from aqt.editor import Editor
 from anki.hooks import addHook
 
 def toggleTag(self, tag):
-    tag = tag.decode('utf-8')
     current = self.tags.text().split()
     if tag in current:
         current.remove(tag)
@@ -59,7 +60,7 @@ def resetTags(self):
     self.tags.clear()
 
 def onSetupButtons(self):
-    s = QShortcut(QKeySequence(Qt.ALT + Qt.SHIFT + Qt.Key_R), self.parentWindow)
+    s = QShortcut(QKeySequence("Alt+Shift+R"), self.parentWindow)
     s.activated.connect(self.resetTags)
 
     for hotkey, tag in tags.items():

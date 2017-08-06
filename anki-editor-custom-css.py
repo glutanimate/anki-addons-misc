@@ -5,8 +5,8 @@ Anki Add-on: Customize Editor CSS
 
 Allows you to customize the stylesheet of the Editor widget in Anki.
 
-Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 ######### USER CONFIGURATION START ##########

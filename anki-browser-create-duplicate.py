@@ -5,10 +5,6 @@ Anki Add-on: Duplicate Selected Notes
 
 Select any number of cards in the card browser and duplicate their notes
 
-Copyright: Glutanimate 2016
-Based on: "Create Copy of Selected Cards" by Kealan Hobelmann (https://ankiweb.net/shared/info/787914845)
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
 To use:
 
 1) Open the card browser
@@ -26,12 +22,14 @@ A few pointers:
 
 This add-on is based on "Create Copy of Selected Cards" by Kealan Hobelmann
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Based on: "Create Copy of Selected Cards"
+by Kealan Hobelmann (https://ankiweb.net/shared/info/787914845)
+
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-from PyQt4.QtCore import SIGNAL
-from PyQt4.QtGui import QKeySequence
+from aqt.qt import *
 from anki.hooks import addHook
 from aqt.utils import tooltip
 from anki.utils import timestampID
@@ -96,7 +94,7 @@ def setupMenu(self):
 
     a = menu.addAction('Create Duplicate')
     a.setShortcut(QKeySequence("Ctrl+Alt+C"))
-    self.connect(a, SIGNAL("triggered()"), lambda b=self: onCreateDuplicate(b))
+    a.triggered.connect(lambda _, b=self: onCreateDuplicate(b))
 
 def onCreateDuplicate(self):
     createDuplicate(self)

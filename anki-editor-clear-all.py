@@ -5,11 +5,11 @@ Anki Add-on: Reset Editor fields
 
 Adds hotkeys to reset the editor by various degrees.
 
-Based on Clear All Editor Fields add-on by Mirco Kraenz (https://github.com/proSingularity/anki2-addons)
+Based on Clear All Editor Fields add-on by Mirco Kraenz
+(https://github.com/proSingularity/anki2-addons)
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 

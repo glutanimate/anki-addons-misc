@@ -6,8 +6,8 @@ Anki Add-on: External Note Editor for the Browser
 Extends the card browser with a shortcut and menu action that
 launches an external editor window for the current note.
 
-Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 from aqt.qt import *

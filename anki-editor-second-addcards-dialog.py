@@ -11,8 +11,8 @@ Hotkey: Ctrl+Shift+A
 
 TODO: support for an arbitrary number of AddCards dialogs
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 #============USER CONFIGURATION START===============

@@ -8,11 +8,11 @@ Allows you to restrict new cards to less than one per day.
 The deck options need to be set to 1 new card per day for
 the advanced limits to apply.
 
-Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-### USER CONFIGURATION START ###
+############## USER CONFIGURATION START ##############
 
 # Syntax: "deck_name": days_between_new_cards
 deck_limits = {
@@ -20,7 +20,7 @@ deck_limits = {
     u"Very Slöw": 7 # deck names with unicode need to be prepended with u
 }
 
-###  USER CONFIGURATION END  ###
+##############  USER CONFIGURATION END  ##############
 
 from anki.sched import Scheduler
 

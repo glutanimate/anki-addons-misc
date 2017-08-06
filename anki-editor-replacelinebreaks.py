@@ -3,8 +3,11 @@
 """
 Anki Add-on: Replace Linebreaks in Clipboard or Selection
 
-Copyright: Glutanimate 2017 <https://glutanimate.com/>
-License: GNU AGPL, version 3 or later; https://www.gnu.org/licenses/agpl-3.0.en.html
+Adds hotkeys that remove linebreaks in the clipboard or
+currently selected text.
+
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 # Do not modify the following line:
@@ -14,15 +17,15 @@ from __future__ import unicode_literals
 
 # KEY ASSIGNMENTS
 
-PASTE_HOTKEY = "Alt+P"
-EDIT_SELECTION_HOTKEY = "Alt+Shift+P"
+PASTE_HOTKEY = "Alt+P" # Default: Alt+P
+EDIT_SELECTION_HOTKEY = "Alt+Shift+P" # Default: Alt+Shift+P
 
 # OPTIONS
 
 # try to preserve paragraphs (not 100% exact):
-PRESERVE_PARAGRAPHS = True
+PRESERVE_PARAGRAPHS = True # Default: True
 # confirm actions with tooltips
-TOOLTIP = True
+TOOLTIP = True # Default: True
 
 ##############  USER CONFIGURATION END  ##############
 

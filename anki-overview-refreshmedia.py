@@ -14,9 +14,8 @@ on the next synchronization with AnkiWeb.
 
 Note: Might lead to increased memory consumption if used excessively
 
-Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 import os

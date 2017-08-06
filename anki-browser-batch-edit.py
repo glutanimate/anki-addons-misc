@@ -6,9 +6,10 @@ Anki Add-on: Batch Note Editing
 Batch edit field in selected notes. Allows you to choose between
 adding content to the field or replacing its contents entirely.
 
-Copyright: (c) Glutanimate 2016
 Commissioned by: /u/TryhardasaurusRex on Reddit
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 import os, tempfile
@@ -200,6 +201,6 @@ def setupMenu(browser):
     menu.addSeparator()
     a = menu.addAction('Batch Edit...')
     a.setShortcut(QKeySequence("Ctrl+Alt+B"))
-    browser.connect(a, SIGNAL("triggered()"), lambda b=browser: onBatchEdit(b))
+    a.triggered.connect(lambda _, b=browser: onBatchEdit(b))
 
 addHook("browser.setupMenus", setupMenu)

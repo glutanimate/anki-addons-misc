@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
-# Copyright: 2015 Glutanimate <https://github.com/Glutanimate>
-# License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-#
-# Quick Field Navigation add-on for Anki (http://ankisrs.net/)
+
+"""
+Anki Add-on: Quick Field Navigation
+
+Implements shortcuts that allow you to navigate 
+through your fields in the card editor.
+
+Copyright: Glutanimate 2015-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
+"""
 
 from aqt.qt import *
 from anki.hooks import addHook
@@ -25,12 +31,9 @@ def changeFocusTo(self, fldnr):
 def onSetupButtons(self):
     for i in range(0,10):
         s = QShortcut(QKeySequence("Ctrl" + "+" + str(i)), self.parentWindow)
-        s.connect(s, SIGNAL("activated()"),
-                lambda f=i : changeFocusTo(self, f))
+        s.activated.connect(lambda f=i : changeFocusTo(self, f))
 
     s = QShortcut(QKeySequence("Alt+Shift+F"), self.parentWindow)
-    s.connect(s, SIGNAL("activated()"),
-        lambda : self.web.setFocus())
-
+    s.activated.connect(lambda: self.web.setFocus())
 
 addHook("setupEditorButtons", onSetupButtons)

@@ -6,11 +6,11 @@ Anki Add-on: File Hyperlinks in the Reviewer
 Parses the Reviewer for a custom URL scheme and inserts links
 that invoke external programs.
 
-Copyright: (c) Glutanimate 2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-#### USER CONFIGURATION START ####
+############## USER CONFIGURATION START ##############
 
 # path to external script or app that handles files
 
@@ -20,7 +20,7 @@ external_handler_win = r"C:\Users\AnkiUser\script.exe"
 # Unix (Linux/macOS)
 external_handler_unix = r"notify-send"
 
-#### USER CONFIGURATION END ####
+##############  USER CONFIGURATION END  ##############
 
 import subprocess
 import re

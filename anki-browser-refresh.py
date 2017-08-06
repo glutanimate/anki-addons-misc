@@ -6,8 +6,8 @@ Anki Add-on: Refresh Browser List
 Refreshes browser view and optionally changes the sorting column
 (e.g. to show newly added cards since last search)
 
-Copyright: (c) Glutanimate 2016-2017
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 # Do not modify the following line

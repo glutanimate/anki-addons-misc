@@ -13,12 +13,13 @@ Alt+Shift+B         toggle reverse field
 Ctrl+Alt+Shift+B    toggle reverse field and control its frozen state
                     (meant to be used with the Frozen Fields add-on)
 
-Copyright: Glutanimate 2015 (https://github.com/Glutanimate)
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
+Copyright: (c) Glutanimate 2015-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-from aqt.qt import *
-from anki.hooks import addHook
+from __future__ import unicode_literals
+
+############## USER CONFIGURATION START ##############
 
 # set reverse field name here
 rev_field_name = "Bidirektional"
@@ -29,6 +30,10 @@ key_toggles = {
     "a": "a" # paste "a" into field
 }
 
+##############  USER CONFIGURATION END  ##############
+
+from aqt.qt import *
+from anki.hooks import addHook
 
 def toggleFrozenState(self, state):
     model = self.note.model()
@@ -65,9 +70,11 @@ def onSetupButtons(self):
     for key, toggle in list(key_toggles.items()):
         
         t = QShortcut(QKeySequence("Alt+Shift+" + key), self.parentWindow)
-        t.activated.connect(lambda x=toggle: toggleReverseField(self, x))
+        t.activated.connect(
+            lambda x=toggle: toggleReverseField(self, x))
         
         t = QShortcut(QKeySequence("Ctrl+Alt+Shift+" + key), self.parentWindow)
-        t.activated.connect(lambda x=toggle: toggleReverseField(self, x, freeze=True))
+        t.activated.connect(
+            lambda x=toggle: toggleReverseField(self, x, freeze=True))
 
 addHook("setupEditorButtons", onSetupButtons)

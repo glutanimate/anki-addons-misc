@@ -13,9 +13,8 @@ For the most part based on the following add-ons:
 This version of Card Stats combines the sidebar in Damien's add-on with the extra
 review log info found in Steve AW's add-on.
 
-Copyright: (c) Glutanimate 2016
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
+Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 from anki.hooks import addHook
