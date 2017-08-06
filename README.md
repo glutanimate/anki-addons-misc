@@ -19,7 +19,7 @@ Add-on file names also have an impact on their loading order. Files with a leadi
 
 ## Credits
 
-Some of the add-ons found in this repository were either adopted from earlier works by other authors or simply constitute re-uploads of add-ons that disappeared from AnkiWeb, with no original code repository to be found. I have tried to document the development history of each of these add-ons in their source code header, but more detailed information may also be found [here](credits.md).
+Some of the add-ons found in this repository were either adopted from earlier works by other authors or simply constitute re-uploads of add-ons that disappeared from AnkiWeb, with no original code repository to be found. I have tried to document the development history of each of these add-ons in their source code header, but more detailed information may also be found [here](docs/credits.md).
 
 ## License
 
