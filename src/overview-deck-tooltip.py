@@ -1,25 +1,16 @@
 # -*- coding: utf-8 -*-
 """
+Anki Add-on: Deck Overview Stats Tooltip
+
 Shows a tooltip on the main window deck browser page
-
-https://ankiweb.net/shared/info/1819828168
-
-Copyright: Steve AW <steveawa@gmail.com>
-License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-
-Modified by Glutanimate, 2016
 
 Makes use of MiniTip (Dual licensed under the MIT and GPL licenses)
 http://goldfirestudios.com/blog/81/miniTip-jQuery-Plugin
 https://github.com/goldfire/minitip
 
-Support: Use at your own risk. If you do find a problem please email me
-or use one the following forums, however there are certain periods
-throughout the year when I will not have time to do any work on
-these addons.
-
-Github page:  https://github.com/steveaw/anki_addons
-Anki addons: https://groups.google.com/forum/?hl=en#!forum/anki-addons
+Copyright:  (c) Steve AW 2013 <steveawa@gmail.com>
+            (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 #
@@ -32,8 +23,6 @@ from anki.utils import ids2str, fmtTimeSpan
 from aqt import mw
 from aqt.deckbrowser import DeckBrowser
 
-
-__author__ = 'Steve'
 
 minitip_js = """
    /*!
@@ -69,7 +58,7 @@ def _generate_jquery_scripts():
     tip_script = "    $(function(){"
     template = """
     $('tr#%(id)s a').miniTip({
-        content: 'Loading...', offset: 1, delay: 500, maxW: '500px',
+        content: 'Loading...', offset: 1, delay: 1000, maxW: '500px',
 		render: function(tt) {
         $('#miniTip_c').html(py_deck_inf.deck_information_for(%(id)s) );}});
         """
