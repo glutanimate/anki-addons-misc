@@ -6,46 +6,46 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 
 <!-- MarkdownTOC -->
 
-- [browser-batch-edit.py: Batch Note Editing](#browser-batch-editpy-batch-note-editing)
-- [browser-create-duplicate.py: Duplicate Selected Notes](#browser-create-duplicatepy-duplicate-selected-notes)
-- [browser-create-filtered-deck.py: Create Filtered Deck from the Browser](#browser-create-filtered-deckpy-create-filtered-deck-from-the-browser)
-- [browser-external-editor.py: External Note Editor for the Browser](#browser-external-editorpy-external-note-editor-for-the-browser)
+- [browser-batch-edit: Batch Note Editing](#browser-batch-edit-batch-note-editing)
+- [browser-create-duplicate: Duplicate Selected Notes](#browser-create-duplicate-duplicate-selected-notes)
+- [browser-create-filtered-deck: Create Filtered Deck from the Browser](#browser-create-filtered-deck-create-filtered-deck-from-the-browser)
+- [browser-external-editor: External Note Editor for the Browser](#browser-external-editor-external-note-editor-for-the-browser)
 - [browser-more-hotkeys.py](#browser-more-hotkeyspy)
-- [browser-refresh.py: F5 to Refresh the Browser](#browser-refreshpy-f5-to-refresh-the-browser)
-- [browser-replace-tag.py: Search and Replace Tags](#browser-replace-tagpy-search-and-replace-tags)
-- [browser-search-hotkeys.py: Browser Search Hotkeys](#browser-search-hotkeyspy-browser-search-hotkeys)
+- [browser-refresh: F5 to Refresh the Browser](#browser-refresh-f5-to-refresh-the-browser)
+- [browser-replace-tag: Search and Replace Tags](#browser-replace-tag-search-and-replace-tags)
+- [browser-search-hotkeys: Browser Search Hotkeys](#browser-search-hotkeys-browser-search-hotkeys)
 - [editor-autocomplete-whitelist.py](#editor-autocomplete-whitelistpy)
-- [editor-custom-css.py: Customize Editor Stylesheet](#editor-custom-csspy-customize-editor-stylesheet)
-- [editor-custom-tagedit.py: Tag Entry Enhancements](#editor-custom-tageditpy-tag-entry-enhancements)
-- [editor-field-history.py: Editor Field History](#editor-field-historypy-editor-field-history)
-- [editor-field-navigation.py: Quick Field Navigation Add-on for Anki](#editor-field-navigationpy-quick-field-navigation-add-on-for-anki)
-- [editor-indentation-formatter.py: Indent and Outdent Paragraphs](#editor-indentation-formatterpy-indent-and-outdent-paragraphs)
-- [editor-random-list.py: Insert Randomized Lists](#editor-random-listpy-insert-randomized-lists)
-- [editor-sync-cursor-position.py: Sync Cursor Between Fields and HTML Editor](#editor-sync-cursor-positionpy-sync-cursor-between-fields-and-html-editor)
-- [editor-tag-hotkeys.py: Editor Tag Hotkeys Add-on for Anki](#editor-tag-hotkeyspy-editor-tag-hotkeys-add-on-for-anki)
-- [overview-deck-switcher.py: Switch Between Decks on the Main Screen](#overview-deck-switcherpy-switch-between-decks-on-the-main-screen)
-- [overview-deck-tooltip.py: Deck Overview Stats Tooltip](#overview-deck-tooltippy-deck-overview-stats-tooltip)
-- [overview-refreshmedia.py: Refresh Media References](#overview-refreshmediapy-refresh-media-references)
-- [reviewer-card-stats.py: Extended Card Stats During Review](#reviewer-card-statspy-extended-card-stats-during-review)
-- [reviewer-browse-creation.py: Browse Card in its Creation Context](#reviewer-browse-creationpy-browse-card-in-its-creation-context)
-- [reviewer-browse-today.py: Open 'Added Today' from Reviewer](#reviewer-browse-todaypy-open-added-today-from-reviewer)
-- [reviewer-hide-toolbar.py: Hide Toolbar in Reviewer](#reviewer-hide-toolbarpy-hide-toolbar-in-reviewer)
+- [editor-custom-stylesheet: Customize Editor Stylesheet](#editor-custom-stylesheet-customize-editor-stylesheet)
+- [editor-field-history: Editor Field History](#editor-field-history-editor-field-history)
+- [editor-field-navigation: Quick Field Navigation Add-on for Anki](#editor-field-navigation-quick-field-navigation-add-on-for-anki)
+- [editor-indentation-formatter: Indent and Outdent Paragraphs](#editor-indentation-formatter-indent-and-outdent-paragraphs)
+- [editor-random-list: Insert Randomized Lists](#editor-random-list-insert-randomized-lists)
+- [editor-sync-cursor-position: Sync Cursor Between Fields and HTML Editor](#editor-sync-cursor-position-sync-cursor-between-fields-and-html-editor)
+- [editor-tag-hotkeys: Editor Tag Hotkeys Add-on for Anki](#editor-tag-hotkeys-editor-tag-hotkeys-add-on-for-anki)
+- [overview-deck-switcher: Switch Between Decks on the Main Screen](#overview-deck-switcher-switch-between-decks-on-the-main-screen)
+- [overview-deck-tooltip: Deck Overview Stats Tooltip](#overview-deck-tooltip-deck-overview-stats-tooltip)
+- [overview-refresh-media: Refresh Media References](#overview-refresh-media-refresh-media-references)
+- [reviewer-card-stats: Extended Card Stats During Review](#reviewer-card-stats-extended-card-stats-during-review)
+- [reviewer-browse-creation: Browse Card in its Creation Context](#reviewer-browse-creation-browse-card-in-its-creation-context)
+- [reviewer-browse-today: Open 'Added Today' from Reviewer](#reviewer-browse-today-open-added-today-from-reviewer)
+- [reviewer-hide-toolbar: Hide Toolbar in Reviewer](#reviewer-hide-toolbar-hide-toolbar-in-reviewer)
 - [reviewer-hint-hotkeys.py](#reviewer-hint-hotkeyspy)
-- [reviewer-more-answer-buttons.py: More Answer Buttons for New Cards](#reviewer-more-answer-buttonspy-more-answer-buttons-for-new-cards)
-- [reviewer-progress-bar.py: Progress Bar](#reviewer-progress-barpy-progress-bar)
-- [reviewer-puppy-reinforcement.py: Puppy Reinforcement](#reviewer-puppy-reinforcementpy-puppy-reinforcement)
+- [reviewer-more-answer-buttons: More Answer Buttons for New Cards](#reviewer-more-answer-buttons-more-answer-buttons-for-new-cards)
+- [reviewer-progress-bar: Progress Bar](#reviewer-progress-bar-progress-bar)
+- [reviewer-puppy-reinforcement: Puppy Reinforcement](#reviewer-puppy-reinforcement-puppy-reinforcement)
 - [reviewer-track-unseen.py](#reviewer-track-unseenpy)
-- [reviewer-visual-feedback.py: Visual Feedback for Reviews](#reviewer-visual-feedbackpy-visual-feedback-for-reviews)
-- [sched-advanced-newcard-limits.py: Limit New Cards to Less Than One](#sched-advanced-newcard-limitspy-limit-new-cards-to-less-than-one)
+- [reviewer-visual-feedback: Visual Feedback for Reviews](#reviewer-visual-feedback-visual-feedback-for-reviews)
+- [sched-advanced-newcard-limits: Limit New Cards to Less Than One](#sched-advanced-newcard-limits-limit-new-cards-to-less-than-one)
 - [sched-sibling-spacing-whitelist.py](#sched-sibling-spacing-whitelistpy)
-- [stats-true-retention-extended.py: True Retention by Card Maturity](#stats-true-retention-extendedpy-true-retention-by-card-maturity)
-- [web-contextsearch.py: Context Menu Search](#web-contextsearchpy-context-menu-search)
+- [stats-true-retention-extended: True Retention by Card Maturity](#stats-true-retention-extended-true-retention-by-card-maturity)
+- [tagedit-enhancements: Tag Entry Enhancements](#tagedit-enhancements-tag-entry-enhancements)
+- [webview-context-search: Context Menu Search](#webview-context-search-context-menu-search)
 
 <!-- /MarkdownTOC -->
 
 ------------------------------------------
 
-## browser-batch-edit.py: Batch Note Editing
+## browser-batch-edit: Batch Note Editing
 
 Adds a new menu item to the card browser that allows you to:
 
@@ -95,7 +95,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-create-duplicate.py: Duplicate Selected Notes
+## browser-create-duplicate: Duplicate Selected Notes
 
 This add-on supplements the **card browser** by adding a keyboard shortcut and **menu** entry for **creating duplicates of notes**.
 
@@ -118,7 +118,7 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 
 **CHANGES**
 
-2017-08-07 – Refactored code
+2017-08-06 – Refactored code
 2016-04-30 – Duplications can now be undone via CTRL+Z (using Anki's default restoration points)
 
 **SUPPORT**
@@ -142,7 +142,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-create-filtered-deck.py: Create Filtered Deck from the Browser
+## browser-create-filtered-deck: Create Filtered Deck from the Browser
 
 Adds a hotkey and menu item to the browser that launches a **filtered deck creation** dialog **based on the current search**.
 
@@ -178,7 +178,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-external-editor.py: External Note Editor for the Browser
+## browser-external-editor: External Note Editor for the Browser
 
 Extends the card browser with a **shortcut** and menu action that **launches an external editor window** for the current note (`CTRL`+`ALT`+`E`).
 
@@ -192,6 +192,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
+2017-08-06 – Update license
 2017-02-21 – Initial release
 
 **SUPPORT**
@@ -221,7 +222,7 @@ Adds two additional hotkeys to the card browser, CTRL+R for rescheduling cards a
 
 ------------------------------------------
 
-## browser-refresh.py: F5 to Refresh the Browser
+## browser-refresh: F5 to Refresh the Browser
 
 Adds a **hotkey** to the browser that **refreshes the current view**. Useful when you've added new cards and want to repeat an existing search. Note: cards are sorted by creation time when refreshing the view.
 
@@ -256,7 +257,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-replace-tag.py: Search and Replace Tags
+## browser-replace-tag: Search and Replace Tags
 
 Adds a **"Replace Tag" dialog** to the card **browser** that prompts for a tag and its replacement and then replaces the tag in all selected notes.
 
@@ -290,7 +291,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## browser-search-hotkeys.py: Browser Search Hotkeys
+## browser-search-hotkeys: Browser Search Hotkeys
 
 Allows you to set up **hotkeys for searches** in the **browser**
 
@@ -375,7 +376,7 @@ All credit for the original add-on goes to Shawn M Moore ([@sartak](https://gith
 
 ------------------------------------------
 
-## editor-custom-css.py: Customize Editor Stylesheet
+## editor-custom-stylesheet: Customize Editor Stylesheet
 
 Allows you to customize the **stylesheet** of the **Editor widget** in Anki.
 
@@ -431,40 +432,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-custom-tagedit.py: Tag Entry Enhancements
-
-A number of enhancements meant to **improve keyboard navigation** in Anki's **tag entry** field:
-
-- adds `Return/Enter` as a hotkey to apply the first suggested tag
-- adds `Ctrl+Tab` as a hotkey to move through the list of suggestions
-- disables initial suggestion box popup when entering the field
-- allows using ↑/↓ to invoke the tag suggestion box
-
-**CHANGELOG**
-
-2017-04-11 – Smaller bug fixes
-2017-01-15 – Tags completed via *Enter* now follow the suggestion's capitalization; automatically append space to quick-completed tags
-2016-12-28 – Initial release
-
-**SUPPORT**
-
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
-
-**CREDITS AND LICENSE**
-
-*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
-
-Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
-
-**MORE RESOURCES**
-
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
-
-New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
-
-------------------------------------------
-
-## editor-field-history.py: Editor Field History
+## editor-field-history: Editor Field History
 
 Improves Anki's *Add Notes* dialog with the following features:
 
@@ -494,6 +462,7 @@ You can edit the add-on's source code to modify the following:
 
 **CHANGELOG**
 
+2017-08-06 – Update license
 2017-05-25 – Change history window hotkey on macOS to avoid key conflicts (thanks to Rene)
 2017-05-13 – Preserve chronological order of suggestions
 2017-03-08 – Add full-text-search to history window, increase entries to 100, new hotkey on macOS
@@ -520,7 +489,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-field-navigation.py: Quick Field Navigation Add-on for Anki
+## editor-field-navigation: Quick Field Navigation Add-on for Anki
 
 Implements shortcuts that allow you to **navigate** through your **fields** in the card **editor**.
 
@@ -540,7 +509,7 @@ Note: In their current implementation the hotkeys will not work when the tag sug
 
 **CHANGELOG**
 
-2017-08-07 – Adjustments for hidden fields used by add-ons such as Image Occlusion Enhanced
+2017-08-06 – Adjustments for hidden fields used by add-ons such as Image Occlusion Enhanced
 2016-04-19 – Reworked the add-on from scratch to have a much leaner footprint
 2015-09-04 – Initial release
 
@@ -562,7 +531,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-indentation-formatter.py: Indent and Outdent Paragraphs
+## editor-indentation-formatter: Indent and Outdent Paragraphs
 
 Introduces two new buttons to the editor toolbar that allow you to **change the indentation of the current paragraph**. This add-on uses `<p>` elements instead of the `<blockquote>`s found in add-ons such as the Power Format Pack which should result in a more readable HTML source code.
 
@@ -595,7 +564,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-random-list.py: Insert Randomized Lists
+## editor-random-list: Insert Randomized Lists
 
 Allows you to insert **randomized lists** into your notes.
 
@@ -611,6 +580,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
+2017-08-06 – Update license
 2017-05-14 – Initial release
 
 **SUPPORT**
@@ -633,9 +603,9 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-sync-cursor-position.py: Sync Cursor Between Fields and HTML Editor
+## editor-sync-cursor-position: Sync Cursor Between Fields and HTML Editor
 
-Preserves the cursor position when switching back and forth between the note editor and HTML editing window (`CTRL+SHIFT+X`). Also improves the readability of the HTML code by introducing new lines between specific tags (`div`, `p`, etc.).
+Preserves the **cursor position** when switching back and forth between the **note editor** and **HTML editing window** (`CTRL+SHIFT+X`). Also improves the readability of the HTML code by introducing new lines between specific tags (`div`, `p`, etc.).
 
 **COMPATIBILITY**
 
@@ -647,6 +617,7 @@ Some add-ons like the the [Power Format Pack](https://ankiweb.net/shared/info/16
 
 **CHANGELOG**
 
+2017-08-06 – Update license
 2017-05-13 – Increase default window size (the size can also be adjusted in the config section of the source code now). Various smaller bugfixes.
 
 **SUPPORT**
@@ -669,9 +640,15 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## editor-tag-hotkeys.py: Editor Tag Hotkeys Add-on for Anki
+## editor-tag-hotkeys: Editor Tag Hotkeys Add-on for Anki
 
 Allows you to define **hotkeys** that **toggle specific tags** in the note **editor**.
+
+**VIDEO TUTORIAL**
+
+The customization and use of this add-on is demonstrated in the following video (alongside other similar add-ons):
+
+[![YouTube: Anki Add-on Guide: Time-Efficient Tagging](https://i.ytimg.com/vi/2FjWkWEA2Ug/mqdefault.jpg)](https://youtu.be/2FjWkWEA2Ug)
 
 **COMPATIBILITY**
 
@@ -708,7 +685,7 @@ Please make sure to preserve the formatting and quoting while doing so!
 
 **CHANGELOG**
 
-2017-05-08 – Update license
+2017-08-05 – Update license
 2017-04-11 – Reworked add-on from the ground-up: much more intuitive key assignments, preparations for Anki 2.1
 2016-02-18 – Add support for unique tags; Misc bug fixes and improvements
 2015-12-25 – Add support for unicode in toggled tags (thanks to aleksejrs)
@@ -734,7 +711,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## overview-deck-switcher.py: Switch Between Decks on the Main Screen
+## overview-deck-switcher: Switch Between Decks on the Main Screen
 
 Adds the following hotkeys to Anki's main deck browser screen:
 
@@ -753,6 +730,7 @@ By default the hotkeys will skip decks that don't have any cards that are due or
 
 **CHANGELOG**
 
+2017-08-06 – Refactored code
 2016-07-30 – Initial release
 
 **SUPPORT**
@@ -773,7 +751,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## overview-deck-tooltip.py: Deck Overview Stats Tooltip
+## overview-deck-tooltip: Deck Overview Stats Tooltip
 
 **Hover** over your **decks** to see an overview of **review stats** and other information on the deck.
 
@@ -804,7 +782,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## overview-refreshmedia.py: Refresh Media References
+## overview-refresh-media: Refresh Media References
 
 Adds an entry in the **Tools menu** that **clears the webview cache** (hotkey: `Ctrl+Alt+M`). This will effectively refresh all media files used by your cards and templates, allowing you to display changes to external files without having to restart Anki.
 
@@ -818,6 +796,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
+2017-08-06 – Update license
 2017-01-29 – Initial release
 
 **SUPPORT**
@@ -838,11 +817,15 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-card-stats.py: Extended Card Stats During Review
+## reviewer-card-stats: Extended Card Stats During Review
 
 Provides a **'Card Info' panel** that can be toggled on and off **while reviewing cards**.
 
 This add-on is based on [Card Info During Review](https://ankiweb.net/shared/info/2179254157) by Damien Elmes and [Reviewer Show Cardinfo](https://github.com/steveaw/anki_addons/blob/master/reviewer_show_cardinfo.py) by Steve AW. It extends Damien's add-on with a review log table similar to the one found in the Browser.
+
+**SCREENSHOT**
+
+![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-card-stats.png)
 
 **COMPATIBILITY**
 
@@ -852,9 +835,10 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 The visibility of the panel can be controlled through the *Tools* menu or `SHIFT+C`.
 
-**SCREENSHOT**
+**CHANGELOG**
 
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer-card-stats.png)
+2017-08-06 – Refactored code
+2016-11-16 – Initial release
 
 **SUPPORT**
 
@@ -876,7 +860,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-browse-creation.py: Browse Card in its Creation Context
+## reviewer-browse-creation: Browse Card in its Creation Context
 
 Adds a command to the **Reviewer** that enables the card to be viewed in its "**creation context**", i.e. notes that were created before/after in the same deck.
 
@@ -907,7 +891,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-browse-today.py: Open 'Added Today' from Reviewer
+## reviewer-browse-today: Open 'Added Today' from Reviewer
 
 Adds a **menu item** into the **History menu** of the *Add* notes dialog that **opens a Browser on the 'Added Today'** view with the cards ordered by their creation time.
 
@@ -939,7 +923,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-hide-toolbar.py: Hide Toolbar in Reviewer
+## reviewer-hide-toolbar: Hide Toolbar in Reviewer
 
 The aim of the addon is to **free up** some **vertical screen space** while **reviewing** cards.
 
@@ -963,7 +947,8 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
-2016-04-03: Use internationalization for toolbar items (thanks to comment below)
+2017-08-06 – Update license
+2016-04-03 – Use internationalization for toolbar items (thanks to comment below)
 
 **SUPPORT**
 
@@ -992,7 +977,7 @@ Based on [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/261620
 
 ------------------------------------------
 
-## reviewer-more-answer-buttons.py: More Answer Buttons for New Cards
+## reviewer-more-answer-buttons: More Answer Buttons for New Cards
 
 Adds **extra buttons** to the Reviewer **for new cards** and **cards in learning**.
 
@@ -1040,6 +1025,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
+2017-08-06 – Streamline config section, updated credits and license
 2016-05-11: Made answer buttons work properly when card is in learning mode (thanks to Dmitry Mikheev)
 2016-05-10: Extend answer buttons to cards in learning (thanks to Dmitry Mikheev)
 
@@ -1062,7 +1048,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-progress-bar.py: Progress Bar
+## reviewer-progress-bar: Progress Bar
 
 A **progress bar** that shows your progress in terms of **passed cards per review session**.
 
@@ -1121,7 +1107,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-puppy-reinforcement.py: Puppy Reinforcement
+## reviewer-puppy-reinforcement: Puppy Reinforcement
 
 Uses **intermittent reinforcement** with **cute puppies** to encourage card review streaks.
 
@@ -1149,6 +1135,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
+2017-08-06 – Update license
 2016-11-18 – Initial release
 
 **SUPPORT**
@@ -1174,7 +1161,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## reviewer-visual-feedback.py: Visual Feedback for Reviews
+## reviewer-visual-feedback: Visual Feedback for Reviews
 
 Provides **feedback** for reviews by **flashing** a **small transparent image** at the center of your screen that varies between lapses and passed cards.
 
@@ -1221,7 +1208,7 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## sched-advanced-newcard-limits.py: Limit New Cards to Less Than One
+## sched-advanced-newcard-limits: Limit New Cards to Less Than One
 
 Allows you to restrict the **number of new cards** for specific decks to **less than one per day**.
 
@@ -1244,6 +1231,11 @@ This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.
 **SUPPORTED PLATFORMS**
 
 Like all add-ons that modify scheduling this add-on will only work on the desktop releases.
+
+**CHANGELOG**
+
+2017-08-06 – Update license
+2017-04-11 – Initial release
 
 **SUPPORT**
 
@@ -1274,13 +1266,18 @@ Based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andrea
 
 ------------------------------------------
 
-## stats-true-retention-extended.py: True Retention by Card Maturity
+## stats-true-retention-extended: True Retention by Card Maturity
 
 This is a slightly modified version of the [True Retention add-on](https://ankiweb.net/shared/info/613684242) by Strider that breaks the **retention statistics** up **by card maturity**:
 
 ![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/stats-true-retention-extended.png)
 
 In addition to this, the add-on also allows you to define a custom card maturity threshold (`MATURE_IVL` at the top of the source code). This is set to 21 days by default.
+
+**CHANGELOG**
+
+2017-08-06 – Update license
+2017-04-02 – Initial release
 
 **SUPPORT**
 
@@ -1303,7 +1300,40 @@ New to add-ons and Anki in general? Make sure to check out my [![YouTube playbut
 
 ------------------------------------------
 
-## web-contextsearch.py: Context Menu Search
+## tagedit-enhancements: Tag Entry Enhancements
+
+A number of enhancements meant to **improve keyboard navigation** in Anki's **tag entry** field:
+
+- adds `Return/Enter` as a hotkey to apply the first suggested tag
+- adds `Ctrl+Tab` as a hotkey to move through the list of suggestions
+- disables initial suggestion box popup when entering the field
+- allows using ↑/↓ to invoke the tag suggestion box
+
+**CHANGELOG**
+
+2017-04-11 – Smaller bug fixes
+2017-01-15 – Tags completed via *Enter* now follow the suggestion's capitalization; automatically append space to quick-completed tags
+2016-12-28 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+
+New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
+
+------------------------------------------
+
+## webview-context-search: Context Menu Search
 
 A simple Anki add-on that adds **context-menu entries** to **search** the card browser and various online search providers for selected words. The entries will appear both in the Reviewer and Card Editor.
 

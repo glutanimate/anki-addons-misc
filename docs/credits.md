@@ -2,14 +2,15 @@
 
 SteveAW:
 
-- anki-reviewer-more-answer-buttons.py
-- anki-reviewer-browse-creation.py
-- anki-overview-deck-tooltip.py
-- anki-reviewer-hide-toolbar.py
-- anki-reviewer-track-unseen
+- reviewer-more-answer-buttons.py
+- reviewer-browse-creation.py
+- reviewer-browse-today.py
+- overview-deck-tooltip.py
+- reviewer-hide-toolbar.py
+- reviewer-track-unseen
 
 
 nest0r / ja-dark:
 
-- anki-reviewer-progress-bar
-- anki-reviewer-visual-feedback
+- reviewer-progress-bar
+- reviewer-visual-feedback
