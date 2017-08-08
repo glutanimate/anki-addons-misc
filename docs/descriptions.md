@@ -1141,6 +1141,7 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CHANGELOG**
 
+2017-08-08 – New options: duration, image size, card limits (thanks to Lucas on YT for the ideas)
 2017-08-06 – Update license
 2016-11-18 – Initial release
 
