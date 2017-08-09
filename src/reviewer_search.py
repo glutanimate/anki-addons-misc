@@ -108,12 +108,11 @@ class SearchDockWidget(QObject):
             self.show()
 
     def findText(self, direction):
-        web = mw.web
         text = self.widget.searchEdit.text()
         options = QWebPage.FindWrapsAroundDocument 
         if direction == 1:
             options = (options | QWebPage.FindBackward)
-        web.findText(text, options)
+        mw.web.findText(text, options)
 
 
 dock = SearchDockWidget(mw)
