@@ -29,9 +29,14 @@ includeLrn = True
 # Only include new cards once reviews are exhausted.
 includeNewAfterRevs = True
 
+# Limit count to your review settings as opposed to deck overall
+limitToReviewSettings = True
+
 # PROGRESS BAR APPEARANCE
 
-showPercent = False # Show the progress text percentage or not.s
+showPercent = False # Show the progress text percentage or not.
+showNumber = False # Show the progress text as a fraction
+
 
 qtxt = "aliceblue" # Percentage color, if text visible.
 qbg = "#18adab" # Background color of progress bar.
@@ -67,6 +72,7 @@ nm = 0
 failed = 0
 progressBar = None
 mx = 0
+limitedBarLength = 0
 
 pbdStyle = QStyleFactory.create("%s" % (pbStyle)) # Don't touch.
 
@@ -141,7 +147,7 @@ def pb():
     mx = max(1, getMX())
     progressBar = QProgressBar()
     progressBar.setRange(0, mx)
-    progressBar.setTextVisible(showPercent)
+    progressBar.setTextVisible(showPercent or showNumber)
     progressBar.setInvertedAppearance(invertTF)
     progressBar.setOrientation(orientationHV)
     if pbdStyle == None:
@@ -184,6 +190,26 @@ def getMX():
     total = rev + nu + lrn
     return total
 
+def _getLimitedBarLength():
+    """ Get a new bar length based off the number of new / lrn / rev cards you have left for the day """
+    global limitedBarLength
+    active_decks = mw.col.decks.active()
+    if len(active_decks) > 0:
+        rev = lrn = nu = 0
+
+        # get number of cards
+        for tree in [deck for deck in mw.col.sched.deckDueList() if deck[1] == active_decks[0]]:
+            if includeRev:
+                rev += tree[2]
+            if includeLrn:
+                lrn += tree[3]
+            if includeNew or (includeNewAfterRevs and rev == 0):
+                nu += tree[4]
+            
+        if nu + rev < mx:
+            limitedBarLength = nu+lrn+rev
+            return
+    limitedBarLength = -1
 
 def _updatePB():
     """Update progress bar; hiding/showing prevents flashing bug."""
@@ -196,6 +222,22 @@ def _updatePB():
             progressBar.setRange(0, mx)
         curr = (mx - total)
         progressBar.hide()
+
+        barSize = mx
+        if limitToReviewSettings and limitedBarLength != -1:
+            barSize = limitedBarLength
+
+            # I this can happen if the number of "rev" cards increases during the study session
+            if curr > barSize:
+                barSize = curr
+            progressBar.setRange(0, barSize)
+            
+        if showNumber:
+            if showPercent:
+                percent = 100 if barSize==0 else int(100*curr/barSize)
+                progressBar.setFormat("%d / %d (%d%%)" % (curr, barSize, percent))
+            else:
+                progressBar.setFormat("%d / %d" % (curr, barSize))
         progressBar.setValue(curr)
         progressBar.show()
 
@@ -207,6 +249,7 @@ def _renderBar(state, oldState):
         # Set up progress bar at deck's overview page: initialize or modify.
         if not progressBar: progressBar, mx = pb()
         else: rrenderPB()
+        _getLimitedBarLength()
         progressBar.show()
         nmc()
     elif state == "deckBrowser":
