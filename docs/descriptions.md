@@ -14,6 +14,8 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [browser_refresh: F5 to Refresh the Browser](#browserrefresh-f5-to-refresh-the-browser)
 - [browser_replace_tag: Search and Replace Tags](#browserreplacetag-search-and-replace-tags)
 - [browser_search_hotkeys: Browser Search Hotkeys](#browsersearchhotkeys-browser-search-hotkeys)
+- [common_context_search: Context Menu Search](#commoncontextsearch-context-menu-search)
+- [common_ctrlf_search: Ctrl+F Search](#commonctrlfsearch-ctrlf-search)
 - [editor_autocomplete_whitelist](#editorautocompletewhitelist)
 - [editor_custom_stylesheet: Customize Editor Stylesheet](#editorcustomstylesheet-customize-editor-stylesheet)
 - [editor_field_history: Editor Field History](#editorfieldhistory-editor-field-history)
@@ -39,7 +41,6 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [sched_sibling_spacing_whitelist](#schedsiblingspacingwhitelist)
 - [stats_true_retention_extended: True Retention by Card Maturity](#statstrueretentionextended-true-retention-by-card-maturity)
 - [tagedit_enhancements: Tag Entry Enhancements](#tageditenhancements-tag-entry-enhancements)
-- [webview_context_search: Context Menu Search](#webviewcontextsearch-context-menu-search)
 
 <!-- /MarkdownTOC -->
 
@@ -354,6 +355,55 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The co
 A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
+
+------------------------------------------
+
+## common_context_search: Context Menu Search
+
+A simple Anki add-on that adds **context-menu entries** to **search** the card browser and various online search providers for selected words. The entries will appear both in the Reviewer and Card Editor.
+
+**COMPATIBILITY**
+
+This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+
+**SEARCH PROVIDERS**
+
+Currently supported are Google, Google Images, and Wikipedia. You can add new providers by editing the source code and modifying the *SEARCH_PROVIDERS* list. Just make sure to follow the syntax of the other entries.
+
+**CHANGELOG**
+
+2017-08-06 – Refactored code
+2016-01-26 – Only create a submenu when needed
+2017-01-17 – Rewrote add-on, added support for online search providers
+2016-04-19 – double-quote phrases when searching
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
+
+Based on 'OSX Dictionary Lookup' by Eddie Blundell and 'Search Google Images' by Steve AW.
+
+This add-on was formerly known as "Search Browser for Selected Words".
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
+
+New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
+
+------------------------------------------
+
+## common_ctrlf_search: Ctrl+F Search
+
+Unpublished.
+
+Allows you to search through your cards in the Reviewer and in Editor instances (AddCards, EditCurrent, Browser).
 
 ------------------------------------------
 
@@ -1338,44 +1388,4 @@ A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work
 
 New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
-------------------------------------------
-
-## webview_context_search: Context Menu Search
-
-A simple Anki add-on that adds **context-menu entries** to **search** the card browser and various online search providers for selected words. The entries will appear both in the Reviewer and Card Editor.
-
-**COMPATIBILITY**
-
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
-
-**SEARCH PROVIDERS**
-
-Currently supported are Google, Google Images, and Wikipedia. You can add new providers by editing the source code and modifying the *SEARCH_PROVIDERS* list. Just make sure to follow the syntax of the other entries.
-
-**CHANGELOG**
-
-2017-08-06 – Refactored code
-2016-01-26 – Only create a submenu when needed
-2017-01-17 – Rewrote add-on, added support for online search providers
-2016-04-19 – double-quote phrases when searching
-
-**SUPPORT**
-
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
-
-**CREDITS AND LICENSE**
-
-*Copyright (c) 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
-
-Based on 'OSX Dictionary Lookup' by Eddie Blundell and 'Search Google Images' by Steve AW.
-
-This add-on was formerly known as "Search Browser for Selected Words".
-
-Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is hosted [on GitHub](https://github.com/Glutanimate/anki-addons-misc).
-
-**MORE RESOURCES**
-
-A lot of my add-ons were commissioned by fellow Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at <em>ankiglutanimate [αt] gmail . com</em>.
-
-New to add-ons and Anki in general? Make sure to check out my [![YouTube playbutton](https://raw.githubusercontent.com/glutanimate/logos/master/youtube/playbutton.png) YouTube channel](https://www.youtube.com/c/glutanimate) where I post weekly tutorials on Anki add-ons and related topics.
 
