@@ -3,7 +3,11 @@
 """
 Anki Add-on: Highlight Search Results in Browser
 
-Highlights search results in editor pane of the Browser
+Highlights search results in editor pane of the Browser and adds two
+new shortcuts when searching:
+
+- Shift-Return: Jump to result in current list 
+- Ctrl-Shift-Return: Select results in current list
 
 Limitations: Searches through entire editor screen,
              field descriptions included
@@ -53,4 +57,40 @@ def onRowChanged(self, current, previous):
         self.editor.web.findText(val, QWebPage.HighlightAllOccurrences)    
 
 
+def onCustomSearch(self, onecard=False):
+    """Extended search functions"""
+    txt = self.form.searchEdit.lineEdit().text().strip()
+    cids = self.col.findCards(txt, order=True)
+    
+    if onecard:
+        # jump to next card, while wrapping around at the end
+        if self.card:
+            cur = self.card.id
+        else:
+            cur = None
+        
+        if cur and cur in cids:
+            idx = cids.index(cur) + 1
+        else:
+            idx = None
+        
+        if not idx or idx >= len(cids):
+            idx = 0
+        cids = cids[idx:idx+1]
+    
+    self.form.tableView.selectionModel().clear()
+    self.model.selectedCards = {cid: True for cid in cids}
+    self.model.restoreSelection()
+
+
+def onSetupSearch(self):
+    """Add extended search hotkeys"""
+    s = QShortcut(QKeySequence(_("Shift+Return")), self.form.searchEdit)
+    s.activated.connect(lambda: self.onCustomSearch(True))
+    s = QShortcut(QKeySequence(_("Ctrl+Return")), self.form.searchEdit)
+    s.activated.connect(self.onCustomSearch)
+
+
+Browser.onCustomSearch = onCustomSearch
 Browser.onRowChanged = wrap(Browser.onRowChanged, onRowChanged, "after")
+Browser.setupSearch = wrap(Browser.setupSearch, onSetupSearch, "after")
