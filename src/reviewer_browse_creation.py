@@ -18,7 +18,7 @@ from __future__ import unicode_literals
 ############## USER CONFIGURATION START ##############
 
 # also show options in right-click context menu?
-SHOW_IN_CONTEXT_MENU = True
+SHOW_IN_CONTEXT_MENU = False
 
 ##############  USER CONFIGURATION END  ##############
 
