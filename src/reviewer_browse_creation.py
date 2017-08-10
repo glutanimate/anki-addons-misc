@@ -13,31 +13,42 @@ Copyright:  (c) Steve AW 2013 <steveawa@gmail.com>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-from PyQt4.QtGui import QApplication
-from anki.lang import _
+from __future__ import unicode_literals
+
+############## USER CONFIGURATION START ##############
+
+# also show options in right-click context menu?
+SHOW_IN_CONTEXT_MENU = True
+
+##############  USER CONFIGURATION END  ##############
+
+from aqt.qt import *
+
+import aqt
+from aqt import mw
 from aqt.reviewer import Reviewer
-from aqt.qt import QMenu, QKeySequence, QCursor, SIGNAL
+from aqt.utils import tooltip
+
+from anki.lang import _
 from anki.hooks import wrap, runHook, addHook
-from aqt import aqt
 
 
 def insert_reviewer_more_action(self, m):
     #self is Reviewer
+    if mw.state != "review":
+        return
     a = m.addAction('Browse Creation of This Card')
     a.setShortcut(QKeySequence("c"))
-    a.connect(a, SIGNAL("triggered()"),
-              lambda s=self: browse_this_card(s))
+    a.triggered.connect(lambda _, s=mw.reviewer: browse_this_card(s))
     a = m.addAction('Browse Creation of Last Card')
-    a.connect(a, SIGNAL("triggered()"),
-              lambda s=self: browse_last_card(s))
-
+    a.triggered.connect(lambda _, s=mw.reviewer: browse_last_card(s))
 
 def browse_last_card(self):
     #self is Reviewer
     if self.lastCard():
         browse_creation_of_card(self, self.lastCard())
     else:
-         QApplication.beep()
+        tooltip("Last card not available yet.")
 
 
 def browse_this_card(self):
@@ -64,5 +75,7 @@ def keyHandler(self, evt, _old):
     else:
         return _old(self, evt)
 
+if SHOW_IN_CONTEXT_MENU:
+    addHook("AnkiWebView.contextMenuEvent", insert_reviewer_more_action) 
 addHook("Reviewer.contextMenuEvent", insert_reviewer_more_action)
 Reviewer._keyHandler = wrap(Reviewer._keyHandler, keyHandler, "around")
