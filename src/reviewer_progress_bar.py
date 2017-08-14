@@ -251,7 +251,8 @@ def _renderBar(state, oldState):
         if not progressBar: progressBar, mx = pb()
         else: rrenderPB()
         _getLimitedBarLength()
-        _updatePB()
+        if showNumber:
+            _updatePB()
         progressBar.show()
         nmc()
     elif state == "deckBrowser":
