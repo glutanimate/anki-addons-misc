@@ -199,7 +199,7 @@ def _getLimitedBarLength():
         rev = lrn = nu = 0
 
         # get number of cards
-        for tree in [deck for deck in mw.col.sched.deckDueList() if deck[1] == active_decks[0]]:
+        for tree in [deck for deck in mw.col.sched.deckDueList() if deck[1] in active_decks]:
             if includeRev:
                 rev += tree[2]
             if includeLrn:
