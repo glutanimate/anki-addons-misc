@@ -13,6 +13,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [browser_more_hotkeys](#browsermorehotkeys)
 - [browser_refresh: F5 to Refresh the Browser](#browserrefresh-f5-to-refresh-the-browser)
 - [browser_replace_tag: Search and Replace Tags](#browserreplacetag-search-and-replace-tags)
+- [browser_search_highlight_results: Highlight Search Results in the Browser](#browsersearchhighlightresults-highlight-search-results-in-the-browser)
 - [browser_search_hotkeys: Browser Search Hotkeys](#browsersearchhotkeys-browser-search-hotkeys)
 - [common_context_search: Context Menu Search](#commoncontextsearch-context-menu-search)
 - [common_ctrlf_search: Ctrl+F Search](#commonctrlfsearch-ctrlf-search)
@@ -304,6 +305,62 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ------------------------------------------
 
+## browser_search_highlight_results: Highlight Search Results in the Browser
+
+**Highlights search results** in Editor pane of the **Browser** and extends the search bar with **two new search modes**.
+
+**SCREENSHOTS**
+
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/browser_search_highlight_results.png)
+
+**COMPATIBILITY**
+
+This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+
+**USAGE**
+
+By default the add-on will highlight all search terms that aren't search operators. You can temporarily disable search highlighting by using the provided *View* menu entry, or its associated hotkey (`Ctrl+T, H`).
+
+In addition to search highlights the following new hotkeys are provided in the search bar:
+
+- Shift-Return: Jump to next result in current card list 
+- Ctrl-Shift-Return: Select all results in current card list
+
+**CONFIGURATION**
+
+The following settings can be configured by editing the add-on's source code:
+
+- `HIGHLIGHT_BY_DEFAULT`: Wether or not to turn search highlights on by default
+- `HOTKEY_HIGHLIGHT_TOGGLE`: Set hotkey for highlight toggle
+
+**LIMITATIONS**
+
+The add-on will search through entire editor screen, field descriptions included.
+
+**CHANGELOG**
+
+2017-08-16 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+
+------------------------------------------
+
 ## browser_search_hotkeys: Browser Search Hotkeys
 
 Allows you to set up **hotkeys for searches** in the **browser**
@@ -417,15 +474,57 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ## common_ctrlf_search: Ctrl+F Search
 
-Unpublished.
+Search through your cards and fields using `Ctrl+F`.
 
-Allows you to search through your cards in the Reviewer and in Editor instances (AddCards, EditCurrent, Browser).
+**SCREENSHOT**
+
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/common_ctrlf_search_1.png)
+
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/common_ctrlf_search_2.png)
+
+**COMPATIBILITY**
+
+This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+
+**USAGE**
+
+The search bar can both be invoked while reviewing and while editing/creating cards.
+
+Hotkeys:
+
+- Invoke search: `CTRL+F` (`Ctrl+Alt+Shift+`F in the Browser)
+- Close search: `Esc`
+- Next result: `F3`
+- Previous result: `Shift+F3`
+
+**CHANGELOG**
+
+2017-08-17 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user. All credit for the original idea goes to them.
+
+Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+
 
 ------------------------------------------
 
 ## editor_autocomplete_whitelist
-
-**Overview**
 
 This is a modified version of the [Editor Autocomplete add-on for Anki](https://github.com/sartak/editor-autocomplete). Instead of checking against a blacklist of non-autocompleted fields this implementation of the add-on will only enable autocomplete on fields you specify.
 
