@@ -134,7 +134,25 @@ def _dock(pb):
     dock.setObjectName("pbDock")
     dock.setWidget(pb)
     dock.setTitleBarWidget( tWidget )
+    
+    ## Note: if there is another widget already in this dock position, we have to add ourself to the list
+
+    # first check existing widgets
+    existing_widgets = [widget for widget in mw.findChildren(QDockWidget) if mw.dockWidgetArea(widget) == dockArea]
+
+    # then add ourselves
     mw.addDockWidget(dockArea, dock)
+
+    # stack with any existing widgets
+    if len(existing_widgets) > 0:
+        mw.setDockNestingEnabled(True)
+
+        if dockArea == Qt.TopDockWidgetArea or dockArea == Qt.BottomDockWidgetArea:
+            stack_method = Qt.Vertical
+        if dockArea == Qt.LeftDockWidgetArea or dockArea == Qt.RightDockWidgetArea:
+            stack_method = Qt.Horizontal
+        mw.splitDockWidget(existing_widgets[0], dock, stack_method)
+
     if qbr > 0 or pbdStyle != None:
         # Matches background for round corners.
         # Also handles background for themes' percentage text.
