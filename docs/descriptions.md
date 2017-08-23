@@ -74,6 +74,7 @@ The add-on uses the first selected note to generate the field list you're presen
 
 **CHANGELOG**
 
+2017-08-23 – Initial 2.1 compatibility
 2017-08-06 – Ability to insert text as HTML
 2017-05-13 – Only insert line-breaks when necessary
 2016-12-11 – Support for adding text before existing content (thanks to @luminousspice for the idea)
@@ -124,6 +125,7 @@ Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. 
 
 **CHANGES**
 
+2017-08-23 – Initial 2.1 compatibility
 2017-08-06 – Refactored code
 2016-04-30 – Duplications can now be undone via CTRL+Z (using Anki's default restoration points)
 
@@ -164,6 +166,7 @@ Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. 
 
 **CHANGELOG**
 
+2017-08-23 – Initial 2.1 compatibility
 2017-08-06 – Refactored code
 2016-05-28 – Initial release
 
@@ -283,6 +286,7 @@ Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. 
 
 **CHANGELOG**
 
+2017-08-23 – Initial 2.1 compatibility
 2017-08-06 – Some smaller improvements and bug fixes
 2016-06-04 – Switch to title case for menu entries
 2016-05-27 – Initial release
@@ -579,6 +583,7 @@ Compatibility with future versions of Night Mode and Power Format Pack is not gu
 
 **CHANGELOG**
 
+2017-08-23 – Initial 2.1 compatibility
 2017-08-04 – Initial release
 
 **SUPPORT**
@@ -1026,6 +1031,7 @@ The visibility of the panel can be controlled through the *Tools* menu or `SHIFT
 
 **CHANGELOG**
 
+2017-08-23 – Initial 2.1 compatibility
 2017-08-06 – Refactored code
 2016-11-16 – Initial release
 
@@ -1168,7 +1174,9 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ## reviewer_hint_hotkeys: Hint Hotkeys
 
-Adds two **hotkeys** to the **reviewer**: 'H' to **reveal hints** one by one, 'G' to reveal all hints at once. This is an updated version of [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/2616209911) by Ben Lickly.
+Adds two **hotkeys** to the **reviewer**: 'H' to **reveal hints** one by one, 'G' to reveal all hints at once. Both hotkeys can be customized at the top of the add-on's source code.
+
+This add-on is an updated version of [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/2616209911) by Ben Lickly. All credit for the original idea goes to him.
 
 **COMPATIBILITY**
 
@@ -1308,6 +1316,10 @@ The configuration section will also allow you to customize how your card tally i
 
 **CHANGELOG**
 
+2017-08-23 – Limit to daily review limits by default (thanks to Sebastien Guillemot)
+             New setting that shows remaining count (thanks to Sebastien Guillemot)
+             Bug fixes and smaller improvements (thanks to Sebastien Guillemot)
+             Initial 2.1 compatibility
 2017-08-06 – Rework configuration section, add options for width and new/review queue
 2017-06-15 – Re-upload
 
