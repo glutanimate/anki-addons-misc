@@ -17,14 +17,16 @@ from __future__ import unicode_literals
 
 ############## USER CONFIGURATION START ##############
 
-# limit matches to tag hierarchy instead of arbitrary substrings
+# Limit matches to tag hierarchy instead of arbitrary substrings
 LIMIT_TO_HIERARCHY = False # Default: False
-# hierarchical tag delimiter 
+# Hierarchical tag delimiter 
 HIERARCHICHAL_DELIMITER = "::" # Default: "::"
-# use substring highlight workaround
-# (needed for autocompleter entries to show up properly on some
-# Linux systems that seem to suffer from a Qt bug)
-HIGHLIGHT_WORKAROUND = False # Default: False
+# Use substring highlight workaround
+# - needed for autocompleter entries to show up properly on some
+#   Linux systems that seem to suffer from a Qt bug
+# - enabled by default for now. Disable this if you'd like your
+#   autocompleter to look a bit nicer (if it works for you)
+HIGHLIGHT_WORKAROUND = True # Default: True
 
 ##############  USER CONFIGURATION END  ##############
 
