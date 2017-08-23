@@ -12,11 +12,12 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 
 # Do not modify the following lines
 from __future__ import unicode_literals
-from anki.hooks import addHook
+from anki.hooks import addHook, wrap
 from aqt import mw
+from aqt.editcurrent import EditCurrent
 from aqt.qt import *
 
-__version__ = '1.2.0'
+__version__ = '1.3.0'
 
 ############## USER CONFIGURATION START ##############
 
@@ -294,3 +295,20 @@ def rrenderPB():
 
 addHook("afterStateChange", _renderBar)
 addHook("showQuestion", _updatePB)
+
+
+def changeStylesheet(*args):
+    mw.setStyleSheet('''
+        QMainWindow::separator
+    {
+        width: 0px;
+        height: 0px;
+    }
+    ''')
+
+def restoreStylesheet(*args):
+    mw.setStyleSheet("")
+
+EditCurrent.__init__ = wrap(EditCurrent.__init__, restoreStylesheet, "after")
+EditCurrent.onReset = wrap(EditCurrent.onReset, changeStylesheet, "after")
+EditCurrent.onSave = wrap(EditCurrent.onSave, changeStylesheet, "after")
