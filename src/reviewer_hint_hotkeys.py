@@ -58,6 +58,15 @@ def _showHint(incremental=False):
      var customEvent = document.createEvent('MouseEvents');
      customEvent.initEvent('click', false, true);
      var arr = document.getElementsByTagName('a');
+     // Cloze Overlapper support
+     if (typeof olToggle === "function") { 
+         olToggle();
+     }
+     // Image Occlusion Enhanced support
+     var ioBtn = document.getElementById("io-revl-btn");
+     if (!(typeof ioBtn === 'undefined' || !ioBtn)) { 
+         ioBtn.click();
+     }
      for (var i=0; i<arr.length; i++) {
         var l=arr[i];
         if (l.style.display === 'none') {
