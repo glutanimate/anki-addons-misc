@@ -12,10 +12,12 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 
 # Do not modify the following lines
 from __future__ import unicode_literals
+
 from anki.hooks import addHook, wrap
-from aqt import mw
-from aqt.editcurrent import EditCurrent
+from anki import version as anki_version
+
 from aqt.qt import *
+from aqt import mw
 
 __version__ = '1.3.0'
 
@@ -297,18 +299,27 @@ addHook("afterStateChange", _renderBar)
 addHook("showQuestion", _updatePB)
 
 
-def changeStylesheet(*args):
-    mw.setStyleSheet('''
-        QMainWindow::separator
-    {
-        width: 0px;
-        height: 0px;
-    }
-    ''')
+if anki_version.startswith("2.0.x"):
+    """Workaround for QSS issue in EditCurrent,
+    only necessary on Anki 2.0.x"""
 
-def restoreStylesheet(*args):
-    mw.setStyleSheet("")
+    from aqt.editcurrent import EditCurrent
 
-EditCurrent.__init__ = wrap(EditCurrent.__init__, restoreStylesheet, "after")
-EditCurrent.onReset = wrap(EditCurrent.onReset, changeStylesheet, "after")
-EditCurrent.onSave = wrap(EditCurrent.onSave, changeStylesheet, "after")
+    def changeStylesheet(*args):
+        mw.setStyleSheet('''
+            QMainWindow::separator
+        {
+            width: 0px;
+            height: 0px;
+        }
+        ''')
+
+    def restoreStylesheet(*args):
+        mw.setStyleSheet("")
+
+    EditCurrent.__init__ = wrap(
+        EditCurrent.__init__, restoreStylesheet, "after")
+    EditCurrent.onReset = wrap(
+        EditCurrent.onReset, changeStylesheet, "after")
+    EditCurrent.onSave = wrap(
+        EditCurrent.onSave, changeStylesheet, "after")
