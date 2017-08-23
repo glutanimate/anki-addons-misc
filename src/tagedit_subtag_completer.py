@@ -34,7 +34,6 @@ import re
 
 from aqt.qt import *
 from aqt import tagedit
-from anki import version as anki_version
 
 OldTagEdit = tagedit.TagEdit
 OldTagCompleter = tagedit.TagCompleter
@@ -51,7 +50,7 @@ class HTMLDelegate(QStyledItemDelegate):
         self.prefix = None
 
     def paint(self, painter, option, index):
-        options = QStyleOptionViewItemV4(option)
+        options = QStyleOptionViewItem(option)
         self.initStyleOption(options, index)
         if options.widget is None:
             style = QApplication.style()
@@ -170,9 +169,7 @@ class CustomTagCompleter(OldTagCompleter):
         self.model().setStringList(filtered)
         
         self.delegate.prefix = prefix
-        if anki_version.startswith("2.0."):
-            # ItemDelegate not working on Qt5, yet
-            self.popup().setItemDelegate(self.delegate)
+        self.popup().setItemDelegate(self.delegate)
 
 
 # Hooks
