@@ -32,6 +32,7 @@ import re
 
 from aqt.qt import *
 from aqt import tagedit
+from anki import version as anki_version
 
 OldTagEdit = tagedit.TagEdit
 OldTagCompleter = tagedit.TagCompleter
@@ -167,7 +168,9 @@ class CustomTagCompleter(OldTagCompleter):
         self.model().setStringList(filtered)
         
         self.delegate.prefix = prefix
-        self.popup().setItemDelegate(self.delegate)
+        if anki_version.startswith("2.0."):
+            # ItemDelegate not working on Qt5, yet
+            self.popup().setItemDelegate(self.delegate)
 
 
 # Hooks

@@ -1,50 +1,60 @@
 # -*- coding: utf-8 -*-
-# Author:  Ben Lickly <blickly at berkeley dot edu>
-#          modified by Glutanimate 2016 (github.com/Glutanimate)
-#
-# License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
-#
-#   Hint-peeking add-on
-#
-# This add-on allows peeking at some of the fields in a flashcard
-# before seeing the answer. This can be used to peek at word context,
-# example sentences, word pronunciation (especially useful for
-# Chinese/Japanese/Korean), and much more.
-#
-# Modified by Glutanimate to add gradual hint reveal
+"""
+Anki Add-on: Hint Hotkeys
 
-from PyQt4.QtCore import Qt
+Adds two hotkeys to the reviewer: 'H' to reveal hints one by one,
+'G' to reveal all hints at once.
 
-########################### Settings #######################################
-# The following settings can be changed to suit your needs. Lines
-# starting with a pound sign (#) are comments and are ignored.
+Based on "Hint-peeking Keyboard Bindings" by Ben Lickly
 
-# SHOW_HINT_KEY defines the key that will reveal the hint fields one by one.
-SHOW_HINT_KEY=Qt.Key_H
-# SHOW_ALL_HINTS_KEY defines the key that will reveal the hint fields all at once.
-SHOW_ALL_HINTS_KEY=Qt.Key_G
-# A list of possible key values can be found at:
-#       http://opendocs.net/pyqt/pyqt4/html/qt.html#Key-enum
+Copyright:  (c) Ben Lickly 2012 <blickly at berkeley dot edu>
+            (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
+"""
 
+from __future__ import unicode_literals
 
-######################### End of Settings ##################################
+############## USER CONFIGURATION START ##############
 
-from anki.hooks import wrap
+# Shortcuts need to be single keys on Anki 2.0.x
+# Key combinations are supported on Anki 2.1.x
+
+# Shortcut that will reveal the hint fields one by one:
+SHORTCUT_INCREMENTAL = "H"
+# Shortcut that will reveal all hint fields at once:
+SHORTCUT_ALL = "G"
+
+##############  USER CONFIGURATION END  ##############
+
+from aqt.qt import *
+from aqt import mw
 from aqt.reviewer import Reviewer
 
-def newKeyHandler(self, evt, _old):
-    """Show hint when the SHOW_HINT_KEY is pressed."""
-    if evt.key() == SHOW_HINT_KEY:
-        self._showHint("one")
-    elif evt.key() == SHOW_ALL_HINTS_KEY:
-        self._showHint("all")
+from anki.hooks import wrap, addHook
+from anki import version as ankiversion
+
+
+def _newKeyHandler(self, evt, _old):
+    """Add shortcuts on Anki 2.0.x"""
+    if evt.key() == QKeySequence(SHORTCUT_INCREMENTAL)[0]:
+        _showHint(incremental=True)
+    elif evt.key() == QKeySequence(SHORTCUT_ALL)[0]:
+        _showHint()
     return _old(self, evt)
 
 
-def _showHint(self, unhideMode):
-    """To show hint, simply click all show hint buttons."""
-    self.web.eval("""
-     var unhideMode = "%s";
+def _addShortcuts(shortcuts):
+    """Add shortcuts on Anki 2.1.x"""
+    additions = (
+        (SHORTCUT_INCREMENTAL, lambda: _showHint(incremental=True)),
+        (SHORTCUT_ALL, _showHint)
+    )
+    shortcuts += additions
+
+
+def _showHint(incremental=False):
+    """Show hint by activating corresponding links."""
+    mw.web.eval("""
      var customEvent = document.createEvent('MouseEvents');
      customEvent.initEvent('click', false, true);
      var arr = document.getElementsByTagName('a');
@@ -55,13 +65,18 @@ def _showHint(self, unhideMode):
         }
         if (l.href.charAt(l.href.length-1) === '#') {
           l.dispatchEvent(customEvent);
-          if (unhideMode === 'one') {
+          if ('%s' === 'True') {
             break;
           }
         }
      }
-     """ % unhideMode)
+     """ % incremental)
 
-Reviewer._showHint = _showHint
-Reviewer._keyHandler = wrap(Reviewer._keyHandler, newKeyHandler, "around")
 
+# Hooks and Patches
+
+if ankiversion.startswith("2.0"): # 2.0.x
+    Reviewer._keyHandler = wrap(
+        Reviewer._keyHandler, _newKeyHandler, "around")
+else: # 2.1.x
+    addHook("reviewStateShortcuts", _addShortcuts)

@@ -10,9 +10,7 @@ Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-from PyQt4.QtCore import SIGNAL
-from PyQt4.QtGui import QMenu, QKeySequence
-
+from aqt.qt import *
 from aqt.utils import getText, tooltip
 from aqt.tagedit import TagEdit
 from anki.hooks import addHook
@@ -73,7 +71,7 @@ def setupMenu(self):
     menu.addSeparator()
     a = menu.addAction('Replace Tag...')
     a.setShortcut(QKeySequence("Ctrl+Alt+Shift+T"))
-    self.connect(a, SIGNAL("triggered()"), lambda b=self: replaceTag(b))
+    a.triggered.connect(lambda _, b=self: replaceTag(b))
 
 
 addHook("browser.setupMenus", setupMenu)

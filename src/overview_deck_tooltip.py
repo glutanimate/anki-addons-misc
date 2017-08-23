@@ -15,8 +15,7 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 
 #
 
-from PyQt4 import QtCore
-from PyQt4.QtCore import QObject
+from aqt.qt import *
 from anki.hooks import wrap
 from anki.lang import _, ngettext
 from anki.utils import ids2str, fmtTimeSpan

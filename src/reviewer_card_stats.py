@@ -39,8 +39,9 @@ class StatsSidebar(object):
 
     def _addDockable(self, title, w):
         class DockableWithClose(QDockWidget):
+            closed = pyqtSignal()
             def closeEvent(self, evt):
-                self.emit(SIGNAL("closed"))
+                self.closed.emit()
                 QDockWidget.closeEvent(self, evt)
         dock = DockableWithClose(title, mw)
         dock.setObjectName(title)
@@ -62,8 +63,8 @@ class StatsSidebar(object):
                     return QSize(200, 100)
             self.web = ThinAnkiWebView()
             self.shown = self._addDockable(_("Card Info"), self.web)
-            self.shown.connect(self.shown, SIGNAL("closed"),
-                               self._onClosed)
+            self.shown.closed.connect(self._onClosed)
+
         self._update()
 
     def hide(self):
@@ -82,7 +83,7 @@ class StatsSidebar(object):
         # schedule removal for after evt has finished
         self.mw.progress.timer(100, self.hide, False)
 
-        #copy and paste from Browser
+    #copy and paste from Browser
     #Added IntDate column
     def _revlogData(self, card, cs):
         entries = self.mw.col.db.all(
@@ -163,9 +164,17 @@ please see the browser documentation.""")
             txt += self._revlogData(lc, cs)
         if not txt:
             txt = _("No current card or last card.")
+        style = self._style()
         self.web.setHtml("""
 <html><head>
-</head><body><center>%s</center></body></html>"""% txt)
+</head><style>%s</style>
+<body><center>%s</center></body></html>"""% (style, txt))
+                
+    def _style(self):
+        from anki import version
+        if version.startswith("2.0."):
+            return ""
+        return "td { font-size: 80%; }"
 
 _cs = StatsSidebar(mw)
 
@@ -177,4 +186,4 @@ action.setText("Card Stats")
 action.setCheckable(True)
 action.setShortcut(QKeySequence("Shift+C"))
 mw.form.menuTools.addAction(action)
-mw.connect(action, SIGNAL("toggled(bool)"), cardStats)
+action.toggled.connect(cardStats)

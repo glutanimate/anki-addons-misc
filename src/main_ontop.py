@@ -17,7 +17,7 @@ from aqt import dialogs
 from aqt import mw, addcards, editcurrent, browser
 from aqt.qt import *
 
-def alwaysOnTop():
+def alwaysOnTop(triggered):
     mw._onTop = not mw._onTop
     windows = [mw]
     for dclass, instance in dialogs._dialogs.values():
@@ -38,7 +38,7 @@ def onWindowInit(self, *args, **kwargs):
 mw._onTop = False
 action = QAction("Always on top", mw)
 action.setCheckable(True)
-mw.connect(action, SIGNAL("triggered()"), alwaysOnTop)
+action.triggered.connect(alwaysOnTop)
 mw.form.menuTools.addAction(action)
 
 addcards.AddCards.__init__ = wrap(

@@ -11,6 +11,8 @@ Copyright: (c) 2016 Strider (?)
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
+from __future__ import unicode_literals
+
 ############## USER CONFIGURATION START ##############
 
 MATURE_IVL = 21 # mature card interval in days
@@ -21,6 +23,7 @@ import anki.stats
 
 from anki.utils import fmtTimeSpan
 from anki.lang import _, ngettext
+from anki import version as anki_version
 
 
 # Types: 0 - new today; 1 - review; 2 - relearn; 3 - (cram?) [before the answer was pressed]
@@ -132,8 +135,12 @@ from revlog where id > ? """+lim, (self.col.sched.dayCutoff-86400)*1000)
     relrn = relrn or 0
     filt = filt or 0
     # studied
-    def bold(s):
-        return "<b>"+unicode(s)+"</b>"
+    if anki_version.startswith("2.0."):
+        def bold(s):
+            return "<b>"+unicode(s)+"</b>"
+    else:
+        def bold(s):
+            return "<b>"+str(s)+"</b>"
     msgp1 = ngettext("<!--studied-->%d card", "<!--studied-->%d cards", cards) % cards
     b += _("Studied %(a)s in %(b)s today.") % dict(
         a=bold(msgp1), b=bold(fmtTimeSpan(thetime, unit=1)))
