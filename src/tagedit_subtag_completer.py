@@ -34,9 +34,15 @@ import re
 
 from aqt.qt import *
 from aqt import tagedit
+from anki import version as anki_version
 
 OldTagEdit = tagedit.TagEdit
 OldTagCompleter = tagedit.TagCompleter
+
+if anki_version.startswith("2.0."):
+    QSOViewItem = QStyleOptionViewItemV4
+else:
+    QSOViewItem = QStyleOptionViewItem
 
 
 class HTMLDelegate(QStyledItemDelegate):
@@ -50,7 +56,7 @@ class HTMLDelegate(QStyledItemDelegate):
         self.prefix = None
 
     def paint(self, painter, option, index):
-        options = QStyleOptionViewItem(option)
+        options = QSOViewItem(option)
         self.initStyleOption(options, index)
         if options.widget is None:
             style = QApplication.style()
