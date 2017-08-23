@@ -32,7 +32,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [reviewer_browse_creation: Browse Card in its Creation Context](#reviewer_browse_creation-browse-card-in-its-creation-context)
 - [reviewer_browse_today: Open 'Added Today' from Reviewer](#reviewer_browse_today-open-added-today-from-reviewer)
 - [reviewer_hide_toolbar: Hide Toolbar in Reviewer](#reviewer_hide_toolbar-hide-toolbar-in-reviewer)
-- [reviewer_hint_hotkeys](#reviewer_hint_hotkeys)
+- [reviewer_hint_hotkeys: Hint Hotkeys](#reviewer_hint_hotkeys-hint-hotkeys)
 - [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewer_more_answer_buttons-more-answer-buttons-for-new-cards)
 - [reviewer_progress_bar: Progress Bar](#reviewer_progress_bar-progress-bar)
 - [reviewer_puppy_reinforcement: Puppy Reinforcement](#reviewer_puppy_reinforcement-puppy-reinforcement)
@@ -40,8 +40,10 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewer_visual_feedback-visual-feedback-for-reviews)
 - [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#sched_advanced_newcard_limits-limit-new-cards-to-less-than-one)
 - [sched_sibling_spacing_whitelist](#sched_sibling_spacing_whitelist)
+- [search_last_edited: Search for Cards by Last Edit Date](#search_last_edited-search-for-cards-by-last-edit-date)
 - [stats_true_retention_extended: True Retention by Card Maturity](#stats_true_retention_extended-true-retention-by-card-maturity)
 - [tagedit_enhancements: Tag Entry Enhancements](#tagedit_enhancements-tag-entry-enhancements)
+- [tagedit_subtag_completer: Substring Tag Completion](#tagedit_subtag_completer-substring-tag-completion)
 
 <!-- /MarkdownTOC -->
 
@@ -64,7 +66,7 @@ Here's a quick demo video that showcases these features:
 
 **COMPATIBILITY**
 
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **OTHER REMARKS**
 
@@ -109,7 +111,7 @@ Pressing the **shortcut** (`Ctrl+Alt+C` by default) or clicking on the *Create D
 
 **COMPATIBILITY**
 
-This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is probably **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **IMPORTANT NOTES**
 
@@ -158,7 +160,7 @@ The dialog will be placed above Anki's main window (this is a limitation of the 
 
 **COMPATIBILITY**
 
-This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is probably **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **CHANGELOG**
 
@@ -277,7 +279,7 @@ Hotkey: `Ctrl+Alt+Shift+T`
 
 **COMPATIBILITY**
 
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **CHANGELOG**
 
@@ -348,6 +350,8 @@ Please **do not report issues or bugs in the review section below**, as I will n
 **CREDITS AND LICENSE**
 
 *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user. All credit for the original idea goes to them.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
@@ -474,9 +478,9 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ## common_ctrlf_search: Ctrl+F Search
 
-Search through your cards and fields using `Ctrl+F`.
+**Search** through your cards and fields using **`Ctrl+F`**.
 
-**SCREENSHOT**
+**SCREENSHOTS**
 
 ![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/common_ctrlf_search_1.png)
 
@@ -547,7 +551,7 @@ Allows you to customize the **stylesheet** of the **Editor widget** in Anki.
 
 **COMPATIBILITY**
 
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **USAGE**
 
@@ -1014,7 +1018,7 @@ This add-on is based on [Card Info During Review](https://ankiweb.net/shared/inf
 
 **COMPATIBILITY**
 
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **USAGE**
 
@@ -1162,11 +1166,36 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ------------------------------------------
 
-## reviewer_hint_hotkeys
+## reviewer_hint_hotkeys: Hint Hotkeys
 
-Unpublished.
+Adds two **hotkeys** to the **reviewer**: 'H' to **reveal hints** one by one, 'G' to reveal all hints at once. This is an updated version of [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/2616209911) by Ben Lickly.
 
-Based on [Hint-peeking Keyboard Bindings](https://ankiweb.net/shared/info/2616209911) by Ben Lickly. Adds two hotkeys to the reviewer: 'H' to reveal hints one by one, 'G' to reveal all hints at once.
+**COMPATIBILITY**
+
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
+
+**CHANGELOG**
+
+2017-08-23 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2012 Ben Lickly*
+*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
 ------------------------------------------
 
@@ -1265,7 +1294,7 @@ The customization and use of the Progress Bar add-on is demonstrated in the foll
 
 **COMPATIBILITY**
 
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **BEHAVIOR**
 
@@ -1434,7 +1463,7 @@ These settings will only apply to decks that have their new card limit set to "1
 
 **COMPATIBILITY**
 
-This add-on has only been tested with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is probably **not supported** at this point in time.
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **SUPPORTED PLATFORMS**
 
@@ -1473,6 +1502,43 @@ Unpublished.
 
 Based on [Sibling Spacing](https://ankiweb.net/shared/info/2951410923) by Andreas Klauer. Modified to follow a whitelist approach when choosing which note types to enable on. Check the comments in the source file for more information.
 
+------------------------------------------
+
+## search_last_edited: Search for Cards by Last Edit Date
+
+Adds a new **parameter** to Anki's **search interface** that allows you to **find notes by their last modification date**. 
+
+**COMPATIBILITY**
+
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
+
+**USAGE**
+
+`edited:7` would find all notes modified over the last 7 days.
+
+**CHANGELOG**
+
+2017-08-23 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user. All credit for the original idea goes to them.
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
 ------------------------------------------
 
@@ -1483,6 +1549,10 @@ This is a slightly modified version of the [True Retention add-on](https://ankiw
 ![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/stats_true_retention_extended.png)
 
 In addition to this, the add-on also allows you to define a custom card maturity threshold (`MATURE_IVL` at the top of the source code). This is set to 21 days by default.
+
+**COMPATIBILITY**
+
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **CHANGELOG**
 
@@ -1521,6 +1591,10 @@ A number of enhancements meant to **improve keyboard navigation** in Anki's **ta
 - disables initial suggestion box popup when entering the field
 - allows using ↑/↓ to invoke the tag suggestion box
 
+**COMPATIBILITY**
+
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
+
 **CHANGELOG**
 
 2017-04-11 – Smaller bug fixes
@@ -1545,4 +1619,42 @@ Want to stay up-to-date with my latest add-on releases and updates? Feel free to
 
 New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
+------------------------------------------
 
+## tagedit_subtag_completer: Substring Tag Completion
+
+Allows for **substring matching** in the **tag entry field**, either as full-text matches or limited to tag boundaries defined by the **Hierarchical Tags** add-on.
+
+**COMPATIBILITY**
+
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
+
+**CONFIGURATION**
+
+A number of settings may be customized in the add-ons source code:
+
+`LIMIT_TO_HIERARCHY`: Whether the add-on should only match tag segments defined by the Hierarchical Tags add-on
+`HIERARCHICHAL_DELIMITER`: Tag delimiter used for option above
+`HIGHLIGHT_WORKAROUND`: Enabled by default to solve a Qt bug that appears on Anki 2.0.x with some Linux distributions. The suggestions popup might look better with this option disabled on platforms that do not suffer from this bug.
+
+**CHANGELOG**
+
+2017-08-23 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/tagedit_subtag_completer/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/tagedit_subtag_completer).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
