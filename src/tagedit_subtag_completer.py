@@ -20,7 +20,11 @@ from __future__ import unicode_literals
 # limit matches to tag hierarchy instead of arbitrary substrings
 LIMIT_TO_HIERARCHY = False # Default: False
 # hierarchical tag delimiter 
-HIERARCHICHAL_DELIMITER = "::" # (default: "::")
+HIERARCHICHAL_DELIMITER = "::" # Default: "::"
+# use substring highlight workaround
+# (needed for autocompleter entries to show up properly on some
+# Linux systems that seem to suffer from a Qt bug)
+HIGHLIGHT_WORKAROUND = False # Default: False
 
 ##############  USER CONFIGURATION END  ##############
 
@@ -92,7 +96,8 @@ class HTMLDelegate(QStyledItemDelegate):
                                         options)
         painter.save()
         painter.translate(textRect.topLeft())
-        painter.setClipRect(textRect.translated(-textRect.topLeft()))
+        if not HIGHLIGHT_WORKAROUND:
+            painter.setClipRect(textRect.translated(-textRect.topLeft()))
         doc.documentLayout().draw(painter, ctx)
         painter.restore()
 
@@ -108,6 +113,8 @@ class CustomTagEdit(OldTagEdit):
         OldTagEdit.__init__(self, parent, type=type)
         self.type = type
         self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+        # TODO: find a way to use filtered PopupCompletion 
+        # (cf. https://stackoverflow.com/q/5129211/1708932)
 
     def setCol(self, col):
         "Set the current col, updating list of available tags."
