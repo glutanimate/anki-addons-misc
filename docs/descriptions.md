@@ -25,6 +25,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [editor_random_list: Insert Randomized Lists](#editor_random_list-insert-randomized-lists)
 - [editor_sync_cursor_position: Sync Cursor Between Fields and HTML Editor](#editor_sync_cursor_position-sync-cursor-between-fields-and-html-editor)
 - [editor_tag_hotkeys: Editor Tag Hotkeys Add-on for Anki](#editor_tag_hotkeys-editor-tag-hotkeys-add-on-for-anki)
+- [main_fullscreen: Toggle Fullscreen Extended](#main_fullscreen-toggle-fullscreen-extended)
 - [overview_deck_switcher: Switch Between Decks on the Main Screen](#overview_deck_switcher-switch-between-decks-on-the-main-screen)
 - [overview_deck_tooltip: Deck Overview Stats Tooltip](#overview_deck_tooltip-deck-overview-stats-tooltip)
 - [overview_refresh_media: Refresh Media References](#overview_refresh_media-refresh-media-references)
@@ -886,6 +887,44 @@ Please **do not report issues or bugs in the review section below**, as I will n
 **CREDITS AND LICENSE**
 
 *Copyright © 2015-2017 [Glutanimate](https://github.com/Glutanimate)*
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+
+------------------------------------------
+
+## main_fullscreen: Toggle Fullscreen Extended
+
+Extends Damien Elmes' original version of the Toggle Fullscreen add-on with the following new features:
+
+- **Hide menu bar** when going into full-screen in order create a distraction-free learning environment
+- Add the ability to **define a custom key binding** (default: `F11`) 
+
+In contrast to the original there is no menu entry for this add-on. It would not make sense to have one since the menu bar is hidden in fullscreen mode. Instead you will have to use the hotkey to toggle between the add-on's states.
+
+**COMPATIBILITY**
+
+Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
+
+**CHANGELOG**
+
+2017-08-25 – Initial support for Anki 2.1, configurable shortcut
+2016-09-20 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
