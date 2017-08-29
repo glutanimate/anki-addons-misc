@@ -1,8 +1,11 @@
 .sublime-backup/
 *.pyo
 *.pyc
+__pycache__
+meta.json
 *.sublime-project
 *.sublime-workspace
 .hidden
 .directory
 docs/sort-sections.sh
+build
