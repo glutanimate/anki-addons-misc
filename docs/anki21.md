@@ -10,9 +10,6 @@
 
 |              Add-on              |        Status        |                                                 Notes / Issues                                                 |
 |----------------------------------|----------------------|----------------------------------------------------------------------------------------------------------------|
-| editor_random_list               | ?                    |                                                                                                                |
-| reviewer_puppy_reinforcement     | ?                    |                                                                                                                |
-| reviewer_visual_feedback         | ?                    |                                                                                                                |
 | browser_batch_edit               | (:white_check_mark:) | cosmetics: attachment icon not working                                                                         |
 | browser_create_duplicate         | :white_check_mark:   |                                                                                                                |
 | browser_create_filtered_deck     | :white_check_mark:   |                                                                                                                |
@@ -41,6 +38,8 @@
 | reviewer_hint_hotkeys            | :white_check_mark:   |                                                                                                                |
 | reviewer_more_answer_buttons     | :x:                  | Reviewer._keyHandler, complex changes to answer button methods                                                 |
 | reviewer_progress_bar            | :white_check_mark:   |                                                                                                                |
+| reviewer_puppy_reinforcement     | :x:                  | Reviewer.nextCard                                                                                              |
+| reviewer_visual_feedback         | :x:                  | Reviewer._keyHandler , Reviewer._linkHandler                                                                   |
 | reviewer_track_unseen            | :x:                  | PyQt4, SIGNALS, potentially obsolete                                                                           |
 | sched_sibling_spacing_whitelist  | :x:                  | SIGNALS, potentially other issues                                                                              |
 | search_last_edited               | :white_check_mark:   |                                                                                                                |
