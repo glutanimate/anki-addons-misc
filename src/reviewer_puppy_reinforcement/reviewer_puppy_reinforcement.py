@@ -54,7 +54,8 @@ mw.dogs = {
     "ivl": ENCOURAGE_EVERY
 }
 
-dogs_dir = os.path.join(mw.pm.addonFolder(), 'puppy_reinforcement')
+addons_path = os.path.dirname(__file__)
+dogs_dir = os.path.join(addons_path, 'puppy_reinforcement')
 dogs_imgs = [i for i in os.listdir(dogs_dir)
              if i.endswith((".jpg", ".png"))]
 
