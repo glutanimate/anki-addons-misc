@@ -1,12 +1,12 @@
 #!/bin/bash
 # Builds zip files for Anki 2.1
 
-set -e
+set -ue
 
 # Global variables
 source_dir="./src"
 build_dir="./build"
-excluded_patterns=("__pycache__" "meta.json" "*.pyc" "*.pyo")
+excluded_patterns=("__pycache__" "meta.json" "*.pyc" "*.pyo" "*.html" "*.md")
 
 # Compile exclude patterns
 exclude_string=""
