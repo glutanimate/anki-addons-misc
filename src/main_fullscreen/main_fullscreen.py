@@ -26,11 +26,13 @@ from aqt.qt import *
 from aqt import mw
 
 def onFullScreen():
-    mw.setWindowState(mw.windowState() ^ Qt.WindowFullScreen)
-    if mw.windowState() != Qt.WindowFullScreen:
-        mw.menuBar().show()
-    else:
+    if not mw.isFullScreen():
+        mw.setWindowState(mw.windowState() | Qt.WindowFullScreen)
         mw.menuBar().hide()
+    else:
+        mw.setWindowState(mw.windowState() ^ Qt.WindowFullScreen)
+        mw.menuBar().show()
+        
 
 QShortcut(QKeySequence(KEY_FULLSCREEN_TOGGLE), mw, 
     activated=onFullScreen)
