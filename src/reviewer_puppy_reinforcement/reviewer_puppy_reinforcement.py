@@ -57,7 +57,7 @@ mw.dogs = {
 addons_path = os.path.dirname(__file__)
 dogs_dir = os.path.join(addons_path, 'puppy_reinforcement')
 dogs_imgs = [i for i in os.listdir(dogs_dir)
-             if i.endswith((".jpg", ".png"))]
+             if i.endswith((".jpg", ".jpeg", ".png"))]
 
 _tooltipTimer = None
 _tooltipLabel = None
