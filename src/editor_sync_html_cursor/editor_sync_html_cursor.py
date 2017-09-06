@@ -21,7 +21,14 @@ from aqt.utils import openHelp
 ####### USER CONFIGURATION START #######
 
 # HTML Editor window dimensions in px:
-DIALOG_SIZE = (800,480) 
+DIALOG_SIZE = (800,480)
+
+# Whether or not to add cosmetic newlines between HTML tags
+# that correspond to linebreaks in the rendered text
+# (disabled by default because AnkiDroid interprets these as
+# actual linebreaks)
+COSMETIC_NEWLINES = False
+
 
 ####### USER CONFIGURATION END #######
 
@@ -137,7 +144,8 @@ def myHtmlEdit(self):
         pos = len(html.split("|-|c|-|")[0])
 
         txt = html.replace("|-|c|-|", "")
-        txt = re.sub(r"(</(div|p|br|li|ul|ol|blockquote)>)([^\n])", r"\1\n\3", txt)
+        if COSMETIC_NEWLINES:
+            txt = re.sub(r"(</(div|p|br|li|ul|ol|blockquote)>)([^\n])", r"\1\n\3", txt)
     else:
         txt = self.note.fields[self.currentField]
         pos = len(txt)

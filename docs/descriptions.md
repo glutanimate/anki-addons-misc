@@ -800,8 +800,17 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 Some add-ons like the the [Power Format Pack](https://ankiweb.net/shared/info/162313389) overwrite the same functions as this add-on. This doesn't pose an issue as long as *Sync Cursor Position* is loaded last. In case of the Power Format Pack add-on, the fact that *Sync Cursor Position* starts with an "S" should ensure that the latter is loaded after the former, but for some reason that's not always the case. If you do end up experiencing compatibility issues like this, you could try renaming the add-on, e.g. by prepending it with a "z" or a special character like "#".
 
+**CONFIGURATION**
+
+You can modify the add-ons behaviour and appearnce by adjusting its source code. Specifically you can set the following variables:
+
+`DIALOG_SIZE` – Allows you to configure custom source code window dimension
+
+`COSMETIC_NEWLINES` – Whether or not to introduce cosmetic newlines between certain HTML tags in order to improve readability. Disabled by default due to issues with AnkiDroid.
+
 **CHANGELOG**
 
+2017-09-06 – Disable cosmetic newlines by default and make them user-controllable. These were causing issues with AnkiDroid. Thanks to @waldens on GitHub for the report.
 2017-08-06 – Update license
 2017-05-13 – Increase default window size (the size can also be adjusted in the config section of the source code now). Various smaller bugfixes.
 
