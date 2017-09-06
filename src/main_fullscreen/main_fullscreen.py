@@ -19,6 +19,7 @@ from __future__ import unicode_literals
 ############## USER CONFIGURATION START ##############
 
 KEY_FULLSCREEN_TOGGLE = "F11"
+HIDE_MENU_BAR = True
 
 ##############  USER CONFIGURATION END  ##############
 
@@ -30,7 +31,8 @@ from anki.lang import _
 def onFullScreen():
     if not mw.isFullScreen():
         mw.setWindowState(mw.windowState() | Qt.WindowFullScreen)
-        mw.menuBar().hide()
+        if HIDE_MENU_BAR:
+            mw.menuBar().hide()
         custom_undo.setEnabled(True)
     else:
         mw.setWindowState(mw.windowState() ^ Qt.WindowFullScreen)
