@@ -86,7 +86,7 @@ def dogTooltip(msg, image=":/icons/help-hint.png", period=DURATION, parent=None)
     p.setColor(QPalette.Window, QColor(TOOLTIP_COLOR))
     p.setColor(QPalette.WindowText, QColor("#000000"))
     lab.setPalette(p)
-    vdiff = IMAGE_HEIGHT - 128
+    vdiff = (IMAGE_HEIGHT - 128) / 2
     lab.move(
         aw.mapToGlobal(QPoint(0, -260-vdiff + aw.height())))
     lab.show()
