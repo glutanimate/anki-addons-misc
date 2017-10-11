@@ -23,7 +23,7 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 #     ReschedMax ... same as the higher number in the Browser's "Edit/Rescedule" command
 
 extra_buttons = [{"Description": "3-4d", "Label": "3-4", "ShortCut": "5",
-                        "ReschedMin": 3, "ReschedMax": 5},
+                        "ReschedMin": 3, "ReschedMax": 4},
                  {"Description": "5-7d", "Label": "5-7", "ShortCut": "6",
                         "ReschedMin": 5, "ReschedMax": 7},
                  {"Description": "8-15d", "Label": "8-15", "ShortCut": "7",
