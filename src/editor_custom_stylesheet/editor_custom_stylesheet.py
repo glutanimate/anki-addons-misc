@@ -65,7 +65,7 @@ def profileLoaded():
         css = css_file.read()
     if not css:
         return False
-    editor_style = "<style>\n{}\n</style>".format(css)
+    editor_style = "<style>\n{}\n</style>".format(css.replace("%","%%"))
     old_html = editor._html
     editor._html = editor._html + editor_style
     new_html = editor._html
