@@ -9,3 +9,4 @@ meta.json
 .directory
 docs/sort-sections.sh
 build
+.vscode/
