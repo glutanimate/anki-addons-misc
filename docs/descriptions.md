@@ -1321,6 +1321,10 @@ Seriously, though, this is a just a fun little project I threw together in an ho
 
 *Copyright © 2017 [Glutanimate](https://github.com/Glutanimate)*
 
+Ships with the following javascript libraries:
+
+- [snowfall.js by loktar00](https://github.com/loktar00/JQuery-Snowfall), licensed under the Apache license 2.0
+
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
