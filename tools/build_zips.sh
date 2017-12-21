@@ -19,7 +19,7 @@ echo "Exclusion options: ${exclude_string}"
 
 mkdir -p "${build_dir}"
 
-# Iterate over stc directories and build zip files
+# Iterate over src directories and build zip files
 while IFS= read -d $'\0' -r addon_dir ; do
     base=$(basename "${addon_dir}")
     echo "Building ${base}.zip..."
