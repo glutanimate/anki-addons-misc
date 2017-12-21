@@ -29,6 +29,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [overview_deck_switcher: Switch Between Decks on the Main Screen](#overview_deck_switcher-switch-between-decks-on-the-main-screen)
 - [overview_deck_tooltip: Deck Overview Stats Tooltip](#overview_deck_tooltip-deck-overview-stats-tooltip)
 - [overview_refresh_media: Refresh Media References](#overview_refresh_media-refresh-media-references)
+- [reviewer_auto_answer: Automatically show answer and rate after X seconds](#reviewer_auto_answer-automatically-show-answer-and-rate-after-x-seconds)
 - [reviewer_card_stats: Extended Card Stats During Review](#reviewer_card_stats-extended-card-stats-during-review)
 - [reviewer_browse_creation: Browse Card in its Creation Context](#reviewer_browse_creation-browse-card-in-its-creation-context)
 - [reviewer_browse_today: Open 'Added Today' from Reviewer](#reviewer_browse_today-open-added-today-from-reviewer)
@@ -1049,6 +1050,45 @@ Please **do not report issues or bugs in the review section below**, as I will n
 *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+
+------------------------------------------
+
+## reviewer_auto_answer: Automatically show answer and rate after X seconds
+
+Extends the [Automatically show answer after X seconds](https://ankiweb.net/shared/info/648362761) add-on with Anki 2.1 support and the ability to automatically rate a card as 'Again' after a set period of time.
+
+**USAGE**
+
+Please make sure to uninstall all older versions of this add-on before proceeding.
+
+- 1: Open deck options
+- 2: Navigate to the 'General' tab
+- 3: Find the "Automatically show answer after _ seconds" and "Automatically rate 'again' after _ seconds" options, and set them up in whatever way you wish
+
+**CHANGELOG**
+
+2017-12-21 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/reviewer-auto-again/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2015-2016* unknown author
+*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+
+This add-on was commissioned by a fellow Anki user. All credit for the original idea goes to them.
+
+Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/reviewer-auto-again).
 
 **MORE RESOURCES**
 
