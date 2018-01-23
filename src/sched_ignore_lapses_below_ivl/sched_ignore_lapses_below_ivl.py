@@ -10,8 +10,8 @@ License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 ############## USER CONFIGURATION START ##############
 
 IVL_THRESHOLD = 4  # Interval threshold in days [integer].
-                   # Failed cards  below this ivl will not 
-                   # be registered as lapses 
+                   # Only lapses above this interval will
+                   # be registered as such.
 
 ##############  USER CONFIGURATION END  ##############
 
