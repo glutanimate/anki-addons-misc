@@ -6,9 +6,11 @@ Anki Add-on: Advanced New Card Limits
 Allows you to restrict new cards to less than one per day.
 
 The deck options need to be set to 1 new card per day for
-the advanced limits to apply.
+the advanced limits to apply. 
 
-Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+Otherwise, the deck can be given to every deck using the same deck. 
+
+Copyright: (c) Glutanimate 2017 <https://glutanimate.com/> and Arthur Milchior arthur@milchior.fr
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
@@ -18,6 +20,11 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 deck_limits = {
     "Default": 2, # show 1 new card every 2 days in "Default" deck
     u"Very Slöw": 7 # deck names with unicode need to be prepended with u
+}
+
+option_limits={
+    "hard": 3, # show 1 new card every 3 days in any deck, not in
+    # deck_limits, whose deck's option is "hard"
 }
 
 ##############  USER CONFIGURATION END  ##############
@@ -31,12 +38,16 @@ def myDeckNewLimitSingle(self, g):
         return self.reportLimit
     did = g['id']
     c = self.col.decks.confForDid(did)
+    cname = c['name']
     deck = self.col.decks.nameOrNone(did)
     per_day = c['new']['perDay']
     lim = max(0, per_day - g['newToday'][1])
-    if per_day > 1 or deck not in deck_limits or deck_limits[deck] == 1:
+    if cname in option_limits:
+        our_limit = option_limits[cname]
+    elif per_day <= 1 and deck in deck_limits and deck_limits[deck] != 1:
+        our_limit = deck_limits[deck]
+    else:
         return lim
-
     dsel = "cid in (select id from cards where did = %s)" % did
     last = self.col.db.scalar(
         "select id from revlog where type = 0 and ivl > 0 and %s order by id desc limit 1" % dsel)
@@ -46,7 +57,7 @@ def myDeckNewLimitSingle(self, g):
     last_cutoff = self.dayCutoff - 86400
     # days between last graduation and yesterday's cutoff:
     ddays = -(-(last_cutoff - last_new) // 86400.0) # ceil
-    if ddays < deck_limits[deck]:
+    if ddays < our_limit:
         lim = 0
     # print ddays
     return lim
