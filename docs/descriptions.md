@@ -1086,7 +1086,7 @@ Please **do not report issues or bugs in the review section below**, as I will n
 *Copyright (c) 2015-2016* unknown author
 *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
 
-This add-on was commissioned by a fellow Anki user. All credit for the original idea goes to them.
+Thanks a lot to Neri for coming up with this fantastic idea and commissioning this add-on!
 
 Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/reviewer-auto-again).
 

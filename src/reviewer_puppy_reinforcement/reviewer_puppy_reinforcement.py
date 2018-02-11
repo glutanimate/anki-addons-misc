@@ -25,7 +25,7 @@ TOOLTIP_COLOR = "#AFFFC5"
 ENCOURAGE_EVERY = 10
 # max spread around interval; default: 5
 MAX_SPREAD = 5
-# lowe card limits for encouragement levels (defaults: 100, 50, 25)
+# lower card limits for encouragement levels (defaults: 100, 50, 25)
 LIMIT_MAX = 100
 LIMIT_HIGH = 50
 LIMIT_MIDDLE = 25
