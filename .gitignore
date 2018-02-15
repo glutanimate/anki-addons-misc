@@ -1,11 +1,41 @@
-.sublime-backup/
+# Byte-compiled / optimized / DLL files
 *.pyo
 *.pyc
-__pycache__
-meta.json
+__pycache__/
+# Anki
+src/*/meta.json
+src/*/config.json
+# Build files
+build
+src/*/forms*
+*-anki2*.zip
+# Python
+.python-version
+.mypy_cache/
+.ropeproject
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+# IDEs
 *.sublime-project
 *.sublime-workspace
+.sublime-backup/
+.idea/
+.vscode/
+# Temp
+.gitold
+obsolete
+research
+# Linux FM
 .hidden
 .directory
-docs/sort-sections.sh
-build
+# Docs and tools
+docs/specs.md
+docs/todo.md
+docs/description.html
+docs/sort_sections.sh
+tools/test.py
