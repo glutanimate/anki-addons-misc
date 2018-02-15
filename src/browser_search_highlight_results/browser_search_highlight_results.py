@@ -32,6 +32,15 @@ from aqt.qt import *
 from aqt.browser import Browser
 from anki.hooks import wrap, addHook
 
+from anki import version as anki_version
+anki21 = anki_version.startswith("2.1.")
+
+if anki21:
+    find_flags = QWebEnginePage.FindFlags(0)
+else:
+    find_flags = QWebPage.HighlightAllOccurrences   
+
+
 # ignore search token specifiers, search operators, and wildcard characters
 excluded_tags = ("deck:", "tag:", "card:", "note:", "is:", "prop:", "added:",
                 "rated:", "nid:", "cid:", "mid:", "seen:")
@@ -67,7 +76,7 @@ def onRowChanged(self, current, previous):
     if not vals:
         return
     for val in vals:
-        self.editor.web.findText(val, QWebPage.HighlightAllOccurrences)    
+        self.editor.web.findText(val, find_flags)    
 
 
 def onCustomSearch(self, onecard=False):
@@ -101,7 +110,7 @@ def toggleSearchHighlights(self, checked):
     self._highlightResults = checked
     if not checked:
         # clear highlights
-        self.editor.web.findText("", QWebPage.HighlightAllOccurrences)
+        self.editor.web.findText("", find_flags)
     else:
         onRowChanged(self, None, None)
 
@@ -122,7 +131,7 @@ def onSetupMenus(self):
         menu = self.menuView
     except:
         self.menuView = QMenu(_("&View"))
-        action = self.menuBar().insertMenu(
+        self.menuBar().insertMenu(
             self.mw.form.menuTools.menuAction(), self.menuView)
         menu = self.menuView
     menu.addSeparator()
@@ -134,8 +143,12 @@ def onSetupMenus(self):
 
 
 
+if anki21:
+    Browser._onRowChanged = wrap(Browser._onRowChanged, onRowChanged, "after")
+else:
+    Browser.onRowChanged = wrap(Browser.onRowChanged, onRowChanged, "after")
+
 addHook("browser.setupMenus", onSetupMenus)
 Browser.onCustomSearch = onCustomSearch
 Browser.toggleSearchHighlights = toggleSearchHighlights
-Browser.onRowChanged = wrap(Browser.onRowChanged, onRowChanged, "after")
 Browser.setupSearch = wrap(Browser.setupSearch, onSetupSearch, "after")

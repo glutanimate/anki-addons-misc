@@ -21,7 +21,7 @@
 | browser_more_hotkeys             | :x:                  | SIGNALS                                                                                                        |
 | browser_refresh                  | :x:                  | Browser.onSearch                                                                                               |
 | browser_replace_tag              | :white_check_mark:   |                                                                                                                |
-| browser_search_highlight_results | :x:                  | QWebPage → no highlightAllOccurences(); findText should show all results, but just flickers highlights shortly |
+| browser_search_highlight_results | :white_check_mark:   | QWebPage → no highlightAllOccurences(); findText should show all results, but just flickers highlights shortly |
 | browser_search_hotkeys           | :x:                  | Browser.onSearch                                                                                               |
 | browser_sidebar_tweaks           | :x:                  | PyQt4, complex sidebar changes                                                                                 |
 | common_context_search            | (:x:)                | Browser.onSearch; rest working                                                                                 |
@@ -41,7 +41,7 @@
 | reviewer_auto_rate_hotkey        | :white_check_mark:   |                                                                                                                |
 | reviewer_browse_*                | :x:                  | Reviewer._keyHandler, Browser.onFind                                                                           |
 | reviewer_card_stats              | (:white_check_mark:) | Uses serif font (badly aliased); observed one segfault. Investigate if also present ankiplugins/cardstats.py   |
-| reviewer_file_hyperlinks         | :x:                  | py.link bridge no longer exists                                                                                |
+| reviewer_file_hyperlinks         | :white_check_mark:   | py.link bridge no longer exists                                                                                |
 | reviewer_hide_toolbar            | :x:                  | obsolete, 2.1 has no toolbar                                                                                   |
 | reviewer_hint_hotkeys            | :white_check_mark:   |                                                                                                                |
 | reviewer_letitsnow               | (:white_check_mark:) | potential display issues with latest betas                                                                     |
