@@ -30,6 +30,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [overview_deck_tooltip: Deck Overview Stats Tooltip](#overview_deck_tooltip-deck-overview-stats-tooltip)
 - [overview_refresh_media: Refresh Media References](#overview_refresh_media-refresh-media-references)
 - [reviewer_auto_answer: Automatically show answer and rate after X seconds](#reviewer_auto_answer-automatically-show-answer-and-rate-after-x-seconds)
+- [reviewer_auto_rate_hotkey: Hotkey that Auto-rates Based on Elapsed Time](#reviewer_auto_rate_hotkey-hotkey-that-auto-rates-based-on-elapsed-time)
 - [reviewer_card_stats: Extended Card Stats During Review](#reviewer_card_stats-extended-card-stats-during-review)
 - [reviewer_browse_creation: Browse Card in its Creation Context](#reviewer_browse_creation-browse-card-in-its-creation-context)
 - [reviewer_browse_today: Open 'Added Today' from Reviewer](#reviewer_browse_today-open-added-today-from-reviewer)
@@ -1089,6 +1090,63 @@ Please **do not report issues or bugs in the review section below**, as I will n
 Thanks a lot to Neri for coming up with this fantastic idea and commissioning this add-on!
 
 Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/reviewer-auto-again).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+
+Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+
+------------------------------------------
+
+## reviewer_auto_rate_hotkey: Hotkey that Auto-rates Based on Elapsed Time
+
+Adds a handy new keyboard shortcut to Anki's Reviewer that will automatically rate your performance based on how much time it took you to reveal the answer. The time limits for each rating can be comfortably customized through Anki's very own deck options:
+
+**SCREENSHOT**
+
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/reviewer_auto_rate_hotkey.png)
+
+**COMPATIBILITY**
+
+Initial tests have shown this add-on to both work on Anki 2.0 and Anki 2.1. However, as the Anki 2.1 release line is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
+
+**USAGE**
+
+Hit `K` after revealing the answer to prompt the add-on to automatically rate your card. A tooltip will confirm your choice and inform you of the rating that was applied.
+
+Hitting the hotkey on the question side will reveal the answer without triggering an immediate rating.
+
+**CONFIGURATION**
+
+The upper time limits may be modified for each deck options group. You will find the controls in the *General* tab of the deck options, as showcased in the screenshot above. Each value represents the upper limit of the specified rating. The default limits translate to the following behaviour:
+
+- answer time > 30s: Again
+- answer time > 10s: Hard
+- answer time > 2s: Good
+- answer time > 0s: Easy (implicitly set)
+
+The add-on will automatically adjust to instances where Anki 2.0 only presents you with a smaller selection of these rating options.
+
+In addition to the time limits you may also customize the invocation hotkey. This can be done by modifying a configuration section at the top of the add-on (variable `HOTKEY_AUTORATE`). Changes applied via source code modifications do not persist across add-on updates or reinstallations.
+
+**CHANGELOG**
+
+2018-02-16 – Initial release
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**. I can't reply to your reviews, so there is no way for me to help you. Instead, please report all issues you encounter either by creating a bug report on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons). Please make sure to include the name of the affected add-on in your report title when you do so.
+
+**CREDITS AND LICENSE**
+
+*Copyright (c) 2018 [Glutanimate](https://glutanimate.com/)*
+
+This add-on was commissioned by a fellow Anki user. All credit for the original idea goes to them.
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/glutanimate/reviewer_auto_rate).
 
 **MORE RESOURCES**
 
