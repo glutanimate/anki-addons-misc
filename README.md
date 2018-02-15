@@ -4,12 +4,31 @@ This repository contains most of the smaller Anki add-ons I have written over th
 
 <!-- MarkdownTOC -->
 
+- [Generic Installation Instructions](#generic-installation-instructions)
 - [Naming Scheme](#naming-scheme)
 - [Credits](#credits)
 - [License](#license)
 - [Other Anki-related Projects](#other-anki-related-projects)
 
 <!-- /MarkdownTOC -->
+
+## Generic Installation Instructions
+
+**Installation from AnkiWeb**
+
+Most add-ons in this repository have been published on [AnkiWeb](https://ankiweb.net/shared/addons/) and may be comfortably installed via Anki's own add-on management system. To correlate each source file with its listing on AnkiWeb please refer to the add-on titles in their [AnkiWeb descriptions](docs/descriptions.md).
+
+**Manual Installation**
+
+1. Open Anki's add-on folder by navigating  to *Tools* -> *Add-ons* -> *Open add-ons folder* from Anki's main screen
+2. Download a copy of the [full repository zip archive](https://github.com/glutanimate/anki-addons-misc/archive/master.zip)
+3. Locate the add-ons you want to install in the `src/` directory
+4. Copy the add-on files to Anki's add-on directory
+    
+    - in case of *Anki 2.0*: For each of the add-ons, copy all files its folder aside from `__init__.py` into the top-most level of Anki's add-on directory (e.g. for `reviewer_auto_rate_hotkey` you would only copy `reviewer_auto_rate_hotkey.py`)
+    - in case of *Anki 2.1*: For each of the add-ons, copy the entire add-on folder into the top-most level of Anki's add-on directory (e.g. for `reviewer_auto_rate_hotkey` you would copy the entire `reviewer_auto_rate_hotkey` folder). **Note:** Not all add-ons in this repository have been transitioned to Anki 2.1, yet. To learn more about the compatibility status of each add-on please see [here](docs/anki21.md).
+
+5. Restart Anki to see the changes
 
 ## Naming Scheme
 
