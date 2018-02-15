@@ -27,13 +27,17 @@ import re
 
 from aqt.utils import tooltip
 from aqt.reviewer import Reviewer
-from aqt.browser import Browser
 from anki.hooks import wrap, addHook
 
 from anki.utils import isWin
 
+from anki import version as anki_version
+anki21 = anki_version.startswith("2.1.")
+
+pycmd = "pycmd" if anki21 else "py.link"
+
 regex_link = r"(qv.+?\..+?\b(#\b.+?\b)?)"
-replacement = r"""<a href='' class="flink" onclick='py.link("open:\1");return false;'>\1</a>"""
+replacement = r"""<a href='' class="flink" onclick='{}("open:\1");return false;'>\1</a>""".format(pycmd)
 
 
 def openFileHandler(file):
@@ -42,7 +46,7 @@ def openFileHandler(file):
             external_handler = external_handler_win
         else:
             external_handler = external_handler_unix
-        out = subprocess.Popen([external_handler, file])
+        subprocess.Popen([external_handler, file])
     except OSError:
         tooltip("External handler produced an error.<br>"
             "Please confirm that it is assigned correctly.")
