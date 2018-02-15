@@ -13,7 +13,7 @@ from __future__ import unicode_literals
 
 ############## USER CONFIGURATION START ##############
 
-HOTKEY_AUTORATE = "r"         # Anki 2.0 only supports single-key
+HOTKEY_AUTORATE = "k"         # Anki 2.0 only supports single-key
                               # assignments in the reviewer
 
 DEFAULT_LIMITS = (30, 10, 2)  # Default time limits.
@@ -105,6 +105,7 @@ DeckConf.saveConf = wrap(DeckConf.saveConf, saveConf, 'before')
 # Rating related methods and hooks
 
 def saveAnswerTime(self):
+    """Record answer time for later use"""
     elapsed = round(time.time() - self.card.timerStarted, 1)
     self._autoRateElapsed = elapsed
 
@@ -114,6 +115,14 @@ addHook("showAnswer", mw.reviewer.saveAnswerTime)
 
 
 def autoRate(self):
+    """Rate card based on recorded answer time"""
+    if self.state == "question":  # reveal answer if on question side
+        if anki21:
+            self._showAnswer()
+        else:
+            self._showAnswerHack()
+        return
+
     conf = self.mw.col.decks.confForDid(self.card.odid or self.card.did)
     limits = conf.get('autoRate', DEFAULT_LIMITS)
 
@@ -153,7 +162,7 @@ Reviewer.autoRate = autoRate
 if anki21:
     def _addShortcuts(shortcuts):
         """Add shortcuts on Anki 2.1.x"""
-        shortcuts.append((HOTKEY_AUTORATE, mw.reviewer.autoRate))
+        shortcuts.insert(0, (HOTKEY_AUTORATE, mw.reviewer.autoRate))
 
     addHook("reviewStateShortcuts", _addShortcuts)
 
@@ -161,10 +170,7 @@ else:
     def _newKeyHandler(self, evt, _old):
         """Add shortcuts on Anki 2.0.x"""
         if evt.key() == QKeySequence(HOTKEY_AUTORATE)[0]:
-            if self.state == "question":
-                self._showAnswerHack()
-            elif self.state == "answer":
-                self.autoRate()
+            self.autoRate()
             return
         return _old(self, evt)
 
