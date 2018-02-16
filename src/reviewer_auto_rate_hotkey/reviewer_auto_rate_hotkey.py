@@ -154,7 +154,6 @@ def autoRate(self):
         return False
 
     key = 0
-
     for upper_limit in limits:
         key += 1
         if elapsed > upper_limit:
@@ -170,10 +169,13 @@ def autoRate(self):
     answer_buttons = self._answerButtonList()
     rating = answer_buttons[ease - 1][1]
 
-    color = COLORS[rating]
+    color = COLORS.get(rating, None)
+    if color:
+        rating_string = "<span style='color: {}'>{}</span>".format(color, rating)
+    else:  # support for add-ons that modify the answer button label
+        rating_string = rating
 
-    tooltip("""Answer time: {} s<br>Rating: <span style="color: {}">"""
-            """<b>{}</b></span>""".format(elapsed, color, rating))
+    tooltip("""Answer time: {} s<br>Rating: <b>{}</b>""".format(elapsed, rating_string))
 
     self._answerCard(ease)
 
