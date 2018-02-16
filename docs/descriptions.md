@@ -29,7 +29,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [overview_deck_switcher: Switch Between Decks on the Main Screen](#overview_deck_switcher-switch-between-decks-on-the-main-screen)
 - [overview_deck_tooltip: Deck Overview Stats Tooltip](#overview_deck_tooltip-deck-overview-stats-tooltip)
 - [overview_refresh_media: Refresh Media References](#overview_refresh_media-refresh-media-references)
-- [reviewer_auto_answer: Automatically show answer and rate after X seconds](#reviewer_auto_answer-automatically-show-answer-and-rate-after-x-seconds)
+- [reviewer_speed_mode: Speed Focus Mode \(auto-alert, auto-reveal, auto-fail\)](#reviewer_speed_mode-speed-focus-mode-auto-alert-auto-reveal-auto-fail)
 - [reviewer_auto_rate_hotkey: Hotkey that Auto-rates Based on Elapsed Time](#reviewer_auto_rate_hotkey-hotkey-that-auto-rates-based-on-elapsed-time)
 - [reviewer_card_stats: Extended Card Stats During Review](#reviewer_card_stats-extended-card-stats-during-review)
 - [reviewer_browse_creation: Browse Card in its Creation Context](#reviewer_browse_creation-browse-card-in-its-creation-context)
@@ -1062,32 +1062,55 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ------------------------------------------
 
-## reviewer_auto_answer: Automatically show answer and rate after X seconds
+## reviewer_speed_mode: Speed Focus Mode (auto-alert, auto-reveal, auto-fail)
 
-Extends the [Automatically show answer after X seconds](https://ankiweb.net/shared/info/648362761) add-on with Anki 2.1 support and the ability to automatically rate a card as 'Again' after a set period of time.
+Trains your attention and speed by performing automated actions if you take too long to go through your reviews. Three different levels of 'encouragements' are provided:
+
+- automatically play an alert
+- automatically reveal the answer
+- automatically fail the card 
+
+All of these can be configured individually for each deck options group.
+
+**SCREENSHOTS**
+
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/reviewer_speed_mode_1.png)
+
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/reviewer_speed_mode_2.png)
 
 **USAGE**
 
-Please make sure to uninstall all older versions of this add-on before proceeding.
+1. Open deck options
+2. Navigate to the 'General' tab
+3. Find the three new options as shown in the screenshot above and configure them to your liking
 
-- 1: Open deck options
-- 2: Navigate to the 'General' tab
-- 3: Find the "Automatically show answer after _ seconds" and "Automatically rate 'again' after _ seconds" options, and set them up in whatever way you wish
+The alert and answer reveal timeout refer to seconds spent on the question side, while the auto-'again' timer starts counting after revealing the question.
+
+Setting any of the timers to `0` will disable them.
+
+**CONFIGURATION**
+
+You can customize the alert sound by replacing `alert.mp3` in the add-on folder with a sound file of your choice. The add-on should be able to play anything that Anki can also play.
+
+**COMPATIBILITY**
+
+The add-on should work on both Anki 2.0 and Anki 2.1. However, as the Anki 2.1 release line is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **CHANGELOG**
 
+2017-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode". Please make sure to remove all previous versions of the add-no before upgrading.
 2017-12-21 – Initial release
 
 **SUPPORT**
 
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/reviewer-auto-again/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+Please **do not report issues or bugs in the review section below**. I can't reply to your reviews, so there is no way for me to help you. Instead, please report all issues you encounter either by creating a bug report on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons). Please make sure to include the name of the affected add-on in your report title when you do so.
 
 **CREDITS AND LICENSE**
 
-*Copyright (c) 2015-2016* unknown author
-*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2015-2016* unknown author of [Automatically show answer after X seconds](https://ankiweb.net/shared/info/648362761)
+*Copyright (c) 2017-2018 [Glutanimate](https://github.com/Glutanimate)*
 
-Thanks a lot to Neri for coming up with this fantastic idea and commissioning this add-on!
+Thanks a lot to Neri and Pablo for their support in commissioning this add-on and their fantastic new ideas!
 
 Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/reviewer-auto-again).
 

@@ -6,4 +6,4 @@
 # Copyright: (c) 2017 Glutanimate <https://glutanimate.com/>
 # License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 
-from . import reviewer_auto_answer
+from . import main
