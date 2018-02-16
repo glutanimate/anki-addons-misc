@@ -6,7 +6,7 @@ Provides feedback for reviews by flashing a small transparent image
 at the center of your screen that varies between lapses and passed cards.
 
 Copyright:  (c) Unknown author (nest0r/Ja-Dark?) 2017
-            (c) Glutanimate 2017 <https://glutanimate.com/>
+            (c) Glutanimate 2017-2018 <https://glutanimate.com/>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
@@ -33,14 +33,14 @@ from aqt import mw
 from aqt.qt import *
 import shutil, os
 
-folder = 'visual_feedback'
+folder = 'images'
           
 def imgLoad():
     lp = [lapsed, passed]
     for p in lp:
         pth = os.path.join(mw.col.media.dir(), p)
         if not os.path.exists(pth):
-            shutil.copy(os.path.join(mw.pm.addonFolder(), folder, p), p)    
+            shutil.copy(os.path.join(mw.pm.addonFolder(), "visual_feedback", folder, p), p)    
             
 addHook("profileLoaded", imgLoad)
           
