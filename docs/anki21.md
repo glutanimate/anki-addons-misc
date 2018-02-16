@@ -51,7 +51,7 @@
 | reviewer_track_unseen            | :x:                  | PyQt4, SIGNALS, potentially obsolete                                                                           |
 | reviewer_visual_feedback         | :x:                  | Reviewer._keyHandler , Reviewer._linkHandler                                                                   |
 | sched_advanced_newcard_limits    | :white_check_mark:   |                                                                                                                |
-| sched_deck_orgactions            | :grey_question:      |                                                                                                                |
+| sched_deck_orgactions            | :white_check_mark:   |                                                                                                                |
 | sched_filter_dailydue            | :grey_question:      |                                                                                                                |
 | sched_ignore_lapses_below_ivl    | (:x:)                | Issues with new scheduler anticipated                                                                          |
 | sched_sibling_spacing_whitelist  | :x:                  | SIGNALS, potentially other issues                                                                              |
