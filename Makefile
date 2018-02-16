@@ -5,7 +5,7 @@
 # Copyright: (c) 2017-2018 Glutanimate <https://glutanimate.com/>
 # License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 
-all: zip
+all: clean zip
 
 zip:
 	./tools/build_zips.sh

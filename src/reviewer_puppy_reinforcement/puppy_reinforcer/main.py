@@ -3,7 +3,7 @@ Anki Add-on: Puppy Reinforcement
 
 Uses intermittent reinforcement to encourage card review streaks
 
-Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+Copyright: (c) Glutanimate 2016-2018 <https://glutanimate.com/>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 

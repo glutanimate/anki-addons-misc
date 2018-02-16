@@ -10,6 +10,7 @@
 #   folder: addon_basename
 #      →  file: __init__.py
 #      →  file: addon_basename.py
+#      → ?folder: docs
 # 
 #
 # 2.) multi-file add-on
@@ -150,7 +151,7 @@ echo -e "Zip exclusion options: ${exclude_string}\n"
 mkdir -p "${dist20_path}"
 mkdir -p "${dist21_path}"
 
-ERRORS=()
+ERRORS=("")
 
 if [[ "$ALL" == "true" ]]; then
     build_all
@@ -158,7 +159,7 @@ else
     build_specific "$@"
 fi
 
+echo -e "\nBuild complete."
 if [[ -n "$ERRORS" ]]; then
-    echo -e "\nBuild complete."
     echo "Errors where encountered while processing the following add-ons: ${ERRORS[@]}"
 fi
