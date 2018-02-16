@@ -10,14 +10,35 @@ License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 """
 
 from __future__ import unicode_literals
+from anki.lang import _
 
 ############## USER CONFIGURATION START ##############
 
-HOTKEY_AUTORATE = "k"         # Anki 2.0 only supports single-key
-                              # assignments in the reviewer
+# BASIC CONFIGURATION
 
-DEFAULT_LIMITS = (30, 10, 2)  # Default time limits.
-                              # No need to adjust this.
+HOTKEY_AUTORATE = "k"  # Anki 2.0 only supports single-key
+                       # assignments in the reviewer
+
+# ADVANCED CONFIGURATION
+
+# only touch this if you are know what you are doing
+
+# Default time limits. There's usually no need to adjust these.
+DEFAULT_LIMITS = (30, 10, 2)  
+
+# answer interval mapping to ease.
+# key: button count, val: list of ease indexes
+REMAP = {2: [None, 1, 2, 2, 2],    # nil     Again   Good    Good    Good
+         3: [None, 1, 2, 2, 3],    # nil     Again   Good    Good    Easy
+         4: [None, 1, 2, 3, 4]}    # nil     Again   Hard    Good    Easy
+
+# color assignment to tooltips
+COLORS = {
+    _("Again"): "#D32F2F",
+    _("Hard"): "#455A64",
+    _("Good"): "#4CAF50",
+    _("Easy"): "#03A9F4"
+}
 
 ##############  USER CONFIGURATION END  ##############
 
@@ -114,6 +135,7 @@ Reviewer.saveAnswerTime = saveAnswerTime
 addHook("showAnswer", mw.reviewer.saveAnswerTime)
 
 
+
 def autoRate(self):
     """Rate card based on recorded answer time"""
     if self.state == "question":  # reveal answer if on question side
@@ -131,25 +153,27 @@ def autoRate(self):
         tooltip("Error: Elapsed time not registered. This should not have happened.")
         return False
 
-    ease = 0
+    key = 0
 
     for upper_limit in limits:
-        ease += 1
+        key += 1
         if elapsed > upper_limit:
             break
     else:  # easy
-        ease += 1
+        key += 1
 
-    # limit ease to maximum button count
-    # (should no longer be necessary once experimental scheduler in Anki 2.1
-    # becomes the default)
+    # determine ease based on button count
+    # (will become obsolete with new Scheduler in Anki 2.1)
     count = self.mw.col.sched.answerButtons(self.card)
-    ease = min(ease, count)
+    ease = REMAP[count][key]
 
     answer_buttons = self._answerButtonList()
     rating = answer_buttons[ease - 1][1]
 
-    tooltip("Answer time: {} s<br>Rating: <b>{}</b>".format(elapsed, rating))
+    color = COLORS[rating]
+
+    tooltip("""Answer time: {} s<br>Rating: <span style="color: {}">"""
+            """<b>{}</b></span>""".format(elapsed, color, rating))
 
     self._answerCard(ease)
 
