@@ -81,7 +81,7 @@ class DeckInformation(QObject):
         QObject.__init__(self)
 
 
-    @QtCore.pyqtSlot(str, result=str)
+    @pyqtSlot(str, result=str)
     def deck_information_for(self, did):
         return self.generate_tooltip_html(did)
 
