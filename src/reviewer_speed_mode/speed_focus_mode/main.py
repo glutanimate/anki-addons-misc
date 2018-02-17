@@ -37,7 +37,12 @@ pycmd = "pycmd" if anki21 else "py.link"
 
 # determine sound file path
 sys_encoding = sys.getfilesystemencoding()
-addon_path = os.path.dirname(__file__).decode(sys_encoding)
+
+if anki21:
+    addon_path = os.path.dirname(__file__)
+else:
+    addon_path = os.path.dirname(__file__).decode(sys_encoding)
+
 alert_path = os.path.join(addon_path, "sounds", "alert.mp3")
 
 
