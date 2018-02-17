@@ -317,7 +317,7 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ## browser_search_highlight_results: Highlight Search Results in the Browser
 
-**Highlights search results** in Editor pane of the **Browser** and extends the search bar with **two new search modes**.
+**Highlights search results** in the Editor pane of the **Browser** and extends the search bar with **two new search modes**.
 
 **SCREENSHOTS**
 
@@ -325,7 +325,7 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 **COMPATIBILITY**
 
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+The add-on should work on both Anki 2.0 and Anki 2.1. However, as the Anki 2.1 release line is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
 
 **USAGE**
 
@@ -345,19 +345,21 @@ The following settings can be configured by editing the add-on's source code:
 
 **LIMITATIONS**
 
-The add-on will search through entire editor screen, field descriptions included.
+The add-on will search through the entire editor screen, field descriptions included.
 
 **CHANGELOG**
 
+2018-02-17 – Ported to Anki 2.1
 2017-08-16 – Initial release
+
 
 **SUPPORT**
 
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+Please **do not report issues or bugs in the review section below**. I can't reply to your reviews, so there is no way for me to help you. Instead, please report all issues you encounter either by creating a bug report on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons). Please make sure to include the name of the affected add-on in your report title when you do so.
 
 **CREDITS AND LICENSE**
 
-*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2017-2018 [Glutanimate](https://github.com/Glutanimate)*
 
 This add-on was commissioned by a fellow Anki user. All credit for the original idea goes to them.
 
@@ -1064,11 +1066,11 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ## reviewer_speed_mode: Speed Focus Mode (auto-alert, auto-reveal, auto-fail)
 
-Trains your attention and speed by performing automated actions if you take too long to go through your reviews. Three different levels of 'encouragements' are provided:
+**Trains your attention and speed** by performing **automated actions if you take too long** to go through your reviews. Three different levels of 'encouragements' are provided:
 
-- automatically play an alert
-- automatically reveal the answer
-- automatically fail the card 
+- **automatically play an alert**
+- **automatically reveal the answer**
+- **automatically fail the card** 
 
 All of these can be configured individually for each deck options group.
 
@@ -1090,7 +1092,7 @@ Setting any of the timers to `0` will disable them.
 
 **CONFIGURATION**
 
-You can customize the alert sound by replacing `alert.mp3` in the add-on folder with a sound file of your choice. The add-on should be able to play anything that Anki can also play.
+You can customize the alert sound by replacing `alert.mp3` in the add-on folder with a sound file of your choice. Just make sure that it's named the same and sporting the same file format.
 
 **COMPATIBILITY**
 
@@ -1098,7 +1100,7 @@ The add-on should work on both Anki 2.0 and Anki 2.1. However, as the Anki 2.1 r
 
 **CHANGELOG**
 
-2017-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode". Please make sure to remove all previous versions of the add-no before upgrading.
+2017-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode". Please make sure to remove all previous versions of the add-on before upgrading.
 2017-12-21 – Initial release
 
 **SUPPORT**
