@@ -1100,7 +1100,8 @@ The add-on should work on both Anki 2.0 and Anki 2.1. However, as the Anki 2.1 r
 
 **CHANGELOG**
 
-2017-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode". Please make sure to remove all previous versions of the add-on before upgrading.
+2018-02-17 – Fixed an incompatibility issue with Anki 2.1 (thanks to Kyle on GitHub!)
+2018-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode". Please make sure to remove all previous versions of the add-on before upgrading.
 2017-12-21 – Initial release
 
 **SUPPORT**
