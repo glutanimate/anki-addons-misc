@@ -21,10 +21,11 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 # list of tuples of search provider names and urls.
 # '%s' will be replaced with the search term
 SEARCH_PROVIDERS = [
-    ("&Google", u"https://www.google.com/search?&q=%s"),
-    ("Google &Images", u"https://www.google.com/search?&tbm=isch&q=%s"),
-    ("&Wikipedia (en)", u"https://en.wikipedia.org/w/index.php?search=%s"),
-    ("Wikipedia (&de)", u"https://de.wikipedia.org/w/index.php?search=%s")
+    ("&Google (with Image))", [u"https://www.google.com/search?&q=%s",
+                               u"https://www.google.com/search?&tbm=isch&q=%s")
+                              ],
+    ("&Wikipedia (en)", [u"https://en.wikipedia.org/w/index.php?search=%s")],
+    ("Wikipedia (&de)", [u"https://de.wikipedia.org/w/index.php?search=%s"])
 ]
 
 # (Advanced) Use custom context menu style sheet, somewhat buggy
@@ -60,7 +61,8 @@ def lookup_browser(text):
 
 def lookup_online(text, idx):
     text = " ".join(text.split())
-    openLink(SEARCH_PROVIDERS[idx][1] % text)    
+    for url in SEARCH_PROVIDERS[idx][1]:
+        openLink(url % text)    
 
 def add_lookup_action(view, menu):
     """Add 'lookup' action to context menu"""
