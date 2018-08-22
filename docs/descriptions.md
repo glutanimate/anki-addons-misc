@@ -2,7 +2,7 @@
 
 These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/shared/addons/).
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 
 <!-- MarkdownTOC -->
 
@@ -29,7 +29,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [overview_deck_switcher: Switch Between Decks on the Main Screen](#overview_deck_switcher-switch-between-decks-on-the-main-screen)
 - [overview_deck_tooltip: Deck Overview Stats Tooltip](#overview_deck_tooltip-deck-overview-stats-tooltip)
 - [overview_refresh_media: Refresh Media References](#overview_refresh_media-refresh-media-references)
-- [reviewer_speed_mode: Speed Focus Mode \(auto-alert, auto-reveal, auto-fail\)](#reviewer_speed_mode-speed-focus-mode-auto-alert-auto-reveal-auto-fail)
+- [reviewer_speed_mode: Speed Focus Mode (auto-alert, auto-reveal, auto-fail)](#reviewer_speed_mode-speed-focus-mode-auto-alert-auto-reveal-auto-fail)
 - [reviewer_auto_rate_hotkey: Hotkey that Auto-rates Based on Elapsed Time](#reviewer_auto_rate_hotkey-hotkey-that-auto-rates-based-on-elapsed-time)
 - [reviewer_card_stats: Extended Card Stats During Review](#reviewer_card_stats-extended-card-stats-during-review)
 - [reviewer_browse_creation: Browse Card in its Creation Context](#reviewer_browse_creation-browse-card-in-its-creation-context)
@@ -1545,7 +1545,11 @@ Please **do not report issues or bugs in the review section below**, as I will n
 
 This is a fork of an add-on which was removed from AnkiWeb in early 2017. The original was most likely written by nest0r/Ja-Dark who [apparently deleted all of their shared Anki resources](https://forum.koohii.com/thread-14570.html). There is no way to tell for sure since the original add-on description did not contain a copyright notice or attribution to a specific author.
 
-The modifications since the re-upload are *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*.
+The modifications since the re-upload are:
+
+*Copyright (c) 2017 [SebastienGllmt](https://github.com/SebastienGllmt)*
+*Copyright (c) 2018 [liuzikai](https://github.com/liuzikai)*
+*Copyright (c) 2017-2018 [Glutanimate](https://glutanimate.com)*.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
 

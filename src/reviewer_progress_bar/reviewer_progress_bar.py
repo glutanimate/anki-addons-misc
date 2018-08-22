@@ -6,7 +6,8 @@ Shows progress in the Reviewer in terms of passed cards per session.
 
 Copyright:  (c) Unknown author (nest0r/Ja-Dark?) 2017
             (c) SebastienGllmt 2017 <https://github.com/SebastienGllmt/>
-            (c) Glutanimate 2017 <https://glutanimate.com/>
+            (c) liuzikai 2018 <https://github.com/liuzikai>
+            (c) Glutanimate 2017-2018 <https://glutanimate.com/>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
