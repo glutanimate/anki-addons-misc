@@ -82,7 +82,7 @@ def confirm(msg, period):
     closeConfirm()
     lab = QLabel('<img src="%s" align="center">' % msg, parent)
     centr = (parent.frameGeometry().center() - lab.frameGeometry().center())
-    qp = QPoint( lab.width() * .25, lab.height() * .25 )
+    qp = QPoint( lab.width() * .125, lab.height() * .125 )
     lab.move(centr - qp)
     lab.show() 
     _timer = mw.progress.timer(period, closeConfirm, False)
