@@ -16,17 +16,27 @@ Copyright: (c) Felix Esch 2016 <https://github.com/Araeos>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
+
 ############## USER CONFIGURATION START ##############
 
 STRIP_TAGS = ['b', 'i', 'u']  # list of html tags to remove
 
 ##############  USER CONFIGURATION END  ##############
 
-from BeautifulSoup import BeautifulSoup
 from aqt.qt import *
 from aqt import mw
 from aqt.utils import tooltip
 from anki.hooks import addHook
+from anki import version as anki_version
+
+if anki_version.startswith("2.1"):
+    from bs4 import BeautifulSoup
+    ANKI21 = True
+else:
+    from BeautifulSoup import BeautifulSoup
+    ANKI21 = False
 
 
 def stripFormatting(fields):
@@ -47,11 +57,12 @@ def stripFormatting(fields):
     stripped_fields = []
 
     for html in fields:
-        soup = BeautifulSoup(html)
-        for tag in STRIP_TAGS: 
+        soup = BeautifulSoup(html, "html.parser")
+        for tag in STRIP_TAGS:
             for match in soup.findAll(tag):
                 match.replaceWithChildren()
-        stripped_fields.append(unicode(soup))
+        text = str(soup) if ANKI21 else unicode(soup)
+        stripped_fields.append(text)
 
     return stripped_fields
 
