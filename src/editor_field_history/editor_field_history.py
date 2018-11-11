@@ -136,16 +136,18 @@ def restoreEditorFields(self, mode):
     self.web.eval('saveField("key");')
 
 # assign hotkeys
-def onSetupButtons(self):
-    if not isinstance(self.parentWindow, AddCards):
-        return # only enable in add cards dialog
-    t = QShortcut(QKeySequence(full_restore_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "full"))
-    t = QShortcut(QKeySequence(partial_restore_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "partial"))
-    t = QShortcut(QKeySequence(field_restore_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "field"))
-    t = QShortcut(QKeySequence(history_window_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "history"))
+def onSetupButtons(buttons, editor):
+    if not isinstance(editor.parentWindow, AddCards):
+        return buttons # only enable in add cards dialog
+    t = QShortcut(QKeySequence(full_restore_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: restoreEditorFields(editor, "full"))
+    t = QShortcut(QKeySequence(partial_restore_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: restoreEditorFields(editor, "partial"))
+    t = QShortcut(QKeySequence(field_restore_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: restoreEditorFields(editor, "field"))
+    t = QShortcut(QKeySequence(history_window_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: restoreEditorFields(editor, "history"))
+    
+    return buttons
 
 addHook("setupEditorButtons", onSetupButtons)
