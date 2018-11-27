@@ -23,12 +23,21 @@ deck_limits = {
 }
 
 option_limits={
-    "hard": 3, # show 1 new card every 3 days in any deck, not in
-    # deck_limits, whose deck's option is "hard"
+    "hard": 5,
 }
+#In ANKI21, you can edit the options in the configuration manager,
+#instead of here. Thus, the configurations will be kept when the
+#add-on is updated.
 
 ##############  USER CONFIGURATION END  ##############
-
+from anki import version as anki_version
+import aqt
+anki21 = anki_version.startswith("2.1.")
+if anki21:
+    userOption = aqt.mw.addonManager.getConfig(__name__)
+    deck_limits.update(userOption["deck limits"])
+    option_limits.update(userOption["option limits"])
+    
 from anki.sched import Scheduler
 
 def myDeckNewLimitSingle(self, g):
