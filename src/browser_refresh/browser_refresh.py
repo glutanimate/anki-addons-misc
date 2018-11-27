@@ -37,9 +37,13 @@ SORTING_COLUMN = "noteCrt"
 from aqt.qt import *
 from aqt.browser import Browser
 from anki.hooks import addHook
+def debug(t):
+    print(t)
+    pass
 
 def refreshView(self):
-    self.onSearch(reset=True)
+    debug("Calling refreshView()")
+    self.onSearchActivated()
     if SORTING_COLUMN:
         try:
             col_index = self.model.activeCols.index(SORTING_COLUMN)
@@ -52,7 +56,7 @@ def setupMenu(self):
     menu = self.form.menuEdit
     menu.addSeparator()
     a = menu.addAction('Refresh View')
-    a.setShortcut(QKeySequence("F5"))
+    a.setShortcut(QKeySequence("CTRL+F5"))
     a.triggered.connect(self.refreshView)
 
 Browser.refreshView = refreshView
