@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """
 Anki Add-on: Advanced New Card Limits
 
@@ -24,6 +23,7 @@ deck_limits = {
 
 option_limits={
     "hard": 5,
+    "Chapter": 2,
 }
 #In ANKI21, you can edit the options in the configuration manager,
 #instead of here. Thus, the configurations will be kept when the
@@ -39,10 +39,15 @@ if anki21:
     option_limits.update(userOption["option limits"])
     
 from anki.sched import Scheduler
+from anki.schedv2 import Scheduler as SchedulerV2
 
+def debug(t):
+    print(t)
+    pass
 def myDeckNewLimitSingle(self, g):
     """Limit for deck without parent limits,
     modified to only show cards every n days"""
+    debug(f"Calling myDeckNewLimitSingle({g})")
     if g['dyn']:
         return self.reportLimit
     did = g['id']
@@ -72,3 +77,4 @@ def myDeckNewLimitSingle(self, g):
     return lim
 
 Scheduler._deckNewLimitSingle = myDeckNewLimitSingle
+SchedulerV2._deckNewLimitSingle = myDeckNewLimitSingle
