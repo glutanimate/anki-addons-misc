@@ -7,6 +7,7 @@ Refreshes browser view and optionally changes the sorting column
 (e.g. to show newly added cards since last search)
 
 Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+2018 Arthur Milchior <arthur@milchior.fr> (porting to 2.1)
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
