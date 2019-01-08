@@ -170,6 +170,9 @@ def save_conf(self):
 def linkHandler(self, url, _old):
     if not url.startswith("autoalert"):
         return _old(self, url)
+    if not self.mw.col:
+        # collection unloaded, e.g. when called during pre-exit sync
+        return
     play(alert_path)
     c = self.mw.col.decks.confForDid(self.card.odid or self.card.did)
     timeout = c.get('autoAlert', 0)
