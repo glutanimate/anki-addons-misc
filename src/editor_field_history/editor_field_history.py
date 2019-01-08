@@ -38,9 +38,6 @@ from anki.hooks import addHook
 from anki import version
 ANKI21 = version.startswith("2.1")
 
-# Ctrl+Alt+H is a global hotkey on macOS
-if isMac and history_window_shortcut == "Ctrl+Alt+H":
-    history_window_shortcut = "Ctrl+O"
 
 if ANKI21:
     config = mw.addonManager.getConfig(__name__)
@@ -49,6 +46,12 @@ if ANKI21:
     partial_restore_shortcut = config["partialRestoreShortcut"]
     full_restore_shortcut = config["fullRestoreShortcut"]
     partial_restore_fields = config["partialRestoreFields"]
+
+# Ctrl+Alt+H is a global hotkey on macOS
+# Hacky solution for anki21. A platform-specific config.json would be
+# much preferable, but is not feasible for now
+if isMac and history_window_shortcut == "Ctrl+Alt+H":
+    history_window_shortcut = "Ctrl+O"
 
 
 class CustomTextEdit(TagEdit):
