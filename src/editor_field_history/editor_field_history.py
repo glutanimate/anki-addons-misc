@@ -51,23 +51,31 @@ if ANKI21:
     partial_restore_fields = config["partialRestoreFields"]
 
 
-def showCompleter(self):
-    text = self.text()
-    if not text:
-        filtered = self.strings
-    else:
-        filtered = [i for i in self.strings if text.lower() in i.lower()]
-    self.model.setStringList(filtered)
-    self.completer.complete()
+class CustomTextEdit(TagEdit):
+
+    def __init__(self, parent, strings):
+        super(CustomTextEdit, self).__init__(parent, type=1)
+        self.strings = strings
+        self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+
+    def focusInEvent(self, evt):
+        # anki21 TagEdit does not invoke popup by default
+        QLineEdit.focusInEvent(self, evt)
+        self.showCompleter()
+
+    def showCompleter(self):
+        text = self.text()
+        if not text:
+            filtered = self.strings
+        else:
+            filtered = [i for i in self.strings if text.lower() in i.lower()]
+        self.model.setStringList(filtered)
+        self.completer.complete()
 
 
 def myGetField(parent, question, last_val, **kwargs):
-    te = TagEdit(parent, type=1)
-    te.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
-    te.strings = last_val
-    te.showCompleter = lambda te=te: showCompleter(te)
-    ret = getText(question, parent, edit=te, **kwargs)
-    te.hideCompleter()
+    edit = CustomTextEdit(parent, last_val)
+    ret = getText(question, parent, edit=edit, **kwargs)
     return ret
 
 
