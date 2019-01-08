@@ -162,6 +162,8 @@ def restoreEditorFields(self, mode):
         query = "deck:'%s'" % (deck)
         results = self.note.col.findNotes(query)
     if not results:
+        tooltip("Could not find any past notes in current deck.<br>"
+                "If you just imported a deck you might have to restart Anki.")
         return False
     results.sort(reverse=True)
 
