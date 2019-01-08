@@ -29,7 +29,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [overview_deck_switcher: Switch Between Decks on the Main Screen](#overview_deck_switcher-switch-between-decks-on-the-main-screen)
 - [overview_deck_tooltip: Deck Overview Stats Tooltip](#overview_deck_tooltip-deck-overview-stats-tooltip)
 - [overview_refresh_media: Refresh Media References](#overview_refresh_media-refresh-media-references)
-- [reviewer_speed_mode: Speed Focus Mode (auto-alert, auto-reveal, auto-fail)](#reviewer_speed_mode-speed-focus-mode-auto-alert-auto-reveal-auto-fail)
+- [reviewer_speed_mode: Speed Focus Mode \(auto-alert, auto-reveal, auto-fail\)](#reviewer_speed_mode-speed-focus-mode-auto-alert-auto-reveal-auto-fail)
 - [reviewer_auto_rate_hotkey: Hotkey that Auto-rates Based on Elapsed Time](#reviewer_auto_rate_hotkey-hotkey-that-auto-rates-based-on-elapsed-time)
 - [reviewer_card_stats: Extended Card Stats During Review](#reviewer_card_stats-extended-card-stats-during-review)
 - [reviewer_browse_creation: Browse Card in its Creation Context](#reviewer_browse_creation-browse-card-in-its-creation-context)
@@ -40,7 +40,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewer_more_answer_buttons-more-answer-buttons-for-new-cards)
 - [reviewer_progress_bar: Progress Bar](#reviewer_progress_bar-progress-bar)
 - [reviewer_puppy_reinforcement: Puppy Reinforcement](#reviewer_puppy_reinforcement-puppy-reinforcement)
-- [reviewer_refocus_card: Refocus Card when Reviewing (2.1)](#reviewer_refocus_card-refocus-card-when-reviewing-21)
+- [reviewer_refocus_card: Refocus Card when Reviewing \(2.1\)](#reviewer_refocus_card-refocus-card-when-reviewing-21)
 - [reviewer_track_unseen](#reviewer_track_unseen)
 - [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewer_visual_feedback-visual-feedback-for-reviews)
 - [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#sched_advanced_newcard_limits-limit-new-cards-to-less-than-one)
@@ -620,12 +620,11 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 Improves Anki's *Add Notes* dialog with the following features:
 
-- hotkeys that **copy** over tags and field **values of the last note** in the same deck
-- a **searchable history window** that provides a list of last used values for the current field
+- hotkeys that **copy over tags and fields of the last note** in the same deck
+- a **searchable history window** that provides a list of last used values for
+  the current field
 
-**COMPATIBILITY**
-
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
+![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/editor_field_history.png)
 
 **USAGE**
 
@@ -636,42 +635,41 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 
 **CONFIGURATION**
 
-You can edit the add-on's source code to modify the following:
+Settings that may be customized include hotkey assignments and the list of selectively restored fields.
 
-`history_window_shortcut`: controls the hotkey for invoking the history window
-`field_restore_shortcut`: controls "Restore current field hotkey"
-`partial_restore_shortcut`: controls "Restore a number of user-defined fields" hotkey
-`full_restore_shortcut`: controls "Restore all fields" hotkey
-`partial_restore_fields`: list of fields that are restored by the `partial_restore_shortcut`. Needs to be formatted as a python list (e.g. `["field1", "field2", "field3"]`).
+Anki 2.1: Head to *Tools* → *Add-ons*, select the add-on in the list, and then click *Config*.
+
+Anki 2.0: Go to *Tools* → *Add-ons*, highlight the add-on in the list, and then click on *Edit* to update the config values at the top of the source code.
 
 **CHANGELOG**
 
-2017-08-06 – Update license
+2019-01-08 – **Anki 2.1 support** + smaller improvements and bug fixes. Thanks to @zjosua for his help!
 2017-05-25 – Change history window hotkey on macOS to avoid key conflicts (thanks to Rene)
 2017-05-13 – Preserve chronological order of suggestions
-2017-03-08 – Add full-text-search to history window, increase entries to 100, new hotkey on macOS
-2017-03-11 – Ensure that the add-on can only be run in the Add Cards screen
-2016-12-13 – Fixed a rare bug that caused empty notes to appear
-2016-06-04 – Added history window to the add-on (invoked via Ctrl+Alt+H)
-2016-05-27 – Initial release
 
 **SUPPORT**
 
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+Please **do not report issues or bugs in the review section below**. I don't get notified about your reviews, and even if I see them in time it's hard to strike up a proper troubleshooting conversation on here. Instead, please report all issues you encounter either by creating a bug report on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues) or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the add-on's name in your title. Thank you!
 
 **CREDITS AND LICENSE**
 
-*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
+*Copyright (c) 2016-2019 [Glutanimate](https://github.com/Glutanimate)*
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+Make sure to check out my socials for the latest add-on updates and news: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)  |  [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
-Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+Want to hire me to work on add-on for you? Get in touch at ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail .com</em>
 
-New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+**SUPPORT THIS ADD-ON**
+
+Writing, supporting, and maintaining Anki add-ons like these takes a lot of time and effort. If *Field History* has been a valuable asset in your studies, please consider using one of the buttons below to support my efforts by buying me a **coffee**, or by pledging your support on **Patreon**. Each and every contribution is greatly appreciated and will help me maintain and improve *Field History* as time goes by!
+
+[![](https://glutanimate.com/logos/patreon_button.svg)](https://www.patreon.com/glutanimate "Support me on Patreon 😄") &nbsp;&nbsp;&nbsp;&nbsp; [![](https://glutanimate.com/logos/kofi_button.svg)](https://ko-fi.com/X8X0L4YV "Buy me a coffee 😊")
+
+*Pro-tip: Lots of exclusive add-ons and other goodies await on my Patreon page. Make sure to check them out!*
 
 ------------------------------------------
 
@@ -1058,7 +1056,7 @@ Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The co
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:&nbsp;![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
 
 Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
 
@@ -1096,24 +1094,21 @@ Setting any of the timers to `0` will disable them.
 
 You can customize the alert sound by replacing `alert.mp3` in the add-on folder with a sound file of your choice. Just make sure that it's named the same and sporting the same file format.
 
-**COMPATIBILITY**
-
-The add-on should work on both Anki 2.0 and Anki 2.1. However, as the Anki 2.1 release line is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
-
 **CHANGELOG**
 
+2019-01-08 – Fixed a new 2.1 bug that would occur on Anki exit (thanks to Elikem & dsd for the report)
 2018-02-17 – Fixed an incompatibility issue with Anki 2.1 (thanks to Kyle on GitHub!)
-2018-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode". Please make sure to remove all previous versions of the add-on before upgrading.
+2018-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode".
 2017-12-21 – Initial release
 
 **SUPPORT**
 
-Please **do not report issues or bugs in the review section below**. I can't reply to your reviews, so there is no way for me to help you. Instead, please report all issues you encounter either by creating a bug report on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons). Please make sure to include the name of the affected add-on in your report title when you do so.
+Please **do not report issues or bugs in the review section below**. I don't get notified about your reviews, and even if I see them in time it's hard to strike up a proper troubleshooting conversation on here. Instead, please report all issues you encounter either by creating a bug report on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues) or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the add-on's name in your title. Thank you!
 
 **CREDITS AND LICENSE**
 
+*Copyright (c) 2017-2019 [Glutanimate](https://github.com/Glutanimate)*
 *Copyright (c) 2015-2016* unknown author of [Automatically show answer after X seconds](https://ankiweb.net/shared/info/648362761)
-*Copyright (c) 2017-2018 [Glutanimate](https://github.com/Glutanimate)*
 
 Thanks a lot to Neri and Pablo for their support in commissioning this add-on and their fantastic new ideas!
 
@@ -1121,11 +1116,17 @@ Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The cod
 
 **MORE RESOURCES**
 
-A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
+Make sure to check out my socials for the latest add-on updates and news: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)  |  [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
-Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+Want to hire me to work on add-on for you? Get in touch at ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail .com</em>
 
-New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+**SUPPORT THIS ADD-ON**
+
+Writing, supporting, and maintaining Anki add-ons like these takes a lot of time and effort. If *Speed Focus Mode* has been a valuable asset in your studies, please consider using one of the buttons below to support my efforts by buying me a **coffee**, or by pledging your support on **Patreon**. Each and every contribution is greatly appreciated and will help me maintain and improve *Speed Focus Mode* as time goes by!
+
+[![](https://glutanimate.com/logos/patreon_button.svg)](https://www.patreon.com/glutanimate "Support me on Patreon 😄") &nbsp;&nbsp;&nbsp;&nbsp; [![](https://glutanimate.com/logos/kofi_button.svg)](https://ko-fi.com/X8X0L4YV "Buy me a coffee 😊")
+
+*Pro-tip: Lots of exclusive add-ons and other goodies await on my Patreon page. Make sure to check them out!*
 
 ------------------------------------------
 
