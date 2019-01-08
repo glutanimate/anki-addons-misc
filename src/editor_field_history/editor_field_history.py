@@ -5,7 +5,8 @@ Anki Add-on: Editor Field History
 
 Allows you to restore fields to their previous values.
 
-Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+Copyright: (c) 2016-2019 Glutanimate <https://glutanimate.com>
+           (c) 2018 zjosua <https://github.com/zjosua>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
@@ -21,6 +22,7 @@ partial_restore_fields = ["Quellen"]
 #==============USER CONFIGURATION END===============
 
 from aqt.qt import *
+from aqt.editor import Editor
 
 from aqt.addcards import AddCards
 from aqt.utils import getText, tooltip
@@ -28,6 +30,9 @@ from aqt.tagedit import TagEdit
 
 from anki.utils import stripHTML, isMac
 from anki.hooks import addHook
+
+from anki import version
+ANKI21 = version.startswith("2.1")
 
 # Ctrl+Alt+H is a global hotkey on macOS
 if isMac and history_window_shortcut == "Ctrl+Alt+H":
@@ -116,6 +121,8 @@ def quickRestore(self, mode, sorted_res, model):
         return False
 
 def restoreEditorFields(self, mode):
+    if not self.note:  # catch invalid state
+        return
     # perform search
     did = self.parentWindow.deckChooser.selectedId()
     deck = self.mw.col.decks.nameOrNone(did)
@@ -140,16 +147,34 @@ def restoreEditorFields(self, mode):
     self.web.eval('saveField("key");')
 
 # assign hotkeys
-def onSetupButtons(self):
-    if not isinstance(self.parentWindow, AddCards):
-        return # only enable in add cards dialog
-    t = QShortcut(QKeySequence(full_restore_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "full"))
-    t = QShortcut(QKeySequence(partial_restore_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "partial"))
-    t = QShortcut(QKeySequence(field_restore_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "field"))
-    t = QShortcut(QKeySequence(history_window_shortcut), self.parentWindow)
-    t.activated.connect(lambda a=self: restoreEditorFields(a, "history"))
+def onSetupButtons20(editor):
+    if not isinstance(editor.parentWindow, AddCards):
+        return  # only enable in add cards dialog
+    t = QShortcut(QKeySequence(full_restore_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: editor.restoreEditorFields("full"))
+    t = QShortcut(QKeySequence(partial_restore_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: editor.restoreEditorFields("partial"))
+    t = QShortcut(QKeySequence(field_restore_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: editor.restoreEditorFields("field"))
+    t = QShortcut(QKeySequence(history_window_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: editor.restoreEditorFields("history"))
 
-addHook("setupEditorButtons", onSetupButtons)
+def onSetupShortcuts21(cuts, editor):
+    if not isinstance(editor.parentWindow, AddCards):
+        return  # only enable in AddCards dialog
+    added_shortcuts = [
+        (full_restore_shortcut, lambda: editor.restoreEditorFields("full")),
+        (partial_restore_shortcut, lambda: editor.restoreEditorFields("partial")),
+        (field_restore_shortcut, lambda: editor.restoreEditorFields("field")),
+        (history_window_shortcut, lambda: editor.restoreEditorFields("history")),
+    ]
+    cuts.extend(added_shortcuts)
+
+
+# Hooks and monkey-patches:
+Editor.restoreEditorFields = restoreEditorFields
+
+if not ANKI21:
+    addHook("setupEditorButtons", onSetupButtons20)
+else:
+    addHook("setupEditorShortcuts", onSetupShortcuts21)
