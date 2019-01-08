@@ -9,7 +9,7 @@ Based on "Automatically show answer after X seconds"
 The original author of this add-on is unknown, sadly,
 but all credit for the original idea goes to them.
 
-Copyright: (c) 2017 Glutanimate <https://glutanimate.com/>
+Copyright: (c) 2017-2019 Glutanimate <https://glutanimate.com/>
 License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 """
 
