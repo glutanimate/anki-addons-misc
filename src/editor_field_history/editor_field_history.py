@@ -91,8 +91,8 @@ def quickRestore(self, mode, sorted_res, model):
     if mode == "field":
         # restore single field
         n = self.currentField
-        if n == None:
-            tooltip("Select a field, whose last entry you want to restore.")
+        if n is None:
+            tooltip("Select a field whose last entry you want to restore.")
             return False
         field = model['flds'][n]['name']
         if field in oldNote:
@@ -135,7 +135,7 @@ def restoreEditorFields(self, mode):
     # apply changes
     self.loadNote()
     self.web.setFocus()
-    if not self.currentField == None:
+    if self.currentField is not None:
         self.web.eval("focusField(%d);" % self.currentField)
     self.web.eval('saveField("key");')
 
