@@ -10,7 +10,10 @@ Copyright: (c) 2016-2019 Glutanimate <https://glutanimate.com>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-#============USER CONFIGURATION START===============
+# ============USER CONFIGURATION START===============
+
+# These settings only apply to Anki 2.0. For Anki 2.1 please use
+# Anki's built-in add-on configuration menu
 
 history_window_shortcut = "Ctrl+Alt+H"
 field_restore_shortcut = "Alt+Z"
@@ -19,9 +22,10 @@ full_restore_shortcut = "Ctrl+Alt+Shift+Z"
 # fields to restore with the partial_restore_shortcut:
 partial_restore_fields = ["Quellen"]
 
-#==============USER CONFIGURATION END===============
+# ==============USER CONFIGURATION END===============
 
 from aqt.qt import *
+from aqt import mw
 from aqt.editor import Editor
 
 from aqt.addcards import AddCards
@@ -38,6 +42,15 @@ ANKI21 = version.startswith("2.1")
 if isMac and history_window_shortcut == "Ctrl+Alt+H":
     history_window_shortcut = "Ctrl+O"
 
+if ANKI21:
+    config = mw.addonManager.getConfig(__name__)
+    history_window_shortcut = config["historyWindowShortcut"]
+    field_restore_shortcut = config["fieldRestoreShortcut"]
+    partial_restore_shortcut = config["partialRestoreShortcut"]
+    full_restore_shortcut = config["fullRestoreShortcut"]
+    partial_restore_fields = config["partialRestoreFields"]
+
+
 def showCompleter(self):
     text = self.text()
     if not text:
@@ -46,6 +59,7 @@ def showCompleter(self):
         filtered = [i for i in self.strings if text.lower() in i.lower()]
     self.model.setStringList(filtered)
     self.completer.complete()
+
 
 def myGetField(parent, question, last_val, **kwargs):
     te = TagEdit(parent, type=1)
@@ -56,18 +70,18 @@ def myGetField(parent, question, last_val, **kwargs):
     te.hideCompleter()
     return ret
 
-def historyRestore(self, mode, sorted_res, model):
-    n = self.currentField
-    field = model['flds'][n]['name']
+
+def historyRestore(self, mode, results, model, fld):
+    field = model['flds'][fld]['name']
     last_val = {}
     keys = []
-    for nid in sorted_res[:100]:
+    for nid in results[:100]:
         oldNote = self.note.col.getNote(nid)
         if field in oldNote:
             html = oldNote[field]
         else:
             try:
-                html = oldNote.fields[n]
+                html = oldNote.fields[fld]
             except IndexError:
                 pass
         if html.strip():
@@ -81,30 +95,27 @@ def historyRestore(self, mode, sorted_res, model):
         tooltip("No prior entries for this field found.")
         return False
     txt = "Set field to:"
-    (text, ret) = myGetField(self.parentWindow, 
-            txt, keys, title="Field History")
+    (text, ret) = myGetField(self.parentWindow,
+                             txt, keys, title="Field History")
     if not ret or not text.strip() or text not in last_val:
         return False
     self.note[field] = last_val[text]
 
-def quickRestore(self, mode, sorted_res, model):
+
+def quickRestore(self, mode, results, model, fld):
     # collect old data
-    oldNote = self.note.col.getNote(sorted_res[0])
+    oldNote = self.note.col.getNote(results[0])
     oldTags = oldNote.stringTags().strip()
     oldModel = oldNote.model()
     # restore fields
     if mode == "field":
         # restore single field
-        n = self.currentField
-        if n is None:
-            tooltip("Select a field whose last entry you want to restore.")
-            return False
-        field = model['flds'][n]['name']
+        field = model['flds'][fld]['name']
         if field in oldNote:
             self.note[field] = oldNote[field]
         else:
             try:
-                self.note.fields[n] = oldNote.fields[n]
+                self.note.fields[fld] = oldNote.fields[fld]
             except IndexError:
                 pass
     elif mode == "partial":
@@ -120,33 +131,47 @@ def quickRestore(self, mode, sorted_res, model):
     else:
         return False
 
+
 def restoreEditorFields(self, mode):
     if not self.note:  # catch invalid state
         return
-    # perform search
+
+    # Gather note info
+    fld = self.currentField
+    if fld is None and mode in ("history", "field"):
+        # only necessary on anki20
+        tooltip("Please select a field whose last entry you want to restore.")
+        return False
     did = self.parentWindow.deckChooser.selectedId()
     deck = self.mw.col.decks.nameOrNone(did)
     model = self.note.model()
+
+    # Perform search
     if deck:
-          query = "deck:'%s'" % (deck)
-          res = self.note.col.findNotes(query)
-    if not res:
+        query = "deck:'%s'" % (deck)
+        results = self.note.col.findNotes(query)
+    if not results:
         return False
-    sorted_res = sorted(res, reverse=True)
+    results.sort(reverse=True)
+
+    # Get user selection
     if mode == "history":
-        res = historyRestore(self, mode, sorted_res, model)
+        ret = historyRestore(self, mode, results, model, fld)
     else:
-        res = quickRestore(self, mode, sorted_res, model)
-    if res == False:
+        ret = quickRestore(self, mode, results, model, fld)
+    if ret is False:
         return False
-    # apply changes
+
+    # Save changes
     self.loadNote()
     self.web.setFocus()
     if self.currentField is not None:
         self.web.eval("focusField(%d);" % self.currentField)
-    self.web.eval('saveField("key");')
+        self.web.eval('saveField("key");')
 
-# assign hotkeys
+
+# Assign hotkeys
+
 def onSetupButtons20(editor):
     if not isinstance(editor.parentWindow, AddCards):
         return  # only enable in add cards dialog
@@ -159,14 +184,19 @@ def onSetupButtons20(editor):
     t = QShortcut(QKeySequence(history_window_shortcut), editor.parentWindow)
     t.activated.connect(lambda: editor.restoreEditorFields("history"))
 
+
 def onSetupShortcuts21(cuts, editor):
     if not isinstance(editor.parentWindow, AddCards):
         return  # only enable in AddCards dialog
     added_shortcuts = [
-        (full_restore_shortcut, lambda: editor.restoreEditorFields("full")),
-        (partial_restore_shortcut, lambda: editor.restoreEditorFields("partial")),
-        (field_restore_shortcut, lambda: editor.restoreEditorFields("field")),
-        (history_window_shortcut, lambda: editor.restoreEditorFields("history")),
+        (full_restore_shortcut,
+            lambda: editor.restoreEditorFields("full"), True),
+        (partial_restore_shortcut,
+            lambda: editor.restoreEditorFields("partial"), True),
+        (field_restore_shortcut,
+            lambda: editor.restoreEditorFields("field")),
+        (history_window_shortcut,
+            lambda: editor.restoreEditorFields("history")),
     ]
     cuts.extend(added_shortcuts)
 
