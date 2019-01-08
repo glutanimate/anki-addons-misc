@@ -40,6 +40,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewer_more_answer_buttons-more-answer-buttons-for-new-cards)
 - [reviewer_progress_bar: Progress Bar](#reviewer_progress_bar-progress-bar)
 - [reviewer_puppy_reinforcement: Puppy Reinforcement](#reviewer_puppy_reinforcement-puppy-reinforcement)
+- [reviewer_refocus_card: Refocus Card when Reviewing (2.1)](#reviewer_refocus_card-refocus-card-when-reviewing-21)
 - [reviewer_track_unseen](#reviewer_track_unseen)
 - [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewer_visual_feedback-visual-feedback-for-reviews)
 - [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#sched_advanced_newcard_limits-limit-new-cards-to-less-than-one)
@@ -589,6 +590,7 @@ Compatibility with future versions of Night Mode and Power Format Pack is not gu
 
 **CHANGELOG**
 
+2018-09-04 – Fix issue with %-signs and other format string chars (thanks to Lu Zhe)
 2017-08-23 – Initial 2.1 compatibility
 2017-08-04 – Initial release
 
@@ -1619,6 +1621,42 @@ A lot of my add-ons were commissioned by other Anki users. If you enjoy my work 
 Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
 
 New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
+
+------------------------------------------
+
+## reviewer_refocus_card: Refocus Card when Reviewing (2.1)
+
+Sets focus to the card area, allowing you to scroll through your cards using Page Up / Page Down, etc.
+
+**CHANGELOG**
+
+2018-09-19 – Initial release of this port
+2013-01-27 – Initial release of the original add-on
+
+**ADD-ON INTERACTIONS**
+
+If you also have the [Customize Keyboard Shortcut](https://ankiweb.net/shared/info/24411424) add-on installed you might not be able to use the Enter/Return key to reveal the answer.
+
+**SUPPORT**
+
+Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
+
+**CREDITS AND LICENSE**
+
+Copyright (c) 2013 Edgar Simo-Serra (bobbens@gmail.com)
+Coypright (c) 2018 [Glutanimate](https://glutanimate.com)
+
+All the credit for the original idea and implementation goes to Edgar Simo-Serra. I simply ported the add-on to 2.1 (which was a 1-minute job on the coding side of things).
+
+Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
+
+**MORE RESOURCES**
+
+A lot of my add-ons were commissioned by other Anki users. Please feel free to reach out to me if you would like to hire my services for any Anki-related development work (writing an add-on for you, converting existing ones to Anki 2.1, implementing a specific feature): ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail .com</em>. 
+
+Want to stay up-to-date with my latest add-on releases and updates? Make sure to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
+
+New to Anki? Feel free to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
 ------------------------------------------
 
