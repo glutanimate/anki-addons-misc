@@ -14,16 +14,23 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 
 ############## USER CONFIGURATION START ##############
 
+# These settings only apply to Anki 2.0. For Anki 2.1 please use
+# Anki's built-in add-on configuration menu
+
 HOTKEY_TOGGLE_LIST = "Alt+Shift+L"
 
 ##############  USER CONFIGURATION END  ##############
 
-from aqt import editor
+from aqt import editor, mw
 from anki.hooks import wrap, addHook
 
 from anki import version
 
 ANKI21 = version.startswith("2.1")
+
+if ANKI21:
+    config = mw.addonManager.getConfig(__name__)
+    HOTKEY_TOGGLE_LIST = config["hotkeyToggleList"]
 
 editor_style = """
 <style>
