@@ -18,10 +18,12 @@ HOTKEY_TOGGLE_LIST = "Alt+Shift+L"
 
 ##############  USER CONFIGURATION END  ##############
 
-from aqt.qt import *
-
 from aqt import editor
-from anki.hooks import wrap
+from anki.hooks import wrap, addHook
+
+from anki import version
+
+ANKI21 = version.startswith("2.1")
 
 editor_style = """
 <style>
@@ -30,6 +32,7 @@ ul.shuffle{
 }
 </style>
 """
+
 
 def toggleRandUl(self):
     self.web.eval("""
@@ -51,13 +54,29 @@ def toggleRandUl(self):
         }
     """)
 
-def setupButtons(self):
-    self._addButton("randUlBtn", self.toggleRandUl,
-        text=u"RL", 
-        tip="Insert randomized unordered list ({})".format(HOTKEY_TOGGLE_LIST),
-        key=HOTKEY_TOGGLE_LIST)
 
+def setupButtons20(self):
+    self._addButton("randUlBtn", self.toggleRandUl,
+                    text="RL",
+                    tip="Insert randomized unordered list ({})".format(
+                        HOTKEY_TOGGLE_LIST),
+                    key=HOTKEY_TOGGLE_LIST)
+
+
+def setupButtons21(btns, editor):
+    btn = editor.addButton(None, "randUlBtn", toggleRandUl,
+                           label="RL", keys=HOTKEY_TOGGLE_LIST,
+                           tip="Insert randomized unordered list ({})".format(
+                               HOTKEY_TOGGLE_LIST))
+    btns.append(btn)
+    return btns
 
 editor._html = editor._html + editor_style
-editor.Editor.toggleRandUl = toggleRandUl
-editor.Editor.setupButtons = wrap(editor.Editor.setupButtons, setupButtons)
+
+
+if not ANKI21:
+    editor.Editor.toggleRandUl = toggleRandUl
+    editor.Editor.setupButtons = wrap(
+        editor.Editor.setupButtons, setupButtons20)
+else:
+    addHook("setupEditorButtons", setupButtons21)
