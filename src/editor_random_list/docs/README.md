@@ -18,14 +18,22 @@
 
 Two dependencies have to be set-up before using this add-on:
 
-1. The [JS Booster](https://ankiweb.net/shared/info/1280253613) add-on, and
+1. The [JS Booster](https://ankiweb.net/shared/info/1280253613) add-on (Anki
+   2.0) **OR** the [Cookie Monster](https://ankiweb.net/shared/info/1501583548)
+   add-on (Anki 2.1), and
 2. A special JavaScript snippet that allows for list randomization in your templates
 
-#### Installing JS Booster
+#### Installing JS Booster / Cookie Monster
 
-JS Booster includes a few modifications that brings Anki desktop in line with AnkiDroid in terms of its JavaScript support. This is important for the list randomization to work correctly, as it depends on cookies to preserve the list state across front and back of your cards.
+Both JS Booster (on Anki 2.0) and Cookie Monster (on Anki 2.1) include a few modifications that bring Anki desktop in line with AnkiDroid in terms of its JavaScript support. This is important for the list randomization to work correctly, as it depends on cookies to preserve the list state across front and back of your cards.
+
+**Anki 2.0**
 
 You can install JS Booster from [this link](https://ankiweb.net/shared/info/1280253613). Support for the browser preview window can be added by installing [this complementary add-on](https://ankiweb.net/shared/info/19206336).
+
+**Anki 2.1**
+
+You can grab the Cookie Monster add-on [here](https://ankiweb.net/shared/info/1501583548).
 
 #### Installing the card template
 
