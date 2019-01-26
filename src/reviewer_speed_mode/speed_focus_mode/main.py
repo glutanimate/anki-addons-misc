@@ -9,7 +9,7 @@ Based on "Automatically show answer after X seconds"
 The original author of this add-on is unknown, sadly,
 but all credit for the original idea goes to them.
 
-Copyright: (c) 2017 Glutanimate <https://glutanimate.com/>
+Copyright: (c) 2017-2019 Glutanimate <https://glutanimate.com/>
 License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 """
 
@@ -170,6 +170,9 @@ def save_conf(self):
 def linkHandler(self, url, _old):
     if not url.startswith("autoalert"):
         return _old(self, url)
+    if not self.mw.col:
+        # collection unloaded, e.g. when called during pre-exit sync
+        return
     play(alert_path)
     c = self.mw.col.decks.confForDid(self.card.odid or self.card.did)
     timeout = c.get('autoAlert', 0)

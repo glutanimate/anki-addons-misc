@@ -36,6 +36,7 @@ research
 # Docs and tools
 docs/specs.md
 docs/todo.md
+docs/*.todo
 docs/description.html
 docs/sort_sections.sh
 tools/test.py

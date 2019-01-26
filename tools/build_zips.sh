@@ -11,9 +11,15 @@
 #      →  file: __init__.py
 #      →  file: addon_basename.py
 #      → ?folder: docs
-# 
 #
-# 2.) multi-file add-on
+# 2.) multi-file 2.1-only add-on
+#
+#   folder: addon_basename
+#      →  file: __init__.py
+#      → ?file(s): *.py
+#      → ?folder: docs
+#
+# 3.) multi-file add-on
 #
 #   folder: addon_basename
 #      →  file: "Display Name.py"
@@ -101,8 +107,10 @@ build_addon () {
     echo "Building ${addon} for Anki 2.0 and 2.1..."
     # Determine whether we're dealing with a single-file or multi-file add-on
     if [[ -f "__init__.py" ]]; then  # single-file add-on
-        # Anki 2.0:
-        cp "${addon}.py"  "${dist20_path}/"
+        if [[ -f "${addon}.py" ]]; then
+            # Anki 2.0:
+            cp "${addon}.py"  "${dist20_path}/"
+        fi
         # Anki 2.1:
         zip -FS -r $exclude_string "${dist21_path}/${addon}.zip" *
     else
