@@ -40,3 +40,4 @@ docs/*.todo
 docs/description.html
 docs/sort_sections.sh
 tools/test.py
+*~
