@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """
 Anki Add-on: Advanced New Card Limits
 
@@ -23,17 +22,32 @@ deck_limits = {
 }
 
 option_limits={
-    "hard": 3, # show 1 new card every 3 days in any deck, not in
-    # deck_limits, whose deck's option is "hard"
+    "hard": 5,
+    "Chapter": 2,
 }
+#In ANKI21, you can edit the options in the configuration manager,
+#instead of here. Thus, the configurations will be kept when the
+#add-on is updated.
 
 ##############  USER CONFIGURATION END  ##############
-
+from anki import version as anki_version
+import aqt
+anki21 = anki_version.startswith("2.1.")
+if anki21:
+    userOption = aqt.mw.addonManager.getConfig(__name__)
+    deck_limits.update(userOption["deck limits"])
+    option_limits.update(userOption["option limits"])
+    
 from anki.sched import Scheduler
+from anki.schedv2 import Scheduler as SchedulerV2
 
+def debug(t):
+    print(t)
+    pass
 def myDeckNewLimitSingle(self, g):
     """Limit for deck without parent limits,
     modified to only show cards every n days"""
+    debug(f"Calling myDeckNewLimitSingle({g})")
     if g['dyn']:
         return self.reportLimit
     did = g['id']
@@ -63,3 +77,4 @@ def myDeckNewLimitSingle(self, g):
     return lim
 
 Scheduler._deckNewLimitSingle = myDeckNewLimitSingle
+SchedulerV2._deckNewLimitSingle = myDeckNewLimitSingle

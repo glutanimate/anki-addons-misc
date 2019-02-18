@@ -7,11 +7,14 @@ Refreshes browser view and optionally changes the sorting column
 (e.g. to show newly added cards since last search)
 
 Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
+2018 Arthur Milchior <arthur@milchior.fr> (porting to 2.1)
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
 # Do not modify the following line
 from __future__ import unicode_literals
+from anki import version as anki_version
+anki21 = anki_version.startswith("2.1.")
 
 ######## USER CONFIGURATION START ########
 
@@ -37,9 +40,16 @@ SORTING_COLUMN = "noteCrt"
 from aqt.qt import *
 from aqt.browser import Browser
 from anki.hooks import addHook
+def debug(t):
+    #print(t)
+    pass
 
 def refreshView(self):
-    self.onSearch(reset=True)
+    debug("Calling refreshView()")
+    if anki21:
+        self.onSearchActivated()
+    else:
+        self.onSearch(reset=True)
     if SORTING_COLUMN:
         try:
             col_index = self.model.activeCols.index(SORTING_COLUMN)
@@ -52,7 +62,7 @@ def setupMenu(self):
     menu = self.form.menuEdit
     menu.addSeparator()
     a = menu.addAction('Refresh View')
-    a.setShortcut(QKeySequence("F5"))
+    a.setShortcut(QKeySequence("CTRL+F5" if anki21 else "F5"))
     a.triggered.connect(self.refreshView)
 
 Browser.refreshView = refreshView
