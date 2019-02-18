@@ -143,6 +143,14 @@ def quickRestore(self, mode, results, model, fld):
         return False
 
 
+def saveChanges(self, fld):
+    self.loadNote()
+    self.web.setFocus()
+    if fld is not None:
+        self.web.eval("focusField(%d);" % fld)
+        self.web.eval('saveField("key");')
+
+
 def restoreEditorFields(self, mode):
     if not self.note:  # catch invalid state
         return
@@ -152,6 +160,7 @@ def restoreEditorFields(self, mode):
     if fld is None and mode in ("history", "field"):
         # only necessary on anki20
         tooltip("Please select a field whose last entry you want to restore.")
+        saveChanges(self, fld)
         return False
     did = self.parentWindow.deckChooser.selectedId()
     deck = self.mw.col.decks.nameOrNone(did)
@@ -164,6 +173,7 @@ def restoreEditorFields(self, mode):
     if not results:
         tooltip("Could not find any past notes in current deck.<br>"
                 "If you just imported a deck you might have to restart Anki.")
+        saveChanges(self, fld)
         return False
     results.sort(reverse=True)
 
@@ -173,14 +183,11 @@ def restoreEditorFields(self, mode):
     else:
         ret = quickRestore(self, mode, results, model, fld)
     if ret is False:
+        saveChanges(self, fld)
         return False
 
     # Save changes
-    self.loadNote()
-    self.web.setFocus()
-    if self.currentField is not None:
-        self.web.eval("focusField(%d);" % self.currentField)
-        self.web.eval('saveField("key");')
+    saveChanges(self, fld)
 
 
 # Assign hotkeys
