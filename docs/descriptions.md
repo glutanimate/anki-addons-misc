@@ -1607,6 +1607,10 @@ This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The
 2017-08-06 – Update license
 2016-11-18 – Initial release
 
+**CONFIGURATION**
+
+The configuration can be customized by either using Anki 2.1's inbuilt add-on configuration screen (*Tools* → *Add-ons* → select *Puppy Reinforcement* → click on *Config*), or by manually editing the corresponding config keys in `puppy_reinforcer/meta.json` in Anki's add-on folder (Anki 2.0) [the config.json file contains the default values and **should not be modified**.].
+
 **SUPPORT**
 
 Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.

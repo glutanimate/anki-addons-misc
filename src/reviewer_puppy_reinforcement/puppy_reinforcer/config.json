@@ -1,0 +1,17 @@
+{
+    "duration": 3000,
+    "image_height": 128,
+    "tooltip_color": "#AFFFC5",
+    "encourage_every": 10,
+    "max_spread": 5,
+    "limit_max": 100,
+    "limit_high": 50,
+    "limit_middle": 25,
+    "encouragements": {
+        "low": ["Great job!", "Keep it up!", "Way to go!", "Keep up the good work!"],
+        "middle": ["You're on a streak!", "You're crushing it!", "Don't stop now!",
+                "You're doing great!"],
+        "high": ["Fantastic job!", "Wow!", "Beautiful!", "Awesome!", "I'm proud of you!"],
+        "max": ["Incredible!", "You're on fire!", "Bravo!", "So many cards..."]
+    }
+}
