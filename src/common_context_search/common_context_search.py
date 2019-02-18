@@ -1,70 +1,65 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
+
+# Context Menu Search Add-on for Anki
+#
+# Copyright (C) 2015-2019  Aristotelis P. <https//glutanimate.com/>
+#           (C) 2015  Eddie Blundell <https://github.com/eddie>
+#           (C) 2013  Steve AW <https://github.com/steveaw>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version, with the additions
+# listed at the end of the accompanied license file.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# Any modifications to this file must keep this entire header intact.
 
 """
-Anki Add-on: Context Menu Search
-
 Adds context menu entries for searching the card browser and
 various online search providers.
 
-You can customize the menu entries for online providers by
-editing the SEARCH_PROVIDERS list below.
-
-Based on 'OSX Dictionary Lookup' by Eddie Blundell and 
-'Search Google Images' by Steve AW.
-
-Copyright: Glutanimate 2015-2017 <https://glutanimate.com/>
-License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
+Based on 'OSX Dictionary Lookup' by Eddie Blundell
+and 'Search Google Images' by Steve AW.
 """
 
-############## USER CONFIGURATION START ##############
-
-# list of tuples of search provider names and urls.
-# '%s' will be replaced with the search term
-SEARCH_PROVIDERS = [
-    ("&Google (with Image))", [u"https://www.google.com/search?&q=%s",
-                               u"https://www.google.com/search?&tbm=isch&q=%s")
-                              ],
-    ("&Wikipedia (en)", [u"https://en.wikipedia.org/w/index.php?search=%s")],
-    ("Wikipedia (&de)", [u"https://de.wikipedia.org/w/index.php?search=%s"])
-]
-
-# (Advanced) Use custom context menu style sheet, somewhat buggy
-USE_CUSTOM_STYLESHEET = False 
-
-##############  USER CONFIGURATION END  ##############
-
-stylesheet = """
-QMenu::item {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-QMenu::item:selected {
-    color: black;
-    background-color: #D9CD6D;
-}
-"""
-
-import urllib
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 
 import aqt
 from aqt.qt import *
 from aqt.utils import openLink
 from anki.hooks import addHook
 
-def lookup_browser(text):
+from .config import config
+
+# Local search
+
+def lookupLocal(text):
     browser = aqt.dialogs.open("Browser", aqt.mw)
-    query = '"' + text + '"'
-    browser.form.searchEdit.lineEdit().setText(query)
-    browser.onSearch()
+    browser.form.searchEdit.lineEdit().setText('"{}"'.format(text))
+    if ANKI20:
+        browser.onSearch()
+    else:
+        browser.onSearchActivated()
 
-def lookup_online(text, idx):
-    text = " ".join(text.split())
+# Online search
+
+def lookupOnline(text, idx):
+    text = " ".join(text.strip().split())
     for url in SEARCH_PROVIDERS[idx][1]:
-        openLink(url % text)    
+        # opt for using custom formatter to avoid errors with user URLs:
+        url = url.replace("%s", "text")
+        openLink(url)
 
-def add_lookup_action(view, menu):
+
+# Context menu
+
+def addToContextMenu(view, menu):
     """Add 'lookup' action to context menu"""
     if USE_CUSTOM_STYLESHEET:
         menu.setStyleSheet(stylesheet)
@@ -91,5 +86,7 @@ def add_lookup_action(view, menu):
         a = menu.addAction(label)
         a.triggered.connect(lambda _, i=idx,t=selected: lookup_online(t, i))
 
-addHook("AnkiWebView.contextMenuEvent", add_lookup_action)
-addHook("EditorWebView.contextMenuEvent", add_lookup_action)
+# Hooks / patches
+
+addHook("AnkiWebView.contextMenuEvent", addToContextMenu)
+addHook("EditorWebView.contextMenuEvent", addToContextMenu)
