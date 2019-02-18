@@ -33,6 +33,9 @@ from aqt import mw
 from aqt.qt import *
 import shutil, os
 
+from anki import version
+ANKI20 = version.startswith("2.0")
+
 folder = 'images'
           
 def imgLoad():
@@ -44,7 +47,7 @@ def imgLoad():
             
 addHook("profileLoaded", imgLoad)
           
-def _keyHandler(self, evt, _old):
+def _keyHandler20(self, evt, _old):
     key = str(evt.text())
     if self.state == "answer":
         if key == "1": 
@@ -53,14 +56,20 @@ def _keyHandler(self, evt, _old):
             confirm(passed, duration)
     _old(self, evt)
 
-def _linkHandler(self, url, _old):
+def _linkHandler20(self, url, _old):
     if url.startswith("ease") and self.state == "answer":
         if int(url[4:]) == 1: 
             confirm(lapsed, duration)
         elif int(url[4:]) in (2, 3, 4): 
             confirm(passed, duration) 
     _old(self, url)
-        
+
+def onAnswerCard(reviewer, ease):
+    if ease == 1:
+        confirm(lapsed, duration)
+    elif ease in (2, 3, 4):
+        confirm(passed, duration)
+
 _lab = None
 _timer = None
 
@@ -78,15 +87,19 @@ def closeConfirm():
             
 def confirm(msg, period):
     global _timer, _lab
-    parent = mw.web
+    parent = mw
     closeConfirm()
     lab = QLabel('<img src="%s" align="center">' % msg, parent)
+    lab.setWindowFlags(Qt.ToolTip)
     centr = (parent.frameGeometry().center() - lab.frameGeometry().center())
     qp = QPoint( lab.width() * .25, lab.height() * .25 )
     lab.move(centr - qp)
     lab.show() 
     _timer = mw.progress.timer(period, closeConfirm, False)
     _lab = lab
-    
-Reviewer._keyHandler = wrap(Reviewer._keyHandler, _keyHandler, "around")
-Reviewer._linkHandler = wrap(Reviewer._linkHandler, _linkHandler, "around")
+
+if ANKI20:
+    Reviewer._keyHandler = wrap(Reviewer._keyHandler, _keyHandler20, "around")
+    Reviewer._linkHandler = wrap(Reviewer._linkHandler, _linkHandler20, "around")
+else:
+    Reviewer._answerCard = wrap(Reviewer._answerCard, onAnswerCard, "after")
