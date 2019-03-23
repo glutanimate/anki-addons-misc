@@ -10,5 +10,8 @@ all: clean zip
 zip:
 	./tools/build_zips.sh
 
+ankiaddon:
+	./tools/build_ankiaddon.sh
+
 clean:
 	rm -rf build
