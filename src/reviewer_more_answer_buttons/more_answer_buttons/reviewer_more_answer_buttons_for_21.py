@@ -5,9 +5,9 @@ Anki Add-on: More Answer Buttons for New Cards
 
 Adds extra buttons to the answer button area for new cards
 
-Copyright:  (c) Steve AW 2013 <steveawa@gmail.com>
-            (c) Glutanimate 2016-2017 <https://glutanimate.com/>
-            (c) ijgnd 2019
+Copyright:  (c) 2013 Steve AW <steveawa@gmail.com>
+            (c) 2016-2019 Glutanimate <https://glutanimate.com/>
+            (c) 2019 ijgnd
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 

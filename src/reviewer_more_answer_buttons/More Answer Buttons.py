@@ -2,9 +2,13 @@
 
 """
 Anki Add-on: More Answer Buttons for New Cards
+
 Entry point for the add-on into Anki
 Please do not edit this if you do not know what you are doing.
+
 Copyright: (c) 2016-2019 Glutanimate <https://glutanimate.com/>
+           (c) ijgnd 2019
+
 License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 """
 
@@ -22,4 +26,4 @@ License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 # Please use NotePad++ or another text editor that supports python
 # source code files to edit it
 
-import more_answer_buttons
+import more_answer_buttons  # noqa: F401
