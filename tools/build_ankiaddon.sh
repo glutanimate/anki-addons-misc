@@ -29,6 +29,7 @@
 #      → ...
 #
 # Copyright: (c) 2017-2018 Glutanimate <https://glutanimate.com/>
+#            (c) 2019 zjosua <https://github.com/zjosua>
 # License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl.html>
 
 
