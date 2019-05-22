@@ -31,14 +31,16 @@ HOTKEY_HIGHLIGHT_TOGGLE = "Ctrl+T, H"
 from aqt.qt import *
 from aqt.browser import Browser
 from anki.hooks import wrap, addHook
+from anki.find import Finder
 
 from anki import version as anki_version
-anki21 = anki_version.startswith("2.1.")
+ANKI20 = anki_version.startswith("2.0")
 
-if anki21:
-    find_flags = QWebEnginePage.FindFlags(0)
-else:
+if ANKI20:
     find_flags = QWebPage.HighlightAllOccurrences
+else:
+    import unicodedata
+    find_flags = QWebEnginePage.FindFlags(0)
 
 
 # ignore search token specifiers, search operators, and wildcard characters
@@ -54,19 +56,20 @@ def onRowChanged(self, current, previous):
     """
     if not self._highlightResults:
         return
-    txt = self.form.searchEdit.lineEdit().text().strip()
+    txt = self.form.searchEdit.lineEdit().text()
+    if not ANKI20:
+        txt = unicodedata.normalize("NFC", txt)
     if not txt:
         return
-    tokens = txt.split()
+    tokens = Finder(self.col)._tokenize(txt)
+    print("tokens", tokens)
     vals = []
     for token in tokens:
-        if (token in operators or token.startswith("-")
-                or token.startswith(excluded_tags)):
+        if (token in operators or token.startswith("-") or
+                token.startswith(excluded_tags)):
             continue
         if ":" in token:
-            frags = token.split(":")
-            tag = frags[0]
-            val = "".join(frags[1:])
+            val = "".join(token.split(":")[1:])
             if not val or val in excluded_vals:
                 continue
         else:
@@ -75,6 +78,7 @@ def onRowChanged(self, current, previous):
         vals.append(val)
     if not vals:
         return
+    print("vals", vals)
     for val in vals:
         self.editor.web.findText(val, find_flags)
 
@@ -142,10 +146,10 @@ def onSetupMenus(self):
     a.toggled.connect(self.toggleSearchHighlights)
 
 
-if anki21:
-    Browser._onRowChanged = wrap(Browser._onRowChanged, onRowChanged, "after")
-else:
+if ANKI20:
     Browser.onRowChanged = wrap(Browser.onRowChanged, onRowChanged, "after")
+else:
+    Browser._onRowChanged = wrap(Browser._onRowChanged, onRowChanged, "after")
 
 addHook("browser.setupMenus", onSetupMenus)
 Browser.onCustomSearch = onCustomSearch
