@@ -40,6 +40,7 @@ if ANKI20:
     find_flags = QWebPage.HighlightAllOccurrences
 else:
     import unicodedata
+    unicode = str
     find_flags = QWebEnginePage.FindFlags(0)
 
 
@@ -56,7 +57,7 @@ def onRowChanged(self, current, previous):
     """
     if not self._highlightResults:
         return
-    txt = self.form.searchEdit.lineEdit().text()
+    txt = unicode(self.form.searchEdit.lineEdit().text())
     if not ANKI20:
         txt = unicodedata.normalize("NFC", txt)
     if not txt:
