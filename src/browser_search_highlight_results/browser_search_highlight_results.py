@@ -38,12 +38,12 @@ anki21 = anki_version.startswith("2.1.")
 if anki21:
     find_flags = QWebEnginePage.FindFlags(0)
 else:
-    find_flags = QWebPage.HighlightAllOccurrences   
+    find_flags = QWebPage.HighlightAllOccurrences
 
 
 # ignore search token specifiers, search operators, and wildcard characters
 excluded_tags = ("deck:", "tag:", "card:", "note:", "is:", "prop:", "added:",
-                "rated:", "nid:", "cid:", "mid:", "seen:")
+                 "rated:", "nid:", "cid:", "mid:", "seen:")
 excluded_vals = ("*", "_", "_*")
 operators = ("or", "and", "+")
 
@@ -60,7 +60,7 @@ def onRowChanged(self, current, previous):
     tokens = txt.split()
     vals = []
     for token in tokens:
-        if (token in operators or token.startswith("-") 
+        if (token in operators or token.startswith("-")
                 or token.startswith(excluded_tags)):
             continue
         if ":" in token:
@@ -76,30 +76,30 @@ def onRowChanged(self, current, previous):
     if not vals:
         return
     for val in vals:
-        self.editor.web.findText(val, find_flags)    
+        self.editor.web.findText(val, find_flags)
 
 
 def onCustomSearch(self, onecard=False):
     """Extended search functions"""
     txt = self.form.searchEdit.lineEdit().text().strip()
     cids = self.col.findCards(txt, order=True)
-    
+
     if onecard:
         # jump to next card, while wrapping around at the end
         if self.card:
             cur = self.card.id
         else:
             cur = None
-        
+
         if cur and cur in cids:
             idx = cids.index(cur) + 1
         else:
             idx = None
-        
+
         if not idx or idx >= len(cids):
             idx = 0
         cids = cids[idx:idx+1]
-    
+
     self.form.tableView.selectionModel().clear()
     self.model.selectedCards = {cid: True for cid in cids}
     self.model.restoreSelection()
@@ -140,7 +140,6 @@ def onSetupMenus(self):
     a.setChecked(HIGHLIGHT_BY_DEFAULT)
     a.setShortcut(QKeySequence(HOTKEY_HIGHLIGHT_TOGGLE))
     a.toggled.connect(self.toggleSearchHighlights)
-
 
 
 if anki21:
