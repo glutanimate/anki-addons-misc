@@ -6,7 +6,7 @@ Anki Add-on: Highlight Search Results in Browser
 Highlights search results in Editor pane of the Browser and adds two
 new shortcuts when searching:
 
-- Shift-Return: Jump to result in current list 
+- Shift-Return: Jump to result in current list
 - Ctrl-Shift-Return: Select results in current list
 
 Search result highlighting may be turned off via the provided View
@@ -15,7 +15,7 @@ menu entry, or its associated hotkey (Ctrl+T, H).
 Limitations: Searches through entire editor screen,
              field descriptions included
 
-Copyright: (c) Glutanimate 2017 <https://glutanimate.com/>
+Copyright (C)  2017-2019 Aristotelis P. <https://glutanimate.com/>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
