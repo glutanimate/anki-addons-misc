@@ -134,7 +134,7 @@ def onSetupMenus(self):
     try:
         # used by multiple add-ons, so we check for its existence first
         menu = self.menuView
-    except:
+    except AttributeError:
         self.menuView = QMenu(_("&View"))
         self.menuBar().insertMenu(
             self.mw.form.menuTools.menuAction(), self.menuView)
