@@ -32,6 +32,7 @@ from aqt.qt import *
 from aqt.browser import Browser
 from anki.hooks import wrap, addHook
 from anki.find import Finder
+from anki.lang import _
 
 from anki import version as anki_version
 ANKI20 = anki_version.startswith("2.0")
@@ -40,7 +41,6 @@ if ANKI20:
     find_flags = QWebPage.HighlightAllOccurrences
 else:
     import unicodedata
-    unicode = str
     find_flags = QWebEnginePage.FindFlags(0)
 
 
@@ -57,14 +57,22 @@ def onRowChanged(self, current, previous):
     """
     if not self._highlightResults:
         return
-    txt = unicode(self.form.searchEdit.lineEdit().text())
-    if not ANKI20:
+    
+    txt = self.form.searchEdit.lineEdit().text()
+    
+    if ANKI20:
+        txt = unicode(txt)
+    else:
         txt = unicodedata.normalize("NFC", txt)
-    if not txt:
+    
+    if (not txt or
+            txt == _("<type here to search; hit enter to show current deck>")):
         return
+    
     tokens = Finder(self.col)._tokenize(txt)
-    print("tokens", tokens)
+
     vals = []
+    
     for token in tokens:
         if (token in operators or token.startswith("-") or
                 token.startswith(excluded_tags)):
@@ -77,10 +85,15 @@ def onRowChanged(self, current, previous):
             val = token
         val = val.strip('''",*;''')
         vals.append(val)
+    
     if not vals:
         return
-    print("vals", vals)
+
     for val in vals:
+        # FIXME: anki21 does not seem to support highlighting more than one
+        # term at once. Likely a Qt bug / regression.
+        # TODO: Perhaps choose to highlight the longest term on anki21.
+        # TODO: Find a way to exclude UI text in editor pane from highlighting
         self.editor.web.findText(val, find_flags)
 
 
