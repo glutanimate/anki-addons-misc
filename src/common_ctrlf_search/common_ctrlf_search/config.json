@@ -1,0 +1,7 @@
+{
+    "HOTKEY_SEARCH":"Ctrl+F",
+    "HOTKEY_SEARCH_BROWSER":"Ctrl+Alt+Shift+F",
+    "HOTKEY_NEXT":"F3",
+    "HOTKEY_PREVIOUS":"Shift+F3",
+    "Show_in_Browser_Context_menu":false
+}
