@@ -12,6 +12,30 @@ If you enjoy Speed Focus Mode, please consider supporting my work on Patreon, or
 
 ## [Unreleased]
 
+## 0.2.2 - 2019-01-08
+
+### Fixed
+
+- Fixed a new 2.1 bug that would occur on Anki exit (thanks to Elikem & dsd for the report)
+
+## 0.2.1 - 2018-02-17
+
+### Fixed
+
+- Fixed an incompatibility issue with Anki 2.1 (thanks to @khonkhortisan!)
+
+## 0.2.0 - 2018-02-16
+
+### Changed
+
+- renamed add-on to "Speed Focus Mode".
+
+### Added
+
+- Added auto alert option
+
+## 0.1.0 - 2017-12-21
+
 ### Added
 
 - Initial release of Speed Focus Mode
