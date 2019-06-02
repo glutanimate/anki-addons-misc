@@ -12,6 +12,14 @@ If you enjoy Speed Focus Mode, please consider supporting my work on Patreon, or
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix anki.lang warnings
+
+### Changed
+
+- Refactored add-on to improve stability and maintainability
+
 ## 0.2.2 - 2019-01-08
 
 ### Fixed
