@@ -1,0 +1,47 @@
+# Linux FM
+.hidden
+.directory
+# Byte-compiled / optimized / DLL files
+*.pyo
+*.pyc
+__pycache__/
+# Python
+.python-version
+.mypy_cache/
+.ropeproject
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+# Javascript
+node_modules
+# IDEs
+*.sublime-project
+*.sublime-workspace
+.sublime-backup/
+.idea/
+.vscode/
+# Build files
+build
+src/*/gui/forms/anki*
+src/*/gui/forms/LICENSE*
+src/*/gui/resources/anki*
+src/*/gui/resources/LICENSE*
+*-anki2*.zip
+# Dev tools
+.bumpversion.cfg
+labels.toml
+# Temp
+.gitold
+obsolete
+research
+# Docs
+todo
+# Assets
+resources/icons/optional
+# Anki
+src/*/meta.json
+src/*/manifest.json

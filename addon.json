@@ -1,0 +1,16 @@
+{
+    "display_name": "Speed Focus Mode",
+    "module_name": "speed_focus_mode",
+    "repo_name": "speed-focus-mode",
+    "ankiweb_id": "1046608507",
+    "author": "Glutanimate",
+    "contact": "https://glutanimate.com",
+    "homepage": "https://github.com/glutanimate/speed-focus-mode",
+    "copyright_start": 2017,
+    "tags": "",
+    "conflicts": [],
+    "targets": [
+        "anki20",
+        "anki21"
+    ]
+}
