@@ -6,49 +6,48 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 
 <!-- MarkdownTOC -->
 
-- [browser_batch_edit: Batch Note Editing](#browser_batch_edit-batch-note-editing)
-- [browser_create_duplicate: Duplicate Selected Notes](#browser_create_duplicate-duplicate-selected-notes)
-- [browser_create_filtered_deck: Create Filtered Deck from the Browser](#browser_create_filtered_deck-create-filtered-deck-from-the-browser)
-- [browser_external_editor: External Note Editor for the Browser](#browser_external_editor-external-note-editor-for-the-browser)
-- [browser_more_hotkeys](#browser_more_hotkeys)
+- [browser_batch_edit: Batch Note Editing](#browserbatchedit-batch-note-editing)
+- [browser_create_duplicate: Duplicate Selected Notes](#browsercreateduplicate-duplicate-selected-notes)
+- [browser_create_filtered_deck: Create Filtered Deck from the Browser](#browsercreate_filtereddeck-create-filtered-deck-from-the-browser)
+- [browser_external_editor: External Note Editor for the Browser](#browserexternaleditor-external-note-editor-for-the-browser)
+- [browser_more_hotkeys](#browsermorehotkeys)
 - [browser_refresh: F5 to Refresh the Browser](#browser_refresh-f5-to-refresh-the-browser)
-- [browser_replace_tag: Search and Replace Tags](#browser_replace_tag-search-and-replace-tags)
-- [browser_search_highlight_results: Highlight Search Results in the Browser](#browser_search_highlight_results-highlight-search-results-in-the-browser)
-- [browser_search_hotkeys: Browser Search Hotkeys](#browser_search_hotkeys-browser-search-hotkeys)
-- [common_context_search: Context Menu Search](#common_context_search-context-menu-search)
-- [common_ctrlf_search: Ctrl+F Search](#common_ctrlf_search-ctrlf-search)
-- [editor_autocomplete_whitelist](#editor_autocomplete_whitelist)
-- [editor_custom_stylesheet: Customize Editor Stylesheet](#editor_custom_stylesheet-customize-editor-stylesheet)
-- [editor_field_history: Editor Field History](#editor_field_history-editor-field-history)
-- [editor_field_navigation: Quick Field Navigation Add-on for Anki](#editor_field_navigation-quick-field-navigation-add-on-for-anki)
-- [editor_indentation_formatter: Indent and Outdent Paragraphs](#editor_indentation_formatter-indent-and-outdent-paragraphs)
-- [editor_random_list: Insert Randomized Lists](#editor_random_list-insert-randomized-lists)
-- [editor_sync_cursor_position: Sync Cursor Between Fields and HTML Editor](#editor_sync_cursor_position-sync-cursor-between-fields-and-html-editor)
-- [editor_tag_hotkeys: Editor Tag Hotkeys Add-on for Anki](#editor_tag_hotkeys-editor-tag-hotkeys-add-on-for-anki)
+- [browser_replace_tag: Search and Replace Tags](#browserreplacetag-search-and-replace-tags)
+- [browser_search_highlight_results: Highlight Search Results in the Browser](#browsersearch_highlightresults-highlight-search-results-in-the-browser)
+- [browser_search_hotkeys: Browser Search Hotkeys](#browsersearchhotkeys-browser-search-hotkeys)
+- [common_context_search: Context Menu Search](#commoncontextsearch-context-menu-search)
+- [common_ctrlf_search: Ctrl+F Search](#commonctrlfsearch-ctrlf-search)
+- [editor_autocomplete_whitelist](#editorautocompletewhitelist)
+- [editor_custom_stylesheet: Customize Editor Stylesheet](#editorcustomstylesheet-customize-editor-stylesheet)
+- [editor_field_history: Editor Field History](#editorfieldhistory-editor-field-history)
+- [editor_field_navigation: Quick Field Navigation Add-on for Anki](#editorfieldnavigation-quick-field-navigation-add-on-for-anki)
+- [editor_indentation_formatter: Indent and Outdent Paragraphs](#editorindentationformatter-indent-and-outdent-paragraphs)
+- [editor_random_list: Insert Randomized Lists](#editorrandomlist-insert-randomized-lists)
+- [editor_sync_cursor_position: Sync Cursor Between Fields and HTML Editor](#editorsync_cursorposition-sync-cursor-between-fields-and-html-editor)
+- [editor_tag_hotkeys: Editor Tag Hotkeys Add-on for Anki](#editortaghotkeys-editor-tag-hotkeys-add-on-for-anki)
 - [main_fullscreen: Toggle Fullscreen Extended](#main_fullscreen-toggle-fullscreen-extended)
-- [overview_deck_switcher: Switch Between Decks on the Main Screen](#overview_deck_switcher-switch-between-decks-on-the-main-screen)
-- [overview_deck_tooltip: Deck Overview Stats Tooltip](#overview_deck_tooltip-deck-overview-stats-tooltip)
-- [overview_refresh_media: Refresh Media References](#overview_refresh_media-refresh-media-references)
-- [reviewer_speed_mode: Speed Focus Mode \(auto-alert, auto-reveal, auto-fail\)](#reviewer_speed_mode-speed-focus-mode-auto-alert-auto-reveal-auto-fail)
-- [reviewer_auto_rate_hotkey: Hotkey that Auto-rates Based on Elapsed Time](#reviewer_auto_rate_hotkey-hotkey-that-auto-rates-based-on-elapsed-time)
-- [reviewer_card_stats: Extended Card Stats During Review](#reviewer_card_stats-extended-card-stats-during-review)
-- [reviewer_browse_creation: Browse Card in its Creation Context](#reviewer_browse_creation-browse-card-in-its-creation-context)
-- [reviewer_browse_today: Open 'Added Today' from Reviewer](#reviewer_browse_today-open-added-today-from-reviewer)
-- [reviewer_hide_toolbar: Hide Toolbar in Reviewer](#reviewer_hide_toolbar-hide-toolbar-in-reviewer)
-- [reviewer_hint_hotkeys: Hint Hotkeys](#reviewer_hint_hotkeys-hint-hotkeys)
+- [overview_deck_switcher: Switch Between Decks on the Main Screen](#overviewdeckswitcher-switch-between-decks-on-the-main-screen)
+- [overview_deck_tooltip: Deck Overview Stats Tooltip](#overviewdecktooltip-deck-overview-stats-tooltip)
+- [overview_refresh_media: Refresh Media References](#overviewrefreshmedia-refresh-media-references)
+- [reviewer_auto_rate_hotkey: Hotkey that Auto-rates Based on Elapsed Time](#reviewerauto_ratehotkey-hotkey-that-auto-rates-based-on-elapsed-time)
+- [reviewer_card_stats: Extended Card Stats During Review](#reviewercardstats-extended-card-stats-during-review)
+- [reviewer_browse_creation: Browse Card in its Creation Context](#reviewerbrowsecreation-browse-card-in-its-creation-context)
+- [reviewer_browse_today: Open 'Added Today' from Reviewer](#reviewerbrowsetoday-open-added-today-from-reviewer)
+- [reviewer_hide_toolbar: Hide Toolbar in Reviewer](#reviewerhidetoolbar-hide-toolbar-in-reviewer)
+- [reviewer_hint_hotkeys: Hint Hotkeys](#reviewerhinthotkeys-hint-hotkeys)
 - [reviewer_letitsnow: Let it Snow!](#reviewer_letitsnow-let-it-snow)
-- [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewer_more_answer_buttons-more-answer-buttons-for-new-cards)
-- [reviewer_progress_bar: Progress Bar](#reviewer_progress_bar-progress-bar)
-- [reviewer_puppy_reinforcement: Puppy Reinforcement](#reviewer_puppy_reinforcement-puppy-reinforcement)
-- [reviewer_refocus_card: Refocus Card when Reviewing \(2.1\)](#reviewer_refocus_card-refocus-card-when-reviewing-21)
-- [reviewer_track_unseen](#reviewer_track_unseen)
-- [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewer_visual_feedback-visual-feedback-for-reviews)
-- [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#sched_advanced_newcard_limits-limit-new-cards-to-less-than-one)
-- [sched_sibling_spacing_whitelist](#sched_sibling_spacing_whitelist)
-- [search_last_edited: Search for Cards by Last Edit Date](#search_last_edited-search-for-cards-by-last-edit-date)
-- [stats_true_retention_extended: True Retention by Card Maturity](#stats_true_retention_extended-true-retention-by-card-maturity)
+- [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewermore_answerbuttons-more-answer-buttons-for-new-cards)
+- [reviewer_progress_bar: Progress Bar](#reviewerprogressbar-progress-bar)
+- [reviewer_puppy_reinforcement: Puppy Reinforcement](#reviewerpuppyreinforcement-puppy-reinforcement)
+- [reviewer_refocus_card: Refocus Card when Reviewing \(2.1\)](#reviewerrefocuscard-refocus-card-when-reviewing-21)
+- [reviewer_track_unseen](#reviewertrackunseen)
+- [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewervisualfeedback-visual-feedback-for-reviews)
+- [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#schedadvanced_newcardlimits-limit-new-cards-to-less-than-one)
+- [sched_sibling_spacing_whitelist](#schedsibling_spacingwhitelist)
+- [search_last_edited: Search for Cards by Last Edit Date](#searchlastedited-search-for-cards-by-last-edit-date)
+- [stats_true_retention_extended: True Retention by Card Maturity](#statstrue_retentionextended-true-retention-by-card-maturity)
 - [tagedit_enhancements: Tag Entry Enhancements](#tagedit_enhancements-tag-entry-enhancements)
-- [tagedit_subtag_completer: Substring Tag Completion](#tagedit_subtag_completer-substring-tag-completion)
+- [tagedit_subtag_completer: Substring Tag Completion](#tageditsubtagcompleter-substring-tag-completion)
 
 <!-- /MarkdownTOC -->
 
@@ -1066,72 +1065,6 @@ A lot of my add-ons were commissioned by other Anki users. If you enjoy my work 
 Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
 
 New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
-
-------------------------------------------
-
-## reviewer_speed_mode: Speed Focus Mode (auto-alert, auto-reveal, auto-fail)
-
-**Trains your attention and speed** by performing **automated actions if you take too long** to go through your reviews. Three different levels of 'encouragements' are provided:
-
-- **automatically play an alert**
-- **automatically reveal the answer**
-- **automatically fail the card** 
-
-All of these can be configured individually for each deck options group.
-
-**SCREENSHOTS**
-
-![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/reviewer_speed_mode_1.png)
-
-![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/reviewer_speed_mode_2.png)
-
-**USAGE**
-
-1. Open deck options
-2. Navigate to the 'General' tab
-3. Find the three new options as shown in the screenshot above and configure them to your liking
-
-The alert and answer reveal timeout refer to seconds spent on the question side, while the auto-'again' timer starts counting after revealing the question.
-
-Setting any of the timers to `0` will disable them.
-
-**CONFIGURATION**
-
-You can customize the alert sound by replacing `alert.mp3` in the add-on folder with a sound file of your choice. Just make sure that it's named the same and sporting the same file format.
-
-**CHANGELOG**
-
-2019-01-08 – Fixed a new 2.1 bug that would occur on Anki exit (thanks to Elikem & dsd for the report)
-2018-02-17 – Fixed an incompatibility issue with Anki 2.1 (thanks to Kyle on GitHub!)
-2018-02-16 – Added auto alert option, renamed add-on to "Speed Focus Mode".
-2017-12-21 – Initial release
-
-**SUPPORT**
-
-Please **do not report issues or bugs in the review section below**. I don't get notified about your reviews, and even if I see them in time it's hard to strike up a proper troubleshooting conversation on here. Instead, please report all issues you encounter either by creating a bug report on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues) or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the add-on's name in your title. Thank you!
-
-**CREDITS AND LICENSE**
-
-*Copyright (c) 2017-2019 [Glutanimate](https://github.com/Glutanimate)*
-*Copyright (c) 2015-2016* unknown author of [Automatically show answer after X seconds](https://ankiweb.net/shared/info/648362761)
-
-Thanks a lot to Neri and Pablo for their support in commissioning this add-on and their fantastic new ideas!
-
-Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/reviewer-auto-again).
-
-**MORE RESOURCES**
-
-Make sure to check out my socials for the latest add-on updates and news: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)  |  [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
-
-Want to hire me to work on add-on for you? Get in touch at ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail .com</em>
-
-**SUPPORT THIS ADD-ON**
-
-Writing, supporting, and maintaining Anki add-ons like these takes a lot of time and effort. If *Speed Focus Mode* has been a valuable asset in your studies, please consider using one of the buttons below to support my efforts by buying me a **coffee**, or by pledging your support on **Patreon**. Each and every contribution is greatly appreciated and will help me maintain and improve *Speed Focus Mode* as time goes by!
-
-[![](https://glutanimate.com/logos/patreon_button.svg)](https://www.patreon.com/glutanimate "Support me on Patreon 😄") &nbsp;&nbsp;&nbsp;&nbsp; [![](https://glutanimate.com/logos/kofi_button.svg)](https://ko-fi.com/X8X0L4YV "Buy me a coffee 😊")
-
-*Pro-tip: Lots of exclusive add-ons and other goodies await on my Patreon page. Make sure to check them out!*
 
 ------------------------------------------
 
