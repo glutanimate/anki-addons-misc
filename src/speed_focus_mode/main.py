@@ -48,7 +48,7 @@ from aqt.utils import tooltip
 
 from anki.hooks import addHook, wrap
 from anki.sound import play
-
+from anki.lang import _
 
 # Anki 2.1 support
 from anki import version as anki_version
