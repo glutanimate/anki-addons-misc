@@ -52,14 +52,14 @@ from anki.lang import _
 
 # Anki 2.1 support
 from anki import version as anki_version
-anki21 = anki_version.startswith("2.1.")
-pycmd = "pycmd" if anki21 else "py.link"
+ANKI20 = anki_version.startswith("2.0.")
+pycmd = "py.link" if ANKI20 else "pycmd"
 
 
 # determine sound file path
 sys_encoding = sys.getfilesystemencoding()
 
-if anki21:
+if not ANKI20:
     addon_path = os.path.dirname(__file__)
 else:
     addon_path = os.path.dirname(__file__).decode(sys_encoding)
