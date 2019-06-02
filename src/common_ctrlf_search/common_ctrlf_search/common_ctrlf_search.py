@@ -293,7 +293,7 @@ if not anki20:
     def setupMenu(browser):
         global myaction
         myaction = QAction(browser)
-        myaction.setText("Search through the selected Note (sett at the bottom)")
+        myaction.setText("Search through the selected Note (set at the bottom)")
         if HOTKEY_SEARCH_BROWSER:
             myaction.setShortcut(QKeySequence(HOTKEY_SEARCH_BROWSER))
         myaction.triggered.connect(lambda : ctrlfsearch_editor_helper(browser.editor))
