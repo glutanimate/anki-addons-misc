@@ -41,3 +41,5 @@ docs/description.html
 docs/sort_sections.sh
 tools/test.py
 *~
+addon.json
+labels.toml
