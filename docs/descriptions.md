@@ -6,7 +6,6 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 
 <!-- MarkdownTOC -->
 
-- [browser_batch_edit: Batch Note Editing](#browserbatchedit-batch-note-editing)
 - [browser_create_duplicate: Duplicate Selected Notes](#browsercreateduplicate-duplicate-selected-notes)
 - [browser_create_filtered_deck: Create Filtered Deck from the Browser](#browsercreate_filtereddeck-create-filtered-deck-from-the-browser)
 - [browser_external_editor: External Note Editor for the Browser](#browserexternaleditor-external-note-editor-for-the-browser)
@@ -50,59 +49,6 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [tagedit_subtag_completer: Substring Tag Completion](#tageditsubtagcompleter-substring-tag-completion)
 
 <!-- /MarkdownTOC -->
-
-------------------------------------------
-
-## browser_batch_edit: Batch Note Editing
-
-Adds a new menu item to the card browser that allows you to:
-
-- **batch-add** information/media to a specific field
-- **batch-replace** the contents of a specific field
-
-The changes will be applied to all selected notes that feature the selected field.
-
-**DEMO**
-
-Here's a quick demo video that showcases these features:
-
-[![YouTube: Anki add-on demo: Batch Note Editing](https://i.ytimg.com/vi/iCZzcSnAeH4/mqdefault.jpg)](https://youtu.be/iCZzcSnAeH4)
-
-**COMPATIBILITY**
-
-Initial tests have shown this add-on to both work on Anki 2.0.x and Anki 2.1.x. However, as the Anki 2.1.x line of releases is still in beta, I cannot provide any kind of official support for this platform. **Please do not report issues with Anki 2.1 in the review section below**. Instead, please report all issues you encounter on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues).
-
-**OTHER REMARKS**
-
-The add-on uses the first selected note to generate the field list you're presented with. So please make sure to select a note with the right fields.
-
-**CHANGELOG**
-
-2017-08-23 – Initial 2.1 compatibility
-2017-08-06 – Ability to insert text as HTML
-2017-05-13 – Only insert line-breaks when necessary
-2016-12-11 – Support for adding text before existing content (thanks to @luminousspice for the idea)
-2016-12-08 – Initial release
-
-**SUPPORT**
-
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
-
-**CREDITS AND LICENSE**
-
-*Copyright (c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)*
-
-All credit for the original idea goes to <a href="https://www.reddit.com/user/TryhardasaurusRex" rel="nofollow">/u/TryhardasaurusRex on Reddit</a> who commissioned this add-on.
-
-Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
-
-**MORE RESOURCES**
-
-A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
-
-Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
-
-New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
 ------------------------------------------
 
