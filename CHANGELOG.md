@@ -12,6 +12,10 @@ If you enjoy Speed Focus Mode, please consider supporting my work on Patreon, or
 
 ## [Unreleased]
 
+## [0.3.0] - 2019-06-02
+
+### [Download](https://github.com/glutanimate/speed-focus-mode/releases/tag/v0.3.0)
+
 ### Fixed
 
 - Fix anki.lang warnings
