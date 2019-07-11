@@ -4,7 +4,6 @@
 __pycache__/
 # Anki
 src/*/meta.json
-src/*/config.json
 # Build files
 build
 src/*/forms*

@@ -1,0 +1,13 @@
+{
+    "historyWindowShortcut": "Ctrl+Alt+H",
+    "predefinedWindowShortcut": "Ctrl+Alt+P",
+    "fieldRestoreShortcut": "Alt+Z",
+    "partialRestoreShortcut": "Alt+Shift+Z",
+    "fullRestoreShortcut": "Ctrl+Alt+Shift+Z",
+    "partialRestoreFields": [],
+	"predefinedFields":{
+	  "Example of name of field": [
+		"Example of default value",
+		"other example of default value"
+	  ]}
+}
