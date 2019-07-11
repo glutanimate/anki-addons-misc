@@ -38,16 +38,16 @@ from anki.hooks import addHook
 
 from anki import version
 ANKI21 = version.startswith("2.1")
+from .config import getConfig
 
 
 if ANKI21:
-    config = mw.addonManager.getConfig(__name__)
-    history_window_shortcut = config["historyWindowShortcut"]
-    predefined_window_shortcut = config["predefinedWindowShortcut"]
-    field_restore_shortcut = config["fieldRestoreShortcut"]
-    partial_restore_shortcut = config["partialRestoreShortcut"]
-    full_restore_shortcut = config["fullRestoreShortcut"]
-    partial_restore_fields = config["partialRestoreFields"]
+    history_window_shortcut = getConfig("historyWindowShortcut", "Ctrl+Alt+H")
+    predefined_window_shortcut = getConfig("predefinedWindowShortcut", "Ctrl+Alt+P")
+    field_restore_shortcut = getConfig("fieldRestoreShortcut", "Alt+Z")
+    partial_restore_shortcut = getConfig("partialRestoreShortcut", "Alt+Shift+Z")
+    full_restore_shortcut = getConfig("fullRestoreShortcut", "Ctrl+Alt+Shift+Z")
+    partial_restore_fields = getConfig("partialRestoreFields", [])
 
 # Ctrl+Alt+H is a global hotkey on macOS
 # Hacky solution for anki21. A platform-specific config.json would be
@@ -94,7 +94,7 @@ def myGetField(parent, question, potential_vals, **kwargs):
 
 def predefinedRestore(self, model, fld):
     field = model['flds'][fld]['name']
-    keys = config.get("predefinedFields", dict()).get(field, [])
+    keys = getConfig("predefinedFields", dict()).get(field, [])
     if not keys:
         tooltip("No predefined values for this field. Edit the configuration.")
         return False
@@ -109,7 +109,7 @@ def historyRestore(self, mode, results, model, fld):
     field = model['flds'][fld]['name']
     last_vals = {}
     keys = []
-    for nid in results[:config.get("number of note to consider in history", 100)]:
+    for nid in results[:getConfig("number of note to consider in history", 100)]:
         oldNote = self.note.col.getNote(nid)
         if field in oldNote:
             html = oldNote[field]
@@ -184,7 +184,7 @@ def restoreEditorFields(self, mode):
             return False
     else:
         # Perform search
-        if config.get("limit search to deck", True) and hasattr(self.parentWindow, "deckChooser"):
+        if getConfig("limit search to deck", True) and hasattr(self.parentWindow, "deckChooser"):
             did = self.parentWindow.deckChooser.selectedId()
             deck = self.mw.col.decks.nameOrNone(did)
             where = "deck"
