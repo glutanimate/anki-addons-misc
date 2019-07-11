@@ -16,6 +16,7 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 # Anki's built-in add-on configuration menu
 
 history_window_shortcut = "Ctrl+Alt+H"
+predefined_window_shortcut = "Ctrl+Alt+P"
 field_restore_shortcut = "Alt+Z"
 partial_restore_shortcut = "Alt+Shift+Z"
 full_restore_shortcut = "Ctrl+Alt+Shift+Z"
@@ -42,6 +43,7 @@ ANKI21 = version.startswith("2.1")
 if ANKI21:
     config = mw.addonManager.getConfig(__name__)
     history_window_shortcut = config["historyWindowShortcut"]
+    predefined_window_shortcut = config["predefinedWindowShortcut"]
     field_restore_shortcut = config["fieldRestoreShortcut"]
     partial_restore_shortcut = config["partialRestoreShortcut"]
     full_restore_shortcut = config["fullRestoreShortcut"]
@@ -76,15 +78,36 @@ class CustomTextEdit(TagEdit):
         self.completer.complete()
 
 
-def myGetField(parent, question, last_val, **kwargs):
-    edit = CustomTextEdit(parent, last_val)
-    ret = getText(question, parent, edit=edit, **kwargs)
-    return ret
+def myGetField(parent, question, potential_vals, **kwargs):
+    striped_vals = {}
+    keys = []
+    for val in potential_vals:
+        if not val.strip():
+            continue
+        striped_val = stripHTML(val)
+        striped_vals[striped_val] = val
+        keys.append(striped_val)
+    edit = CustomTextEdit(parent, potential_vals)
+    (text, ret) = getText(question, parent, edit=edit, **kwargs)
+    return striped_vals.get(text, False)
 
+
+def predefinedRestore(self, model, fld):
+    field = model['flds'][fld]['name']
+    keys = config.get("predefinedFields", dict()).get(field, [])
+    if not keys:
+        tooltip("No predefined values for this field. Edit the configuration.")
+        return False
+
+    txt = "Set field to:"
+    text = myGetField(self.parentWindow,
+                             txt, keys, title="Predefined fields")
+    if text:
+        self.note[field] = text
 
 def historyRestore(self, mode, results, model, fld):
     field = model['flds'][fld]['name']
-    last_val = {}
+    last_vals = {}
     keys = []
     for nid in results[:100]:
         oldNote = self.note.col.getNote(nid)
@@ -99,18 +122,17 @@ def historyRestore(self, mode, results, model, fld):
             text = stripHTML(html)
         else:
             text = None
-        if text and text not in last_val:
+        if text and text not in last_vals:
             keys.append(text)
-            last_val[text] = html
-    if not last_val:
+            last_vals[text] = html
+    if not last_vals:
         tooltip("No prior entries for this field found.")
         return False
     txt = "Set field to:"
-    (text, ret) = myGetField(self.parentWindow,
+    text = myGetField(self.parentWindow,
                              txt, keys, title="Field History")
-    if not ret or not text.strip() or text not in last_val:
-        return False
-    self.note[field] = last_val[text]
+    if text:
+        self.note[field] = text
 
 
 def quickRestore(self, mode, results, model, fld):
@@ -147,33 +169,42 @@ def restoreEditorFields(self, mode):
     if not self.note:  # catch invalid state
         return
 
+    # Gather note info
     fld = self.currentField
-    if fld is None and mode in ("history", "field"):
+    if fld is None and mode in ("history", "field", "predefined"):
         # only necessary on anki20
         tooltip("Please select a field whose last entry you want to restore.")
         return False
     model = self.note.model()
-    if hasattr(self.parentWindow, "deckChooser"):
-        did = self.parentWindow.deckChooser.selectedId()
-        deck = self.mw.col.decks.nameOrNone(did)
-        where = "deck"
-        if deck:
-            query = "deck:'%s'" % (deck)
-    else:
-        query = ""
-        where = "collection"
 
-    if not results:
-        tooltip("Could not find any past notes in current deck.<br>"
-                "If you just imported a deck you might have to restart Anki.")
-        return False
-    results.sort(reverse=True)
-
-    # Get user selection
-    if mode == "history":
-        ret = historyRestore(self, mode, results, model, fld)
+    # for predefined, don't compute deck info
+    if mode == "predefined":
+        ret = predefinedRestore(self, model, fld)
+        if ret is False:
+            return False
     else:
-        ret = quickRestore(self, mode, results, model, fld)
+        # Perform search
+        if hasattr(self.parentWindow, "deckChooser"):
+            did = self.parentWindow.deckChooser.selectedId()
+            deck = self.mw.col.decks.nameOrNone(did)
+            where = "deck"
+            if deck:
+                query = "deck:'%s'" % (deck)
+        else:
+            query = ""
+            where = "collection"
+        results = self.note.col.findNotes(query)
+        if not results:
+            tooltip(f"Could not find any past notes in current {where}.<br>"
+                    "If you just imported a deck you might have to restart Anki.")
+            return False
+        results.sort(reverse=True)
+
+        # Get user selection
+        if mode == "history":
+            ret = historyRestore(self, mode, results, model, fld)
+        else:
+            ret = quickRestore(self, mode, results, model, fld)
     if ret is False:
         return False
 
@@ -190,6 +221,8 @@ def restoreEditorFields(self, mode):
 def onSetupButtons20(editor):
     t = QShortcut(QKeySequence(history_window_shortcut), editor.parentWindow)
     t.activated.connect(lambda: editor.restoreEditorFields("history"))
+    t = QShortcut(QKeySequence(predefined_window_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: editor.restoreEditorFields("predefined"))
     if not isinstance(editor.parentWindow, AddCards):
         return  # only enable in add cards dialog
     t = QShortcut(QKeySequence(full_restore_shortcut), editor.parentWindow)
@@ -204,6 +237,8 @@ def onSetupShortcuts21(cuts, editor):
     added_shortcuts = [
         (history_window_shortcut,
             lambda: editor.restoreEditorFields("history")),
+        (predefined_window_shortcut,
+            lambda: editor.restoreEditorFields("predefined")),
     ]
     if isinstance(editor.parentWindow, AddCards):
         added_shortcuts += [
@@ -215,6 +250,7 @@ def onSetupShortcuts21(cuts, editor):
              lambda: editor.restoreEditorFields("field")),
         ]
     cuts.extend(added_shortcuts)
+
 
 # Hooks and monkey-patches:
 Editor.restoreEditorFields = restoreEditorFields
