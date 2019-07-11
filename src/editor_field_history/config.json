@@ -1,5 +1,6 @@
 {
     "limit search to deck": true,
+	"number of note to consider in history": 100,
     "historyWindowShortcut": "Ctrl+Alt+H",
     "predefinedWindowShortcut": "Ctrl+Alt+P",
     "fieldRestoreShortcut": "Alt+Z",

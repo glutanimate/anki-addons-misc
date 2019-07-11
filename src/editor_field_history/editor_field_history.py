@@ -109,7 +109,7 @@ def historyRestore(self, mode, results, model, fld):
     field = model['flds'][fld]['name']
     last_vals = {}
     keys = []
-    for nid in results[:100]:
+    for nid in results[:config.get("number of note to consider in history", 100)]:
         oldNote = self.note.col.getNote(nid)
         if field in oldNote:
             html = oldNote[field]
