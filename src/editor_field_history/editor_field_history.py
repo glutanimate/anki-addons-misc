@@ -147,20 +147,22 @@ def restoreEditorFields(self, mode):
     if not self.note:  # catch invalid state
         return
 
-    # Gather note info
     fld = self.currentField
     if fld is None and mode in ("history", "field"):
         # only necessary on anki20
         tooltip("Please select a field whose last entry you want to restore.")
         return False
-    did = self.parentWindow.deckChooser.selectedId()
-    deck = self.mw.col.decks.nameOrNone(did)
     model = self.note.model()
+    if hasattr(self.parentWindow, "deckChooser"):
+        did = self.parentWindow.deckChooser.selectedId()
+        deck = self.mw.col.decks.nameOrNone(did)
+        where = "deck"
+        if deck:
+            query = "deck:'%s'" % (deck)
+    else:
+        query = ""
+        where = "collection"
 
-    # Perform search
-    if deck:
-        query = "deck:'%s'" % (deck)
-        results = self.note.col.findNotes(query)
     if not results:
         tooltip("Could not find any past notes in current deck.<br>"
                 "If you just imported a deck you might have to restart Anki.")
@@ -186,6 +188,8 @@ def restoreEditorFields(self, mode):
 # Assign hotkeys
 
 def onSetupButtons20(editor):
+    t = QShortcut(QKeySequence(history_window_shortcut), editor.parentWindow)
+    t.activated.connect(lambda: editor.restoreEditorFields("history"))
     if not isinstance(editor.parentWindow, AddCards):
         return  # only enable in add cards dialog
     t = QShortcut(QKeySequence(full_restore_shortcut), editor.parentWindow)
@@ -194,25 +198,23 @@ def onSetupButtons20(editor):
     t.activated.connect(lambda: editor.restoreEditorFields("partial"))
     t = QShortcut(QKeySequence(field_restore_shortcut), editor.parentWindow)
     t.activated.connect(lambda: editor.restoreEditorFields("field"))
-    t = QShortcut(QKeySequence(history_window_shortcut), editor.parentWindow)
-    t.activated.connect(lambda: editor.restoreEditorFields("history"))
 
 
 def onSetupShortcuts21(cuts, editor):
-    if not isinstance(editor.parentWindow, AddCards):
-        return  # only enable in AddCards dialog
     added_shortcuts = [
-        (full_restore_shortcut,
-            lambda: editor.restoreEditorFields("full"), True),
-        (partial_restore_shortcut,
-            lambda: editor.restoreEditorFields("partial"), True),
-        (field_restore_shortcut,
-            lambda: editor.restoreEditorFields("field")),
         (history_window_shortcut,
             lambda: editor.restoreEditorFields("history")),
     ]
+    if isinstance(editor.parentWindow, AddCards):
+        added_shortcuts += [
+            (full_restore_shortcut,
+             lambda: editor.restoreEditorFields("full"), True),
+            (partial_restore_shortcut,
+             lambda: editor.restoreEditorFields("partial"), True),
+            (field_restore_shortcut,
+             lambda: editor.restoreEditorFields("field")),
+        ]
     cuts.extend(added_shortcuts)
-
 
 # Hooks and monkey-patches:
 Editor.restoreEditorFields = restoreEditorFields
