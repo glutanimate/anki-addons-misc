@@ -184,7 +184,7 @@ def restoreEditorFields(self, mode):
             return False
     else:
         # Perform search
-        if hasattr(self.parentWindow, "deckChooser"):
+        if config.get("limit search to deck", True) and hasattr(self.parentWindow, "deckChooser"):
             did = self.parentWindow.deckChooser.selectedId()
             deck = self.mw.col.decks.nameOrNone(did)
             where = "deck"

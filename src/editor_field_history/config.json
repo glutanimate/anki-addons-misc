@@ -1,4 +1,5 @@
 {
+    "limit search to deck": true,
     "historyWindowShortcut": "Ctrl+Alt+H",
     "predefinedWindowShortcut": "Ctrl+Alt+P",
     "fieldRestoreShortcut": "Alt+Z",
