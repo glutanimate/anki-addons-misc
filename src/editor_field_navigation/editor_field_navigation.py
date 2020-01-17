@@ -6,11 +6,10 @@ Anki Add-on: Quick Field Navigation
 Implements shortcuts that allow you to navigate 
 through your fields in the card editor.
 
-Copyright: Glutanimate 2015-2017 <https://glutanimate.com/>
+Copyright: Glutanimate 2015-2020 <https://glutanimate.com/>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
-from aqt.qt import *
 from anki.hooks import addHook
 
 def changeFocusTo(self, fldnr):
@@ -28,12 +27,10 @@ def changeFocusTo(self, fldnr):
     self.web.setFocus()
     self.web.eval("focusField(%d);" % int(fldnr))
 
-def onSetupButtons(self):
-    for i in range(0,10):
-        s = QShortcut(QKeySequence("Ctrl" + "+" + str(i)), self.parentWindow)
-        s.activated.connect(lambda f=i : changeFocusTo(self, f))
+def onSetupShortcuts(cuts, editor):
+    cuts.extend(
+        [(f"Ctrl+{i}", lambda f=i: changeFocusTo(editor, f), True) for i in range(10)]
+    )
+    return cuts
 
-    s = QShortcut(QKeySequence("Alt+Shift+F"), self.parentWindow)
-    s.activated.connect(lambda: self.web.setFocus())
-
-addHook("setupEditorButtons", onSetupButtons)
+addHook("setupEditorShortcuts", onSetupShortcuts)
