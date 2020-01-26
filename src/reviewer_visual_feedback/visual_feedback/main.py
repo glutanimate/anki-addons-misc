@@ -64,12 +64,18 @@ def _linkHandler20(self, url, _old):
             confirm(passed, duration) 
     _old(self, url)
 
-def onAnswerCard(reviewer, ease):
+def legacyOnAnswerCard(reviewer, ease):
     if reviewer.state == "answer":
         if ease == 1:
             confirm(lapsed, duration)
         elif ease in (2, 3, 4):
             confirm(passed, duration)
+
+def onAnswerCard(reviewer, card, ease):
+    if ease == 1:
+        confirm(lapsed, duration)
+    elif ease in (2, 3, 4):
+        confirm(passed, duration)
 
 _lab = None
 _timer = None
@@ -103,4 +109,11 @@ if ANKI20:
     Reviewer._keyHandler = wrap(Reviewer._keyHandler, _keyHandler20, "around")
     Reviewer._linkHandler = wrap(Reviewer._linkHandler, _linkHandler20, "around")
 else:
-    Reviewer._answerCard = wrap(Reviewer._answerCard, onAnswerCard, "before")
+    try:
+        from aqt.gui_hooks import reviewer_did_answer_card
+
+        reviewer_did_answer_card.append(onAnswerCard)
+
+    except (ImportError, ModuleNotFoundError):  # Anki < 2.1.20
+        Reviewer._answerCard = wrap(Reviewer._answerCard, legacyOnAnswerCard,
+                                    "before")
