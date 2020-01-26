@@ -65,10 +65,11 @@ def _linkHandler20(self, url, _old):
     _old(self, url)
 
 def onAnswerCard(reviewer, ease):
-    if ease == 1:
-        confirm(lapsed, duration)
-    elif ease in (2, 3, 4):
-        confirm(passed, duration)
+    if reviewer.state == "answer":
+        if ease == 1:
+            confirm(lapsed, duration)
+        elif ease in (2, 3, 4):
+            confirm(passed, duration)
 
 _lab = None
 _timer = None
@@ -102,4 +103,4 @@ if ANKI20:
     Reviewer._keyHandler = wrap(Reviewer._keyHandler, _keyHandler20, "around")
     Reviewer._linkHandler = wrap(Reviewer._linkHandler, _linkHandler20, "around")
 else:
-    Reviewer._answerCard = wrap(Reviewer._answerCard, onAnswerCard, "after")
+    Reviewer._answerCard = wrap(Reviewer._answerCard, onAnswerCard, "before")
