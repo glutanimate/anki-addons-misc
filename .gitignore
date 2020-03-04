@@ -43,3 +43,4 @@ tools/test.py
 *~
 addon.json
 labels.toml
+.pytest_cache/
