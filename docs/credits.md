@@ -20,7 +20,6 @@ The following add-ons were forked from [steveaw/anki_addons](https://github.com/
 The original versions of the following add-ons were likely written by nest0r/ja-dark who [disappeared from the Anki scene](https://forum.koohii.com/thread-14570.html) in early 2017:
 
 - reviewer_progress_bar
-- reviewer_visual_feedback
 
 --------------
 

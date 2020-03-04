@@ -2,8 +2,7 @@
 
 ### Overview
 
-- last modification date: *2018-02-15*
-- current conversion ratio: **18**/59
+- last modification date: *2020-03-04*
 - major blockers outside of Python3/Qt5:
     + Extensive modifications to Reviewer and Editor
     + Extensive modification to Scheduler
@@ -13,7 +12,7 @@
 |              Add-on              |        Status        |                                                Notes / Issues                                                |
 |----------------------------------|----------------------|--------------------------------------------------------------------------------------------------------------|
 | browser_batch_edit               | (:white_check_mark:) | cosmetics: attachment icon not working                                                                       |
-| browser_batch_remove_formatting  | :x:                  | BeautifulSoup                                                                                                |
+| browser_batch_remove_formatting  | :white_check_mark:   | BeautifulSoup                                                                                                |
 | browser_create_duplicate         | :white_check_mark:   |                                                                                                              |
 | browser_create_filtered_deck     | :white_check_mark:   |                                                                                                              |
 | browser_external_editor          | :x:                  | SIGNALS, potentially complex Editor changes                                                                  |
@@ -47,9 +46,9 @@
 | reviewer_letitsnow               | (:white_check_mark:) | potential display issues with latest betas                                                                   |
 | reviewer_more_answer_buttons     | :x:                  | Reviewer._keyHandler, complex changes to answer button methods                                               |
 | reviewer_progress_bar            | :white_check_mark:   |                                                                                                              |
-| reviewer_puppy_reinforcement     | :x:                  | Reviewer.nextCard                                                                                            |
+| reviewer_puppy_reinforcement     | :white_check_mark:   | Reviewer.nextCard                                                                                            |
 | reviewer_track_unseen            | :x:                  | PyQt4, SIGNALS, potentially obsolete                                                                         |
-| reviewer_visual_feedback         | :x:                  | Reviewer._keyHandler , Reviewer._linkHandler                                                                 |
+| reviewer_visual_feedback         | :white_check_mark:   | Reviewer._keyHandler , Reviewer._linkHandler                                                                 |
 | sched_advanced_newcard_limits    | :white_check_mark:   |                                                                                                              |
 | sched_deck_orgactions            | :white_check_mark:   |                                                                                                              |
 | sched_filter_dailydue            | :grey_question:      |                                                                                                              |

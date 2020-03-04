@@ -37,10 +37,8 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [reviewer_letitsnow: Let it Snow!](#reviewer_letitsnow-let-it-snow)
 - [reviewer_more_answer_buttons: More Answer Buttons for New Cards](#reviewermore_answerbuttons-more-answer-buttons-for-new-cards)
 - [reviewer_progress_bar: Progress Bar](#reviewerprogressbar-progress-bar)
-- [reviewer_puppy_reinforcement: Puppy Reinforcement](#reviewerpuppyreinforcement-puppy-reinforcement)
 - [reviewer_refocus_card: Refocus Card when Reviewing \(2.1\)](#reviewerrefocuscard-refocus-card-when-reviewing-21)
 - [reviewer_track_unseen](#reviewertrackunseen)
-- [reviewer_visual_feedback: Visual Feedback for Reviews](#reviewervisualfeedback-visual-feedback-for-reviews)
 - [sched_advanced_newcard_limits: Limit New Cards to Less Than One](#schedadvanced_newcardlimits-limit-new-cards-to-less-than-one)
 - [sched_sibling_spacing_whitelist](#schedsibling_spacingwhitelist)
 - [search_last_edited: Search for Cards by Last Edit Date](#searchlastedited-search-for-cards-by-last-edit-date)
@@ -49,6 +47,7 @@ These are the add-on descriptions, as found on [AnkiWeb](https://ankiweb.net/sha
 - [tagedit_subtag_completer: Substring Tag Completion](#tageditsubtagcompleter-substring-tag-completion)
 
 <!-- /MarkdownTOC -->
+
 
 ------------------------------------------
 
@@ -1450,69 +1449,6 @@ New to Anki? Make sure to check out my YouTube channel where I post weekly tutor
 
 ------------------------------------------
 
-## reviewer_puppy_reinforcement: Puppy Reinforcement
-
-Uses **intermittent reinforcement** with **cute puppies** to encourage card review streaks.
-
-Based on [Show Cute Dogs](https://ankiweb.net/shared/info/1125592690) by Michael Bertolacci.
-
-**SCREENSHOT**
-
-![](https://raw.githubusercontent.com/Glutanimate/anki-addons-misc/master/screenshots/reviewer_puppy_reinforcement.png)
-
-**VIDEO TUTORIAL**
-
-The customization and use of the Puppy Reinforcement add-on is demonstrated in the following video (alongside other similar add-ons):
-
-[![YouTube: Anki add-on guide: Gamify Your Reviews](https://i.ytimg.com/vi/UkveLkAgXiM/mqdefault.jpg)](https://youtu.be/UkveLkAgXiM)
-
-**COMPATIBILITY**
-
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
-
-**DIFFERENCES FROM THE ORIGINAL**
-
-- Uses tooltips instead of a separate window
-- The puppies are spread intermittently through your reviews. By default they will appear around every 10 cards (some take longer than others). You can customize this by editing the add-on)
-- Customizable encouragement messages that change based on the card tally
-- Removed cats and other non-puppies
-
-**OTHER NOTES**
-
-- The add-on comes with around 50 puppies by default, but you can add more by placing additional images in the puppy_reinforcement folder next to the add-on
-- the tooltip will appear slightly higher than tooltips in Anki usually do. This is to prevent overlapping with other tooltips (e.g. the ones produced by the answer confirmation add-on)
-
-**CHANGELOG**
-
-2017-08-08 – New options: duration, image size, card limits (thanks to Lucas on YT for the ideas)
-2017-08-06 – Update license
-2016-11-18 – Initial release
-
-**CONFIGURATION**
-
-The configuration can be customized by either using Anki 2.1's inbuilt add-on configuration screen (*Tools* → *Add-ons* → select *Puppy Reinforcement* → click on *Config*), or by manually editing the corresponding config keys in `puppy_reinforcer/meta.json` in Anki's add-on folder (Anki 2.0) [the config.json file contains the default values and **should not be modified**.].
-
-**SUPPORT**
-
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
-
-**CREDITS AND LICENSE**
-
-(c) 2015 [mbertolacci](https://github.com/mbertolacci)
-(c) 2016-2017 [Glutanimate](https://github.com/Glutanimate)
-
-Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
-
-**MORE RESOURCES**
-
-A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
-
-Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
-
-New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
-
-------------------------------------------
-
 ## reviewer_refocus_card: Refocus Card when Reviewing (2.1)
 
 Sets focus to the card area, allowing you to scroll through your cards using Page Up / Page Down, etc.
@@ -1550,55 +1486,6 @@ New to Anki? Feel free to check out my YouTube channel where I post weekly tutor
 ------------------------------------------
 
 ## reviewer_track_unseen
-
-------------------------------------------
-
-## reviewer_visual_feedback: Visual Feedback for Reviews
-
-Provides **feedback** for reviews by **flashing** a **small transparent image** at the center of your screen that varies between lapses and passed cards.
-
-**SCREENSHOT**
-
-![](https://raw.githubusercontent.com/glutanimate/anki-addons-misc/master/screenshots/reviewer_visual_feedback.png)
-
-**VIDEO TUTORIAL**
-
-The customization and use of the Visual Feedback add-on is demonstrated in the following video (alongside other similar add-ons):
-
-[![YouTube: Anki add-on guide: Gamify Your Reviews](https://i.ytimg.com/vi/UkveLkAgXiM/mqdefault.jpg)](https://youtu.be/UkveLkAgXiM)
-
-**COMPATIBILITY**
-
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
-
-**CONFIGURATION**
-
-The displayed image and the duration it is shown for can be customized by modifying the configuration section at the top of the add-on.
-
-**CHANGELOG**
-
-2017-08-06 – Add configuration section
-2017-06-15 – Re-upload
-
-**SUPPORT**
-
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
-
-**CREDITS AND LICENSE**
-
-This is a fork of an add-on which was removed from AnkiWeb in early 2017. The original was most likely written by nest0r/Ja-Dark who [apparently deleted all of their shared Anki resources](https://forum.koohii.com/thread-14570.html). There is no way to tell for sure since the original add-on description did not contain a copyright notice or attribution to a specific author.
-
-The modifications since the re-upload are *Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*.
-
-Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
-
-**MORE RESOURCES**
-
-A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
-
-Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
-
-New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
 ------------------------------------------
 
