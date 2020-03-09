@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "CTRLF5 to Refresh the Browser",
+  "properties": {
+    "historyWindowShortcut": {
+      "type": "string",
+      "title": "history window shortcut",
+      "pattern": "^((([Cc][Tt][Rr][Ll]|[Aa][Ll][Tt]|[Ss][Hh][Ii][Ff][Tt])\\+){0,3}([a-zA-Z0-9]|F[1-9]|F1[0-2]))?$",
+      "default": "Ctrl+Alt+H"
+     },
+    "fieldRestoreShortcut": {
+      "type": "string",
+      "title": "field restore shortcut",
+      "pattern": "^((([Cc][Tt][Rr][Ll]|[Aa][Ll][Tt]|[Ss][Hh][Ii][Ff][Tt])\\+){0,3}([a-zA-Z0-9]|F[1-9]|F1[0-2]))?$",
+      "default": "Alt+Z"
+     },
+    "partialRestoreShortcut": {
+      "title": "partial restore shortcut",
+      "type": "string",
+      "pattern": "^((([Cc][Tt][Rr][Ll]|[Aa][Ll][Tt]|[Ss][Hh][Ii][Ff][Tt])\\+){0,3}([a-zA-Z0-9]|F[1-9]|F1[0-2]))?$",
+      "default": "Ctrl+Alt+Shift+Z"
+     },
+    "fullRestoreShortcut": {
+      "type": "string",
+      "title": "Full restore shortcut",
+      "pattern": "^((([Cc][Tt][Rr][Ll]|[Aa][Ll][Tt]|[Ss][Hh][Ii][Ff][Tt])\\+){0,3}([a-zA-Z0-9]|F[1-9]|F1[0-2]))?$",
+      "default": "Ctrl+Alt+Shift+Z"
+     },
+    "partialRestoreFields": {
+      "title": "Partial restore fields",
+      "description": "List of fields to restore when using `partialRestoreShortcut`",
+      "type": "array",
+      "default": [],
+      "items": {
+        "title": "field",
+        "type": "string"
+      }
+    }
+  }
+}
