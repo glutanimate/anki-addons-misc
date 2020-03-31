@@ -137,45 +137,6 @@ Want to stay up-to-date with my latest add-on releases and updates? Feel free to
 
 New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
 
-
-------------------------------------------
-
-## browser_external_editor: External Note Editor for the Browser
-
-Extends the card browser with a **shortcut** and menu action that **launches an external editor window** for the current note (`CTRL`+`ALT`+`E`).
-
-Here's a quick video demonstration:
-
-[![YouTube: Anki add-on: External Note Editor for the Card Browser](https://i.ytimg.com/vi/dEL8204lOq4/mqdefault.jpg)](https://youtu.be/dEL8204lOq4)
-
-**COMPATIBILITY**
-
-This add-on only works with Anki's stable release branch (2.0.x ≥ 2.0.30). The 2.1 beta branch is **not supported** at this point in time.
-
-**CHANGELOG**
-
-2017-08-06 – Update license
-2017-02-21 – Initial release
-
-**SUPPORT**
-
-Please **do not report issues or bugs in the review section below**, as I will not be able to reply to them nor help you. Instead, please report all issues you encounter either on [GitHub](https://github.com/glutanimate/anki-addons-misc/issues), or by posting a new thread on the [Anki add-on support forums](https://anki.tenderapp.com/discussions/add-ons) while mentioning the name of the affected add-on in your thread title.
-
-**CREDITS AND LICENSE**
-
-*Copyright (c) 2017 [Glutanimate](https://github.com/Glutanimate)*
-
-Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html). The code for this add-on is available on [![GitHub icon](https://glutanimate.com/logos/github.svg) GitHub](https://github.com/Glutanimate/anki-addons-misc).
-
-**MORE RESOURCES**
-
-A lot of my add-ons were commissioned by other Anki users. If you enjoy my work and would like to hire my services to work on an add-on or new feature, please feel free to reach out to me at:  ![Email icon](https://glutanimate.com/logos/email.svg) <em>ankiglutanimate [αt] gmail . com</em>
-
-Want to stay up-to-date with my latest add-on releases and updates? Feel free to follow me on Twitter: [![Twitter bird](https://glutanimate.com/logos/twitter.svg)@Glutanimate](https://twitter.com/glutanimate)
-
-New to Anki? Make sure to check out my YouTube channel where I post weekly tutorials on Anki add-ons and related topics: [![YouTube playbutton](https://glutanimate.com/logos/youtube.svg) / Glutanimate](https://www.youtube.com/c/glutanimate)
-
-
 ------------------------------------------
 
 ## browser_more_hotkeys

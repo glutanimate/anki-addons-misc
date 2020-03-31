@@ -2,7 +2,7 @@
 
 ### Overview
 
-- last modification date: *2020-03-04*
+- last modification date: *2020-03-31*
 - major blockers outside of Python3/Qt5:
     + Extensive modifications to Reviewer and Editor
     + Extensive modification to Scheduler
@@ -15,8 +15,8 @@
 | browser_batch_remove_formatting  | :white_check_mark:   | BeautifulSoup                                                                                                |
 | browser_create_duplicate         | :white_check_mark:   |                                                                                                              |
 | browser_create_filtered_deck     | :white_check_mark:   |                                                                                                              |
-| browser_external_editor          | :x:                  | SIGNALS, potentially complex Editor changes                                                                  |
-| browser_field_to_tags            | :white_check_mark:   |                                                                                                              |
+| browser_external_editor          | :white_check_mark:   | SIGNALS, potentially complex Editor changes                                                                  |
+| browser_field_to_tags            | :white_check_mark:   |                                                                                                                 |
 | browser_more_hotkeys             | :x:                  | SIGNALS                                                                                                      |
 | browser_refresh                  | :x:                  | Browser.onSearch                                                                                             |
 | browser_replace_tag              | :white_check_mark:   |                                                                                                              |
