@@ -59,7 +59,7 @@ class CustomTextEdit(TagEdit):
     def __init__(self, parent, strings):
         super(CustomTextEdit, self).__init__(parent, type=1)
         self.strings = strings
-        self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+        self.completer_.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
 
     def focusInEvent(self, evt):
         # anki21 TagEdit does not invoke popup by default
@@ -73,7 +73,7 @@ class CustomTextEdit(TagEdit):
         else:
             filtered = [i for i in self.strings if text.lower() in i.lower()]
         self.model.setStringList(filtered)
-        self.completer.complete()
+        self.completer_.complete()
 
 
 def myGetField(parent, question, last_val, **kwargs):
