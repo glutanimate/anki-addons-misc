@@ -168,7 +168,7 @@ def restoreEditorFields(self, mode):
 
     # Perform search
     if deck:
-        query = "deck:'%s'" % (deck)
+        query = 'deck:"%s"' % (deck)
         results = self.note.col.findNotes(query)
     if not results:
         tooltip("Could not find any past notes in current deck.<br>"
