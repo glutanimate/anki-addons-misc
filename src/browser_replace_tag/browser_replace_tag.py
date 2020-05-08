@@ -14,6 +14,7 @@ from aqt.qt import *
 from aqt.utils import getText, tooltip
 from aqt.tagedit import TagEdit
 from anki.hooks import addHook
+from anki.lang import _
 
 
 def myGetTag(parent, deck, question, tags="user", taglist=None, **kwargs):
