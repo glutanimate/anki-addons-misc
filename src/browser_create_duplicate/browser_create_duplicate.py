@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Anki Add-on: Duplicate Selected Notes 
+Anki Add-on: Duplicate Selected Notes
 
 Select any number of cards in the card browser and duplicate their notes
 
@@ -47,7 +47,7 @@ def createDuplicate(self):
     if deck['dyn']:
         tooltip(_("Cards can't be duplicated when they are in a filtered deck."), period=2000)
         return
-    
+
     # Set checkpoint
     mw.progress.start()
     mw.checkpoint("Duplicate Notes")
@@ -58,19 +58,14 @@ def createDuplicate(self):
         # print "Found note: %s" % (nid)
         note = mw.col.getNote(nid)
         model = note._model
-        
-        # Assign model to deck
-        mw.col.decks.select(deck['id'])
-        mw.col.decks.get(deck)['mid'] = model['id']
-        mw.col.decks.save(deck)
 
-        # Assign deck to model
+        # Assign deck to current model
         mw.col.models.setCurrent(model)
-        mw.col.models.current()['did'] = deck['id']
+        mw.col.models.current(False)['did'] = deck['id']
         mw.col.models.save(model)
-        
-        # Create new note
-        note_copy = mw.col.newNote()
+
+        # Create new note using current model
+        note_copy = mw.col.newNote(False)
         # Copy tags and fields (all model fields) from original note
         note_copy.tags = note.tags
         note_copy.fields = note.fields
@@ -78,7 +73,7 @@ def createDuplicate(self):
         # Refresh note and add to database
         note_copy.flush()
         mw.col.addNote(note_copy)
-        
+
     # Reset collection and main window
     self.model.endReset()
     mw.col.reset()
@@ -86,8 +81,8 @@ def createDuplicate(self):
     mw.progress.finish()
 
     tooltip(_("Notes duplicated."), period=1000)
-    
-    
+
+
 def setupMenu(self):
     menu = self.form.menuEdit
     menu.addSeparator()
