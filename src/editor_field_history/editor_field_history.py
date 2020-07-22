@@ -46,6 +46,7 @@ if ANKI21:
     partial_restore_shortcut = config["partialRestoreShortcut"]
     full_restore_shortcut = config["fullRestoreShortcut"]
     partial_restore_fields = config["partialRestoreFields"]
+    max_notes = config["maxNotes"]
 
 # Ctrl+Alt+H is a global hotkey on macOS
 # Hacky solution for anki21. A platform-specific config.json would be
@@ -86,7 +87,7 @@ def historyRestore(self, mode, results, model, fld):
     field = model['flds'][fld]['name']
     last_val = {}
     keys = []
-    for nid in results[:100]:
+    for nid in results[:max_notes]:
         oldNote = self.note.col.getNote(nid)
         if field in oldNote:
             html = oldNote[field]

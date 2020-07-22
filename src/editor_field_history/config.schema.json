@@ -36,6 +36,12 @@
         "title": "field",
         "type": "string"
       }
-    }
+    },
+    "maxNotes": {
+      "type": "number",
+      "title": "Max notes",
+      "description": "Maximum number of notes to query when checking field history.",
+      "default": 100
+     }
   }
 }
