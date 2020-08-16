@@ -32,7 +32,8 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 from aqt.qt import *
 from anki.hooks import addHook
 from aqt.utils import tooltip
-from anki.utils import timestampID
+from anki.lang import _
+
 
 def createDuplicate(self):
     mw = self.mw
@@ -57,7 +58,7 @@ def createDuplicate(self):
     for nid in self.selectedNotes():
         # print "Found note: %s" % (nid)
         note = mw.col.getNote(nid)
-        model = note._model
+        model = note.model()
 
         # Assign deck to current model
         mw.col.models.setCurrent(model)
@@ -70,9 +71,8 @@ def createDuplicate(self):
         note_copy.tags = note.tags
         note_copy.fields = note.fields
 
-        # Refresh note and add to database
-        note_copy.flush()
-        mw.col.addNote(note_copy)
+        # Add to database
+        mw.col.add_note(note_copy, deck['id'])
 
     # Reset collection and main window
     self.model.endReset()
@@ -91,7 +91,9 @@ def setupMenu(self):
     a.setShortcut(QKeySequence("Ctrl+Alt+C"))
     a.triggered.connect(lambda _, b=self: onCreateDuplicate(b))
 
+
 def onCreateDuplicate(self):
     createDuplicate(self)
+
 
 addHook("browser.setupMenus", setupMenu)
