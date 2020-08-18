@@ -106,11 +106,11 @@ pbStyle = ""  # Stylesheet used only if blank. Else uses QPalette + theme style.
 
 # Set up variables
 
-remainCount = {}  # {did: remaining count (weighted) of the deck}, calculated with data from Anki col and sched
+remainCount = {}  # {did: remaining count (weighted) of the deck}
 doneCount = {}  # {did: done count (weighted) of the deck}, calculated as total - remain when showing next question
 totalCount = {}  # {did: max total count (weighted) that was seen}, calculated as remain + done after state change
 # NOTE: did stands for 'deck id'
-# See comments on updateCountsForAllDecks() for further usage.
+# For old API of deckDueList(), these counts don't include cards in children decks. For new deck_due_tree(), they do.
 
 
 currDID: Optional[int] = None  # current deck id (None means at the deck browser)
@@ -152,6 +152,9 @@ try:
     '''
 except ImportError:
     nmUnavailable = 1
+
+useOldAnkiAPI = anki_version.startswith("2.0.") or (
+            anki_version.startswith("2.1.") and int(anki_version.split(".")[-1]) < 28)
 
 
 def initPB() -> None:
@@ -222,14 +225,32 @@ def _dock(pb: QProgressBar) -> QDockWidget:
 
 def updatePB() -> None:
     """Update progress bar range and value with currDID, totalCount[] and doneCount[]"""
-    if currDID:
-        # In a specific deck
-        pbMax = totalCount[currDID]
-        pbValue = doneCount[currDID]
+    if useOldAnkiAPI:
+        # With old API, counts don't include cards in child decks
+        if currDID:  # in a specific deck
+            deckName = mw.col.decks.name(currDID)
+            pbMax = pbValue = 0
+            # Sum up all children decks
+            for deckProp in mw.col.sched.deckDueList():
+                name = deckProp[0]
+                did = deckProp[1]
+                if name.startswith(deckName):
+                    pbMax += totalCount[did]
+                    pbValue += doneCount[did]
+        else:  # at desk browser
+            pbMax = sum(totalCount.values())
+            pbValue = sum(doneCount.values())
     else:
-        # At desk browser
-        pbMax = sum(totalCount.values())
-        pbValue = sum(doneCount.values())
+        # With new API, counts include cards in child decks
+        if currDID:  # in a specific deck
+            pbMax = totalCount[currDID]
+            pbValue = doneCount[currDID]
+        else:  # at desk browser
+            pbMax = pbValue = 0
+            # Sum top-level decks
+            for node in mw.col.sched.deck_due_tree().children:
+                pbMax += totalCount[node.deck_id]
+                pbValue += doneCount[node.deck_id]
 
     # showInfo("pbMax = %d, pbValue = %d" % (pbMax, pbValue))
 
@@ -306,7 +327,7 @@ def updateCountsForAllDecks(updateTotal: bool) -> None:
     :param updateTotal: True for afterStateChange hook, False for showQuestion hook
     """
 
-    if anki_version.startswith("2.0.") or (anki_version.startswith("2.1.") and int(anki_version.split(".")[-1]) < 28):
+    if useOldAnkiAPI:
         for deckProp in mw.col.sched.deckDueList():
             did = deckProp[1]
             remain = calcProgress(deckProp[2], deckProp[3], deckProp[4])
@@ -317,7 +338,6 @@ def updateCountsForAllDecks(updateTotal: bool) -> None:
 
 
 def updateCountsForTree(node, updateTotal: bool) -> None:
-
     did = node.deck_id
     remain = calcProgress(node.review_count, node.learn_count, node.new_count)
 
