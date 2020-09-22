@@ -76,8 +76,8 @@ def createDuplicate(self):
         note_copy.fields = note.fields
 
         # Refresh note and add to database
-        note_copy.flush()
         mw.col.addNote(note_copy)
+        note_copy.flush()
         
     # Reset collection and main window
     self.model.endReset()
