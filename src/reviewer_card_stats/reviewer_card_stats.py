@@ -17,6 +17,7 @@ Copyright: (c) Glutanimate 2016-2017 <https://glutanimate.com/>
 License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 """
 
+from aqt.theme import theme_manager
 from anki.hooks import addHook
 from aqt import mw
 from aqt.qt import *
@@ -165,16 +166,24 @@ please see the browser documentation.""")
         if not txt:
             txt = _("No current card or last card.")
         style = self._style()
-        self.web.setHtml("""
+        self.web.setHtml(
+            """
 <html><head>
 </head><style>%s</style>
-<body><center>%s</center></body></html>"""% (style, txt))
-                
+<body><center>%s</center></body></html>"""
+            % (style, txt)
+        )
+
     def _style(self):
-        from anki import version
-        if version.startswith("2.0."):
-            return ""
-        return "td { font-size: 80%; }"
+        return f"""
+td {{
+    font-size: 80%; }}
+body {{
+    background: {theme_manager.str_color("window-bg")} }}
+td, h3, center {{ 
+    color: {theme_manager.str_color("text-fg")}
+}}
+"""
 
 _cs = StatsSidebar(mw)
 
