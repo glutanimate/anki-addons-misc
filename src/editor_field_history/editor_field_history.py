@@ -59,7 +59,7 @@ class CustomTextEdit(TagEdit):
     def __init__(self, parent, strings):
         super(CustomTextEdit, self).__init__(parent, type=1)
         self.strings = strings
-        self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+        self._completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
 
     def focusInEvent(self, evt):
         # anki21 TagEdit does not invoke popup by default
@@ -73,7 +73,7 @@ class CustomTextEdit(TagEdit):
         else:
             filtered = [i for i in self.strings if text.lower() in i.lower()]
         self.model.setStringList(filtered)
-        self.completer.complete()
+        self._completer.complete()
 
 
 def myGetField(parent, question, last_val, **kwargs):
@@ -162,7 +162,7 @@ def restoreEditorFields(self, mode):
         tooltip("Please select a field whose last entry you want to restore.")
         saveChanges(self, fld)
         return False
-    did = self.parentWindow.deckChooser.selectedId()
+    did = self.parentWindow.deck_chooser.selectedId()
     deck = self.mw.col.decks.nameOrNone(did)
     model = self.note.model()
 
