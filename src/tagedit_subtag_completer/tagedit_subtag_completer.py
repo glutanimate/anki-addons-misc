@@ -120,7 +120,7 @@ class CustomTagEdit(OldTagEdit):
     def __init__(self, parent, type=0):
         OldTagEdit.__init__(self, parent, type=type)
         self.type = type
-        self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+        self._completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
         # TODO: find a way to use filtered PopupCompletion 
         # (cf. https://stackoverflow.com/q/5129211/1708932)
 
@@ -132,14 +132,14 @@ class CustomTagEdit(OldTagEdit):
         else:
             l = sorted(self.col.decks.allNames())
         self.model.setStringList(l)
-        self.completer.strings = l
+        self._completer.strings = l
 
     def showCompleter(self):
         if self.type == 0: # tag selection
-            self.completer.update(self.text())
+            self._completer.update(self.text())
         else: # deck selection
-            self.completer.setCompletionPrefix(self.text())
-        self.completer.complete()
+            self._completer.setCompletionPrefix(self.text())
+        self._completer.complete()
 
 
 class CustomTagCompleter(OldTagCompleter):
