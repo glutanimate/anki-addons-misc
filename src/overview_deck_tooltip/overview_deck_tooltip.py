@@ -18,7 +18,7 @@ License: GNU AGPLv3 or later <https://www.gnu.org/licenses/agpl.html>
 from aqt.qt import *
 from anki.hooks import wrap
 from anki.lang import _, ngettext
-from anki.utils import ids2str, fmtTimeSpan
+from anki.utils import ids2str
 from aqt import mw
 from aqt.deckbrowser import DeckBrowser
 
@@ -171,7 +171,7 @@ from revlog where id > ? """ + lim, (self.col.sched.dayCutoff - 86400) * 1000)
 
         msgp1 = ngettext("<!--studied-->%d card", "<!--studied-->%d cards", cards) % cards
         b += _("Studied %(a)s in %(b)s today.") % dict(
-            a=bold(msgp1), b=bold(fmtTimeSpan(thetime, unit=1)))
+            a=bold(msgp1), b=bold(mw.col.format_timespan(thetime)))
         # again/pass count
         b += "<br>" + _("Again count: %s") % bold(failed)
         if cards:

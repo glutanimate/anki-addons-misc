@@ -25,7 +25,6 @@ import aqt.stats
 import time
 import datetime
 from anki.lang import _
-from anki.utils import fmtTimeSpan
 from anki.stats import CardStats
 
 
@@ -125,7 +124,7 @@ class StatsSidebar(object):
             if ivl == 0:
                 ivl = _("0d")
             elif ivl > 0:
-                ivl = fmtTimeSpan(ivl * 86400, short=True)
+                ivl = mw.col.format_timespan(ivl * 86400)
             else:
                 ivl = cs.time(-ivl)
 
