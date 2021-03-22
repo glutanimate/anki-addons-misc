@@ -84,7 +84,7 @@ def applyCompletion(self):
         return False
     self.completer.setCompletionPrefix(pfx)
     completion = self.completer.currentCompletion()
-    if not completion:
+    if (not completion or not completion.strip()):
         return False
     tags[tidx] = completion + " "
     self.setText(" ".join(tags))
