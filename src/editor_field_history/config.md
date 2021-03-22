@@ -5,4 +5,4 @@
 - `partialRestoreShortcut` (string): Hotkey that restores fields listed in `partialRestoreFields`. Default: `"Alt+Shift+Z"`.
 - `fullRestoreShortcut` (string): Hotkey that restores all fields at once, tags included: `"Ctrl+Alt+Shift+Z"`.
 - `partialRestoreFields` (list): List of fields to restore when using `partialRestoreShortcut` (e.g. `["Front", "Sources"]`. Default: `[]`.
-
+- `maxNotes` (int): Maximum number of notes to query when checking field history. Default: `100`
