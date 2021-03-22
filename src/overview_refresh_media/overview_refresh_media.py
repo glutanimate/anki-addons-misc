@@ -25,8 +25,8 @@ from aqt.utils import tooltip
 from aqt.qt import *
 
 def refresh_media():
-    # clear QWebView cache
-    QWebSettings.clearMemoryCaches()
+    # clear QWebView cache [commented out for 2.1 compatibility]
+    # QWebSettings.clearMemoryCaches()
     # write a dummy file to update collection.media modtime and force sync
     media_dir = mw.col.media.dir()
     fpath = os.path.join(media_dir, "syncdummy.txt")
