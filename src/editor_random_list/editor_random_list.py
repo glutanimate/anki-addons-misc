@@ -44,7 +44,7 @@ ul.shuffle{
 def toggleRandUl(self):
     self.web.eval("""
         document.execCommand('insertUnorderedList');
-        var ulElem = window.getSelection().focusNode.parentNode;
+        var ulElem = getCurrentField().getSelection().focusNode.parentNode;
         if (ulElem !== null) {
             var setAttrs = true;
             while (ulElem.toString() !== "[object HTMLUListElement]") {
