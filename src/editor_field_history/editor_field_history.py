@@ -32,7 +32,7 @@ from aqt.addcards import AddCards
 from aqt.utils import getText, tooltip
 from aqt.tagedit import TagEdit
 
-from anki.utils import stripHTML, isMac
+from anki.utils import strip_html, is_mac
 from anki.hooks import addHook
 
 from anki import version
@@ -51,7 +51,7 @@ if ANKI21:
 # Ctrl+Alt+H is a global hotkey on macOS
 # Hacky solution for anki21. A platform-specific config.json would be
 # much preferable, but is not feasible for now
-if isMac and history_window_shortcut == "Ctrl+Alt+H":
+if is_mac and history_window_shortcut == "Ctrl+Alt+H":
     history_window_shortcut = "Ctrl+O"
 
 
@@ -60,7 +60,7 @@ class CustomTextEdit(TagEdit):
     def __init__(self, parent, strings):
         super(CustomTextEdit, self).__init__(parent, type=1)
         self.strings = strings
-        self._completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+        self._completer.setCompletionMode(QCompleter.CompletionMode.UnfilteredPopupCompletion)
 
     def focusInEvent(self, evt):
         # anki21 TagEdit does not invoke popup by default
@@ -88,7 +88,7 @@ def historyRestore(self, mode, results, model, fld):
     last_val = {}
     keys = []
     for nid in results[:max_notes]:
-        oldNote = self.note.col.getNote(nid)
+        oldNote = self.note.col.get_note(nid)
         if field in oldNote:
             html = oldNote[field]
         else:
@@ -97,7 +97,7 @@ def historyRestore(self, mode, results, model, fld):
             except IndexError:
                 pass
         if html.strip():
-            text = stripHTML(html)
+            text = strip_html(html)
         else:
             text = None
         if text and text not in last_val:
@@ -116,9 +116,9 @@ def historyRestore(self, mode, results, model, fld):
 
 def quickRestore(self, mode, results, model, fld):
     # collect old data
-    oldNote = self.note.col.getNote(results[0])
-    oldTags = oldNote.stringTags().strip()
-    oldModel = oldNote.model()
+    oldNote = self.note.col.get_note(results[0])
+    oldTags = oldNote.tags
+    oldModel = oldNote.note_type()
     # restore fields
     if mode == "field":
         # restore single field
@@ -132,13 +132,13 @@ def quickRestore(self, mode, results, model, fld):
                 pass
     elif mode == "partial":
         # restore defined list of fields
-        self.tags.setText(oldTags)
+        self.note.tags = oldTags
         for field in partial_restore_fields:
             if field in oldNote:
                 self.note[field] = oldNote[field]
     elif model == oldModel:
         # restore all fields
-        self.tags.setText(oldTags)
+        self.note.tags = oldTags
         self.note.fields = oldNote.fields
     else:
         return False
@@ -164,13 +164,13 @@ def restoreEditorFields(self, mode):
         saveChanges(self, fld)
         return False
     did = self.parentWindow.deck_chooser.selectedId()
-    deck = self.mw.col.decks.nameOrNone(did)
-    model = self.note.model()
+    deck = self.mw.col.decks.name_if_exists(did)
+    model = self.note.note_type()
 
     # Perform search
     if deck:
         query = 'deck:"%s"' % (deck)
-        results = self.note.col.findNotes(query)
+        results = self.note.col.find_notes(query)
     if not results:
         tooltip("Could not find any past notes in current deck.<br>"
                 "If you just imported a deck you might have to restart Anki.")
