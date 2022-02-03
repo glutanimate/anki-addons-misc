@@ -57,27 +57,22 @@ def createDuplicate(self):
     for nid in self.selectedNotes():
         # print "Found note: %s" % (nid)
         note = mw.col.getNote(nid)
-        model = note._model
+        model = note.note_type()
         
-        # Assign model to deck
-        mw.col.decks.select(deck['id'])
-        mw.col.decks.get(deck)['mid'] = model['id']
-        mw.col.decks.save(deck)
-
         # Assign deck to model
         mw.col.models.setCurrent(model)
-        mw.col.models.current()['did'] = deck['id']
+        mw.col.models.current(False)['did'] = deck['id']
         mw.col.models.save(model)
         
         # Create new note
-        note_copy = mw.col.newNote()
+        note_copy = mw.col.newNote(False)
         # Copy tags and fields (all model fields) from original note
         note_copy.tags = note.tags
         note_copy.fields = note.fields
 
         # Refresh note and add to database
-        mw.col.addNote(note_copy)
         note_copy.flush()
+        mw.col.addNote(note_copy)
         
     # Reset collection and main window
     self.model.endReset()
