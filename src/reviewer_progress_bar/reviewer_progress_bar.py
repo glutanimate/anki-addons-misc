@@ -71,16 +71,23 @@ forceForward = False
 
 # PROGRESS BAR APPEARANCE
 
-showPercent = False  # Show the progress text percentage or not.
-showNumber = False  # Show the progress text as a fraction
+def getConfig(arg, default=""):
+    config = mw.addonManager.getConfig(__name__)
+    if config:
+        return config.get(arg, default)
+    else:
+        return default
 
-qtxt = "aliceblue"  # Percentage color, if text visible.
-qbg = "rgba(0, 0, 0, 0)"  # Background color of progress bar.
-qfg = "#3399cc"  # Foreground color of progress bar.
-qbr = 0  # Border radius (> 0 for rounded corners).
+showPercent = getConfig("showPercent", False)  # Show the progress text percentage or not.
+showNumber = getConfig("showNumber", False)  # Show the progress text as a fraction
+
+qtxt = getConfig("textColor", "aliceblue")  # Percentage color, if text visible.
+qbg = getConfig("backgroundColor", "rgba(0, 0, 0, 0)")  # Background color of progress bar.
+qfg = getConfig("foregroundColor", "#3399cc")  # Foreground color of progress bar.
+qbr = getConfig("borderRadius", 0)  # Border radius (> 0 for rounded corners).
 
 # optionally restricts progress bar width
-maxWidth = "5px"  # (e.g. "5px". default: "")
+maxWidth = getConfig("maxWidth", "5px")  # (e.g. "5px". default: "")
 
 scrollingBarWhenEditing = True  # Make the progress bar 'scrolling' when waiting to resume.
 

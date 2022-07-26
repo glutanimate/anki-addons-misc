@@ -1,0 +1,9 @@
+{
+    "showPercent": false,
+    "showNumber": false,
+    "textColor": "aliceblue",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "foregroundColor": "#3399cc",
+    "borderRadius": 0,
+    "maxWidth": "5px"
+}
