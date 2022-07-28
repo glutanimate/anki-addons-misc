@@ -108,6 +108,71 @@ pbStyle = ""  # Stylesheet used only if blank. Else uses QPalette + theme style.
     -- "windowsvista" unfortunately ignores custom colors, due to animation?
     -- Some styles don't reset bar appearance fully on undo. An annoyance.
     -- Themes gallery: http://doc.qt.io/qt-4.8/gallery.html'''
+    
+def didConfigChange():
+    didChange = False
+    
+    global showPercent
+    global showNumber
+    
+    global qtxt
+    global qbg
+    global qfg
+    global qbr
+    
+    global maxWidth
+    
+    if showPercent != getConfig("showPercent", False):
+        showPercent = getConfig("showPercent", False)
+        didChange = True
+        
+    if showNumber != getConfig("showNumber", False):
+        showNumber = getConfig("showNumber", False)
+        didChange = True
+
+    if qtxt != getConfig("textColor", "aliceblue"):
+        qtxt = getConfig("textColor", "aliceblue")
+        didChange = True
+        
+    if qbg != getConfig("backgroundColor", "rgba(0, 0, 0, 0)"):
+        qbg = getConfig("backgroundColor", "rgba(0, 0, 0, 0)")
+        didChange = True
+
+    if qfg != getConfig("foregroundColor", "#3399cc"):
+        qfg = getConfig("foregroundColor", "#3399cc")
+        didChange = True
+
+    if qbr != getConfig("borderRadius", 0):
+        qbr = getConfig("borderRadius", 0)
+        didChange = True
+
+    if maxWidth != getConfig("maxWidth", "5px"):
+        maxWidth = getConfig("maxWidth", "5px")
+        didChange = True
+        
+    if didChange:
+        # showInfo("config changed")
+        global palette
+        global orientationHV
+        global restrictSize
+        
+        # Defining palette in case needed for custom colors with themes.
+        palette = QPalette()
+        palette.setColor(QPalette.Base, QColor(qbg))
+        palette.setColor(QPalette.Highlight, QColor(qfg))
+        palette.setColor(QPalette.Button, QColor(qbg))
+        palette.setColor(QPalette.WindowText, QColor(qtxt))
+        palette.setColor(QPalette.Window, QColor(qbg))
+
+        if maxWidth:
+            if orientationHV == Qt.Horizontal:
+                restrictSize = "max-height: %s;" % maxWidth
+            else:
+                restrictSize = "max-width: %s;" % maxWidth
+        else:
+            restrictSize = ""
+        
+    return didChange
 
 ##############  USER CONFIGURATION END  ##############
 
@@ -167,7 +232,10 @@ useOldAnkiAPI = anki_version.startswith("2.0.") or (
 def initPB() -> None:
     """Initialize and set parameters for progress bar, adding it to the dock."""
     global progressBar
-    progressBar = QProgressBar()
+    if not progressBar:
+        # only create the progress bar and dock if it is the first instance
+        progressBar = QProgressBar()
+        _dock(progressBar)
     progressBar.setTextVisible(showPercent or showNumber)
     progressBar.setInvertedAppearance(invertTF)
     progressBar.setOrientation(orientationHV)
@@ -192,8 +260,6 @@ def initPB() -> None:
     else:
         progressBar.setStyle(pbdStyle)
         progressBar.setPalette(palette)
-    _dock(progressBar)
-
 
 def _dock(pb: QProgressBar) -> QDockWidget:
     """Dock for the progress bar. Giving it a blank title bar,
@@ -384,7 +450,7 @@ def afterStateChangeCallBack(state: str, oldState: str) -> None:
         return
     elif state == "deckBrowser":
         # initPB() has to be here, since objects are not prepared yet when the add-on is loaded.
-        if not progressBar:
+        if not progressBar or didConfigChange():
             initPB()
             updateCountsForAllDecks(True)
         currDID = None
