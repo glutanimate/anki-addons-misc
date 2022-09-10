@@ -23,9 +23,6 @@ from aqt.qt import *
 from aqt.webview import AnkiWebView
 import aqt.stats
 import time
-import datetime
-from anki.lang import _
-from anki.utils import fmtTimeSpan
 from anki.stats import CardStats
 
 
@@ -45,12 +42,13 @@ class StatsSidebar(object):
                 QDockWidget.closeEvent(self, evt)
         dock = DockableWithClose(title, mw)
         dock.setObjectName(title)
-        dock.setAllowedAreas(Qt.LeftDockWidgetArea | Qt.RightDockWidgetArea)
-        dock.setFeatures(QDockWidget.DockWidgetClosable)
+        dock.setAllowedAreas(Qt.DockWidgetArea.LeftDockWidgetArea |
+                             Qt.DockWidgetArea.RightDockWidgetArea)
+        dock.setFeatures(QDockWidget.DockWidgetFeature.DockWidgetClosable)
         dock.setWidget(w)
         if mw.width() < 600:
             mw.resize(QSize(600, mw.height()))
-        mw.addDockWidget(Qt.RightDockWidgetArea, dock)
+        mw.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, dock)
         return dock
 
     def _remDockable(self, dock):
@@ -62,7 +60,7 @@ class StatsSidebar(object):
                 def sizeHint(self):
                     return QSize(200, 100)
             self.web = ThinAnkiWebView()
-            self.shown = self._addDockable(_("Card Info"), self.web)
+            self.shown = self._addDockable("Card Info", self.web)
             self.shown.closed.connect(self._onClosed)
 
         self._update()
@@ -91,16 +89,15 @@ class StatsSidebar(object):
             "from revlog where cid = ?", card.id)
         if not entries:
             return ""
-        s = "<table width=100%%><tr><th align=left>%s</th>" % _("Date")
+        s = "<table width=100%%><tr><th align=left>%s</th>" % "Date"
         s += ("<th align=right>%s</th>" * 6) % (
-            _("Type"), _("Rating"), _("Interval"), "IntDate", _("Ease"), _("Time"))
+            "Type", "Rating", "Interval", "IntDate", "Ease", "Time")
         cnt = 0
         for (date, ease, ivl, factor, taken, type) in reversed(entries):
             cnt += 1
-            s += "<tr><td>%s</td>" % time.strftime(_("<b>%Y-%m-%d</b> @ %H:%M"),
+            s += "<tr><td>%s</td>" % time.strftime("<b>%Y-%m-%d</b> @ %H:%M",
                                                    time.localtime(date))
-            tstr = [_("Learn"), _("Review"), _("Relearn"), _("Filtered"),
-                    _("Resched")][type]
+            tstr = ["Learn", "Review", "Relearn", "Filtered", "Resched"][type]
             import anki.stats as st
 
             fmt = "<span style='color:%s'>%s</span>"
@@ -120,12 +117,12 @@ class StatsSidebar(object):
             int_due = "na"
             if ivl > 0:
                 int_due_date = time.localtime(date + (ivl * 24 * 60 * 60))
-                int_due = time.strftime(_("%Y-%m-%d"), int_due_date)
+                int_due = time.strftime("%Y-%m-%d", int_due_date)
                 ####################
             if ivl == 0:
-                ivl = _("0d")
+                ivl = "0d"
             elif ivl > 0:
-                ivl = fmtTimeSpan(ivl * 86400, short=True)
+                ivl = mw.col.format_timespan(ivl * 86400, short=True)
             else:
                 ivl = cs.time(-ivl)
 
@@ -138,10 +135,28 @@ class StatsSidebar(object):
                 cs.time(taken)) + "</tr>"
         s += "</table>"
         if cnt < card.reps:
-            s += _("""\
+            s += """\
 Note: Some of the history is missing. For more information, \
-please see the browser documentation.""")
+please see the browser documentation."""
         return s
+
+    def _format_date(self, secs):
+        return time.strftime("%Y-%m-%d", time.localtime(secs))
+
+    def _format_card_stats(self, data):
+        txt = f"Card Type: {data.card_type}<br/>"
+        txt += f"Note Type: {data.notetype}<br/>"
+        txt += f"Deck: {data.deck}<br/>"
+        txt += f"Date Added: {self._format_date(data.added)}<br/>"
+        txt += f"First Reviewed: {self._format_date(data.first_review)}<br/>"
+        txt += f"Last Reviewed: {self._format_date(data.latest_review)}<br/>"
+        txt += f"Due Date: {self._format_date(data.latest_review)}<br/>"
+        txt += f"Ease: {data.ease}<br/>"
+        txt += f"Reviews: {data.reviews}<br/>"
+        txt += f"Card Id: {data.card_id}<br/>"
+        txt += f"Note Id: {data.note_id}"
+
+        return txt
 
     def _update(self):
         if not self.shown:
@@ -152,18 +167,18 @@ please see the browser documentation.""")
         cs = CardStats(d, r.card)
         cc = r.card
         if cc:
-            txt += _("<h3>Current</h3>")
-            txt += d.cardStats(cc)
+            txt += "<h3>Current</h3>"
+            txt += self._format_card_stats(d.card_stats_data(cc.id))
             txt += "<p>"
             txt += self._revlogData(cc, cs)
         lc = r.lastCard()
         if lc:
-            txt += _("<h3>Last</h3>")
-            txt += d.cardStats(lc)
+            txt += "<h3>Last</h3>"
+            txt += self._format_card_stats(d.card_stats_data(lc.id))
             txt += "<p>"
             txt += self._revlogData(lc, cs)
         if not txt:
-            txt = _("No current card or last card.")
+            txt = "No current card or last card."
         style = self._style()
         self.web.setHtml("""
 <html><head>
