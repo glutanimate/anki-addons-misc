@@ -122,7 +122,7 @@ class StatsSidebar(object):
             if ivl == 0:
                 ivl = "0d"
             elif ivl > 0:
-                ivl = mw.col.format_timespan(ivl * 86400, short=True)
+                ivl = mw.col.format_timespan(ivl * 86400)
             else:
                 ivl = cs.time(-ivl)
 
