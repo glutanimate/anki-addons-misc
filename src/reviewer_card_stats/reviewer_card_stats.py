@@ -83,65 +83,6 @@ class StatsSidebar(object):
         # schedule removal for after evt has finished
         self.mw.progress.timer(100, self.hide, False)
 
-    #copy and paste from Browser
-    #Added IntDate column
-    def _revlogData(self, card, cs):
-        entries = self.mw.col.db.all(
-            "select id/1000.0, ease, ivl, factor, time/1000.0, type "
-            "from revlog where cid = ?", card.id)
-        if not entries:
-            return ""
-        s = "<table width=100%%><tr><th align=left>%s</th>" % _("Date")
-        s += ("<th align=right>%s</th>" * 6) % (
-            _("Type"), _("Rating"), _("Interval"), "IntDate", _("Ease"), _("Time"))
-        cnt = 0
-        for (date, ease, ivl, factor, taken, type) in reversed(entries):
-            cnt += 1
-            s += "<tr><td>%s</td>" % time.strftime(_("<b>%Y-%m-%d</b> @ %H:%M"),
-                                                   time.localtime(date))
-            tstr = [_("Learn"), _("Review"), _("Relearn"), _("Filtered"),
-                    _("Resched")][type]
-            import anki.stats as st
-
-            fmt = "<span style='color:%s'>%s</span>"
-            if type == 0:
-                tstr = fmt % (st.colLearn, tstr)
-            elif type == 1:
-                tstr = fmt % (st.colMature, tstr)
-            elif type == 2:
-                tstr = fmt % (st.colRelearn, tstr)
-            elif type == 3:
-                tstr = fmt % (st.colCram, tstr)
-            else:
-                tstr = fmt % ("#000", tstr)
-            if ease == 1:
-                ease = fmt % (st.colRelearn, ease)
-                ####################
-            int_due = "na"
-            if ivl > 0:
-                int_due_date = time.localtime(date + (ivl * 24 * 60 * 60))
-                int_due = time.strftime(_("%Y-%m-%d"), int_due_date)
-                ####################
-            if ivl == 0:
-                ivl = _("0d")
-            elif ivl > 0:
-                ivl = fmtTimeSpan(ivl * 86400, short=True)
-            else:
-                ivl = cs.time(-ivl)
-
-            s += ("<td align=right>%s</td>" * 6) % (
-                tstr,
-                ease, ivl,
-                int_due
-                ,
-                "%d%%" % (factor / 10) if factor else "",
-                cs.time(taken)) + "</tr>"
-        s += "</table>"
-        if cnt < card.reps:
-            s += _("""\
-Note: Some of the history is missing. For more information, \
-please see the browser documentation.""")
-        return s
 
     def _update(self):
         if not self.shown:
@@ -153,15 +94,11 @@ please see the browser documentation.""")
         cc = r.card
         if cc:
             txt += _("<h3>Current</h3>")
-            txt += d.cardStats(cc)
-            txt += "<p>"
-            txt += self._revlogData(cc, cs)
+            txt += d.card_stats(cc.id, 1)
         lc = r.lastCard()
         if lc:
             txt += _("<h3>Last</h3>")
-            txt += d.cardStats(lc)
-            txt += "<p>"
-            txt += self._revlogData(lc, cs)
+            txt += d.card_stats(lc.id, 1)
         if not txt:
             txt = _("No current card or last card.")
         style = self._style()
