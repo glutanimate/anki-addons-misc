@@ -21,7 +21,7 @@ MATURE_IVL = 21 # mature card interval in days
 
 import anki.stats
 
-from anki.utils import fmtTimeSpan
+from aqt import mw
 from anki.lang import _, ngettext
 from anki import version as anki_version
 
@@ -143,7 +143,7 @@ from revlog where id > ? """+lim, (self.col.sched.dayCutoff-86400)*1000)
             return "<b>"+str(s)+"</b>"
     msgp1 = ngettext("<!--studied-->%d card", "<!--studied-->%d cards", cards) % cards
     b += _("Studied %(a)s in %(b)s today.") % dict(
-        a=bold(msgp1), b=bold(fmtTimeSpan(thetime, unit=1)))
+        a=bold(msgp1), b=bold(mw.col.format_timespan(thetime)))
     # again/pass count
     b += "<br>" + _("Again count: %s") % bold(failed)
     if cards:
