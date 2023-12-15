@@ -29,7 +29,7 @@ def changeFocusTo(self, fldnr):
 
 def onSetupShortcuts(cuts, editor):
     cuts.extend(
-        [(f"Ctrl+{i}", lambda f=i: changeFocusTo(editor, f), True) for i in range(10)]
+        [(f"Ctrl+Shift+{i}", lambda f=i: changeFocusTo(editor, f), True) for i in range(10)]
     )
     return cuts
 
